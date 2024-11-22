@@ -1,22 +1,22 @@
-/* Macchiato Rosewater */
 @define-color accent #60cdff;
 @define-color txt #cad3f5;
 @define-color bg #252525;
 @define-color bg2 #202020;
 
  * {
-    font-family: 'Segoe', sans-serif;
-    font-size: 14px;
+    font-family: 'Comic Neue Regular', sans-serif;
+    font-size: 16px;
  }
 
  /* Window */
  window {
-    margin: 0px;
+    margin: 2px;
     padding: 10px;
-    border: solid 2px #EBA0AC;
+    border: solid 2px #3179EB;
     border-radius: 30px;
     background-color: @bg;
     animation: slideIn 0.5s ease-in-out both;
+    box-shadow: 0 2 0 0 #EB308F;
  }
 
  /* Slide In */
@@ -36,8 +36,8 @@
     padding: 0;
     border: none;
     background-color: @bg2;
-    border: solid 2px #89DCEB;
-    border-radius: 15px;
+    border: solid 2px #3979EB;
+    border-radius: 30px;
     animation: fadeIn 0.5s ease-in-out both;
  }
 
@@ -58,6 +58,7 @@
     padding: 30px;
     border: none;
     background-color: transparent;
+    box-shadow: 0 2 0 0 #EB308F;
  }
 
  /* Scroll */
@@ -74,9 +75,14 @@
     color: @txt;
     background-color: @bg2;
     animation: fadeIn 0.5s ease-in-out both;
-    border: solid 2px #89DCEB;
-    border-radius: 15px;
+    border: solid 2px #3979EB;
+    border-radius: 30px;
+    font-family: 'Roboto';
+    font-size: 20px;
  }
+ #input: hover{
+    box-shadow: 0 2 0 0 #EB308F;
+}
 
  /* Text */
  #text {
@@ -85,12 +91,13 @@
     border: none;
     color: @txt;
     animation: fadeIn 0.5s ease-in-out both;
+    font-family: 'Comic Neue Regular';
  }
 
  /* Selected Entry */
  #entry:selected {
    background-color: #3d3d3d;
-   border-radius: 15px;
+   border-radius: 30px;
  }
 
  #entry:selected #text {
