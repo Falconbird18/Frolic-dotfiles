@@ -6,9 +6,21 @@ const battery = Battery.get_default();
 const time = Variable("").poll(1000, "date");
 
 // Create a variable that polls the battery percentage every 5 seconds
-const batteryPercentage = Variable("").poll(5000, () =>
-    `${(battery.percentage * 100).toFixed(0)}%`
-);
+const batteryStatus = Variable("").poll(5000, () => {
+    const percentage = battery.percentage * 100; // Convert to a percentage
+    const isCharging = battery.charging;
+
+    // Determine icon based on battery state
+    if (isCharging) {
+        return "🔌"; // Charging icon
+    } else if (percentage > 50) {
+        return "🔋"; // Full-ish battery icon
+    } else if (percentage > 20) {
+        return "🪫"; // Low battery icon
+    } else {
+        return "⚡"; // Critical battery icon
+    }
+});
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return (
@@ -29,9 +41,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                     <label label={time()} />
                 </button>
                 <button
-                    onClick={() => print("hello")}
+                    onClick={() => print("Battery button clicked")}
                     halign={Gtk.Align.END}>
-                    <label label={batteryPercentage()} />
+                    <label label={batteryStatus()} />
                 </button>
                 <box />
             </centerbox>
