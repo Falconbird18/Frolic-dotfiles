@@ -62,6 +62,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                     <label label={time()} /> {/* Use the reactive variable directly */}
                 </button>
                 <button
+                    className="battery"
                     onClick={() => {
                         print(batteryIcon.get()); // Directly print the reactive variable
                     }}
