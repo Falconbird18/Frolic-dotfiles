@@ -36,7 +36,7 @@ const getBatteryStatusIcon = () => {
 
 
 const getWifiStatusIcon = () => {
-    const wifi = network.wifi.strength * 100; // Convert to a percentage
+    const wifi = network.wifi.strength; // Convert to a percentage
 
 
     if (wifi > 75) {
@@ -108,7 +108,7 @@ const getWifiStatusIcon = () => {
                         <button
                             className="battery"
                             onClick={() => {
-                                print(batteryIcon.get()); // Directly print the reactive variable
+                                print(network.wifi.strength);
                             }}
                             halign={Gtk.Align.END}>
                             <icon
