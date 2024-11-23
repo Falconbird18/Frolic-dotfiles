@@ -77,8 +77,9 @@
     animation: fadeIn 0.5s ease-in-out both;
     border: solid 2px #3979EB;
     border-radius: 30px;
-    font-family: 'Roboto';
+    font-family: 'Monaspace Radon';
     font-size: 20px;
+    font-weight: 700;
  }
  #input: hover{
     box-shadow: 0 2 0 0 #EB308F;
@@ -91,7 +92,7 @@
     border: none;
     color: @txt;
     animation: fadeIn 0.5s ease-in-out both;
-    font-family: 'Comic Neue Regular';
+    font-family: 'Monaspace Xenon';
  }
 
  /* Selected Entry */
