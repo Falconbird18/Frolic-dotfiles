@@ -1,6 +1,8 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
+import Battery from "gi://AstalBattery"
 
+const battery = Battery.get_default()
 const time = Variable("").poll(1000, "date")
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
@@ -14,16 +16,16 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         application={App}>
         <centerbox>
             <button
-                onClicked="echo hello"
-                halign={Gtk.Align.CENTER} >
-                Welcome to AGS!
-            </button>
-            <box />
-            <button
                 onClick={() => print("hello")}
-                halign={Gtk.Align.CENTER} >
+                halign={Gtk.Align.START} >
                 <label label={time()} />
             </button>
+            <button
+                onClick={() => print("hello")}
+                halign={Gtk.Align.END} >
+                <label label={`${(battery.percentage * 100).toFixed(0)}%`} />
+            </button>
+            <box />
         </centerbox>
     </window>
 }
