@@ -10,13 +10,21 @@ const getBatteryStatusIcon = () => {
     const isCharging = battery.charging;
 
     if (isCharging) {
-        return "battery-full-charging"; // Charging icon from GTK
-    } else if (percentage > 50) {
-        return "battery-full"; // Battery more than 50%
-    } else if (percentage > 20) {
-        return "battery-caution"; // Battery between 20% and 50%
+        if (percentage === 100) {
+            return "battery-full-charging"; // Charging icon from GTK
+        } else if (percentage > 50) {
+            return "battery-good-charging"; // Battery more than 50%
+        } else {
+            return "battery-low-charging"; // Battery between 0% and 50%
+        }
     } else {
-        return "battery-empty"; // Critical battery level
+        if (percentage === 100) {
+            return "battery-full"; // Battery full and not charging
+        } else if (percentage > 50) {
+            return "battery-good"; // Battery between 50% and 99%
+        } else {
+            return "battery-low"; // Battery between 0% and 49%
+        }
     }
 };
 
@@ -29,7 +37,7 @@ setInterval(() => {
 }, 5000);
 
 // Reactive variable to hold the current time, updated every second
-const time = Variable(() => new Date().toLocaleTimeString()).poll(1000); // Update every second
+const time = Variable("").poll(1000, "date")
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return (
