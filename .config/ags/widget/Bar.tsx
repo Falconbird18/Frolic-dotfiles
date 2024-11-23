@@ -12,16 +12,20 @@ const getBatteryStatusIcon = () => {
     if (isCharging) {
         if (percentage === 100) {
             return "battery-full-charging"; // Charging icon from GTK
+        } else if (percentage > 75) {
+            return "battery-full-charging"; 
         } else if (percentage > 50) {
-            return "battery-good-charging"; // Battery more than 50%
+            return "battery-caution-charging";
         } else {
             return "battery-low-charging"; // Battery between 0% and 50%
         }
     } else {
         if (percentage === 100) {
             return "battery-full"; // Battery full and not charging
+        } else if (percentage > 75) {
+            return "battery-full"; // Battery between 50% and 99%
         } else if (percentage > 50) {
-            return "battery-good"; // Battery between 50% and 99%
+            return "battery-caution";
         } else {
             return "battery-low"; // Battery between 0% and 49%
         }
