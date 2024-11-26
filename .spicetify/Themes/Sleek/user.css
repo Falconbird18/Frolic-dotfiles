@@ -167,13 +167,11 @@
   --left-sidebar-padding-left: 24px !important;
   --left-sidebar-padding-right: 24px !important;
 }
+/*Fix some font colors*/
+a:not([data-encore-id]){
+  color: var(--text) !important;
+}
 
-/* a:not([data-encore-id]){
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--text);
-  font-family: var(--heading-font);
-} */
 
 .encore-text encore-text-body-small{
   font-family: var(--paragraph-font);
