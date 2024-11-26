@@ -126,11 +126,29 @@
   padding: 3px 10px 3px 10px;
 }
 
-
 .ChipInnerComponent-sm-isUsingKeyboard:hover, .LegacyChip__LegacyChipComponent-sc-tzfq94-0 .LegacyChipComponent-checkbox-chip-sm-useBrowserDefaultFocusStyle encore-text-body-small:hover, .ChipInnerComponent-sm:hover{
   background-color: var(--primary) !important;
   text-shadow: -1.5px -1.5px 0 var(--background-1), 1.5px -1.5px 0 var(--background-1), -1.5px 1.5px 0 var(--background-1), 1.5px 1.5px 0 var(--background-1); /* Black outline */
 }
+
+/* This controls your recently played albums at the top of the homepage*/
+.view-homeShortcutsGrid-shortcut{
+  border-radius: var(--br-2);
+  background-color: var(--background-1);
+  border: 2px solid var(--primary);
+}
+.view-homeShortcutsGrid-name{
+  font-family: var(--paragraph-font);
+  color: var(--text);
+} 
+/* This controls the album art in the recently played albums at the top of the homepage.*/
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-image, .view-homeShortcutsGrid-imageWrapper, .view-homeShortcutsGrid-imageWrapper{
+  border-radius: 0 var(--br-2) var(--br-2) 0 !important;
+}
+.T0fKO6B7LQSCE_VaSM1P .main-home-homeHeader{
+  background-color: var(--primary) !important;
+}
+
 
 * {
   box-shadow: none !important;
@@ -647,9 +665,6 @@ input:checked ~ .x-toggle-indicatorWrapper .x-toggle-indicator {
   border-radius: var(--br-1);
 }
 .main-rootlist-rootlistDividerContainer {
-  display: none;
-}
-.main-home-homeHeader {
   display: none;
 }
 .main-rootlist-rootlistItemOverlay {
