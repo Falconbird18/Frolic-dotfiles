@@ -2,8 +2,17 @@
   --br-1: 30px;
   --br-2: 15px;
   --blue: #89DCEB;
+  --primary: #3979EB;
+  --secondary: #EB308F;
   --scrollbar: unset;
   --hover-1: #424242;
+
+  --background-1: #252525;
+  --background-2: #202020;
+  --text: #CAD3F5;
+
+  --paragraph-font: 'Monaspace Xenon';
+  --heading-font: 'Monaspace Radon';
 
   --spice-main-elevated: var(--spice-main);
   --spice-highlight: var(--spice-button-disabled);
@@ -14,22 +23,23 @@
 }
 /* This adds a border to the searchbar*/
 .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar, .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:placeholder-shown {
-  border: 2px solid var(--blue);
-  color: var(--blue);
+  border: 2px solid var(--primary);
+  color: var(--primary);
   border-radius: var(--br-1);
 }
 /* This changes the placeholder text color*/
 .main-topBar-searchBar::placeholder{
-  color: var(--blue);
+  color: var(--text);
+  font-family: var(--heading-font);
 }
 /* This changes the icon's color*/
 .Svg-img-icon-xlarge, .Svg-img-icon-medium{
-  fill: var(--blue);
+  fill: var(--text);
 }
 
 .GimJ6fo6WOYPyWNVpSr1{
   border-radius: var(--br-1);
-  border: 2px solid var(--blue);
+  border: 2px solid var(--primary);
 }
 
 /* background */
@@ -68,42 +78,60 @@
   border-radius: var(--br-1);
   border: 2px solid transparent;
 }
-/*This controls the tags on the sidebar to filter out albums, artists, etc.*/
+/*This controls the tags on the sidebar to filter out albums, artists, etc. This is for the active button*/
 .encore-dark-theme .encore-inverted-light-set{
-  border: 2px solid var(--spice-text);
-  color: var(--blue);
-  text-shadow: -1px -1px 0 var(--spice-main), 1px -1px 0 var(--spice-main), -1px 1px 0 var(--spice-main), 1px 1px 0 var(--spice-main); /* Black outline */
+  font-family: var(--heading-font);
+  font-size: 16px;
+  border: 2px solid var(--primary);
+  color: var(--text);
+  text-shadow: -1.5px -1.5px 0 var(--background-1), 1.5px -1.5px 0 var(--background-1), -1.5px 1.5px 0 var(--background-1), 1.5px 1.5px 0 var(--background-1); /* Black outline */
+  padding: 3px 10px 3px 10px;
   background-image: linear-gradient(
       45deg, 
-      rgba(0,0,0,0.5) 25%, 
-      transparent 25%, 
-      transparent 50%, 
-      rgba(0,0,0,0.5) 50%, 
-      rgba(0,0,0,0.5) 75%, 
-      transparent 75%, 
-      transparent
+      var(--background-1) 25%, 
+      var(--primary) 25%, 
+      var(--primary) 50%, 
+      var(--background-1) 50%, 
+      var(--background-1) 75%, 
+      var(--primary) 75%, 
+      var(--primary)
       );
-   background-size: 7px 7px;
+   background-size: 8px 8px;
    font-weight: bold;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out !important;
 }
 .encore-dark-theme .encore-inverted-light-set:hover{
-  background-color: var(--spice-main) !important;
-  color: var(--spice-text);
+  padding: 3px 10px 3px 10px;
   background-image: linear-gradient(
       45deg, 
-      var(--spice-main) 25%, 
-      transparent 25%, 
-      transparent 50%, 
-      var(--spice-main) 50%, 
-      var(--spice-main) 75%, 
-      transparent 75%, 
-      transparent
+      var(--primary) 25%, 
+      var(--primary) 25%, 
+      var(--primary) 50%, 
+      var(--primary) 50%, 
+      var(--primary) 75%, 
+      var(--primary) 75%, 
+      var(--primary)
       );
+  box-shadow: 0px 2px 0px 0px var(--secondary) !important;
+
 }
-.ChipInnerComponent-sm-isUsingKeyboard, .LegacyChip__LegacyChipComponent-sc-tzfq94-0 .LegacyChipComponent-checkbox-chip-sm-useBrowserDefaultFocusStyle encore-text-body-small{
-  border: 2px solid var(--spice-text);
+/* This controls the tags on the sidebar to filter out albums, artists, etc. This is for  the inactive button*/
+.ChipInnerComponent-sm-isUsingKeyboard, .LegacyChip__LegacyChipComponent-sc-tzfq94-0 .LegacyChipComponent-checkbox-chip-sm-useBrowserDefaultFocusStyle encore-text-body-small, .ChipInnerComponent-sm{
+  border: 2px solid var(--primary);
+  color: var(--text);
+  font-family: var(--heading-font);
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--background-2);
+  padding: 3px 10px 3px 10px;
 }
+
+
+.ChipInnerComponent-sm-isUsingKeyboard:hover, .LegacyChip__LegacyChipComponent-sc-tzfq94-0 .LegacyChipComponent-checkbox-chip-sm-useBrowserDefaultFocusStyle encore-text-body-small:hover, .ChipInnerComponent-sm:hover{
+  background-color: var(--primary) !important;
+  text-shadow: -1.5px -1.5px 0 var(--background-1), 1.5px -1.5px 0 var(--background-1), -1.5px 1.5px 0 var(--background-1), 1.5px 1.5px 0 var(--background-1); /* Black outline */
+}
+
 * {
   box-shadow: none !important;
 }
