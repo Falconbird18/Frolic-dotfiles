@@ -51,11 +51,11 @@
 .Root__main-view{
   border-radius: var(--br-1);  
 }
-
+/* This controls the cards*/
 .main-view-container, .Root__nav-bar{
-  background-color: var(--spice-main)  !important;
+  background-color: var(--background-2)  !important;
   border-radius: var(--br-1);
-  border: 2px solid var(--spice-text);
+  border: 2px solid var(--primary);
   transition: all ease-in-out 0.25s;
 }
 /* Some navbar stuff. (The bar with the albums) Don't touch*/
@@ -100,6 +100,7 @@
    font-weight: bold;
   transition: all 0.15s ease-in-out !important;
 }
+/*Active tag hover.*/
 .encore-dark-theme .encore-inverted-light-set:hover{
   padding: 3px 10px 3px 10px;
   background-image: linear-gradient(
@@ -125,7 +126,7 @@
   background-color: var(--background-2);
   padding: 3px 10px 3px 10px;
 }
-
+/* Inactive tag hover*/
 .ChipInnerComponent-sm-isUsingKeyboard:hover, .LegacyChip__LegacyChipComponent-sc-tzfq94-0 .LegacyChipComponent-checkbox-chip-sm-useBrowserDefaultFocusStyle encore-text-body-small:hover, .ChipInnerComponent-sm:hover{
   background-color: var(--primary) !important;
   text-shadow: -1.5px -1.5px 0 var(--background-1), 1.5px -1.5px 0 var(--background-1), -1.5px 1.5px 0 var(--background-1), 1.5px 1.5px 0 var(--background-1); /* Black outline */
@@ -145,10 +146,14 @@
 .view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-image, .view-homeShortcutsGrid-imageWrapper, .view-homeShortcutsGrid-imageWrapper{
   border-radius: 0 var(--br-2) var(--br-2) 0 !important;
 }
-.T0fKO6B7LQSCE_VaSM1P .main-home-homeHeader{
-  background-color: var(--primary) !important;
+/*Playlists image*/
+.GOcsybnoHYyJGQGDRuwj, .yMQTWVwLJ5bV8VGiaqU3{
+  border-radius: var(--br-2);
 }
-
+.CardTitle__LineClamp-sc-1h38un4-0{
+  font-family: var(--paragraph-font);
+  color: var(--text);
+}
 
 * {
   box-shadow: none !important;
@@ -162,6 +167,33 @@
   --left-sidebar-padding-left: 24px !important;
   --left-sidebar-padding-right: 24px !important;
 }
+
+/* a:not([data-encore-id]){
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text);
+  font-family: var(--heading-font);
+} */
+
+.encore-text encore-text-body-small{
+  font-family: var(--paragraph-font);
+}
+/* Fix all H1 such as album names, ect.*/
+h1{
+  font-family: var(--heading-font) !important;
+  font-weight: bold !important;
+  color: var(--text) !important;
+}
+
+span{
+  font-family: var(--paragraph-font) !important;
+  color: var(--text) !important;
+}
+/*Change all icons to the correct color*/
+svg{
+  color: var(--text) !important;
+}
+
 .main-rootlist-rootlistDividerContainer {
   display: none;
 }
