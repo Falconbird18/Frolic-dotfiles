@@ -6,6 +6,10 @@ CONFIG_DIR="$XDG_CONFIG_HOME/ags"
 # Set the wallpaper directory here
 WALLPAPER_DIR="/home/austin/Pictures/wallpapers"
 
+if ! pgrep -x "swww-daemon" > /dev/null; then
+    swww-daemon
+fi
+
 switch() {
 	imgpath=$1
 	read scale screenx screeny screensizey < <(hyprctl monitors -j | jq '.[] | select(.focused) | .scale, .x, .y, .height' | xargs)
