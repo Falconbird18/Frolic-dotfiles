@@ -7,11 +7,11 @@
 }
 
 input {
-	background-color: var(--theme_text_color) !important;
-	border-bottom: solid 1px var(--theme_text_color) !important;
+	background-color: unset !important;
+	border-bottom: solid 1px var(--spice-text) !important;
 	border-radius: 0 !important;
 	padding: 6px 10px 6px 48px;
-	color: var(--theme_text_color) !important;
+	color: var(--spice-text) !important;
 }
 
 .x-searchInput-searchInputSearchIcon,

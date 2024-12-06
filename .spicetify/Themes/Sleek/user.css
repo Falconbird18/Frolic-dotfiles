@@ -163,7 +163,7 @@
   display: none;
 }
 /* navbar */
-.main-rootlist-rootlist {
+.main-rootlist-rootlist 
   --left-sidebar-padding-left: 24px !important;
   --left-sidebar-padding-right: 24px !important;
 }
@@ -171,10 +171,11 @@
 a:not([data-encore-id]){
   color: var(--text) !important;
 }
-
-
 .encore-text encore-text-body-small{
   font-family: var(--paragraph-font);
+}
+.encore-text{
+  font-family: var(--paragraph-font) !important;
 }
 /* Fix all H1 such as album names, ect.*/
 h1{
