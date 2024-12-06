@@ -1,12 +1,13 @@
 .material-button {
-	border-radius: 24px;
+	border-radius: 30px;
 	padding: 8px 22px;
 	&:focus {
 		box-shadow: 0 0 0 1px $inverse_surface;
 	}
 	&.filled {
-		background: $primary;
+		background: $background;
 		color: $on_primary;
+		border: 2px solid $primary;
 		&:hover,
 		&:focus {
 			background: $primary, $inverse_surface_transparent_variant_overlay;
@@ -20,7 +21,7 @@
 	&.outlined {
 		background: none;
 		color: $on_surface;
-		border: 1px solid $outline;
+		border: 2px solid $primary;
 		&:hover,
 		&:focus {
 			background: $inverse_surface_transparent;
