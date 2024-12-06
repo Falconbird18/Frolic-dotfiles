@@ -1,6 +1,5 @@
 import { App, Astal } from "astal/gtk3";
 import PopupWindow from "../../common/PopupWindow";
-import Todos from "./items/Todos";
 import Calendar from "./items/Calendar";
 
 export default () => {
@@ -23,7 +22,6 @@ export default () => {
 		>
 			<box className={"dashboard"} vertical spacing={10}>
 				{Calendar()}
-				{Todos()}
 			</box>
 		</PopupWindow>
 	);
