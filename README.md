@@ -8,6 +8,7 @@ Before you install, check that you have the following dependencies installed (an
 - `starship` - Terminal config
 - `fish` - Shell
 - `spicetify` - Spotify customization
+- `monaspace` - Github Monaspace fonts
 ## Installation
 
 To install, run the following commands.
