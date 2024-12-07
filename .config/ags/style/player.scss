@@ -5,7 +5,7 @@
 	border-radius: 30px;
 	background-size: cover;
 	background-position: center;
-	transition: 0.5s background ease-in-out;
+	transition: background 0.5s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .player__icon {
@@ -32,9 +32,9 @@
 	color: $on_primary;
 	border-radius: 0px;
 	transition:
-		background 0.3s ease-in-out,
-		border-radius 0.3s ease-in-out,
-		color 0.3s ease-in-out;
+		background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
+		border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1),
+		color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 	border-radius: 30px;
 
 	&.active {
@@ -58,8 +58,8 @@
 .player__position-slider {
 	trough {
 		transition:
-			background-color 0.3s ease-in-out,
-			color 0.3s ease-in-out;
+			background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
+			color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 		border-radius: 100px;
 
 		highlight {
@@ -67,8 +67,8 @@
 			background-color: $on_surface;
 			border-radius: 100px;
 			transition:
-				background-color 0.3s ease-in-out,
-				color 0.3s ease-in-out;
+				background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
+				color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 		}
 
 		slider {
@@ -80,8 +80,8 @@
 			background-color: $on_surface;
 
 			transition:
-				background-color 0.3s ease-in-out,
-				color 0.3s ease-in-out;
+				background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
+				color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 		}
 	}
 }
@@ -93,7 +93,7 @@
 	background: $inverse_surface_transparent_variant;
 	border-radius: 100px;
 	margin-bottom: 8px;
-	transition: 0.3s all ease-in-out;
+	transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 	&.selected {
 		background: $inverse_surface;
 	}

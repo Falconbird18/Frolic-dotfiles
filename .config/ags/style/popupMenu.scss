@@ -37,7 +37,7 @@
 	padding: 18px;
 	color: $on_surface;
 	border-radius: 100px;
-	transition: background 0.1s ease;
+	transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 	label {
 		font-size: 14px;
 		font-weight: 500;

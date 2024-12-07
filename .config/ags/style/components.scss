@@ -1,11 +1,22 @@
 .material-button {
 	border-radius: 30px;
-	padding: 8px 22px;
+	padding: 3px 15px;
 	&:focus {
 		box-shadow: 0 0 0 1px $inverse_surface;
 	}
 	&.filled {
-		background: $background;
+		background-image: linear-gradient(
+			45deg, 
+			$primary 25%, 
+			transparent 25%, 
+			transparent 50%, 
+			$primary 50%, 
+			$primary 75%, 
+			transparent 75%, 
+			transparent
+			);
+			background-size: 8px 8px;
+			  border: 2px solid $primary;
 		color: $on_primary;
 		border: 2px solid $primary;
 		&:hover,

@@ -22,7 +22,7 @@ export default () => {
 
 	const weatherTemp = wthr.as((w) => {
 		if (w) {
-			weatherData.temp = `${Math.round(w.current.temp_c)}°`;
+			weatherData.temp = `${Math.round(w.current.temp_f)}°`;
 		}
 		return weatherData.temp;
 	});
