@@ -3,7 +3,7 @@ import BarButton from "../BarButton";
 import { toggleWindow } from "../../../lib/utils";
 
 export default () => {
-	const format = "%a %d %b,%l %M %p";
+	const format = "%a %d %b, %l %M %p";
 	const time = Variable<string>("").poll(
 		1000,
 		() => GLib.DateTime.new_now_local().format(format)!,
