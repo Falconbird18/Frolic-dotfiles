@@ -1,5 +1,10 @@
 # Frolic 
 This is my in-progress hyprland settup. They include an ags bar, a spotify theme using spicetify, and a starship config using kitty.
+## Features
+- Clean UI (Still work in development)
+- Control panel similar to gnome
+- Sleek animations
+- Various usefull tools such as screenshots, screensips, and a color picker.
 ## Dependencies
 Before you install, check that you have the following dependencies installed (and probably more that I forgot about):
 - `hyprland` - Wayland compositor
@@ -9,6 +14,8 @@ Before you install, check that you have the following dependencies installed (an
 - `fish` - Shell
 - `spicetify` - Spotify customization
 - `monaspace` - Github Monaspace fonts
+- 'hyprlock' - Hyprland Lock screen
+- 'sddm' - Simple Desktop Display Manager (Login screen)
 ## Installation
 
 To install, run the following commands.
