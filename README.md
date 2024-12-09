@@ -2,9 +2,10 @@
 This is my in-progress hyprland settup. They include an ags bar, a spotify theme using spicetify, and a starship config using kitty.
 ## Features
 - Clean UI (Still work in development)
+- Custom icons based on [Microsoft Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
 - Control panel similar to gnome
 - Sleek animations
-- Various usefull tools such as screenshots, screensips, and a color picker.
+- Various usefull tools such as screenshots, screensnips, and a color picker.
 - Hyprland Flee-Bravely (Yet to be released)
 
 This is the state as of December 9th, 2024
@@ -20,8 +21,9 @@ Before you install, check that you have the following dependencies installed (an
 - `fish` - Shell
 - `spicetify` - Spotify customization
 - `monaspace` - Github Monaspace fonts
-- 'hyprlock' - Hyprland Lock screen
-- 'sddm' - Simple Desktop Display Manager (Login screen)
+- `hyprlock` - Hyprland Lock screen
+- `sddm` - Simple Desktop Display Manager (Login screen)
+- `brightnessctl` - A CLI for controling screen brightness
 ## Installation
 
 To install, run the following commands.
