@@ -71,9 +71,6 @@
 	color: $on_surface;
 	font-size: 16px;
 	transition:
-		background-color 0.2s ease-in-out,
-		color 0.2s ease-in-out;
-	transition:
 		background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1),
 		color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 	&:hover {
