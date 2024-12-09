@@ -36,7 +36,7 @@ cp ~/Dotfiles/.local/bin/hyprland-flee-bravely ~/.local/bin/
 cp -r ~/Dotfiles/.spicetify/ ~/
 cp -r ~/Dotfiles/.icons ~/
 ```
-**Important:** This settup is still experimental, and the commands above have not been tested.
+**Important:** This settup is still in development, and while in a usable state, is not perfect.
 
 ## Credits
 Thanks to [PoSayDone](https://github.com/PoSayDone) for the base ags widget. 
