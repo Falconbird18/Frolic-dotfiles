@@ -5,6 +5,11 @@ This is my in-progress hyprland settup. They include an ags bar, a spotify theme
 - Control panel similar to gnome
 - Sleek animations
 - Various usefull tools such as screenshots, screensips, and a color picker.
+
+This is the state as of December 9th, 2024
+  ![Current setup](https://github.com/user-attachments/assets/a0af4e89-e018-42b2-90ee-df8c8e606b5d)
+
+  
 ## Dependencies
 Before you install, check that you have the following dependencies installed (and probably more that I forgot about):
 - `hyprland` - Wayland compositor
