@@ -1,8 +1,11 @@
 .notification {
 	padding: 14px 16px 14px 20px;
 	color: $on_surface;
-	background-color: $surface_transparent;
-	border-radius: 26px;
+	background-color: $background;
+	border-radius: 30px;
+	border: 2px solid $primary;
+	box-shadow: 0px 2px 0px 0px $secondary;
+	margin-bottom: 2px;
 }
 
 .notification__icon {

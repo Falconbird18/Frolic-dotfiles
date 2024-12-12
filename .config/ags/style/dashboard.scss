@@ -7,12 +7,16 @@
 }
 
 .block {
-	background: $surface_transparent;
+	background: $background;
 	border-radius: 30px;
 	padding: 20px;
+	border: 2px solid $primary;
+	box-shadow: 0px 2px 0px 0px $secondary;
+	margin-bottom: 2px;
 	transition:
 		background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
 		color 1s cubic-bezier(0.85, 0, 0.15, 1);
+	font-family: 'Monaspace Xenon';
 }
 
 .placeholder {
@@ -30,7 +34,8 @@
 .calendar__monthyear {
 	* {
 		font-size: 18px;
-		font-weight: 500;
+		font-weight: bold;
+		font-family: 'Monaspace Radon';
 	}
 }
 
@@ -40,8 +45,24 @@
 
 .calendar__button__today {
 	border-radius: 100px;
-	background: $primary;
-	color: $on_primary;
+	background: $card;
+	color: $text;
+	border: 2px solid $primary;
+	box-shadow: 0px 2px 0px 0px $secondary;
+	background-image: linear-gradient(
+		45deg, 
+		$primary 25%, 
+		transparent 25%, 
+		transparent 50%, 
+		$primary 50%, 
+		$primary 75%, 
+		transparent 75%, 
+		transparent
+		);
+		background-size: 8px 8px;
+		text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+	font-family: 'Monaspace Radon';
+	font-weight: bold;
 }
 
 .calendar__button__other-month {

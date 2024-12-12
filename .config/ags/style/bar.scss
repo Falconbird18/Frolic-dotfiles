@@ -15,6 +15,7 @@
 	background: $card;
 	color: $on_surface;
 	border: 2px solid $primary;
+	box-shadow: 0px 2px 0px 0px $secondary;
 	font-family: 'Monaspace Radon';
 	background-size: 8px 8px;
 	transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
@@ -77,7 +78,18 @@
 .bar__app-launcher.bar__button {
 	padding: 0px;
 	transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
-	background-color: $primary;
+			background-image: linear-gradient(
+				45deg, 
+				$primary 25%, 
+				transparent 25%, 
+				transparent 50%, 
+				$primary 50%, 
+				$primary 75%, 
+				transparent 75%, 
+				transparent
+				);
+				background-size: 8px 8px;
+				text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
 	min-height: 42px;
 	min-width: 42px;
 
@@ -135,6 +147,7 @@
     	transparent
     	);
 		background-size: 8px 8px;
+		box-shadow: 0px 2px 0px 0px $secondary;
 	}
 }
 
@@ -198,19 +211,19 @@
 
 .bar__rounded-box {
 	.bar__item {
-		border-radius: 4px;
+		border-radius: 15px;
 	}
 }
 
 .bar__rounded-box > * {
 	&:last-child {
-		border-top-right-radius: 24px;
-		border-bottom-right-radius: 24px;
+		border-top-right-radius: 30px;
+		border-bottom-right-radius: 30px;
 	}
 
 	&:first-child,
 	&:first-child > * {
-		border-top-left-radius: 24px;
-		border-bottom-left-radius: 24px;
+		border-top-left-radius: 30px;
+		border-bottom-left-radius: 30px;
 	}
 }

@@ -3,7 +3,10 @@
 	min-width: 400px;
 	min-height: 550px;
 	padding: 10px 10px 0;
-	background: $surface_transparent;
+	background: $background;
+	border: 2px solid $primary;
+	box-shadow: 0px 2px 0px 0px $secondary;
+	margin-bottom: 2px; /* Don't cut off the box shadow*/
 	transition:
 		background-color 0.1s cubic-bezier(0.85, 0, 0.15, 1),
 		color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
@@ -11,7 +14,8 @@
 	.notification {
 		border-radius: 4px;
 		transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-		background-color: $inverse_surface_transparent;
+		background-color: $card;
+		box-shadow: 0px 2px 0px 0px $secondary;
 	}
 }
 
@@ -19,20 +23,26 @@
 	background: none;
 	padding: 6px 0;
 	margin-right: 18px;
+	border-radius: 30px;
 }
 
 .notifications-window__list {
+	revealer{
+		.notification{
+			border-radius: 15px;
+		}
+	}
 	revealer:first-child {
 		.notification {
-			border-top-left-radius: 24px;
-			border-top-right-radius: 24px;
+			border-top-left-radius: 30px;
+			border-top-right-radius: 30px;
 		}
 	}
 
 	revealer:last-child {
 		.notification {
-			border-bottom-left-radius: 24px;
-			border-bottom-right-radius: 24px;
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 30px;
 			margin-bottom: 10px;
 		}
 	}

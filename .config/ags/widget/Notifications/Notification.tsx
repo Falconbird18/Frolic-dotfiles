@@ -6,7 +6,7 @@ import icons from "../../lib/icons";
 
 const transitionDuration = 300;
 
-const time = (time: number, format = "%H:%M") =>
+const time = (time: number, format = "%l:%M %p") =>
 	GLib.DateTime.new_from_unix_local(time).format(format);
 
 type NotificationIconProps = {
