@@ -7,23 +7,6 @@ import BarItem, { BarItemStyle } from "../BarItem";
 
 export default () => {
   const wthr = bind(weather);
-
-  const weatherData = {
-    icon: "",
-    temp: "",
-  };
-
-  const weatherText = wthr.as((w) => {
-    if (w) {
-      const match = w.match(/: (.*)\s+(.*)/);
-      if (match) {
-        weatherData.icon = match[1];
-        weatherData.temp = match[2];
-      }
-    }
-    return `${weatherData.icon} ${weatherData.temp}`;
-  });
-
   return (
     <revealer
       transitionType={Gtk.RevealerTransitionType.CROSSFADE}
@@ -32,7 +15,7 @@ export default () => {
     >
       <BarItem>
         <box spacing={spacing}>
-          <label label={weatherText} />
+          <label label={wthr} />
         </box>
       </BarItem>
     </revealer>

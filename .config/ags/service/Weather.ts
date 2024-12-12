@@ -1,8 +1,10 @@
 import { Variable, exec } from "astal";
 
+const location = "Richland,WA";
+const format = `%c+%t+%w`;
 const weatherCommand = [
   "curl",
-  "https://wttr.in/Richland,WA?format=3",
+  `https://wttr.in/Richland,Wa?format=${format}`,
 ];
 
 /**
