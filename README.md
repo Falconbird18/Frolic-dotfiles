@@ -1,5 +1,5 @@
 # Frolic 
-This is my in-progress hyprland settup. They include an ags bar, a spotify theme using spicetify, and a starship config using kitty.
+This is my in-progress hyprland settup. They include an ags bar, a spotify theme using spicetify, and a starship config using kitty. This setup is still in development, and while in a usable state, is not perfect.
 ## Features
 - Clean UI (Still work in development)
 - Custom icons based on [Microsoft Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
@@ -36,7 +36,7 @@ cp ~/Dotfiles/.local/bin/hyprland-flee-bravely ~/.local/bin/
 cp -r ~/Dotfiles/.spicetify/ ~/
 cp -r ~/Dotfiles/.icons ~/
 ```
-**Important:** This settup is still in development, and while in a usable state, is not perfect.
+**Important:** The following commands have not been tested.
 
 ## Credits
 Thanks to [PoSayDone](https://github.com/PoSayDone) for the base ags widget. 
