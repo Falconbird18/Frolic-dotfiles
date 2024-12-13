@@ -2,7 +2,7 @@ import { bind } from "astal";
 import { App, Gtk, Gdk } from "astal/gtk3";
 import { spacing } from "../../../lib/variables";
 import { weather } from "../../../service/Weather";
-import { BarButtonStyle } from "../BarButton";
+import BarButton, { BarButtonStyle } from "../BarButton";
 import BarItem, { BarItemStyle } from "../BarItem";
 
 export default () => {
@@ -13,11 +13,11 @@ export default () => {
       transitionDuration={300}
       revealChild={wthr.as(Boolean)}
     >
-      <BarItem>
+      <BarButton>
         <box spacing={spacing}>
           <label label={wthr} />
         </box>
-      </BarItem>
+      </BarButton>
     </revealer>
   );
 };
