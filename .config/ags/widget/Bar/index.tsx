@@ -7,7 +7,7 @@ import Battery from "./items/Battery";
 import Tray from "./items/Tray";
 import SystemIndicators from "./items/SystemIndicators";
 import Notifications from "./items/Notifications";
-import AppLauncher from "./items/AppLauncher";
+import Arch from "./items/Arch";
 import KeyboardLayout from "./items/KeyboardLayout";
 import Weather from "./items/Weather";
 import RecordingIndicator from "./items/RecordingIndicator";
@@ -15,14 +15,14 @@ import RecordingIndicator from "./items/RecordingIndicator";
 const Start = () => {
 	return (
 		<box halign={Gtk.Align.START} spacing={spacing}>
-			<AppLauncher />
+			<Arch />
 			<Workspaces />
 			<ActiveApp />
 		</box>
 	);
 };
 
-const Center = () => {
+const Center = () => {Arch
 	return (
 		<box spacing={spacing}>
 			<Clock />

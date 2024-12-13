@@ -3,7 +3,7 @@ import style from "./style/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
-import AppLauncher from "./widget/AppLauncher";
+import Arch from "./widget/Arch";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
 import {
@@ -26,7 +26,7 @@ function main() {
 
 	Notifications();
 	ControlCenter();
-	AppLauncher();
+	Arch();
 	Scrim({ scrimType: "opaque", className: "scrim" });
 	Scrim({ scrimType: "transparent", className: "transparent-scrim" });
 	SinkMenu();
