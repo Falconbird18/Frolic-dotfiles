@@ -13,6 +13,10 @@ const humid = [
   "curl",
   `wttr.in/${location}?format=%h`,
 ];
+const Pressure = [
+  "curl",
+  `wttr.in/${location}?format=%P`,
+];
 const uvindex = [
   "curl",
   `wttr.in/${location}?format=%u`,
@@ -78,7 +82,7 @@ export const wind = Variable<any | null>(null).poll(
 );
 export const pressure = Variable<any | null>(null).poll(
   30_000,
-  humid,
+  Pressure,
   (out, prev) => {
     console.log('Pressure:', out);
     return out;
