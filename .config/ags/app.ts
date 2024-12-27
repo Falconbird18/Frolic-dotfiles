@@ -3,6 +3,7 @@ import style from "./style/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
+import Weather from "./widget/Weather/Weather";
 import Arch from "./widget/Arch";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
@@ -25,6 +26,7 @@ function main() {
 	const osds = new Map<Gdk.Monitor, Gtk.Widget>();
 
 	Notifications();
+	Weather();
 	ControlCenter();
 	Arch();
 	Scrim({ scrimType: "opaque", className: "scrim" });

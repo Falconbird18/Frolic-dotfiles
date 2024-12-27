@@ -19,6 +19,26 @@ end
 
 alias pamcan=pacman
 
+# Website blocking stuff
+
+function chattr
+    sleep 60
+    command /usr/bin/chattr $argv  # Use the full path for `chattr` and pass arguments
+end
+
+function sudo
+    # Check if the first argument is "chattr"
+    if test "$argv[1]" = "chattr"
+	echo Waiting for 5 hours...
+        sleep 18000
+        command sudo /usr/bin/chattr $argv[2..-1]  # Call `chattr` with sudo and remaining arguments
+    else
+        command sudo $argv  # Otherwise, pass through to regular sudo
+    end
+end
+
+
+
 # function fish_prompt
 #   set_color cyan; echo (pwd)
 #   set_color green; echo '> '
