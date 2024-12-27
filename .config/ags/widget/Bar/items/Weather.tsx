@@ -1,12 +1,12 @@
 // /home/austin/.config/ags/widget/Bar/items/Weather.tsx
 import { bind } from "astal";
 import { App, Gtk } from "astal/gtk3";
-import { weather } from "../../../service/Weather";
+import { barWeather } from "../../../service/Weather";
 import BarButton from "../BarButton";
 import { toggleWindow } from "../../../lib/utils";
 
 export default () => {
-    const wthr = bind(weather);
+    const wthr = bind(barWeather);
 
     return (
         <revealer

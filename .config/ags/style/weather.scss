@@ -1,6 +1,14 @@
-.weather-window{
+.weather-window {
     background-color: $background;
-    min-height: 500px;
+    min-height: 150px;
+    min-width: 300px;
     border-radius: 30px;
     border: 2px solid $primary;
+    padding: 20px;
+    color: $text;
+}
+.temperature{
+    font-size: 30px;
+    font-family: 'Monaspace Radon';
+    font-weight: bold;
 }
