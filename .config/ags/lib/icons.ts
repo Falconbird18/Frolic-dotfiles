@@ -75,6 +75,7 @@ export default {
     checked: "checkbox-checked",
     close: "window-close",
     colorpicker: "color-select",
+    edit: "document-edit",
     info: "info",
     link: "external-link",
     lock: "system-lock-screen",

@@ -3,6 +3,7 @@ import { App, Gtk, Astal, Widget } from "astal/gtk3";
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 import { feelsTemp, humidity, location, precipitation, pressure, realTemp, uvIndex, wind } from "../../service/Weather";
+import icons from "../../lib/icons";
 
 const temperature = bind(realTemp);
 const feelsTemperature = bind(feelsTemp);
@@ -13,6 +14,7 @@ const Pressure = bind(pressure);
 const Humidity = bind(humidity);
 
 const displayLocation = location.replace(",", ", ")
+const icon = icons.ui.edit
 
 const Entry = new Widget.Entry({
     text: "Test",
@@ -53,16 +55,29 @@ export default () => {
         >
             <box vertical className="weather-window" spacing={spacing}>
                 <box
-                    vertical
-                    className="location-input"
-                    spacing={spacing}>
-                    <label 
+                    horizontal
+                    className="location-header-container"
+                >
+                    <label
                         label={displayLocation}
                         className="location"
                         halign={Gtk.Align.START}
-                     />
-                    {Entry}
+                    />
+                    <box
+                        horizontal
+                        halign={Gtk.Align.CENTER}
+                    >
+                        <button
+                            className="icon-button"
+                            valign={Gtk.Align.CENTER}
+                        >
+                            <icon
+                                icon={icon}
+                            />
+                        </button>
+                    </box>
                 </box>
+                {Entry}
                 <label
                     label={temperature}
                     className="temperature"
