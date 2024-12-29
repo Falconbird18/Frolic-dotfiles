@@ -17,6 +17,7 @@ const Pressure = [
   "curl",
   `wttr.in/${Location}?format=%P`,
 ];
+
 const uvindex = [
   "curl",
   `wttr.in/${Location}?format=%u`,
@@ -84,8 +85,17 @@ export const pressure = Variable<any | null>(null).poll(
   30_000,
   Pressure,
   (out, prev) => {
-    console.log('Pressure:', out);
-    return out;
+    // Extract numeric value from the output (e.g., "1012hPa" -> 1012)
+    const hPaValue = parseFloat(out);
+    
+    // Convert hPa to inHg
+    const inHgValue = hPaValue * 0.02953;
+    
+    // Log the converted value
+    console.log('Pressure in inches of mercury:', inHgValue);
+    
+    // Return the converted value as a string
+    return inHgValue.toFixed(2) + " inHg"; // Convert to string with 2 decimal places
   },
 );
 export const uvIndex = Variable<any | null>(null).poll(
