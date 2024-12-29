@@ -1,38 +1,38 @@
 import { Variable, exec } from "astal";
 
-const location = "Richland,WA";
+const Location = "Richland,WA";
 const temperature = [
   "curl",
-  `wttr.in/${location}?format=%t`,
+  `wttr.in/${Location}?format=%c%t`,
 ];
 const feelslikeTemp = [
   "curl",
-  `wttr.in/${location}?format=%f`,
+  `wttr.in/${Location}?format=%f`,
 ];
 const humid = [
   "curl",
-  `wttr.in/${location}?format=%h`,
+  `wttr.in/${Location}?format=%h`,
 ];
 const Pressure = [
   "curl",
-  `wttr.in/${location}?format=%P`,
+  `wttr.in/${Location}?format=%P`,
 ];
 const uvindex = [
   "curl",
-  `wttr.in/${location}?format=%u`,
+  `wttr.in/${Location}?format=%u`,
 ];
 const Precipitation = [
   "curl",
-  `wttr.in/${location}?format=%p`,
+  `wttr.in/${Location}?format=%p`,
 ];
 const Wind = [
   "curl",
-  `wttr.in/${location}?format=%w`,
+  `wttr.in/${Location}?format=%w`,
 ];
 const barFormat = `%c+%f+%w`;
 const bar = [
   "curl",
-  `wttr.in/${location}?format=${barFormat}`,
+  `wttr.in/${Location}?format=${barFormat}`,
 ];
 
 
@@ -104,3 +104,4 @@ export const precipitation = Variable<any | null>(null).poll(
     return out;
   },
 );
+export const location = Location

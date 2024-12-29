@@ -10,10 +10,10 @@
 		"checkJs": true,
 		"allowJs": true,
 		"jsx": "react-jsx",
-		"jsxImportSource": "/home/posaydone/.local/share/ags/gtk3",
+		"jsxImportSource": "$/home/austin/.local/share/ags/gtk3",
 		"paths": {
-			"astal": ["/home/posaydone/.local/share/ags"],
-			"astal/*": ["/home/posaydone/.local/share/ags/*"]
+			"astal": ["/home/austin/.local/share/ags"],
+			"astal/*": ["/home/austin/.local/share/ags/*"]
 		}
 	}
 }

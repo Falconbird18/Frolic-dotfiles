@@ -352,7 +352,6 @@ window.Spicetify = {
 
 	const _cosmos = Spicetify.Player.origin?._cosmos ?? Spicetify.Platform?.Registry.resolve(Symbol.for("Cosmos"));
 
-	const corsProxyURL = "https://cors-proxy.spicetify.app";
 	const allowedMethodsMap = {
 		get: "get",
 		post: "post",
@@ -374,6 +373,7 @@ window.Spicetify = {
 			return async function (url, body) {
 				const urlObj = new URL(url);
 
+				const corsProxyURLTemplate = window.localStorage.getItem("spicetify:corsProxyTemplate") ?? "https://cors-proxy.spicetify.app/{url}";
 				const isWebAPI = urlObj.hostname === "api.spotify.com";
 				const isSpClientAPI = urlObj.hostname.includes("spotify.com") && urlObj.hostname.includes("spclient");
 				const isInternalURL = internalEndpoints.has(urlObj.protocol);
@@ -396,10 +396,18 @@ window.Spicetify = {
 				if (body) {
 					if (method === "get") {
 						const params = new URLSearchParams(body);
-						finalURL += `?${params.toString()}`;
+						const useSeparator = shouldUseCORSProxy && new URL(finalURL).search.startsWith("?");
+						finalURL += `${useSeparator ? "&" : "?"}${params.toString()}`;
 					} else options.body = !Array.isArray(body) && typeof body === "object" ? JSON.stringify(body) : body;
 				}
-				if (shouldUseCORSProxy) finalURL = `${corsProxyURL}/${finalURL}`;
+				if (shouldUseCORSProxy) {
+					finalURL = corsProxyURLTemplate.replace(/{url}/, finalURL);
+					try {
+						new URL(finalURL);
+					} catch {
+						console.error("[spicetifyWrapper] Invalid CORS Proxy URL template");
+					}
+				}
 
 				const Authorization = `Bearer ${Spicetify.Platform.AuthorizationAPI.getState().token.accessToken}`;
 				let injectedHeaders = {};
@@ -459,7 +467,7 @@ window.Spicetify = {
 		() => {
 			webpackDidCallback = true;
 		},
-		6
+		1
 	);
 
 	let chunks = Object.entries(require.m);
@@ -664,6 +672,68 @@ window.Spicetify = {
 	});
 
 	if (!Spicetify.ContextMenuV2._context) Spicetify.ContextMenuV2._context = Spicetify.React.createContext({});
+
+	(function waitForChunks() {
+		const listOfComponents = [
+			"ScrollableContainer",
+			"Slider",
+			"Toggle",
+			"Cards.Artist",
+			"Cards.Audiobook",
+			"Cards.Profile",
+			"Cards.Show",
+			"Cards.Track",
+		];
+		if (listOfComponents.every((component) => Spicetify.ReactComponent[component] !== undefined)) return;
+		const cache = Object.keys(require.m).map((id) => require(id));
+		const modules = cache
+			.filter((module) => typeof module === "object")
+			.flatMap((module) => {
+				try {
+					return Object.values(module);
+				} catch {}
+			});
+		const functionModules = modules.filter((module) => typeof module === "function");
+		const cardTypesToFind = ["artist", "audiobook", "profile", "show", "track"];
+		const cards = [
+			...functionModules
+				.flatMap((m) => {
+					return cardTypesToFind.map((type) => {
+						if (m.toString().includes(`featureIdentifier:"${type}"`)) {
+							cardTypesToFind.splice(cardTypesToFind.indexOf(type), 1);
+							return [type[0].toUpperCase() + type.slice(1), m];
+						}
+					});
+				})
+				.filter(Boolean),
+			...modules
+				.flatMap((m) => {
+					return cardTypesToFind.map((type) => {
+						try {
+							if (m?.type?.toString().includes(`featureIdentifier:"${type}"`)) {
+								cardTypesToFind.splice(cardTypesToFind.indexOf(type), 1);
+								return [type[0].toUpperCase() + type.slice(1), m];
+							}
+						} catch {}
+					});
+				})
+				.filter(Boolean),
+		];
+
+		Spicetify.ReactComponent.Slider = wrapProvider(functionModules.find((m) => m.toString().includes("progressBarRef")));
+		Spicetify.ReactComponent.Toggle = functionModules.find((m) => m.toString().includes("onSelected") && m.toString().includes('type:"checkbox"'));
+		Spicetify.ReactComponent.ScrollableContainer = functionModules.find(
+			(m) => m.toString().includes("scrollLeft") && m.toString().includes("showButtons")
+		);
+		Object.assign(Spicetify.ReactComponent.Cards, Object.fromEntries(cards));
+
+		if (!listOfComponents.every((component) => Spicetify.ReactComponent[component] !== undefined)) {
+			setTimeout(waitForChunks, 100);
+			return;
+		}
+
+		if (Spicetify.ReactComponent.ScrollableContainer) setTimeout(refreshNavLinks?.(), 100);
+	})();
 
 	(function waitForSnackbar() {
 		if (!Object.keys(Spicetify.Snackbar).length) {
@@ -1841,6 +1911,7 @@ Spicetify._renderNavLinks = (list, isTouchScreenUi) => {
 		!Spicetify.ReactComponent.ButtonTertiary ||
 		!Spicetify.ReactComponent.Navigation ||
 		!Spicetify.ReactComponent.TooltipWrapper ||
+		!Spicetify.ReactComponent.ScrollableContainer ||
 		!Spicetify.Platform.History ||
 		!Spicetify.Platform.LocalStorageAPI
 	)

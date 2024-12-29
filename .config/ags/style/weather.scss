@@ -12,3 +12,17 @@
     font-family: 'Monaspace Radon';
     font-weight: bold;
 }
+.location_input{
+    background-color: $background;
+    border-radius: 30px;
+    border: 2px solid $primary;
+    padding: 5px;
+    color: $text;
+    font-family: 'Monaspace Xenon';
+}
+.location{
+    font-family: 'Monaspace Radon';
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
