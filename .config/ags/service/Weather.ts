@@ -77,8 +77,18 @@ export const wind = Variable<any | null>(null).poll(
   30_000,
   Wind,
   (out, prev) => {
-    console.log('Wind:', out);
-    return out;
+    // Extract the direction symbol and wind speed
+    const directionSymbol = out.match(/[^\d]+/)[0]; // Get the direction symbol (e.g., "↗")
+    const windSpeedValue = parseFloat(out.match(/\d+/)[0]); // Get the numeric wind speed (e.g., "13")
+
+    // Convert mph to knots
+    const knotsValue = windSpeedValue * 0.868976;
+
+    // Log the converted value
+    console.log('Wind speed in knots:', knotsValue);
+
+    // Return the combined output with direction symbol
+    return directionSymbol + knotsValue.toFixed(2) + " kt"; // Convert to string with 2 decimal places
   },
 );
 export const pressure = Variable<any | null>(null).poll(
