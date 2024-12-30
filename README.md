@@ -24,6 +24,7 @@ Before you install, check that you have the following dependencies installed (an
 - `hyprlock` - Hyprland Lock screen
 - `sddm` - Simple Desktop Display Manager (Login screen)
 - `brightnessctl` - A CLI for controling screen brightness
+- `cliphist` - Wayland clipboard manager
 ## Installation
 
 To install, run the following commands.
