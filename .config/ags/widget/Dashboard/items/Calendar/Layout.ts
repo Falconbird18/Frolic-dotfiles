@@ -1,3 +1,5 @@
+import { Variable } from "astal";
+
 function checkLeapYear(year) {
 	return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
 }
@@ -81,5 +83,6 @@ export function getCalendarLayout(dateObject, highlight) {
 			i++;
 		}
 	}
+    console.log('Calendar:', calendar);
 	return calendar;
 }

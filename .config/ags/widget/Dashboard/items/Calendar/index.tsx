@@ -40,7 +40,8 @@ const CalendarDay = (day, today) =>
 	new Widget.Button({
 		className: `calendar__button ${today == 1 ? "calendar__button__today" : today == -1 ? "calendar__button__other-month" : ""}`,
 		child: new Widget.Overlay({
-			child: new Box({}),
+			child: new Box({
+			}),
 			overlays: [
 				new Label({
 					halign: CENTER,
@@ -124,6 +125,7 @@ export default () => {
 	const calendarDays = new Widget.Box({
 		hexpand: true,
 		vertical: true,
+		className: "calendar__days",
 		setup: (box) => {
 			addCalendarChildren(box, calendarJson);
 		},
@@ -146,9 +148,12 @@ export default () => {
 						new Widget.Box({
 							homogeneous: true,
 							spacing: 12,
+							className: "calendar__weekdays",
 							children: weekDays.map((day, i) =>
 								CalendarDay(day.day, day.today),
-							),
+							.calendar_button{
+								color: blue;
+							}	),
 						}),
 						calendarDays,
 					],

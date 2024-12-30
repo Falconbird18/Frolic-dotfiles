@@ -1,7 +1,7 @@
 @use "./colors.scss" as colors;
 
 .dashboard {
-	border-radius: 38px;
+	border-radius: 30px;
 	min-width: 420px;
 	transition:
 		background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
@@ -21,7 +21,8 @@
 }
 
 .placeholder {
-	color: colors.$outline;
+	// color: colors.$outline;
+	color: red;
 	label {
 		font-size: 18px;
 	}
@@ -37,7 +38,15 @@
 		font-size: 18px;
 		font-weight: bold;
 		font-family: 'Monaspace Radon';
+		color: colors.$text;
 	}
+}
+
+.calendar__weekdays {
+	color: colors.$text;
+}
+.calendar__days {
+	color: colors.$text;
 }
 
 .calendar__button {
@@ -66,9 +75,15 @@
 	font-weight: bold;
 }
 
-.calendar__button__other-month {
-	color: colors.$outline;
+
+.calendar__button{
+	color: colors.$text;
 }
+
+.calendar__button__other-month {
+  color: colors.$subtext;
+}
+
 
 .calendar__weekday {
 	min-height: 40px;
@@ -82,7 +97,8 @@
 	min-width: 40px;
 	&.active {
 		background: colors.$primary;
-		color: colors.$on_primary;
+		// color: colors.$on_primary;
+		color: red;
 	}
 	&.inactive {
 		color: colors.$inverse_surface_transparent_variant;

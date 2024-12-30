@@ -102,7 +102,7 @@ export const pressure = Variable<any | null>(null).poll(
     const inHgValue = hPaValue * 0.02953;
     
     // Log the converted value
-    console.log('Pressure in inches of mercury:', inHgValue);
+    console.log('Pressure in inches of mercury:', inHgValue.toFixed(2));
     
     // Return the converted value as a string
     return inHgValue.toFixed(2) + " inHg"; // Convert to string with 2 decimal places
