@@ -1,11 +1,13 @@
+@use "./colors.scss" as colors;
+
 .weather-window {
-    background-color: $background;
+    background-color: colors.$background;
     min-height: 150px;
     min-width: 300px;
     border-radius: 30px;
-    border: 2px solid $primary;
+    border: 2px solid colors.$primary;
     padding: 20px;
-    color: $text;
+    color: colors.$text;
 }
 .temperature{
     font-size: 30px;
@@ -13,11 +15,11 @@
     font-weight: bold;
 }
 .location_input{
-    background-color: $background;
+    background-color: colors.$background;
     border-radius: 30px;
-    border: 2px solid $primary;
+    border: 2px solid colors.$primary;
     padding: 5px;
-    color: $text;
+    color: colors.$text;
     font-family: 'Monaspace Xenon';
 }
 .location{

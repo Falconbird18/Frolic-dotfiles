@@ -1,3 +1,4 @@
+@use "sass:color";
 
 $background: #252525;
 $card: #202020;
@@ -179,8 +180,8 @@ $yellow_value: #f9e2af;
 
 
 $theme: 'dark';
-$surface_transparent: transparentize($surface, 0.2);
-$inverse_surface_transparent: transparentize($inverse_surface, 0.92);
-$inverse_surface_transparent_variant: transparentize($inverse_surface, 0.82);
+$surface_transparent: color.adjust($surface, $alpha: -0.2);
+$inverse_surface_transparent: color.adjust($inverse_surface, $alpha: -0.92);
+$inverse_surface_transparent_variant: color.adjust($inverse_surface, $alpha: -0.82);
 $inverse_surface_transparent_overlay: linear-gradient(0deg, $inverse_surface_transparent, $inverse_surface_transparent);
 $inverse_surface_transparent_variant_overlay: linear-gradient(0deg, $inverse_surface_transparent_variant, $inverse_surface_transparent_variant);
