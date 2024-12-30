@@ -98,7 +98,7 @@ export default {
   },
   audio: {
     mic: {
-      muted: "microphone-disabled",
+      muted: "microphone-sensitivity-muted",
       low: "microphone-sensitivity-low",
       medium: "microphone-sensitivity-medium",
       high: "microphone-sensitivity-high",
