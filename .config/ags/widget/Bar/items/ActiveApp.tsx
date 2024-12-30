@@ -1,7 +1,7 @@
 import Hyprland from "gi://AstalHyprland";
 import { Gtk } from "astal/gtk3";
 import { bind } from "astal";
-import BarButton from "../BarButton";
+import BarItem from "../BarItem";
 import icons, { substitutions } from "../../../lib/icons";
 import { lookUpIcon } from "../../../lib/utils";
 
@@ -37,12 +37,12 @@ export default () => {
 			transitionDuration={300}
 			revealChild={focused.as(Boolean)}
 		>
-			<BarButton className="bar__active-app">
+			<BarItem className="bar__active-app">
 				<box spacing={8}>
 					<icon icon={icon} />
 					<label label={title} truncate={true} maxWidthChars={24} />
 				</box>
-			</BarButton>
+			</BarItem>
 		</revealer>
 	);
 };

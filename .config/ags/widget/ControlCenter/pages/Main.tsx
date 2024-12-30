@@ -110,9 +110,7 @@ export default () => {
         <label className="control-center__time-to-empty" label={bind(uptime)} />
         <button
           className="control-center__settings-button"
-          onClick={() => {
-            execAsync("bash -c hyprsettings");
-          }}
+          onClick={() => toggleWindow("theme-settings")}
         >
           <icon icon={icons.ui.settings} iconSize={16} />
         </button>
