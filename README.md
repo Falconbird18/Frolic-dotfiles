@@ -30,11 +30,11 @@ To install, run the following commands.
 
 **Important:** The following commands will overwrite any existing configs for hyprland, ags, wofi, starship, fish, and spicetify. Back up any configs you do not want to lose before installing.
 ```
-git clone https://github.com/Falconbird18/Dotfiles.git
-cp -r ~/Dotfiles/.config/* ~/.config/
-cp ~/Dotfiles/.local/bin/hyprland-flee-bravely ~/.local/bin/
-cp -r ~/Dotfiles/.spicetify/ ~/
-cp -r ~/Dotfiles/.icons ~/
+git clone https://github.com/Falconbird18/Frolic-dotfiles.git
+cp -r ~/Frolic-dotfiles/.config/* ~/.config/
+cp ~/Frolic-dotfiles/.local/bin/hyprland-flee-bravely ~/.local/bin/
+cp -r ~/Frolic-dotfiles/.spicetify/ ~/
+cp -r ~/Frolic-dotfiles/.icons ~/
 ```
 **Important:** The following commands have not been tested.
 
