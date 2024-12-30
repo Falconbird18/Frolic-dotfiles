@@ -1,4 +1,4 @@
-import { Variable, exec } from "astal";
+import { Variable } from "astal";
 
 const Location = "Richland,WA";
 const temperature = [
@@ -17,6 +17,7 @@ const Pressure = [
   "curl",
   `wttr.in/${Location}?format=%P`,
 ];
+
 const uvindex = [
   "curl",
   `wttr.in/${Location}?format=%u`,
@@ -76,16 +77,35 @@ export const wind = Variable<any | null>(null).poll(
   30_000,
   Wind,
   (out, prev) => {
-    console.log('Wind:', out);
-    return out;
+    // Extract the direction symbol and wind speed
+    const directionSymbol = out.match(/[^\d]+/)[0]; // Get the direction symbol (e.g., "↗")
+    const windSpeedValue = parseFloat(out.match(/\d+/)[0]); // Get the numeric wind speed (e.g., "13")
+
+    // Convert mph to knots
+    const knotsValue = windSpeedValue * 0.868976;
+
+    // Log the converted value
+    console.log('Wind speed in knots:', knotsValue);
+
+    // Return the combined output with direction symbol
+    return directionSymbol + knotsValue.toFixed(2) + " kt"; // Convert to string with 2 decimal places
   },
 );
 export const pressure = Variable<any | null>(null).poll(
   30_000,
   Pressure,
   (out, prev) => {
-    console.log('Pressure:', out);
-    return out;
+    // Extract numeric value from the output (e.g., "1012hPa" -> 1012)
+    const hPaValue = parseFloat(out);
+    
+    // Convert hPa to inHg
+    const inHgValue = hPaValue * 0.02953;
+    
+    // Log the converted value
+    console.log('Pressure in inches of mercury:', inHgValue);
+    
+    // Return the converted value as a string
+    return inHgValue.toFixed(2) + " inHg"; // Convert to string with 2 decimal places
   },
 );
 export const uvIndex = Variable<any | null>(null).poll(
