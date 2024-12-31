@@ -1,5 +1,15 @@
 @use "./colors.scss" as colors;
 
-.theme-settings{
-    background-color: colors.$background;
+.theme-buttons-container{
+    min-width: 360px;
+    padding: 20px;
+}
+
+.theme-settings__button{
+    background-color: colors.$card;
+    border: 2px solid colors.$primary;
+    border-radius: 30px;
+    color: colors.$text;
+    font-family: 'Monaspace Xenon';
+    min-width: 180px;
 }

@@ -6,14 +6,20 @@
 
 .popup-menu {
 	min-height: 400px;
-	background: colors.$surface-transparent;
-	border-radius: 40px;
+	background: colors.$background;
+	border-radius: 30px;
+	border: 2px solid colors.$primary;
+	box-shadow: 0px 2px 0px 0px colors.$secondary;
+	margin-bottom: 2px;
 	padding: 0 20px;
 	&.sink {
 		min-width: 350px;
 	}
 	&.mixer {
 		min-width: 500px;
+	}
+	&.theme-settings {
+		min-width: 400px;
 	}
 }
 
@@ -25,8 +31,9 @@
 	margin: 30px 16px;
 	margin-bottom: 0px;
 	label {
-		font-size: 18px;
+		font-size: 30px;
 		font-weight: 600;
+		font-family: 'Monaspace Radon';
 	}
 }
 .popup-menu__content {
