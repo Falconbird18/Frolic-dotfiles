@@ -1,0 +1,5 @@
+@use "./colors.scss" as colors;
+
+.theme-settings{
+    background-color: colors.$background;
+}

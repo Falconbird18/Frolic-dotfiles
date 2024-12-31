@@ -1,9 +1,10 @@
 import { bind } from "astal";
 import { App, Gtk, Astal, Widget } from "astal/gtk3";
-import { spacing } from "../../lib/variables";
-import PopupWindow from "../../common/PopupWindow";
-import { feelsTemp, humidity, location, precipitation, pressure, realTemp, uvIndex, wind } from "../../service/Weather";
-import icons from "../../lib/icons";
+import { spacing } from "../../../lib/variables";
+import PopupWindow from "../../../common/PopupWindow";
+import { feelsTemp, humidity, location, precipitation, pressure, realTemp, uvIndex, wind } from "../../../service/Weather";
+import icons from "../../../lib/icons";
+import PopupMenu from "../PopupMenu";
 
 const temperature = bind(realTemp);
 const feelsTemperature = bind(feelsTemp);
@@ -33,27 +34,17 @@ const Entry = new Widget.Entry({
 
 export default () => {
     return (
-        <PopupWindow
-            scrimType="transparent"
-            layer={Astal.Layer.OVERLAY}
-            visible={false}
-            margin={12}
+        <PopupMenu
             vexpand={true}
-            keymode={Astal.Keymode.EXCLUSIVE}
             name="theme-settings"
             namespace="theme-settings"
-            className="theme-settings"
-            exclusivity={Astal.Exclusivity.NORMAL}
-            anchor={Astal.WindowAnchor.CENTER | Astal.WindowAnchor.CENTER}
-            application={App}
-            onKeyPressEvent={(self, event) => {
-                const [keyEvent, keyCode] = event.get_keycode();
-                if (keyEvent && keyCode == 9) {
-                    App.toggle_window(self.name);
-                }
-            }}
+            label="theme-settings"
         >
-            <box vertical className="weather-window" spacing={spacing}>
+            <box
+                vertical
+                className="theme-settings"
+                spacing={spacing}
+            >
                 <box
                     horizontal
                     className="location-header-container"
@@ -111,6 +102,6 @@ export default () => {
                     </box>
                 </box>
             </box>
-        </PopupWindow>
+        </PopupMenu>
     );
 };

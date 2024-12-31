@@ -110,7 +110,7 @@ export default () => {
         <label className="control-center__time-to-empty" label={bind(uptime)} />
         <button
           className="control-center__settings-button"
-          onClick={() => toggleWindow("theme-settings")}
+          onClick={() => toggleWindow("popup-theme-settings")}
         >
           <icon icon={icons.ui.settings} iconSize={16} />
         </button>
