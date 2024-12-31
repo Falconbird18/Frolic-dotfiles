@@ -12,28 +12,26 @@ export default () => {
 				mute ? "muted" : "",
 			)}
 		>
-			<overlay
-				className={"control-center__volume-slider"}
-				child={
-					<slider
-						draw_value={false}
-						hexpand={true}
-						onDragged={({ value }) => {
-							speaker.volume = value;
-							speaker.mute = false;
-						}}
-						value={bind(speaker, "volume")}
-					/>
-				}
-				overlay={
-					<icon
-						className={"control-center__slider-icon"}
-						icon={bind(speaker, "volumeIcon")}
-						hexpand={false}
-						halign={Gtk.Align.START}
-					/>
-				}
-			/>
+			<box 
+				orientation={Gtk.Orientation.HORIZONTAL} 
+				spacing={10}
+				className={"control-center__volume-slider"}>
+				<icon
+					className={"control-center__slider-icon"}
+					icon={bind(speaker, "volumeIcon")}
+					hexpand={false}
+					halign={Gtk.Align.START}
+				/>
+				<slider
+					draw_value={false}
+					hexpand={true}
+					onDragged={({ value }) => {
+						speaker.volume = value;
+						speaker.mute = false;
+					}}
+					value={bind(speaker, "volume")}
+				/>
+			</box>
 		</box>
 	);
 };

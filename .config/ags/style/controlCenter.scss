@@ -26,6 +26,7 @@
 	color: colors.$on_surface;
 	margin-top: 8px;
 	margin-bottom: 24px;
+
 	label {
 		font-size: 18px;
 		font-weight: 500;
@@ -34,11 +35,12 @@
 
 .control-center__page_header_button {
 	background: colors.$card;
-	border: 2px solid  colors.$primary;
+	border: 2px solid colors.$primary;
 	color: colors.$on_surface;
 	min-width: 38px;
 	min-height: 38px;
 	border-radius: 100px;
+
 	&:hover {
 		background-color: colors.$primary;
 		text-shadow: -1.5px -1.5px 0 colors.$background, 1.5px -1.5px 0 colors.$background, -1.5px 1.5px 0 colors.$background, 1.5px 1.5px 0 colors.$background;
@@ -47,38 +49,47 @@
 
 .control-center__page_item-header {
 	background: colors.$inverse_surface_transparent;
+
 	&.active {
 		background: colors.$primary_container;
 		color: colors.$on_primary_container;
 	}
+
 	border-radius: 24px;
 	padding: 0px 22px;
 	min-height: 80px;
 	transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+
 	label {
 		font-size: 16px;
 		font-weight: 500;
 		margin-left: 16px;
 	}
 }
+
 .control-center__page_item {
 	background: colors.$inverse_surface_transparent;
+
 	&:first-child {
 		border-top-left-radius: 18px;
 		border-top-right-radius: 18px;
 	}
+
 	&:last-child {
 		border-bottom-left-radius: 18px;
 		border-bottom-right-radius: 18px;
 	}
+
 	padding: 18px 22px;
 	color: colors.$on_surface;
 	transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+
 	label {
 		font-size: 14px;
 		font-weight: 500;
 		margin-left: 16px;
 	}
+
 	&:hover {
 		background-color: colors.$inverse_surface_transparent_variant;
 	}
@@ -91,7 +102,7 @@
 	padding: 0 24px 0 30px;
 	border-radius: 30px;
 	min-height: 64px;
-	
+
 	transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 	// transition:
 	// 	background 0.2s ease-in-out,
@@ -100,9 +111,11 @@
 	&.active {
 		background: colors.$primary;
 		color: colors.$on_primary;
+
 		&:hover {
 			background: colors.$primary, colors.$inverse_surface_transparent_variant_overlay;
 		}
+
 		&:active {
 			background: colors.$on_primary_container,
 				colors.$inverse_surface_transparent_overlay;
@@ -112,19 +125,24 @@
 	&:hover {
 		background-color: colors.$inverse_surface_transparent_variant;
 	}
+
 	font-size: 14px;
 	font-weight: 600;
+
 	&.no-label {
 		padding: 0;
 	}
+
 	&.recorder-indicator {
 		&.active {
 			background: colors.$error_container;
 			color: colors.$on_error_container;
+
 			&:hover {
 				background: colors.$error_container,
 					colors.$inverse_surface_transparent_variant_overlay;
 			}
+
 			&:active {
 				background: colors.$error_container,
 					colors.$inverse_surface_transparent_overlay;
@@ -153,6 +171,7 @@
 	icon {
 		font-size: 16px;
 	}
+
 	label {
 		font-size: 16px;
 	}
@@ -167,38 +186,46 @@
 	}
 
 	.control-center__slider-icon {
-		color: colors.$on_primary;
-		margin-left: 14px;
+		color: colors.$text;
+		margin-left: 0;
+		font-size: 35px;
 	}
 
 	trough {
-		transition: 
+		transition:
 			background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
 			color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 		border-radius: 100px;
-		background-color: colors.$card;
-		border: 2px solid colors.$primary;
-		min-height: 44px;
+		background-color: colors.$background-light;
+		min-height: 30px;
 
 		highlight {
-			min-width: 44px;
-			border-radius: 100px;
-			background-color: colors.$background-light;
-			border: 4px solid colors.$primary;
-			border-radius: 100px;
-			transition: 
-				background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-				color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+			min-width: 30px;
+			transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+			border-radius: 30px;
+			color: colors.$text;
+			transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+			background-image: linear-gradient(45deg,
+					colors.$primary 25%,
+					colors.$card 25%,
+					colors.$card 50%,
+					colors.$primary 50%,
+					colors.$primary 75%,
+					colors.$card 75%,
+					colors.$card);
+			background-size: 8px 8px;
+			border: 2px solid colors.$primary;
+			padding: 2px 0px;
+			margin: -2px 0px;
 		}
 
 		slider {
-			min-width: 44px;
-			min-height: 44px;
+			min-width: 30px;
 			border-radius: 100px;
 			background-color: transparent;
 			box-shadow: none;
 
-			transition: 
+			transition:
 				background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
 				color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 		}
@@ -211,6 +238,7 @@
 			background-color: colors.$inverse_surface_transparent_variant;
 		}
 	}
+
 	.control-center__slider-icon {
 		color: colors.$on_surface;
 	}
@@ -239,6 +267,7 @@
 		color: colors.$on_tertiary;
 	}
 }
+
 .control-center__powermenu-button {
 	&:hover {
 		background: colors.$secondary;

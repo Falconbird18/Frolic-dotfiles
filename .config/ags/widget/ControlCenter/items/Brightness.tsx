@@ -7,27 +7,24 @@ import BrightnessService from "../../../service/Brightness";
 export default () => {
 	if (BrightnessService)
 		return (
-			<box>
-				<overlay
-					className={"control-center__volume-slider"}
-					child={
-						<slider
-							draw_value={false}
-							hexpand={true}
-							onDragged={({ value }) =>
-								(BrightnessService!.screen = value)
-							}
-							value={bind(BrightnessService).as((b) => b.screen)}
-						/>
+			<box
+				orientation={Gtk.Orientation.HORIZONTAL}
+				spacing={10}
+				className={"control-center__brightness-slider"}
+			>
+				<icon
+					className={"control-center__slider-icon"}
+					icon={icons.brightness.screen}
+					hexpand={false}
+					halign={Gtk.Align.START}
+				/>
+				<slider
+					draw_value={false}
+					hexpand={true}
+					onDragged={({ value }) =>
+						(BrightnessService!.screen = value)
 					}
-					overlay={
-						<icon
-							className={"control-center__slider-icon"}
-							icon={icons.brightness.screen}
-							hexpand={false}
-							halign={Gtk.Align.START}
-						/>
-					}
+					value={bind(BrightnessService).as((b) => b.screen)}
 				/>
 			</box>
 		);
