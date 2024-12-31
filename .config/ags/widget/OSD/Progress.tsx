@@ -10,8 +10,8 @@ type ProgressProps = {
 };
 
 export default ({
-	height = 18,
-	width = 180,
+	height = 14,
+	width = 100,
 	vertical = false,
 	child,
 }: ProgressProps) => {

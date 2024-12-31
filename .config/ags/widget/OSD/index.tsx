@@ -18,9 +18,9 @@ function OnScreenProgress(window: Astal.Window, vertical: boolean) {
 
 	const progress = Progress({
 		vertical,
-		width: vertical ? 48 : 400,
-		height: vertical ? 400 : 48,
-		child: indicator,
+		width: vertical ? 30 : 250,
+		height: vertical ? 250 : 30,
+		child: null!,
 	});
 
 	let count = 0;
@@ -37,11 +37,20 @@ function OnScreenProgress(window: Astal.Window, vertical: boolean) {
 	}
 
 	return new Widget.Box({
-		className: "indicator",
+		className: "container",
 		halign: Gtk.Align.CENTER,
 		valign: Gtk.Align.END,
-		css: "min-height: 2px;",
-		child: progress,
+		CSS: "min-height: 2px;",
+		children: [
+			indicator,
+			new Widget.Box({
+				className: "indicator",
+				halign: Gtk.Align.CENTER,
+				valign: Gtk.Align.END,
+				css: "min-height: 2px;",
+				child: progress,
+			}),
+		],
 		setup: () => {
 			progress.hook(speaker, "notify::mute", () => {
 				progress.setMute(speaker.mute);
