@@ -3,32 +3,38 @@
 .material-button {
 	border-radius: 30px;
 	padding: 3px 15px;
+
 	&:focus {
 		box-shadow: 0 0 0 1px colors.$inverse_surface;
 	}
+
 	&.filled {
-		background-image: linear-gradient(
-			45deg, 
-			colors.$primary 25%, 
-			transparent 25%, 
-			transparent 50%, 
-			colors.$primary 50%, 
-			colors.$primary 75%, 
-			transparent 75%, 
-			transparent
-			);
-			background-size: 8px 8px;
-			border: 2px solid colors.$primary;
-			box-shadow: 0px 2px 0px 0px colors.$secondary;
-		color: colors.$on_primary;
+		background-image: linear-gradient(45deg,
+				colors.$primary 25%,
+				colors.$card 25%,
+				colors.$card 50%,
+				colors.$primary 50%,
+				colors.$primary 75%,
+				colors.$card 75%,
+				colors.$card);
+		background-size: 8px 8px;
 		border: 2px solid colors.$primary;
+		box-shadow: 0px 2px 0px 0px colors.$secondary;
+		color: colors.$text;
+		border: 2px solid colors.$primary;
+		text-shadow: -1.5px -1.5px 0 colors.$background, 1.5px -1.5px 0 colors.$background, -1.5px 1.5px 0 colors.$background, 1.5px 1.5px 0 colors.$background;
+
 		&:hover,
 		&:focus {
-			background: colors.$primary, colors.$inverse_surface_transparent_variant_overlay;
+			background: colors.$primary;
+			background-size: 8px 8px;
+			color: colors.$background;
 		}
+
 		&:active {
-			background: colors.$on_primary_container,
-				colors.$inverse_surface_transparent_overlay;
+			background: colors.$primary;
+			background-size: 8px 8px;
+			color: colors.$background;
 		}
 	}
 
@@ -36,12 +42,30 @@
 		background: none;
 		color: colors.$on_surface;
 		border: 2px solid colors.$primary;
-		&:hover,
-		&:focus {
-			background: colors.$inverse_surface_transparent;
+
+		&:hover {
+			background-image: linear-gradient(45deg,
+					colors.$primary 25%,
+					colors.$card 25%,
+					colors.$card 50%,
+					colors.$primary 50%,
+					colors.$primary 75%,
+					colors.$card 75%,
+					colors.$card);
+			background-size: 8px 8px;
+			border: 2px solid colors.$primary;
+			box-shadow: 0px 2px 0px 0px colors.$secondary;
+			color: colors.$text;
+			border: 2px solid colors.$primary;
+			text-shadow: -1.5px -1.5px 0 colors.$background, 1.5px -1.5px 0 colors.$background, -1.5px 1.5px 0 colors.$background, 1.5px 1.5px 0 colors.$background;
 		}
+
+		&:focus {
+			background: colors.$primary;
+		}
+
 		&:active {
-			background: colors.$inverse_surface_transparent_variant;
+			background: colors.$primary;
 		}
 	}
 }

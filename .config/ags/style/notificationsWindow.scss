@@ -22,10 +22,18 @@
 }
 
 .notifications-window__clear {
-	background: none;
-	padding: 6px 0;
+	background: colors.$card;
+	padding: 10px 16px;
 	margin-right: 18px;
 	border-radius: 30px;
+	color: colors.$text;
+	font-family: 'Monaspace Radon';
+	border: 2px solid colors.$primary;
+}
+
+.notifications-window__clear:hover {
+	background: colors.$primary;
+	text-shadow: -1.5px -1.5px 0 colors.$background, 1.5px -1.5px 0 colors.$background, -1.5px 1.5px 0 colors.$background, 1.5px 1.5px 0 colors.$background;
 }
 
 .notifications-window__list {

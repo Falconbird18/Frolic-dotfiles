@@ -46,6 +46,7 @@ export default () => {
 						<label label={"No"} />
 					</Button>
 					<Button
+						buttonType="filled"
 						canFocus
 						onClicked={() => {
 							exec(PowermenuService.cmd);

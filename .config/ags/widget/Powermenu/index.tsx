@@ -4,6 +4,7 @@ import PowermenuService, { PowerMenuAction } from "../../service/Powermenu";
 import { ButtonProps } from "astal/gtk3/widget";
 import icons from "../../lib/icons";
 import { toggleWindow } from "../../lib/utils";
+import { Gtk } from "astal/gtk3";
 import Button from "../../common/Button";
 
 type PowermenuButtonProps = {
@@ -12,12 +13,21 @@ type PowermenuButtonProps = {
 } & ButtonProps;
 
 const PowermenuButton = ({ action, iconName }: PowermenuButtonProps) => (
-	<button
-		className={`powermenu__button`}
-		onClicked={() => PowermenuService.action(action)}
+	<box
+		orientation={Gtk.Orientation.VERTICAL}
 	>
-		<icon icon={iconName} />
-	</button>
+		<button
+			className={`powermenu__button`}
+			onClicked={() => PowermenuService.action(action)}
+		>
+			<icon 
+				icon={iconName}
+				className={`powermenu__button_icon`}
+					/>
+		</button>
+		<label className="powermenu__label">{action}</label>
+	</box>
+
 );
 
 export default () => {
