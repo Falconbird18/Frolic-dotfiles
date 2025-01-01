@@ -5,7 +5,14 @@ import PopupWindow from "../../../common/PopupWindow";
 import { feelsTemp, humidity, location, precipitation, pressure, realTemp, uvIndex, wind } from "../../../service/Weather";
 import icons from "../../../lib/icons";
 import PopupMenu from "../PopupMenu";
+import { Theme } from "../../../lib/theme";
 
+const scss = `/home/austin/.config/ags/style/Frolic/main${Theme}.scss`;
+
+
+const reloadCss = () => {
+    Astal.exec(`sass ${scss}`);
+}
 export default () => {
     return (
         <PopupMenu
@@ -17,6 +24,10 @@ export default () => {
             <box className="theme-buttons-container">
                 <button
                     className="theme-settings__button"
+                    onClick={() => {
+                        App.apply_css(`/home/austin/.config/ags/style/Frolic/mainLight.scss`);
+                        // reloadCss();
+                    }}
                 >
                     <label label="Light" />
                 </button>

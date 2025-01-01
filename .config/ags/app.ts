@@ -1,5 +1,5 @@
 import { App, Gdk, Gtk } from "astal/gtk3";
-import style from "./style/main.scss";
+import style from "../ags/style/frolicDark/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";

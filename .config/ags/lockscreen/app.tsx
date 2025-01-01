@@ -1,5 +1,6 @@
 import { App, Astal } from "astal";
-import style from "../style/main.scss";
+import { Theme } from "../lib/theme";
+const style = await import(`../style/frolic${Theme}/main.scss`);
 import Auth from "./items/Auth";
 import GLib from "gi://GLib?version=2.0";
 

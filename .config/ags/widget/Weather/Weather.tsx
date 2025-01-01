@@ -5,13 +5,13 @@ import PopupWindow from "../../common/PopupWindow";
 import { feelsTemp, humidity, location, precipitation, pressure, realTemp, uvIndex, wind } from "../../service/Weather";
 import icons from "../../lib/icons";
 
-const temperature = bind(realTemp);
-const feelsTemperature = bind(feelsTemp);
-const uv = bind(uvIndex);
-const Wind = bind(wind);
-const Precipitation = bind(precipitation);
-const Pressure = bind(pressure);
-const Humidity = bind(humidity);
+const temperature = bind(realTemp).as(value => value || "N/A");
+const feelsTemperature = bind(feelsTemp).as(value => value || "N/A");
+const uv = bind(uvIndex).as(value => value || "N/A");
+const Wind = bind(wind).as(value => value || "N/A");
+const Precipitation = bind(precipitation).as(value => value || "N/A");
+const Pressure = bind(pressure).as(value => value || "N/A");
+const Humidity = bind(humidity).as(value => value || "N/A");
 
 const displayLocation = location.replace(",", ", ")
 const icon = icons.ui.edit

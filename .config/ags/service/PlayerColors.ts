@@ -1,5 +1,6 @@
 import AstalMpris from "gi://AstalMpris?version=0.1";
 import { execAsync } from "astal";
+import { exec } from "child_process";
 import GObject from "gi://GObject?version=2.0";
 import { Colors } from "../lib/variables";
 

@@ -10,7 +10,7 @@ type BarTrayItemProps = {
 const BarTrayItem = ({ item }: BarTrayItemProps) => {
 	if (item.iconThemePath) App.add_icons(item.iconThemePath);
 
-	const menu = item.create_menu();
+	const menu = item.create_menu;
 
 	return (
 		<button

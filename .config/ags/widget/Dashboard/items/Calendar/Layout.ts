@@ -83,6 +83,5 @@ export function getCalendarLayout(dateObject, highlight) {
 			i++;
 		}
 	}
-    console.log('Calendar:', calendar);
 	return calendar;
 }
