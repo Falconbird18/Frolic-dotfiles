@@ -1,18 +1,25 @@
-import { bind } from "astal";
+import { bind, exec } from "astal";
 import { App, Gtk, Astal, Widget } from "astal/gtk3";
+const { GLib } = imports.gi;
 import { spacing } from "../../../lib/variables";
-import PopupWindow from "../../../common/PopupWindow";
-import { feelsTemp, humidity, location, precipitation, pressure, realTemp, uvIndex, wind } from "../../../service/Weather";
 import icons from "../../../lib/icons";
 import PopupMenu from "../PopupMenu";
-import { Theme } from "../../../lib/theme";
-
-const scss = `/home/austin/.config/ags/style/Frolic/main${Theme}.scss`;
 
 
-const reloadCss = () => {
-    Astal.exec(`sass ${scss}`);
-}
+const setTheme = (theme: string) => {
+    const homeDir = GLib.get_home_dir();
+    const themePathCss = `${homeDir}/.config/ags/style/frolic${theme}/main.css`;
+    const themePathScss = `${homeDir}/.config/ags/style/frolic${theme}/main.scss`;
+    // reloadCss();
+    exec(`sass ${themePathScss} ${themePathCss}`);
+    console.log("Scss compiled");
+
+    // main scss file
+    // App.resetCss();
+    // console.log("R$set");
+    App.apply_css(themePathCss);
+    console.log("Compiled css applied");
+};
 export default () => {
     return (
         <PopupMenu
@@ -25,14 +32,18 @@ export default () => {
                 <button
                     className="theme-settings__button"
                     onClick={() => {
-                        App.apply_css(`/home/austin/.config/ags/style/Frolic/mainLight.scss`);
-                        // reloadCss();
+                        setTheme("Light");
+                        export const Theme = "Light";
                     }}
                 >
                     <label label="Light" />
                 </button>
                 <button
                     className="theme-settings__button"
+                    onClick={() => {
+                        setTheme("Dark");
+                        export const Theme = "Dark";
+                    }}
                 >
                     <label label="Dark" />
                 </button>
