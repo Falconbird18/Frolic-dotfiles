@@ -6,10 +6,10 @@ import icons from "../../../lib/icons";
 import PopupMenu from "../PopupMenu";
 
 
-const setTheme = (theme: string) => {
+const setTheme = (theme: string, mode: string) => {
     const homeDir = GLib.get_home_dir();
-    const themePathCss = `${homeDir}/.config/ags/style/frolic${theme}/main.css`;
-    const themePathScss = `${homeDir}/.config/ags/style/frolic${theme}/main.scss`;
+    const themePathCss = `${homeDir}/.config/ags/style/${theme}${mode}/main.css`;
+    const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
     // reloadCss();
     exec(`sass ${themePathScss} ${themePathCss}`);
     console.log("Scss compiled");
@@ -28,26 +28,58 @@ export default () => {
             namespace="theme-settings"
             label="theme-settings"
         >
-            <box className="theme-buttons-container">
-                <button
-                    className="theme-settings__button"
-                    onClick={() => {
-                        setTheme("Light");
-                        export const Theme = "Light";
-                    }}
+            <box
+                vertical
+            >
+                <box className="mode-buttons-container">
+                    <button
+                        className="mode-settings__button_left"
+                        onClick={() => {
+                            setTheme("Frolic", "Light");
+                            let Theme = "Light";
+                        }}
+                    >
+                        <label label="Light" />
+                    </button>
+                    <button
+                        className="mode-settings__button_right"
+                        onClick={() => {
+                            setTheme("Frolic", "Dark");
+                            let Theme = "Dark";
+                        }}
+                    >
+                        <label label="Dark" />
+                    </button>
+                </box>
+                <box
+                    horizontal
+                    className="theme-buttons-container"
+                    spacing={spacing}
                 >
-                    <label label="Light" />
-                </button>
-                <button
-                    className="theme-settings__button"
-                    onClick={() => {
-                        setTheme("Dark");
-                        export const Theme = "Dark";
-                    }}
-                >
-                    <label label="Dark" />
-                </button>
+                    <label label="Theme" className="theme" />
+                    <box
+                        vertical
+                    >
+                        <button>
+                            <label label="Frolic" />
+                        </button>
+                        <label label="Frolic" />
+                    </box>
+                    <box
+                        vertical
+                    >
+                        <button
+                            onClick={() => {
+                                setTheme("Glaciara", "Dark");
+                                let Theme = "Dark";
+                            }}
+                        >
+                            <icon icon={icons.powermenu.shutdown} iconSize={16} />
+                        </button>
+                        <label label="Glaciara" />
+                    </box>
+                </box>
             </box>
-        </PopupMenu>
+        </PopupMenu >
     );
 };

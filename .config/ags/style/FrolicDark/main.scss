@@ -1,5 +1,6 @@
 @use "sass:color";
 
+/* Colors */
 $background: #252525;
 $card: #202020;
 $secondary: #EB308F;
@@ -8,6 +9,19 @@ $primary: #3979EB;
 $text: #CAD3F5;
 $subtext: #A0A7BE;
 
+/* Fonts */
+$h1_font: 'Monaspace Radon';
+$h2_font: 'Monaspace Radon';
+$paragraph_font: 'Monaspace Xenon';
+$subtext_font: 'Monaspace Xenon';
+$h1_weight: normal;
+$h2_weight: normal;
+$paragraph_weight: light;
+$subtext_weight: lighter;
+$h1_size: 24px;
+$h2_size: 18px;
+$paragraph_size: 14px;
+$subtext_size: 11px;
 
 
 $blue: #b8c4ff;
@@ -376,8 +390,8 @@ switch:checked slider {
 }
 
 .bar__item {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
     padding-left: 16px;
     padding-right: 16px;
     min-height: 42px;
@@ -386,7 +400,7 @@ switch:checked slider {
     color: $text;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
-    font-family: 'Monaspace Radon';
+    font-family: $h2_font;
     background-size: 8px 8px;
     transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 
@@ -1556,20 +1570,48 @@ switch:checked slider {
 
 /*ThemeSettings*/
 
-.theme-buttons-container {
+.mode-buttons-container {
     min-width: 360px;
     padding: 20px;
 }
 
-.theme-settings__button {
+.mode-settings__button_left {
     background-color: $card;
     border: 2px solid $primary;
-    border-radius: 30px;
+    border-radius: 30px 0px 0px 30px;
     color: $text;
     font-family: 'Monaspace Xenon';
     min-width: 180px;
+    padding: 10px 0px;
+    &.active {
+        background: $primary;
+        color: $text;
+    }
 }
 
+.mode-settings__button_right {
+    background-color: $card;
+    border: 2px solid $primary;
+    border-radius: 0px 30px 30px 0px;
+    color: $text;
+    font-family: 'Monaspace Xenon';
+    min-width: 180px;
+    padding: 10px 0px;
+    &.active {
+        background: $primary;
+        color: $text;
+    }
+}
+.theme_buttons_container {
+    min-width: 360px;
+    padding: 20px;
+}
+
+.theme{
+    font-family: $h1_font;
+    font-size: $h1_size;
+    font-weight: $h1_weight;
+}
 /*Weather*/
 
 .weather-window {

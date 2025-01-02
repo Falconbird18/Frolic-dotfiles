@@ -1,5 +1,7 @@
 import { App, Gdk, Gtk } from "astal/gtk3";
-import style from "../ags/style/frolicDark/main.scss";
+import Theme from "./widget/Popups/menus/ThemeSettings";
+// const style = require(`../ags/style/frolic${Theme}/main.scss`);
+import style from "../ags/style/FrolicDark/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
