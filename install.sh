@@ -79,7 +79,8 @@ echo "Pacman updated."
 
 # Install packages
 echo "Installing packages..."
-sudo pacman -S --needed hyprland wofi fish starship hyprpicker spicetify-cli hyprlock wl-clipboard brightnessctl bluetoothctl cliphist sddm aylurs-gtk-shell git
+sudo pacman -S --needed hyprland wofi fish starship hyprpicker hyprlock wl-clipboard brightnessctl bluez-utils cliphist sddm git
+yay -S --needed aylurs-gtk-shell
 echo "Packages installed."
 
 # Install github fonts
@@ -108,6 +109,7 @@ read -p "Do you want to install Spicetify? (y/n): " spicetify_choice
 
 if [[ "$spicetify_choice" =~ ^[Yy]$ ]]; then
     echo "Proceeding with Spicetify installation..."
+    yay -S spicetify-cli
     sudo chmod a+wr /opt/spotify
     sudo chmod a+wr /opt/spotify/Apps -R
     spicetify apply
