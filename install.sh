@@ -2,7 +2,6 @@
 
 echo "This script will guide you through the installation of Frolic Dotfiles."
 
-
 # Define the AGS config directory and backup directory
 CONFIG_PATHS=(
     "$HOME/.config/ags"
@@ -42,50 +41,42 @@ for path in "${CONFIG_PATHS[@]}"; do
     fi
 done
 
-# If no config paths exist, exit
-if [ "$config_exists" = false ]; then
-    echo "No config directories or files found. Nothing to back up."
-    exit 0
-fi
+# If config paths exist, ask the user if they want to back up their configs
+if [ "$config_exists" = true ]; then
+    read -p "Do you want to back up your config directories and files? (y/n): " backup_choice
 
-# Ask the user if they want to back up their configs
-read -p "Do you want to back up your config directories and files? (y/n): " backup_choice
-
-# Process the user's choice
-if [[ "$backup_choice" =~ ^[Yy]$ ]]; then
-    # Backup each config path
-    for path in "${CONFIG_PATHS[@]}"; do
-        backup_config "$path"
-    done
-elif [[ "$backup_choice" =~ ^[Nn]$ ]]; then
-    # Delete each config path
-    for path in "${CONFIG_PATHS[@]}"; do
-        if [ -e "$path" ]; then
-            echo "Deleting $path..."
-            rm -rf "$path"
-            echo "$path deleted."
-        else
-            echo "$path not found. Nothing to delete."
-        fi
-    done
+    # Process the user's choice
+    if [[ "$backup_choice" =~ ^[Yy]$ ]]; then
+        # Backup each config path
+        for path in "${CONFIG_PATHS[@]}"; do
+            backup_config "$path"
+        done
+    elif [[ "$backup_choice" =~ ^[Nn]$ ]]; then
+        # Delete each config path
+        for path in "${CONFIG_PATHS[@]}"; do
+            if [ -e "$path" ]; then
+                echo "Deleting $path..."
+                rm -rf "$path"
+                echo "$path deleted."
+            else
+                echo "$path not found. Nothing to delete."
+            fi
+        done
+    else
+        # Handle invalid input
+        echo "Invalid choice. Please enter 'y' or 'n'."
+        exit 1
+    fi
 else
-    # Handle invalid input
-    echo "Invalid choice. Please enter 'y' or 'n'."
-    exit 1
+    echo "No config directories or files found. Continuing with installation..."
 fi
 
 echo "Backup process completed."
 
 # Pacman update
-
 echo "Updating pacman..."
 sudo pacman -Syu
 echo "Pacman updated."
-
-# Install yay
-# echo "Installing yay..."
-# sudo pacman -S --needed yay
-# echo "Yay installed."
 
 # Install packages
 echo "Installing packages..."
@@ -120,4 +111,4 @@ sudo chmod a+wr /opt/spotify/Apps -R
 spicetify apply
 echo "Spicetify installed."
 
-echo "Installation complete. Please restart your system to apply the changes, and select hyprland as your desktop enviornment when you login."
+echo "Installation complete. Please restart your system to apply the changes, and select hyprland as your desktop environment when you login."
