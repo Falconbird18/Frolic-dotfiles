@@ -52,6 +52,7 @@ export default {
   record: "media-record",
   screensnip: "edit-cut",
   screenshot: "view-fullscreen",
+  arch: "/home/austin/.config/ags/arch.svg",
   powerprofile: {
     0: "power-profile-balanced",
     1: "power-profile-power-saver",

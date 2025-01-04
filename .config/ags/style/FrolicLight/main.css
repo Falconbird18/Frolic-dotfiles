@@ -1,6 +1,12 @@
+/* Colors */
+/* background: hsl(27, 15%, 93%)*/
+/* primary: hsl(27, 85%, 47%)*/
+/* secondary: hsl(139, 85%, 47%)*/
+/* text: hsl(27, 69%, 20%)*/
+/* subtext: hsl(27, 19%, 39%)*/
+/* Fonts */
 /*Common*/
 * {
-  font-size: 16px;
   outline: none;
   border: none;
   text-shadow: none;
@@ -12,13 +18,13 @@
 
 icon {
   box-shadow: none;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 
 slider {
   border: none;
   outline: none;
-  background: #ECECEC;
+  background: #F0EDEA;
 }
 
 separator {
@@ -46,13 +52,13 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: #ECECEC;
+  background-color: #F0EDEA;
   padding: 10px;
 }
 window.popup menu menuitem {
   min-width: 140px;
   padding: 12px 6px;
-  color: #101f56;
+  color: #562F10;
   border-radius: 100px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -67,33 +73,33 @@ window.popup menu menuitem:last-child {
 }
 
 switch {
-  border: 2px solid #a08c89;
+  border: 2px solid #766251;
   border-radius: 100px;
-  background-color: #3d3231;
+  background-color: #F2F2F2;
 }
 
 switch slider {
   box-shadow: none;
   border-radius: 100px;
-  background-color: #a08c89;
+  background-color: #766251;
 }
 
 switch:hover slider,
 switch:active slider {
-  background-color: #d8c2be;
+  background-color: #766251;
 }
 
 switch:active {
-  background-color: rgb(240.856, 221.8624, 219.8632);
+  background-color: #F2F2F2;
 }
 
 switch:checked {
-  background-color: #447AE0;
-  border: 2px solid #447AE0;
+  background-color: #E06F12;
+  border: 2px solid #E06F12;
 }
 
 switch:checked slider {
-  background-color: #561e18;
+  background-color: #12DE52;
 }
 
 /*Components*/
@@ -102,95 +108,99 @@ switch:checked slider {
   padding: 3px 15px;
 }
 .material-button:focus {
-  box-shadow: 0 0 0 1px #f1dedc;
+  box-shadow: 0 0 0 1px #562F10;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #447AE0 25%, #F2F2F2 25%, #F2F2F2 50%, #447AE0 50%, #447AE0 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
-  color: #101f56;
-  border: 2px solid #447AE0;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #562F10;
+  border: 2px solid #E06F12;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 .material-button.filled:hover, .material-button.filled:focus {
-  background: #447AE0;
+  background: #E06F12;
   background-size: 8px 8px;
-  color: #ECECEC;
+  color: #F0EDEA;
 }
 .material-button.filled:active {
-  background: #447AE0;
+  background: #E06F12;
   background-size: 8px 8px;
-  color: #ECECEC;
+  color: #F0EDEA;
 }
 .material-button.outlined {
   background: none;
-  color: #101f56;
-  border: 2px solid #447AE0;
+  color: #562F10;
+  border: 2px solid #E06F12;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #447AE0 25%, #F2F2F2 25%, #F2F2F2 50%, #447AE0 50%, #447AE0 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
-  border: 2px solid #447AE0;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  border: 2px solid #E06F12;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 .material-button.outlined:focus {
-  background: #447AE0;
+  background: #E06F12;
 }
 .material-button.outlined:active {
-  background: #447AE0;
+  background: #E06F12;
 }
 
 /*Bar*/
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background: #ECECEC;
+  background: #F0EDEA;
   margin: 7px 7px 0px 7px;
   border-radius: 30px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
+}
+
+.arch-container {
+  padding: 10px 0px;
 }
 
 .bar__item {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: normal;
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
   border-radius: 24px;
   background: #F2F2F2;
-  color: #101f56;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  color: #562F10;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   font-family: "Monaspace Radon";
   background-size: 8px 8px;
   transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .bar__item.bar__button:hover {
-  background-image: linear-gradient(45deg, #447AE0 25%, transparent 25%, transparent 50%, #447AE0 50%, #447AE0 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 .bar__item.bar__button:active {
-  background: #447AE0;
+  background: #E06F12;
   background-size: 8px 8px;
 }
 .bar__item.bar__button.active {
-  background: #447AE0;
-  color: #561e18;
+  background: #E06F12;
+  color: #562F10;
 }
 .bar__item.bar__button.bar__recording-indicator {
   padding: 0;
   min-height: 42px;
   min-width: 42px;
-  background: #93000a;
-  color: #ffdad6;
+  background: #e99898;
+  color: #562F10;
 }
 .bar__item.bar__button.bar__recording-indicator:hover {
-  color: #93000a;
-  background: #ffdad6;
+  color: #e99898;
+  background: #562F10;
 }
 .bar__item.bar__button.bar__recording-indicator.spacing {
   padding-left: 16px;
@@ -203,12 +213,12 @@ switch:checked slider {
 
 .bar__item.transparent {
   background: transparent;
-  color: #f1dedc;
+  color: #562F10;
 }
 
 .bar__item.primary_container {
-  background: #73342c;
-  color: #ffdad5;
+  background: #F2F2F2;
+  color: #562F10;
 }
 
 .bar__workspaces-indicator {
@@ -217,20 +227,20 @@ switch:checked slider {
   min-height: 8px;
   transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
   background-color: #F2F2F2;
   background-size: 8px 8px;
 }
 .bar__workspaces-indicator:hover {
-  background-color: rgba(68, 122, 224, 0.6);
+  background-color: rgba(224, 111, 18, 0.6);
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
   border-radius: 100px;
-  background-image: linear-gradient(45deg, #447AE0 25%, transparent 25%, transparent 50%, #447AE0 50%, #447AE0 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 
 .bar__active-app {
@@ -267,8 +277,8 @@ switch:checked slider {
   border-radius: 9px;
   min-width: 18px;
   min-height: 18px;
-  background: #f1dedc;
-  color: #1a1110;
+  background: #562F10;
+  color: #F2F2F2;
 }
 
 .bar__tray {
@@ -283,7 +293,7 @@ switch:checked slider {
   background: none;
 }
 .bar__tray-item:hover {
-  background-color: rgba(68, 122, 224, 0.6);
+  background-color: rgba(224, 111, 18, 0.6);
 }
 .bar__tray-item icon {
   font-size: 18px;
@@ -307,9 +317,9 @@ switch:checked slider {
   border-radius: 30px;
   min-width: 450px;
   min-height: 650px;
-  background: #ECECEC;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  background: #F0EDEA;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
 
@@ -326,7 +336,7 @@ switch:checked slider {
 }
 
 .control-center__page_header {
-  color: #101f56;
+  color: #562F10;
   margin-top: 8px;
   margin-bottom: 24px;
 }
@@ -338,29 +348,29 @@ switch:checked slider {
 
 .control-center__page_header_button {
   background: #F2F2F2;
-  border: 2px solid #447AE0;
-  color: #f1dedc;
+  border: 2px solid #E06F12;
+  color: #562F10;
   min-width: 38px;
   min-height: 38px;
   border-radius: 100px;
 }
 .control-center__page_header_button:hover {
-  background-color: #447AE0;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  background-color: #E06F12;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 
 .control-center__page_item-header {
-  background: #ECECEC;
+  background: #F0EDEA;
   border-radius: 30px;
   padding: 0px 22px;
   min-height: 80px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .control-center__page_item-header.active {
   background: #F2F2F2;
-  color: #101f56;
+  color: #562F10;
 }
 .control-center__page_item-header label {
   font-size: 16px;
@@ -369,9 +379,9 @@ switch:checked slider {
 }
 
 .control-center__page_item {
-  background: #ECECEC;
+  background: #F0EDEA;
   padding: 18px 22px;
-  color: #515A76;
+  color: #766251;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__page_item:first-child {
@@ -393,8 +403,8 @@ switch:checked slider {
 
 .control-center__button {
   background-color: #F2F2F2;
-  border: 2px solid #447AE0;
-  color: #101f56;
+  border: 2px solid #E06F12;
+  color: #562F10;
   padding: 10px 24px 10px 30px;
   border-radius: 30px;
   font-family: "Monaspace Radon";
@@ -405,52 +415,52 @@ switch:checked slider {
   font-weight: 600;
 }
 .control-center__button.active {
-  background-image: linear-gradient(45deg, #447AE0 25%, #F2F2F2 25%, #F2F2F2 50%, #447AE0 50%, #447AE0 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
-  color: #101f56;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #562F10;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 .control-center__button.active:hover {
-  background: #447AE0;
+  background: #E06F12;
   background-size: 8px 8px;
 }
 .control-center__button.active:active {
-  background: #447AE0;
+  background: #E06F12;
   background-size: 8px 8px;
 }
 .control-center__button:hover {
-  background-image: linear-gradient(45deg, #447AE0 25%, #F2F2F2 25%, #F2F2F2 50%, #447AE0 50%, #447AE0 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
-  color: #101f56;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #562F10;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 .control-center__button.no-label {
   padding: 0;
 }
 .control-center__button.recorder-indicator.active {
-  background: #93000a;
-  color: #ffdad6;
+  background: #e99898;
+  color: #562F10;
 }
 .control-center__button.recorder-indicator.active:hover {
   background: #F2F2F2;
 }
 .control-center__button.recorder-indicator.active:active {
-  background: #93000a;
+  background: #e99898;
 }
 
 .control-center__dropdown-menu {
-  background: #ECECEC;
+  background: #F0EDEA;
   border-radius: 30px;
   padding: 24px;
 }
 
 .control-center__dropdown-menu_icon {
   font-size: 20px;
-  color: #101f56;
+  color: #562F10;
 }
 
 .control-center__dropdown-menu_title {
@@ -473,7 +483,7 @@ switch:checked slider {
 }
 .control-center__brightness-slider .control-center__slider-icon,
 .control-center__volume-slider .control-center__slider-icon {
-  color: #101f56;
+  color: #562F10;
   margin-left: 0;
   font-size: 20px;
 }
@@ -490,9 +500,9 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
   transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  background-image: linear-gradient(45deg, #447AE0 25%, #F2F2F2 25%, #F2F2F2 50%, #447AE0 50%, #447AE0 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -506,14 +516,14 @@ switch:checked slider {
 }
 
 .muted .control-center__volume-slider highlight {
-  background-color: #ECECEC;
+  background-color: #F0EDEA;
 }
 .muted .control-center__slider-icon {
-  color: #f1dedc;
+  color: #562F10;
 }
 
 .control-center__time-to-empty {
-  color: #515A76;
+  color: #766251;
   font-size: 16px;
   font-weight: 500;
   font-family: "Monsapace Xenon";
@@ -524,20 +534,20 @@ switch:checked slider {
   min-width: 42px;
   min-height: 42px;
   background: #F2F2F2;
-  color: #f1dedc;
-  border: 2px solid #447AE0;
+  color: #562F10;
+  border: 2px solid #E06F12;
   border-radius: 100px;
   transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__settings-button:hover {
-  background: #dfc38c;
-  color: #3e2e04;
+  background: #12DE52;
+  color: #562F10;
 }
 
 .control-center__powermenu-button:hover {
-  background: #E04492;
-  color: #442926;
+  background: #12DE52;
+  color: #562F10;
 }
 
 .control-center__footer {
@@ -546,21 +556,20 @@ switch:checked slider {
 
 /*Dashboard*/
 .dashboard {
-  border-radius: 30px;
+  border-radius: 0px;
   min-width: 420px;
   transition: background-color 1s cubic-bezier(0.85, 0, 0.15, 1), color 1s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-bottom: 2px;
 }
 
 .block {
-  background: #ECECEC;
+  background: #F0EDEA;
   border-radius: 30px;
   padding: 20px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   transition: background-color 1s cubic-bezier(0.85, 0, 0.15, 1), color 1s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
-  margin-bottom: 2px;
+  margin-bottom: 100px;
 }
 
 .placeholder {
@@ -573,21 +582,24 @@ switch:checked slider {
 .calendar__header {
   margin-top: 12px;
   padding: 10px;
+  font-family: "Monaspace Radon";
+  font-size: 24px;
+  font-weight: normal;
 }
 
 .calendar__monthyear * {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: normal;
   font-family: "Monaspace Radon";
-  color: #101f56;
+  color: #562F10;
 }
 
 .calendar__weekdays {
-  color: #101f56;
+  color: #562F10;
 }
 
 .calendar__days {
-  color: #101f56;
+  color: #562F10;
 }
 
 .calendar__button {
@@ -597,28 +609,33 @@ switch:checked slider {
 .calendar__button__today {
   border-radius: 100px;
   background: #F2F2F2;
-  color: #101f56;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
-  background-image: linear-gradient(45deg, #447AE0 25%, transparent 25%, transparent 50%, #447AE0 50%, #447AE0 75%, transparent 75%, transparent);
+  color: #562F10;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
   font-family: "Monaspace Radon";
   font-weight: bold;
 }
 
 .calendar__button {
-  color: #101f56;
+  color: #562F10;
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .calendar__button__other-month {
-  color: #515A76;
+  color: #766251;
+  font-family: "Monaspace Xenon";
+  font-size: 11px;
+  font-weight: 100;
 }
 
 .calendar__weekday {
   min-height: 40px;
   min-width: 36px;
-  font-weight: 600;
 }
 
 .calendar__day {
@@ -627,21 +644,20 @@ switch:checked slider {
   min-width: 40px;
 }
 .calendar__day.active {
-  background: #447AE0;
-  color: red;
+  background: #E06F12;
 }
 .calendar__day.inactive {
-  color: #ECECEC;
+  color: #F0EDEA;
 }
 
 /*Notification*/
 .notification {
   padding: 14px 16px 14px 20px;
-  color: #101f56;
-  background-color: #ECECEC;
+  color: #562F10;
+  background-color: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
 
@@ -651,7 +667,7 @@ switch:checked slider {
   margin-right: 14px;
   border-radius: 100px;
   background: #F2F2F2;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
 }
 
 .notification__icon.telegram {
@@ -673,7 +689,7 @@ switch:checked slider {
 .notification__app-name,
 .notification__dot,
 .notification__time {
-  color: #515A76;
+  color: #766251;
   font-size: 12px;
   font-weight: 400;
   font-family: "Monaspace Xenon";
@@ -693,11 +709,11 @@ switch:checked slider {
 .notification__action {
   background: none;
   transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  color: #447AE0;
+  color: #E06F12;
   border-radius: 100px;
 }
 .notification__action:hover {
-  color: #ffdad5;
+  color: #562F10;
   transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__action:first-child {
@@ -713,14 +729,14 @@ switch:checked slider {
   min-height: 22px;
   border-radius: 100px;
   background-color: #F2F2F2;
-  color: #101f56;
+  color: #562F10;
   font-size: 16px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__close-button:hover {
-  background: #ffb4ab;
-  color: #515A76;
+  background: #e99898;
+  color: #766251;
 }
 
 /*NotificationsPopup*/
@@ -738,9 +754,9 @@ switch:checked slider {
   min-width: 400px;
   min-height: 550px;
   padding: 10px 10px 0;
-  background: #ECECEC;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  background: #F0EDEA;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   /* Don't cut off the box shadow*/
   transition: background-color 0.1s cubic-bezier(0.85, 0, 0.15, 1), color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
@@ -749,7 +765,7 @@ switch:checked slider {
   border-radius: 4px;
   transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: #F2F2F2;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 
 .notifications-window__clear {
@@ -757,14 +773,14 @@ switch:checked slider {
   padding: 10px 16px;
   margin-right: 18px;
   border-radius: 30px;
-  color: #101f56;
+  color: #562F10;
   font-family: "Monaspace Radon";
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
 }
 
 .notifications-window__clear:hover {
-  background: #447AE0;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  background: #E06F12;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
 }
 
 .notifications-window__list revealer .notification {
@@ -792,10 +808,10 @@ switch:checked slider {
 }
 
 .container {
-  background-color: #ECECEC;
+  background-color: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 20px;
 }
 
@@ -808,25 +824,25 @@ switch:checked slider {
 .indicator .progress .fill {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  color: #101f56;
+  color: #562F10;
   transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  background-image: linear-gradient(45deg, #447AE0 25%, #F2F2F2 25%, #F2F2F2 50%, #447AE0 50%, #447AE0 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: #ECECEC;
-  color: #f1dedc;
+  background-color: #F0EDEA;
+  color: #562F10;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: #ECECEC;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  background: #F0EDEA;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   padding: 20px;
   border-radius: 30px;
@@ -855,14 +871,14 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background: #447AE0;
-  color: #561e18;
+  background: #E06F12;
+  color: #562F10;
   border-radius: 0px;
   transition: background 0.3s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
 }
 .player__playpause.active {
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .player__next,
@@ -883,7 +899,7 @@ switch:checked slider {
 }
 .player__position-slider trough highlight {
   border-radius: 100px;
-  background-color: #f1dedc;
+  background-color: #562F10;
   border-radius: 100px;
   transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -893,20 +909,20 @@ switch:checked slider {
   border-radius: 7px;
   border-radius: 10px;
   box-shadow: none;
-  background-color: #f1dedc;
+  background-color: #562F10;
   transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: #ECECEC;
+  background: #F0EDEA;
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .player__indicator.selected {
-  background: #f1dedc;
+  background: #562F10;
 }
 
 @keyframes slide {
@@ -936,10 +952,10 @@ switch:checked slider {
 
 .popup-menu {
   min-height: 400px;
-  background: #ECECEC;
+  background: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   padding: 0 20px;
 }
@@ -974,7 +990,7 @@ switch:checked slider {
 .popup-menu__item {
   background: none;
   padding: 18px;
-  color: #f1dedc;
+  color: #562F10;
   border-radius: 100px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -1010,13 +1026,13 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: #ECECEC;
+  background-color: #F0EDEA;
   min-height: 14px;
 }
 .mixer__slider trough highlight,
 .mixer__slider trough progress {
   border-radius: 100px;
-  background-color: #447AE0;
+  background-color: #E06F12;
   border-radius: 100px;
 }
 .mixer__slider trough slider {
@@ -1034,11 +1050,12 @@ switch:checked slider {
 }
 
 .bluetooth__percentage {
-  background: #73342c;
-  color: #ffdad5;
+  background: #F2F2F2;
+  color: #562F10;
   border-radius: 100px;
   padding: 0px 12px;
   margin-left: 12px;
+  border: 2px solid #E06F12;
 }
 
 .mixer-placeholder {
@@ -1052,9 +1069,9 @@ switch:checked slider {
 .powermenu {
   padding: 24px;
   border-radius: 30px;
-  background: #ECECEC;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  background: #F0EDEA;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
 
@@ -1065,19 +1082,19 @@ switch:checked slider {
 .powermenu__button {
   padding: 0;
   background: #F2F2F2;
-  color: #101f56;
+  color: #562F10;
   min-width: 100px;
   min-height: 100px;
   border-radius: 30px;
-  border: 2px solid #447AE0;
-  box-shadow: 0px 2px 0px 0px #E04492;
-  text-shadow: -1.5px -1.5px 0 #ECECEC, 1.5px -1.5px 0 #ECECEC, -1.5px 1.5px 0 #ECECEC, 1.5px 1.5px 0 #ECECEC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
   background-size: 8px 8px;
 }
 .powermenu__button:hover, .powermenu__button:focus {
-  background-image: linear-gradient(45deg, #447AE0 25%, transparent 25%, transparent 50%, #447AE0 50%, #447AE0 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  box-shadow: 0px 2px 0px 0px #E04492;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .powermenu__button:active {
   background: #F2F2F2;
@@ -1088,15 +1105,15 @@ switch:checked slider {
   font-weight: 500;
   font-family: "monaspace xenon";
   margin-top: 25px;
-  color: #101f56;
+  color: #562F10;
 }
 
 .verification {
   min-width: 300px;
   padding: 24px;
   border-radius: 30px;
-  background: #ECECEC;
-  border: 2px solid #447AE0;
+  background: #F0EDEA;
+  border: 2px solid #E06F12;
 }
 
 .verification__title {
@@ -1117,33 +1134,63 @@ switch:checked slider {
 }
 
 .scrim {
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /*ThemeSettings*/
-.theme-buttons-container {
+.mode-buttons-container {
   min-width: 360px;
   padding: 20px;
 }
 
-.theme-settings__button {
+.mode-settings__button_left {
   background-color: #F2F2F2;
-  border: 2px solid #447AE0;
-  border-radius: 30px;
-  color: #101f56;
+  border: 2px solid #E06F12;
+  border-radius: 30px 0px 0px 30px;
+  color: #562F10;
   font-family: "Monaspace Xenon";
   min-width: 180px;
+  padding: 10px 0px;
+}
+.mode-settings__button_left.active {
+  background: #E06F12;
+  color: #562F10;
+}
+
+.mode-settings__button_right {
+  background-color: #F2F2F2;
+  border: 2px solid #E06F12;
+  border-radius: 0px 30px 30px 0px;
+  color: #562F10;
+  font-family: "Monaspace Xenon";
+  min-width: 180px;
+  padding: 10px 0px;
+}
+.mode-settings__button_right.active {
+  background: #E06F12;
+  color: #562F10;
+}
+
+.theme_buttons_container {
+  min-width: 360px;
+  padding: 20px;
+}
+
+.theme {
+  font-family: "Monaspace Radon";
+  font-size: 24px;
+  font-weight: normal;
 }
 
 /*Weather*/
 .weather-window {
-  background-color: #ECECEC;
+  background-color: #F0EDEA;
   min-height: 150px;
   min-width: 300px;
   border-radius: 30px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
   padding: 20px;
-  color: #101f56;
+  color: #562F10;
 }
 
 .temperature {
@@ -1153,11 +1200,11 @@ switch:checked slider {
 }
 
 .location_input {
-  background-color: #ECECEC;
+  background-color: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #447AE0;
+  border: 2px solid #E06F12;
   padding: 5px;
-  color: #101f56;
+  color: #562F10;
   font-family: "Monaspace Xenon";
 }
 

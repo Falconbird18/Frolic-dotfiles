@@ -7,7 +7,6 @@ import ControlCenter from "./widget/ControlCenter";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
 import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
-import Arch from "./widget/Arch";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
 import {
@@ -32,7 +31,6 @@ function main() {
 	Weather();
 	ThemeSettings();
 	ControlCenter();
-	Arch();
 	Scrim({ scrimType: "opaque", className: "scrim" });
 	Scrim({ scrimType: "transparent", className: "transparent-scrim" });
 	SinkMenu();

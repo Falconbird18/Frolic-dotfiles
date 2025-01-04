@@ -1,13 +1,22 @@
 @use "sass:color";
 
 /* Colors */
-$background: #252525;
+$background: #2C2621;
+/* background: hsl(27, 15%, 15%)*/
 $card: #202020;
-$secondary: #EB308F;
 $background-light: #404040;
-$primary: #3979EB;
-$text: #CAD3F5;
-$subtext: #A0A7BE;
+$primary: #E06F12;
+/* primary: hsl(27, 85%, 47%)*/
+$secondary: #12DE52;
+/* secondary: hsl(139, 85%, 47%)*/
+$text: #F5DECC;
+/* text: hsl(27, 68%, 88%)*/
+$subtext: #BFAEA1;
+/* subtext: hsl(27, 19%, 69%)*/
+$error: #e99898;
+$scrim: #000000;
+
+/*Difference between hue of Primary and Secondary is 112*/
 
 /* Fonts */
 $h1_font: 'Monaspace Radon';
@@ -16,186 +25,21 @@ $paragraph_font: 'Monaspace Xenon';
 $subtext_font: 'Monaspace Xenon';
 $h1_weight: normal;
 $h2_weight: normal;
-$paragraph_weight: light;
-$subtext_weight: lighter;
+$paragraph_weight: 300;
+$subtext_weight: 100;
 $h1_size: 24px;
 $h2_size: 18px;
 $paragraph_size: 14px;
 $subtext_size: 11px;
 
 
-$blue: #b8c4ff;
 
-$blue_container: #374379;
 
-$blue_source: #89b4fa;
 
-$blue_value: #89b4fa;
-
-$error: #ffb4ab;
-
-$error_container: #93000a;
-
-$green: #b1d18a;
-
-$green_container: #354e16;
-
-$green_source: #a6e3a1;
-
-$green_value: #a6e3a1;
-
-$inverse_on_surface: #392e2c;
-
-$inverse_primary: #904a42;
-
-$inverse_surface: #f1dedc;
-
-$on_background: #f1dedc;
-
-$on_blue: #1f2c61;
-
-$on_blue_container: #dde1ff;
-
-$on_error: #690005;
-
-$on_error_container: #ffdad6;
-
-$on_green: #1f3701;
-
-$on_green_container: #cdeda3;
-
-$on_orange: #55200a;
-
-$on_orange_container: #ffdbcf;
-
-$on_primary: #561e18;
-
-$on_primary_container: #ffdad5;
-
-$on_primary_fixed: #3b0906;
-
-$on_primary_fixed_variant: #73342c;
-
-$on_purple: #462152;
-
-$on_purple_container: #fad7ff;
-
-$on_red: #561d23;
-
-$on_red_container: #ffdadb;
-
-$on_secondary: #442926;
-
-$on_secondary_container: #ffdad5;
-
-$on_secondary_fixed: #2c1512;
-
-$on_secondary_fixed_variant: #5d3f3b;
-
-$on_surface: #f1dedc;
-
-$on_surface_variant: #d8c2be;
-
-$on_tertiary: #3e2e04;
-
-$on_tertiary_container: #fcdfa6;
-
-$on_tertiary_fixed: #261a00;
-
-$on_tertiary_fixed_variant: #574419;
-
-$on_yellow: #452b00;
-
-$on_yellow_container: #ffddb3;
-
-$orange: #ffb59b;
-
-$orange_container: #72361e;
-
-$orange_source: #fab387;
-
-$orange_value: #fab387;
-
-$outline: #a08c89;
-
-$outline_variant: #534341;
-
-
-$primary_container: #73342c;
-
-$primary_fixed: #ffdad5;
-
-$primary_fixed_dim: #ffb4aa;
-
-$purple: #e6b6f1;
-
-$purple_container: #5e386a;
-
-$purple_source: #cba6f7;
-
-$purple_value: #cba6f7;
-
-$red: #ffb2b6;
-
-$red_container: #723339;
-
-$red_source: #f38ba8;
-
-$red_value: #f38ba8;
-
-$scrim: #000000;
-
-
-$secondary_container: #5d3f3b;
-
-$secondary_fixed: #ffdad5;
-
-$secondary_fixed_dim: #e7bdb7;
-
-$shadow: #000000;
-
-$source_color: #f95445;
-
-$surface: #1a1110;
-
-$surface_bright: #423735;
-
-$surface_container: #271d1c;
-
-$surface_container_high: #322826;
-
-$surface_container_highest: #3d3231;
-
-$surface_container_low: #231918;
-
-$surface_container_lowest: #140c0b;
-
-$surface_dim: #1a1110;
-
-$surface_tint: #ffb4aa;
-
-$surface_variant: #534341;
-
-$tertiary: #dfc38c;
-
-$tertiary_container: #574419;
-
-$tertiary_fixed: #fcdfa6;
-
-$tertiary_fixed_dim: #dfc38c;
-
-$yellow: #f5bd6f;
-
-$yellow_container: #633f00;
-
-$yellow_source: #f9e2af;
-
-$yellow_value: #f9e2af;
 
 /*Common*/
 
 * {
-    font-size: 16px;
     outline: none;
     border: none;
     text-shadow: none;
@@ -277,24 +121,24 @@ window.popup {
 }
 
 switch {
-    border: 2px solid $outline;
+    border: 2px solid $subtext;
     border-radius: 100px;
-    background-color: $surface_container_highest;
+    background-color: $card;
 }
 
 switch slider {
     box-shadow: none;
     border-radius: 100px;
-    background-color: $outline;
+    background-color: $subtext;
 }
 
 switch:hover slider,
 switch:active slider {
-    background-color: $on_surface_variant;
+    background-color: $subtext;
 }
 
 switch:active {
-    background-color: color.mix($surface_container_highest, $on_surface, 0.08 * 1%);
+    background-color: $card;
 }
 
 switch:checked {
@@ -303,7 +147,7 @@ switch:checked {
 }
 
 switch:checked slider {
-    background-color: $on_primary;
+    background-color: $secondary;
 }
 
 /*Components*/
@@ -313,7 +157,7 @@ switch:checked slider {
     padding: 3px 15px;
 
     &:focus {
-        box-shadow: 0 0 0 1px $inverse_surface;
+        box-shadow: 0 0 0 1px $text;
     }
 
     &.filled {
@@ -389,6 +233,9 @@ switch:checked slider {
     border: 2px solid $primary;
 }
 
+.arch-container{
+    padding: 10px 0px
+}
 .bar__item {
     font-size: $h2_size;
     font-weight: $h2_weight;
@@ -425,19 +272,19 @@ switch:checked slider {
 
         &.active {
             background: $primary;
-            color: $on_primary;
+            color: $text;
         }
 
         &.bar__recording-indicator {
             padding: 0;
             min-height: 42px;
             min-width: 42px;
-            background: $error_container;
-            color: $on_error_container;
+            background: $error;
+            color: $text;
 
             &:hover {
-                color: $error_container;
-                background: $on_error_container;
+                color: $error;
+                background: $text;
             }
 
             &.spacing {
@@ -455,12 +302,12 @@ switch:checked slider {
 
 .bar__item.transparent {
     background: transparent;
-    color: $on_surface;
+    color: $text;
 }
 
 .bar__item.primary_container {
-    background: $primary_container;
-    color: $on_primary_container;
+    background: $card;
+    color: $text;
 }
 
 .bar__workspaces-indicator {
@@ -533,8 +380,8 @@ switch:checked slider {
     border-radius: 9px;
     min-width: 18px;
     min-height: 18px;
-    background: $inverse_surface;
-    color: $surface;
+    background: $text;
+    color: $card;
 }
 
 .bar__tray {
@@ -615,7 +462,7 @@ switch:checked slider {
 .control-center__page_header_button {
     background: $card;
     border: 2px solid $primary;
-    color: $on_surface;
+    color: $text;
     min-width: 38px;
     min-height: 38px;
     border-radius: 100px;
@@ -738,15 +585,15 @@ switch:checked slider {
 
     &.recorder-indicator {
         &.active {
-            background: $error_container;
-            color: $on_error_container;
+            background: $error;
+            color: $text;
 
             &:hover {
                 background: $card;
             }
 
             &:active {
-                background: $error_container;
+                background: $error;
             }
         }
     }
@@ -840,7 +687,7 @@ switch:checked slider {
     }
 
     .control-center__slider-icon {
-        color: $on_surface;
+        color: $text;
     }
 }
 
@@ -856,7 +703,7 @@ switch:checked slider {
 	min-width: 42px;
 	min-height: 42px;
 	background: $card;
-	color: $on_surface;
+	color: $text;
 	border: 2px solid $primary;
 	border-radius: 100px;
 	transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
@@ -864,15 +711,15 @@ switch:checked slider {
 
 .control-center__settings-button {
 	&:hover {
-		background: $tertiary;
-		color: $on_tertiary;
+		background: $secondary;
+		color: $text;
 	}
 }
 
 .control-center__powermenu-button {
 	&:hover {
 		background: $secondary;
-		color: $on_secondary;
+		color: $text;
 	}
 }
 
@@ -883,12 +730,11 @@ switch:checked slider {
 /*Dashboard*/
 
 .dashboard {
-    border-radius: 30px;
+    border-radius: 0px;
     min-width: 420px;
     transition:
         background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
         color 1s cubic-bezier(0.85, 0, 0.15, 1);
-    margin-bottom: 2px;
 }
 
 .block {
@@ -901,7 +747,7 @@ switch:checked slider {
         background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
         color 1s cubic-bezier(0.85, 0, 0.15, 1);
     font-family: 'Monaspace Xenon';
-    margin-bottom: 2px;
+    margin-bottom: 100px;
 }
 
 .placeholder {
@@ -916,13 +762,16 @@ switch:checked slider {
 .calendar__header {
     margin-top: 12px;
     padding: 10px;
+    font-family: $h1_font;
+    font-size: $h1_size;
+    font-weight: $h1_weight;
 }
 
 .calendar__monthyear {
     * {
-        font-size: 18px;
-        font-weight: bold;
-        font-family: 'Monaspace Radon';
+        font-size: $h1_size;
+        font-weight: $h1_weight;
+        font-family: $h1_font;
         color: $text;
     }
 }
@@ -962,17 +811,22 @@ switch:checked slider {
 
 .calendar__button {
     color: $text;
+    font-family: $paragraph_font;
+    font-weight: $paragraph_weight;
+    font-size: $paragraph_size;
 }
 
 .calendar__button__other-month {
     color: $subtext;
+    font-family: $subtext_font;
+    font-size: $subtext_size;
+    font-weight: $subtext_weight;
 }
 
 
 .calendar__weekday {
     min-height: 40px;
     min-width: 36px;
-    font-weight: 600;
 }
 
 .calendar__day {
@@ -982,8 +836,6 @@ switch:checked slider {
 
     &.active {
         background: $primary;
-        // color: $on_primary;
-        color: red;
     }
 
     &.inactive {
@@ -1055,7 +907,7 @@ switch:checked slider {
     border-radius: 100px;
 
     &:hover {
-        color: $on_primary_container;
+        color: $text;
         transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
     }
 
@@ -1206,7 +1058,7 @@ switch:checked slider {
 
         &.muted {
             background-color: $background;
-            color: $on_surface;
+            color: $text;
         }
     }
 }
@@ -1247,7 +1099,7 @@ switch:checked slider {
     min-height: 60px;
     padding: 0;
     background: $primary;
-    color: $on_primary;
+    color: $text;
     border-radius: 0px;
     transition:
         background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
@@ -1256,7 +1108,7 @@ switch:checked slider {
     border-radius: 30px;
 
     &.active {
-        border-radius: 20px;
+        border-radius: 25px;
     }
 }
 
@@ -1282,7 +1134,7 @@ switch:checked slider {
 
         highlight {
             border-radius: 100px;
-            background-color: $on_surface;
+            background-color: $text;
             border-radius: 100px;
             transition:
                 background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
@@ -1295,7 +1147,7 @@ switch:checked slider {
             border-radius: 7px;
             border-radius: 10px;
             box-shadow: none;
-            background-color: $on_surface;
+            background-color: $text;
 
             transition:
                 background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
@@ -1314,7 +1166,7 @@ switch:checked slider {
     transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 
     &.selected {
-        background: $inverse_surface;
+        background: $text;
     }
 }
 
@@ -1395,7 +1247,7 @@ switch:checked slider {
 .popup-menu__item {
     background: none;
     padding: 18px;
-    color: $on_surface;
+    color: $text;
     border-radius: 100px;
     transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 
@@ -1431,7 +1283,7 @@ switch:checked slider {
 }
 
 // .mixer__tooltip {
-// background: $surface_container_high;
+// background: $card;
 // border-radius: 100px;
 // }
 
@@ -1469,11 +1321,12 @@ switch:checked slider {
 }
 
 .bluetooth__percentage {
-    background: $primary_container;
-    color: $on_primary_container;
+    background: $card;
+    color: $text;
     border-radius: 100px;
     padding: 0px 12px;
     margin-left: 12px;
+    border: 2px solid $primary;
 }
 
 .mixer-placeholder {
@@ -1565,7 +1418,7 @@ switch:checked slider {
 }
 
 .scrim {
-    background: color.adjust($scrim, $alpha: -0.68);
+    background: color.adjust($scrim, $alpha: -0.5);
 }
 
 /*ThemeSettings*/

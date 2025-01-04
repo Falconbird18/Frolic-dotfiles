@@ -1,6 +1,13 @@
+/* Colors */
+/* background: hsl(27, 15%, 15%)*/
+/* primary: hsl(27, 85%, 47%)*/
+/* secondary: hsl(139, 85%, 47%)*/
+/* text: hsl(27, 68%, 88%)*/
+/* subtext: hsl(27, 19%, 69%)*/
+/*Difference between hue of Primary and Secondary is 112*/
+/* Fonts */
 /*Common*/
 * {
-  font-size: 16px;
   outline: none;
   border: none;
   text-shadow: none;
@@ -12,13 +19,13 @@
 
 icon {
   box-shadow: none;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 
 slider {
   border: none;
   outline: none;
-  background: #252525;
+  background: #2C2621;
 }
 
 separator {
@@ -46,13 +53,13 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: #252525;
+  background-color: #2C2621;
   padding: 10px;
 }
 window.popup menu menuitem {
   min-width: 140px;
   padding: 12px 6px;
-  color: #CAD3F5;
+  color: #F5DECC;
   border-radius: 100px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -67,33 +74,33 @@ window.popup menu menuitem:last-child {
 }
 
 switch {
-  border: 2px solid #a08c89;
+  border: 2px solid #BFAEA1;
   border-radius: 100px;
-  background-color: #3d3231;
+  background-color: #202020;
 }
 
 switch slider {
   box-shadow: none;
   border-radius: 100px;
-  background-color: #a08c89;
+  background-color: #BFAEA1;
 }
 
 switch:hover slider,
 switch:active slider {
-  background-color: #d8c2be;
+  background-color: #BFAEA1;
 }
 
 switch:active {
-  background-color: rgb(240.856, 221.8624, 219.8632);
+  background-color: #202020;
 }
 
 switch:checked {
-  background-color: #3979EB;
-  border: 2px solid #3979EB;
+  background-color: #E06F12;
+  border: 2px solid #E06F12;
 }
 
 switch:checked slider {
-  background-color: #561e18;
+  background-color: #12DE52;
 }
 
 /*Components*/
@@ -102,95 +109,99 @@ switch:checked slider {
   padding: 3px 15px;
 }
 .material-button:focus {
-  box-shadow: 0 0 0 1px #f1dedc;
+  box-shadow: 0 0 0 1px #F5DECC;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #3979EB 25%, #202020 25%, #202020 50%, #3979EB 50%, #3979EB 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
-  color: #CAD3F5;
-  border: 2px solid #3979EB;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #F5DECC;
+  border: 2px solid #E06F12;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 .material-button.filled:hover, .material-button.filled:focus {
-  background: #3979EB;
+  background: #E06F12;
   background-size: 8px 8px;
-  color: #252525;
+  color: #2C2621;
 }
 .material-button.filled:active {
-  background: #3979EB;
+  background: #E06F12;
   background-size: 8px 8px;
-  color: #252525;
+  color: #2C2621;
 }
 .material-button.outlined {
   background: none;
-  color: #CAD3F5;
-  border: 2px solid #3979EB;
+  color: #F5DECC;
+  border: 2px solid #E06F12;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #3979EB 25%, #202020 25%, #202020 50%, #3979EB 50%, #3979EB 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
-  border: 2px solid #3979EB;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  border: 2px solid #E06F12;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 .material-button.outlined:focus {
-  background: #3979EB;
+  background: #E06F12;
 }
 .material-button.outlined:active {
-  background: #3979EB;
+  background: #E06F12;
 }
 
 /*Bar*/
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background: #252525;
+  background: #2C2621;
   margin: 7px 7px 0px 7px;
   border-radius: 30px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
+}
+
+.arch-container {
+  padding: 10px 0px;
 }
 
 .bar__item {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: normal;
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
   border-radius: 24px;
   background: #202020;
-  color: #CAD3F5;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  color: #F5DECC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   font-family: "Monaspace Radon";
   background-size: 8px 8px;
   transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .bar__item.bar__button:hover {
-  background-image: linear-gradient(45deg, #3979EB 25%, transparent 25%, transparent 50%, #3979EB 50%, #3979EB 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 .bar__item.bar__button:active {
-  background: #3979EB;
+  background: #E06F12;
   background-size: 8px 8px;
 }
 .bar__item.bar__button.active {
-  background: #3979EB;
-  color: #561e18;
+  background: #E06F12;
+  color: #F5DECC;
 }
 .bar__item.bar__button.bar__recording-indicator {
   padding: 0;
   min-height: 42px;
   min-width: 42px;
-  background: #93000a;
-  color: #ffdad6;
+  background: #e99898;
+  color: #F5DECC;
 }
 .bar__item.bar__button.bar__recording-indicator:hover {
-  color: #93000a;
-  background: #ffdad6;
+  color: #e99898;
+  background: #F5DECC;
 }
 .bar__item.bar__button.bar__recording-indicator.spacing {
   padding-left: 16px;
@@ -203,12 +214,12 @@ switch:checked slider {
 
 .bar__item.transparent {
   background: transparent;
-  color: #f1dedc;
+  color: #F5DECC;
 }
 
 .bar__item.primary_container {
-  background: #73342c;
-  color: #ffdad5;
+  background: #202020;
+  color: #F5DECC;
 }
 
 .bar__workspaces-indicator {
@@ -217,20 +228,20 @@ switch:checked slider {
   min-height: 8px;
   transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   background-color: #202020;
   background-size: 8px 8px;
 }
 .bar__workspaces-indicator:hover {
-  background-color: rgba(57, 121, 235, 0.6);
+  background-color: rgba(224, 111, 18, 0.6);
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
   border-radius: 100px;
-  background-image: linear-gradient(45deg, #3979EB 25%, transparent 25%, transparent 50%, #3979EB 50%, #3979EB 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 
 .bar__active-app {
@@ -267,8 +278,8 @@ switch:checked slider {
   border-radius: 9px;
   min-width: 18px;
   min-height: 18px;
-  background: #f1dedc;
-  color: #1a1110;
+  background: #F5DECC;
+  color: #202020;
 }
 
 .bar__tray {
@@ -283,7 +294,7 @@ switch:checked slider {
   background: none;
 }
 .bar__tray-item:hover {
-  background-color: rgba(57, 121, 235, 0.6);
+  background-color: rgba(224, 111, 18, 0.6);
 }
 .bar__tray-item icon {
   font-size: 18px;
@@ -307,9 +318,9 @@ switch:checked slider {
   border-radius: 30px;
   min-width: 450px;
   min-height: 650px;
-  background: #252525;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  background: #2C2621;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
 
@@ -326,7 +337,7 @@ switch:checked slider {
 }
 
 .control-center__page_header {
-  color: #CAD3F5;
+  color: #F5DECC;
   margin-top: 8px;
   margin-bottom: 24px;
 }
@@ -338,29 +349,29 @@ switch:checked slider {
 
 .control-center__page_header_button {
   background: #202020;
-  border: 2px solid #3979EB;
-  color: #f1dedc;
+  border: 2px solid #E06F12;
+  color: #F5DECC;
   min-width: 38px;
   min-height: 38px;
   border-radius: 100px;
 }
 .control-center__page_header_button:hover {
-  background-color: #3979EB;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  background-color: #E06F12;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 
 .control-center__page_item-header {
-  background: #252525;
+  background: #2C2621;
   border-radius: 30px;
   padding: 0px 22px;
   min-height: 80px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .control-center__page_item-header.active {
   background: #202020;
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 .control-center__page_item-header label {
   font-size: 16px;
@@ -369,9 +380,9 @@ switch:checked slider {
 }
 
 .control-center__page_item {
-  background: #252525;
+  background: #2C2621;
   padding: 18px 22px;
-  color: #A0A7BE;
+  color: #BFAEA1;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__page_item:first-child {
@@ -393,8 +404,8 @@ switch:checked slider {
 
 .control-center__button {
   background-color: #202020;
-  border: 2px solid #3979EB;
-  color: #CAD3F5;
+  border: 2px solid #E06F12;
+  color: #F5DECC;
   padding: 10px 24px 10px 30px;
   border-radius: 30px;
   font-family: "Monaspace Radon";
@@ -405,52 +416,52 @@ switch:checked slider {
   font-weight: 600;
 }
 .control-center__button.active {
-  background-image: linear-gradient(45deg, #3979EB 25%, #202020 25%, #202020 50%, #3979EB 50%, #3979EB 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
-  color: #CAD3F5;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #F5DECC;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 .control-center__button.active:hover {
-  background: #3979EB;
+  background: #E06F12;
   background-size: 8px 8px;
 }
 .control-center__button.active:active {
-  background: #3979EB;
+  background: #E06F12;
   background-size: 8px 8px;
 }
 .control-center__button:hover {
-  background-image: linear-gradient(45deg, #3979EB 25%, #202020 25%, #202020 50%, #3979EB 50%, #3979EB 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
-  color: #CAD3F5;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #F5DECC;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 .control-center__button.no-label {
   padding: 0;
 }
 .control-center__button.recorder-indicator.active {
-  background: #93000a;
-  color: #ffdad6;
+  background: #e99898;
+  color: #F5DECC;
 }
 .control-center__button.recorder-indicator.active:hover {
   background: #202020;
 }
 .control-center__button.recorder-indicator.active:active {
-  background: #93000a;
+  background: #e99898;
 }
 
 .control-center__dropdown-menu {
-  background: #252525;
+  background: #2C2621;
   border-radius: 30px;
   padding: 24px;
 }
 
 .control-center__dropdown-menu_icon {
   font-size: 20px;
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 
 .control-center__dropdown-menu_title {
@@ -473,7 +484,7 @@ switch:checked slider {
 }
 .control-center__brightness-slider .control-center__slider-icon,
 .control-center__volume-slider .control-center__slider-icon {
-  color: #CAD3F5;
+  color: #F5DECC;
   margin-left: 0;
   font-size: 20px;
 }
@@ -490,9 +501,9 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
   transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  background-image: linear-gradient(45deg, #3979EB 25%, #202020 25%, #202020 50%, #3979EB 50%, #3979EB 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -506,14 +517,14 @@ switch:checked slider {
 }
 
 .muted .control-center__volume-slider highlight {
-  background-color: #252525;
+  background-color: #2C2621;
 }
 .muted .control-center__slider-icon {
-  color: #f1dedc;
+  color: #F5DECC;
 }
 
 .control-center__time-to-empty {
-  color: #A0A7BE;
+  color: #BFAEA1;
   font-size: 16px;
   font-weight: 500;
   font-family: "Monsapace Xenon";
@@ -524,20 +535,20 @@ switch:checked slider {
   min-width: 42px;
   min-height: 42px;
   background: #202020;
-  color: #f1dedc;
-  border: 2px solid #3979EB;
+  color: #F5DECC;
+  border: 2px solid #E06F12;
   border-radius: 100px;
   transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__settings-button:hover {
-  background: #dfc38c;
-  color: #3e2e04;
+  background: #12DE52;
+  color: #F5DECC;
 }
 
 .control-center__powermenu-button:hover {
-  background: #EB308F;
-  color: #442926;
+  background: #12DE52;
+  color: #F5DECC;
 }
 
 .control-center__footer {
@@ -546,21 +557,20 @@ switch:checked slider {
 
 /*Dashboard*/
 .dashboard {
-  border-radius: 30px;
+  border-radius: 0px;
   min-width: 420px;
   transition: background-color 1s cubic-bezier(0.85, 0, 0.15, 1), color 1s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-bottom: 2px;
 }
 
 .block {
-  background: #252525;
+  background: #2C2621;
   border-radius: 30px;
   padding: 20px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   transition: background-color 1s cubic-bezier(0.85, 0, 0.15, 1), color 1s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
-  margin-bottom: 2px;
+  margin-bottom: 100px;
 }
 
 .placeholder {
@@ -573,21 +583,24 @@ switch:checked slider {
 .calendar__header {
   margin-top: 12px;
   padding: 10px;
+  font-family: "Monaspace Radon";
+  font-size: 24px;
+  font-weight: normal;
 }
 
 .calendar__monthyear * {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: normal;
   font-family: "Monaspace Radon";
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 
 .calendar__weekdays {
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 
 .calendar__days {
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 
 .calendar__button {
@@ -597,28 +610,33 @@ switch:checked slider {
 .calendar__button__today {
   border-radius: 100px;
   background: #202020;
-  color: #CAD3F5;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
-  background-image: linear-gradient(45deg, #3979EB 25%, transparent 25%, transparent 50%, #3979EB 50%, #3979EB 75%, transparent 75%, transparent);
+  color: #F5DECC;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
   font-family: "Monaspace Radon";
   font-weight: bold;
 }
 
 .calendar__button {
-  color: #CAD3F5;
+  color: #F5DECC;
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .calendar__button__other-month {
-  color: #A0A7BE;
+  color: #BFAEA1;
+  font-family: "Monaspace Xenon";
+  font-size: 11px;
+  font-weight: 100;
 }
 
 .calendar__weekday {
   min-height: 40px;
   min-width: 36px;
-  font-weight: 600;
 }
 
 .calendar__day {
@@ -627,21 +645,20 @@ switch:checked slider {
   min-width: 40px;
 }
 .calendar__day.active {
-  background: #3979EB;
-  color: red;
+  background: #E06F12;
 }
 .calendar__day.inactive {
-  color: #252525;
+  color: #2C2621;
 }
 
 /*Notification*/
 .notification {
   padding: 14px 16px 14px 20px;
-  color: #CAD3F5;
-  background-color: #252525;
+  color: #F5DECC;
+  background-color: #2C2621;
   border-radius: 30px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
 
@@ -651,7 +668,7 @@ switch:checked slider {
   margin-right: 14px;
   border-radius: 100px;
   background: #202020;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
 }
 
 .notification__icon.telegram {
@@ -673,7 +690,7 @@ switch:checked slider {
 .notification__app-name,
 .notification__dot,
 .notification__time {
-  color: #A0A7BE;
+  color: #BFAEA1;
   font-size: 12px;
   font-weight: 400;
   font-family: "Monaspace Xenon";
@@ -693,11 +710,11 @@ switch:checked slider {
 .notification__action {
   background: none;
   transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  color: #3979EB;
+  color: #E06F12;
   border-radius: 100px;
 }
 .notification__action:hover {
-  color: #ffdad5;
+  color: #F5DECC;
   transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__action:first-child {
@@ -713,14 +730,14 @@ switch:checked slider {
   min-height: 22px;
   border-radius: 100px;
   background-color: #202020;
-  color: #CAD3F5;
+  color: #F5DECC;
   font-size: 16px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__close-button:hover {
-  background: #ffb4ab;
-  color: #A0A7BE;
+  background: #e99898;
+  color: #BFAEA1;
 }
 
 /*NotificationsPopup*/
@@ -738,9 +755,9 @@ switch:checked slider {
   min-width: 400px;
   min-height: 550px;
   padding: 10px 10px 0;
-  background: #252525;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  background: #2C2621;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   /* Don't cut off the box shadow*/
   transition: background-color 0.1s cubic-bezier(0.85, 0, 0.15, 1), color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
@@ -749,7 +766,7 @@ switch:checked slider {
   border-radius: 4px;
   transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: #202020;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 
 .notifications-window__clear {
@@ -757,14 +774,14 @@ switch:checked slider {
   padding: 10px 16px;
   margin-right: 18px;
   border-radius: 30px;
-  color: #CAD3F5;
+  color: #F5DECC;
   font-family: "Monaspace Radon";
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
 }
 
 .notifications-window__clear:hover {
-  background: #3979EB;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  background: #E06F12;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
 }
 
 .notifications-window__list revealer .notification {
@@ -792,10 +809,10 @@ switch:checked slider {
 }
 
 .container {
-  background-color: #252525;
+  background-color: #2C2621;
   border-radius: 30px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 20px;
 }
 
@@ -808,25 +825,25 @@ switch:checked slider {
 .indicator .progress .fill {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  color: #CAD3F5;
+  color: #F5DECC;
   transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-  background-image: linear-gradient(45deg, #3979EB 25%, #202020 25%, #202020 50%, #3979EB 50%, #3979EB 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: #252525;
-  color: #f1dedc;
+  background-color: #2C2621;
+  color: #F5DECC;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: #252525;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  background: #2C2621;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   padding: 20px;
   border-radius: 30px;
@@ -855,14 +872,14 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background: #3979EB;
-  color: #561e18;
+  background: #E06F12;
+  color: #F5DECC;
   border-radius: 0px;
   transition: background 0.3s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
 }
 .player__playpause.active {
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .player__next,
@@ -883,7 +900,7 @@ switch:checked slider {
 }
 .player__position-slider trough highlight {
   border-radius: 100px;
-  background-color: #f1dedc;
+  background-color: #F5DECC;
   border-radius: 100px;
   transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -893,20 +910,20 @@ switch:checked slider {
   border-radius: 7px;
   border-radius: 10px;
   box-shadow: none;
-  background-color: #f1dedc;
+  background-color: #F5DECC;
   transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: #252525;
+  background: #2C2621;
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .player__indicator.selected {
-  background: #f1dedc;
+  background: #F5DECC;
 }
 
 @keyframes slide {
@@ -936,10 +953,10 @@ switch:checked slider {
 
 .popup-menu {
   min-height: 400px;
-  background: #252525;
+  background: #2C2621;
   border-radius: 30px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   padding: 0 20px;
 }
@@ -974,7 +991,7 @@ switch:checked slider {
 .popup-menu__item {
   background: none;
   padding: 18px;
-  color: #f1dedc;
+  color: #F5DECC;
   border-radius: 100px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -1010,13 +1027,13 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: #252525;
+  background-color: #2C2621;
   min-height: 14px;
 }
 .mixer__slider trough highlight,
 .mixer__slider trough progress {
   border-radius: 100px;
-  background-color: #3979EB;
+  background-color: #E06F12;
   border-radius: 100px;
 }
 .mixer__slider trough slider {
@@ -1034,11 +1051,12 @@ switch:checked slider {
 }
 
 .bluetooth__percentage {
-  background: #73342c;
-  color: #ffdad5;
+  background: #202020;
+  color: #F5DECC;
   border-radius: 100px;
   padding: 0px 12px;
   margin-left: 12px;
+  border: 2px solid #E06F12;
 }
 
 .mixer-placeholder {
@@ -1052,9 +1070,9 @@ switch:checked slider {
 .powermenu {
   padding: 24px;
   border-radius: 30px;
-  background: #252525;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  background: #2C2621;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
 
@@ -1065,19 +1083,19 @@ switch:checked slider {
 .powermenu__button {
   padding: 0;
   background: #202020;
-  color: #CAD3F5;
+  color: #F5DECC;
   min-width: 100px;
   min-height: 100px;
   border-radius: 30px;
-  border: 2px solid #3979EB;
-  box-shadow: 0px 2px 0px 0px #EB308F;
-  text-shadow: -1.5px -1.5px 0 #252525, 1.5px -1.5px 0 #252525, -1.5px 1.5px 0 #252525, 1.5px 1.5px 0 #252525;
+  border: 2px solid #E06F12;
+  box-shadow: 0px 2px 0px 0px #12DE52;
+  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
   background-size: 8px 8px;
 }
 .powermenu__button:hover, .powermenu__button:focus {
-  background-image: linear-gradient(45deg, #3979EB 25%, transparent 25%, transparent 50%, #3979EB 50%, #3979EB 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  box-shadow: 0px 2px 0px 0px #EB308F;
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .powermenu__button:active {
   background: #202020;
@@ -1088,15 +1106,15 @@ switch:checked slider {
   font-weight: 500;
   font-family: "monaspace xenon";
   margin-top: 25px;
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 
 .verification {
   min-width: 300px;
   padding: 24px;
   border-radius: 30px;
-  background: #252525;
-  border: 2px solid #3979EB;
+  background: #2C2621;
+  border: 2px solid #E06F12;
 }
 
 .verification__title {
@@ -1117,7 +1135,7 @@ switch:checked slider {
 }
 
 .scrim {
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /*ThemeSettings*/
@@ -1128,24 +1146,30 @@ switch:checked slider {
 
 .mode-settings__button_left {
   background-color: #202020;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   border-radius: 30px 0px 0px 30px;
-  color: #CAD3F5;
+  color: #F5DECC;
   font-family: "Monaspace Xenon";
   min-width: 180px;
+  padding: 10px 0px;
+}
+.mode-settings__button_left.active {
+  background: #E06F12;
+  color: #F5DECC;
 }
 
 .mode-settings__button_right {
   background-color: #202020;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   border-radius: 0px 30px 30px 0px;
-  color: #CAD3F5;
+  color: #F5DECC;
   font-family: "Monaspace Xenon";
   min-width: 180px;
+  padding: 10px 0px;
 }
 .mode-settings__button_right.active {
-  background: #3979EB;
-  color: #CAD3F5;
+  background: #E06F12;
+  color: #F5DECC;
 }
 
 .theme_buttons_container {
@@ -1153,15 +1177,21 @@ switch:checked slider {
   padding: 20px;
 }
 
+.theme {
+  font-family: "Monaspace Radon";
+  font-size: 24px;
+  font-weight: normal;
+}
+
 /*Weather*/
 .weather-window {
-  background-color: #252525;
+  background-color: #2C2621;
   min-height: 150px;
   min-width: 300px;
   border-radius: 30px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   padding: 20px;
-  color: #CAD3F5;
+  color: #F5DECC;
 }
 
 .temperature {
@@ -1171,11 +1201,11 @@ switch:checked slider {
 }
 
 .location_input {
-  background-color: #252525;
+  background-color: #2C2621;
   border-radius: 30px;
-  border: 2px solid #3979EB;
+  border: 2px solid #E06F12;
   padding: 5px;
-  color: #CAD3F5;
+  color: #F5DECC;
   font-family: "Monaspace Xenon";
 }
 
