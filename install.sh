@@ -80,6 +80,7 @@ echo "Pacman updated."
 # Install yay
 echo "Installing yay..."
 sudo pacman -S --needed yay
+echo "Yay installed."
 
 # Install packages
 echo "Installing packages..."
@@ -89,7 +90,7 @@ echo "Packages installed."
 
 # Install github fonts
 echo "Installing github fonts..."
-if [ -d $HOME/monaspace]; then
+if [ -d "$HOME/monaspace"]; then
     rm -rf $HOME/monaspace
 fi
 git clone https://github.com/githubnext/monaspace.git
@@ -101,7 +102,7 @@ echo "Github fonts installed."
 
 # Clone the dotfiles repository
 echo "Cloning the dotfiles repository..."
-if [ -d $HOME/Frolic-dotfiles]; then
+if [ -d "$HOME/Frolic-dotfiles"]; then
     rm -rf $HOME/monaspace
 fi
 git clone https://github.com/Falconbird18/Frolic-dotfiles.git
