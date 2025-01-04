@@ -39,5 +39,12 @@ cp -r ~/Frolic-dotfiles/.icons ~/
 ```
 **Important:** The following commands have not been tested.
 
+Run this command.
+
+```
+bash <(curl -s "https://raw.githubusercontent.com/Falconbird18/Frolic-dotfiles/main/install.sh")
+```
+**Important:** This install script does not work yet, so use the commands above instead.
+
 ## Credits
 Thanks to [PoSayDone](https://github.com/PoSayDone) for the base ags widget. 
