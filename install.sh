@@ -103,11 +103,17 @@ cp -r $HOME/Frolic-dotfiles/.spicetify/ $HOME/
 cp -r $HOME/Frolic-dotfiles/.icons $HOME/
 echo "Config files installed."
 
-# Install spicetify
-echo "Installing spicetify..."
-sudo chmod a+wr /opt/spotify
-sudo chmod a+wr /opt/spotify/Apps -R
-spicetify apply
-echo "Spicetify installed."
+# Ask the user if they want to install Spicetify
+read -p "Do you want to install Spicetify? (y/n): " spicetify_choice
 
-echo "Installation complete. Please restart your system to apply the changes, and select hyprland as your desktop environment when you login."
+if [[ "$spicetify_choice" =~ ^[Yy]$ ]]; then
+    echo "Proceeding with Spicetify installation..."
+    sudo chmod a+wr /opt/spotify
+    sudo chmod a+wr /opt/spotify/Apps -R
+    spicetify apply
+    echo "Spicetify installed."
+else
+    echo "Skipping Spicetify installation."
+fi
+
+echo "Installation complete. Please restart your system to apply the changes, and
