@@ -4,33 +4,120 @@ echo "This script will guide you through the installation of Frolic Dotfiles."
 
 
 # Define the AGS config directory and backup directory
-AGS_CONFIG_DIR="$HOME/.config/ags"
-AGS_BACKUP_DIR="$HOME/.config/ags-bkup"
+CONFIG_PATHS=(
+    "$HOME/.config/ags"
+    "$HOME/.config/hypr"
+    "$HOME/.config/wofi"
+    "$HOME/.config/fish"
+    "$HOME/.config/starship.toml"
+    "$HOME/.config/spicetify"
+)
 
-# Ask the user if they want to back up the AGS config directory
-read -p "Do you want to back up your AGS config directory? (y/n): " backup_choice
+# Define the backup directory
+BACKUP_DIR="$HOME/.config/config-bkup"
+
+# Create the backup directory if it doesn't exist
+mkdir -p "$BACKUP_DIR"
+
+# Function to back up a directory or file
+backup_config() {
+    local path="$1"
+    local backup_path="$BACKUP_DIR/$(basename "$path")"
+
+    if [ -e "$path" ]; then
+        echo "Backing up $path to $backup_path..."
+        mv "$path" "$backup_path"
+        echo "Backup completed for $path."
+    else
+        echo "$path not found. Nothing to back up."
+    fi
+}
+
+# Check if any of the config paths exist
+config_exists=false
+for path in "${CONFIG_PATHS[@]}"; do
+    if [ -e "$path" ]; then
+        config_exists=true
+        break
+    fi
+done
+
+# If no config paths exist, exit
+if [ "$config_exists" = false ]; then
+    echo "No config directories or files found. Nothing to back up."
+    exit 0
+fi
+
+# Ask the user if they want to back up their configs
+read -p "Do you want to back up your config directories and files? (y/n): " backup_choice
 
 # Process the user's choice
 if [[ "$backup_choice" =~ ^[Yy]$ ]]; then
-    # Backup the AGS config directory
-    if [ -d "$AGS_CONFIG_DIR" ]; then
-        echo "Backing up AGS config directory to $AGS_BACKUP_DIR..."
-        mv "$AGS_CONFIG_DIR" "$AGS_BACKUP_DIR"
-        echo "Backup completed."
-    else
-        echo "AGS config directory not found. Nothing to back up."
-    fi
+    # Backup each config path
+    for path in "${CONFIG_PATHS[@]}"; do
+        backup_config "$path"
+    done
 elif [[ "$backup_choice" =~ ^[Nn]$ ]]; then
-    # Delete the AGS config directory
-    if [ -d "$AGS_CONFIG_DIR" ]; then
-        echo "Deleting AGS config directory..."
-        rm -rf "$AGS_CONFIG_DIR"
-        echo "AGS config directory deleted."
-    else
-        echo "AGS config directory not found. Nothing to delete."
-    fi
+    # Delete each config path
+    for path in "${CONFIG_PATHS[@]}"; do
+        if [ -e "$path" ]; then
+            echo "Deleting $path..."
+            rm -rf "$path"
+            echo "$path deleted."
+        else
+            echo "$path not found. Nothing to delete."
+        fi
+    done
 else
     # Handle invalid input
     echo "Invalid choice. Please enter 'y' or 'n'."
     exit 1
 fi
+
+echo "Backup process completed."
+
+# Pacman update
+
+echo "Updating pacman..."
+sudo pacman -Syu
+echo "Pacman updated."
+
+# Install yay
+# echo "Installing yay..."
+# sudo pacman -S --needed yay
+# echo "Yay installed."
+
+# Install packages
+echo "Installing packages..."
+sudo pacman -S --needed hyprland wofi fish starship hyprpicker spicetify-cli hyprlock wl-clipboard brightnessctl bluetoothctl cliphist sddm aylurs-gtk-shell git
+echo "Packages installed."
+
+# Install github fonts
+echo "Installing github fonts..."
+git clone https://github.com/githubnext/monaspace.git
+cd monaspace/fonts
+cp -r * ~/.local/share/fonts
+cd $HOME
+echo "Github fonts installed."
+
+# Clone the dotfiles repository
+echo "Cloning the dotfiles repository..."
+git clone https://github.com/Falconbird18/Frolic-dotfiles.git
+echo "Dotfiles repository cloned."
+
+# Copy the config files
+echo "Installing config files..."
+cp -r $HOME/Frolic-dotfiles/.config/* $HOME/.config
+cp $HOME/Frolic-dotfiles/.local/bin/hyprland-flee-bravely $HOME/.local/bin/
+cp -r $HOME/Frolic-dotfiles/.spicetify/ $HOME/
+cp -r $HOME/Frolic-dotfiles/.icons $HOME/
+echo "Config files installed."
+
+# Install spicetify
+echo "Installing spicetify..."
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+spicetify apply
+echo "Spicetify installed."
+
+echo "Installation complete. Please restart your system to apply the changes, and select hyprland as your desktop enviornment when you login."
