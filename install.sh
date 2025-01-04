@@ -85,20 +85,28 @@ echo "Packages installed."
 
 # Install github fonts
 echo "Installing github fonts..."
+if [ -d $HOME/monaspace]; then
+    rm -rf $HOME/monaspace
+fi
 git clone https://github.com/githubnext/monaspace.git
 cd monaspace/fonts
+mkdir -p ~/.local/share/fonts
 cp -r * ~/.local/share/fonts
 cd $HOME
 echo "Github fonts installed."
 
 # Clone the dotfiles repository
 echo "Cloning the dotfiles repository..."
+if [ -d $HOME/Frolic-dotfiles]; then
+    rm -rf $HOME/monaspace
+fi
 git clone https://github.com/Falconbird18/Frolic-dotfiles.git
 echo "Dotfiles repository cloned."
 
 # Copy the config files
 echo "Installing config files..."
 cp -r $HOME/Frolic-dotfiles/.config/* $HOME/.config
+mkdir -p $HOME/.local/bin
 cp $HOME/Frolic-dotfiles/.local/bin/hyprland-flee-bravely $HOME/.local/bin/
 cp -r $HOME/Frolic-dotfiles/.spicetify/ $HOME/
 cp -r $HOME/Frolic-dotfiles/.icons $HOME/
