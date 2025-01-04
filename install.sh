@@ -64,8 +64,7 @@ if [ "$config_exists" = true ]; then
         done
     else
         # Handle invalid input
-        echo "Invalid choice. Please enter 'y' or 'n'."
-        exit 1
+        echo "Invalid choice. Continuing with installation..."
     fi
 else
     echo "No config directories or files found. Continuing with installation..."
