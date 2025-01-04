@@ -90,8 +90,12 @@ echo "Packages installed."
 
 # Install github fonts
 echo "Installing github fonts..."
-if [ -d "$HOME/monaspace"]; then
-    rm -rf $HOME/monaspace
+if [ -d "$HOME/monaspace" ]; then
+    echo "Directory $HOME/monaspace exists. Removing it..."
+    rm -rf "$HOME/monaspace"
+    echo "Directory removed."
+else
+    echo "Directory $HOME/monaspace does not exist. Nothing to remove."
 fi
 git clone https://github.com/githubnext/monaspace.git
 cd monaspace/fonts
@@ -102,8 +106,12 @@ echo "Github fonts installed."
 
 # Clone the dotfiles repository
 echo "Cloning the dotfiles repository..."
-if [ -d "$HOME/Frolic-dotfiles"]; then
-    rm -rf $HOME/monaspace
+if [ -d "$HOME/Frolic-dotfiles" ]; then
+    echo "Directory $HOME/Frolic-dotfiles exists. Removing it..."
+    rm -rf "$HOME/Frolic-dotfiles"
+    echo "Directory removed."
+else
+    echo "Directory $HOME/Frolic-dotfiles does not exist. Nothing to remove."
 fi
 git clone https://github.com/Falconbird18/Frolic-dotfiles.git
 echo "Dotfiles repository cloned."
