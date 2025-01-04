@@ -77,6 +77,10 @@ echo "Updating pacman..."
 sudo pacman -Syu
 echo "Pacman updated."
 
+# Install yay
+echo "Installing yay..."
+sudo pacman -S --needed yay
+
 # Install packages
 echo "Installing packages..."
 sudo pacman -S --needed hyprland wofi fish starship hyprpicker hyprlock wl-clipboard brightnessctl bluez-utils cliphist sddm git
