@@ -979,9 +979,10 @@ switch:checked slider {
   margin-bottom: 0px;
 }
 .popup-menu__header label {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: normal;
   font-family: "Monaspace Radon";
+  color: #F5DECC;
 }
 
 .popup-menu__content > * > * {
@@ -1139,7 +1140,7 @@ switch:checked slider {
 }
 
 /*ThemeSettings*/
-.mode-buttons-container {
+.buttons-container {
   min-width: 360px;
   padding: 20px;
 }
@@ -1149,8 +1150,10 @@ switch:checked slider {
   border: 2px solid #E06F12;
   border-radius: 30px 0px 0px 30px;
   color: #F5DECC;
-  font-family: "Monaspace Xenon";
-  min-width: 180px;
+  font-family: "Monaspace Radon";
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 170px;
   padding: 10px 0px;
 }
 .mode-settings__button_left.active {
@@ -1163,8 +1166,10 @@ switch:checked slider {
   border: 2px solid #E06F12;
   border-radius: 0px 30px 30px 0px;
   color: #F5DECC;
-  font-family: "Monaspace Xenon";
-  min-width: 180px;
+  font-family: "Monaspace Radon";
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 170px;
   padding: 10px 0px;
 }
 .mode-settings__button_right.active {
@@ -1172,15 +1177,12 @@ switch:checked slider {
   color: #F5DECC;
 }
 
-.theme_buttons_container {
-  min-width: 360px;
-  padding: 20px;
-}
-
 .theme {
   font-family: "Monaspace Radon";
   font-size: 24px;
   font-weight: normal;
+  color: #F5DECC;
+  padding: 7px;
 }
 
 .theme-buttons {
@@ -1188,7 +1190,16 @@ switch:checked slider {
   border: 2px solid #E06F12;
   border-radius: 30px;
   color: #F5DECC;
-  padding: 10px 16px;
+  padding: 10px 0px;
+  min-width: 75px;
+}
+
+.label {
+  font-family: "Monaspace Xenon";
+  color: #F5DECC;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 15px;
 }
 
 /*Weather*/

@@ -1232,9 +1232,10 @@ switch:checked slider {
     margin-bottom: 0px;
 
     label {
-        font-size: 30px;
-        font-weight: 600;
-        font-family: 'Monaspace Radon';
+        font-size: $h1_size;
+        font-weight: $h1_weight;
+        font-family: $h1_font;
+        color: $text;
     }
 }
 
@@ -1423,7 +1424,7 @@ switch:checked slider {
 
 /*ThemeSettings*/
 
-.mode-buttons-container {
+.buttons-container {
     min-width: 360px;
     padding: 20px;
 }
@@ -1433,8 +1434,10 @@ switch:checked slider {
     border: 2px solid $primary;
     border-radius: 30px 0px 0px 30px;
     color: $text;
-    font-family: 'Monaspace Xenon';
-    min-width: 180px;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    min-width: 170px;
     padding: 10px 0px;
     &.active {
         background: $primary;
@@ -1447,31 +1450,40 @@ switch:checked slider {
     border: 2px solid $primary;
     border-radius: 0px 30px 30px 0px;
     color: $text;
-    font-family: 'Monaspace Xenon';
-    min-width: 180px;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    min-width: 170px;
     padding: 10px 0px;
     &.active {
         background: $primary;
         color: $text;
     }
 }
-.theme_buttons_container {
-    min-width: 360px;
-    padding: 20px;
-}
 
 .theme{
     font-family: $h1_font;
     font-size: $h1_size;
     font-weight: $h1_weight;
+    color: $text;
+    padding: 7px;
 }
 .theme-buttons{
     background-color: $card;
     border: 2px solid $primary;
     border-radius: 30px;
     color: $text;
-    padding: 10px 16px;
+    padding: 10px 0px;
+    min-width: 75px;
 
+}
+
+.label{
+    font-family: $paragraph_font;
+    color: $text;
+    font-size: $paragraph_size;
+    font-weight: $paragraph_weight;
+    padding-top: 15px;
 }
 /*Weather*/
 

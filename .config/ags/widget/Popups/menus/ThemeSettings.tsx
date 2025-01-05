@@ -4,7 +4,6 @@ const { GLib, Gio } = imports.gi;
 import { spacing } from "../../../lib/variables";
 import icons from "../../../lib/icons";
 import PopupMenu from "../PopupMenu";
-import WideIconButton from "../../../common/WideIconButton";
 
 const settingsFile = `${GLib.get_home_dir()}/.config/ags/theme-settings.json`;
 
@@ -52,7 +51,7 @@ export default () => {
             label="theme-settings"
         >
             <box vertical>
-                <box className="mode-buttons-container">
+                <box className="buttons-container">
                     <button
                         className="mode-settings__button_left"
                         onClick={() => setTheme(currentTheme.get(), "Light")}
@@ -66,43 +65,43 @@ export default () => {
                         <label label="Dark" />
                     </button>
                 </box>
-                <label label="Theme" className="theme" />
-                <box horizontal className="theme-buttons-container" spacing={spacing}>
+                <label label="Theme" className="theme" halign={Gtk.Align.START} />
+                <box horizontal className="buttons-container" spacing={spacing}>
                     <box vertical>
                         <button 
                             onClick={() => setTheme("Glaciara", currentMode.get())}
                             className="theme-buttons"
                         >
-                            <label label="Verdant" />
+                            <icon icon={icons.ui.edit} />
                         </button>
-                        <label label="Verdant" />
+                        <label label="Verdant" className="label" />
                     </box>
                     <box vertical>
                         <button 
                             onClick={() => setTheme("Glaciara", currentMode.get())}
                             className="theme-buttons"
                         >
-                            <label label="Zephyr" />
+                            <icon icon={icons.ui.edit} />
                         </button>
-                        <label label="Zephyr" />
+                        <label label="Zephyr" className="label" />
                     </box>
                     <box vertical>
                         <button 
                             onClick={() => setTheme("Frolic", currentMode.get())}
                             className="theme-buttons"
                         >
-                            <label label="Frolic" />
+                            <icon icon={icons.ui.edit} />
                         </button>
-                        <label label="Frolic" />
+                        <label label="Frolic" className="label" />
                     </box>
                     <box vertical>
                         <button 
                             onClick={() => setTheme("Glaciara", currentMode.get())}
                             className="theme-buttons"
                         >
-                            <label label="Glaciara" />
+                            <icon icon={icons.ui.edit} />
                         </button>
-                        <label label="Glaciara" />
+                        <label label="Glaciara" className="label" />
                     </box>
                 </box>
             </box>
