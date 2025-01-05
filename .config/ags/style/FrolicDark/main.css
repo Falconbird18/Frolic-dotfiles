@@ -344,8 +344,8 @@ switch:checked slider {
   margin-bottom: 24px;
 }
 .control-center__page_header label {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: normal;
   font-family: "Monaspace Radon";
 }
 
@@ -364,6 +364,10 @@ switch:checked slider {
 
 .control-center__page_item-header {
   background: #2C2621;
+  color: #F5DECC;
+  font-family: "Monaspace Radon";
+  font-size: 18px;
+  font-weight: normal;
   border-radius: 30px;
   padding: 0px 22px;
   min-height: 80px;
@@ -373,23 +377,27 @@ switch:checked slider {
 }
 .control-center__page_item-header.active {
   background: #202020;
-  color: #F5DECC;
 }
 .control-center__page_item-header label {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: normal;
   margin-left: 16px;
 }
 
 .control-center__page_item {
-  background: #2C2621;
+  background: #202020;
+  border: 2px solid #E06F12;
   padding: 18px 22px;
-  color: #BFAEA1;
+  color: #F5DECC;
+  font-weight: 300;
+  font-size: 14px;
   transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .control-center__page_item:first-child {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  margin-top: 10px;
 }
 .control-center__page_item:last-child {
   border-bottom-left-radius: 30px;
@@ -397,11 +405,13 @@ switch:checked slider {
 }
 .control-center__page_item label {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 300;
+  font-family: "Monaspace Xenon";
+  color: #F5DECC;
   margin-left: 16px;
 }
 .control-center__page_item:hover {
-  background-color: #202020;
+  background-color: #493F36;
 }
 
 .control-center__button {
@@ -526,10 +536,10 @@ switch:checked slider {
 }
 
 .control-center__time-to-empty {
-  color: #BFAEA1;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Monsapace Xenon";
+  color: #F5DECC;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Monaspace Xenon";
 }
 
 .control-center__settings-button,

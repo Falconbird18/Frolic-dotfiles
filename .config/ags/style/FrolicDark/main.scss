@@ -230,9 +230,10 @@ switch:checked slider {
     border: 2px solid $primary;
 }
 
-.arch-container{
+.arch-container {
     padding: 10px 0px
 }
+
 .bar__item {
     font-size: $h2_size;
     font-weight: $h2_weight;
@@ -450,9 +451,9 @@ switch:checked slider {
     margin-bottom: 24px;
 
     label {
-        font-size: 18px;
-        font-weight: 500;
-        font-family: 'Monaspace Radon';
+        font-size: $h1_size;
+        font-weight: $h1_weight;
+        font-family: $h1_font;
     }
 }
 
@@ -472,10 +473,14 @@ switch:checked slider {
 
 .control-center__page_item-header {
     background: $background;
+    color: $text;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+
 
     &.active {
         background: $background-2;
-        color: $text;
     }
 
     border-radius: 30px;
@@ -486,18 +491,20 @@ switch:checked slider {
     box-shadow: 0px 2px 0px 0px $secondary;
 
     label {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: $h2_size;
+        font-weight: $h2_weight;
         margin-left: 16px;
     }
 }
 
 .control-center__page_item {
-    background: $background;
+    background: $background-2;
+    border: 2px solid $primary;
 
     &:first-child {
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
+        margin-top: 10px;
     }
 
     &:last-child {
@@ -506,17 +513,22 @@ switch:checked slider {
     }
 
     padding: 18px 22px;
-    color: $subtext;
+    color: $text;
+    font-weight: $paragraph_weight;
+    font-size: $paragraph_size;
     transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+    box-shadow: 0px 2px 0px 0px $secondary;
 
     label {
-        font-size: 14px;
-        font-weight: 500;
+        font-size: $paragraph_size;
+        font-weight: $paragraph_weight;
+        font-family: $paragraph_font;
+        color: $text;
         margin-left: 16px;
     }
 
     &:hover {
-        background-color: $background-2;
+        background-color: $background-3;
     }
 }
 
@@ -689,39 +701,39 @@ switch:checked slider {
 }
 
 .control-center__time-to-empty {
-	color: $subtext;
-	font-size: 16px;
-	font-weight: 500;
-    font-family: 'Monsapace Xenon';
+    color: $text;
+    font-size: $paragraph_size;
+    font-weight: $paragraph_weight;
+    font-family: $paragraph_font;
 }
 
 .control-center__settings-button,
 .control-center__powermenu-button {
-	min-width: 42px;
-	min-height: 42px;
-	background: $background-2;
-	color: $text;
-	border: 2px solid $primary;
-	border-radius: 100px;
-	transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
+    min-width: 42px;
+    min-height: 42px;
+    background: $background-2;
+    color: $text;
+    border: 2px solid $primary;
+    border-radius: 100px;
+    transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__settings-button {
-	&:hover {
-		background: $secondary;
-		color: $text;
-	}
+    &:hover {
+        background: $secondary;
+        color: $text;
+    }
 }
 
 .control-center__powermenu-button {
-	&:hover {
-		background: $secondary;
-		color: $text;
-	}
+    &:hover {
+        background: $secondary;
+        color: $text;
+    }
 }
 
 .control-center__footer {
-	margin: 10px 8px;
+    margin: 10px 8px;
 }
 
 /*Dashboard*/
@@ -1122,13 +1134,13 @@ switch:checked slider {
     &.active {
         border-radius: 25px;
         background: linear-gradient(45deg,
-            $primary 25%,
-            $background-2 25%,
-            $background-2 50%,
-            $primary 50%,
-            $primary 75%,
-            $background-2 75%,
-            $background-2);
+                $primary 25%,
+                $background-2 25%,
+                $background-2 50%,
+                $primary 50%,
+                $primary 75%,
+                $background-2 75%,
+                $background-2);
         background-size: 8px 8px;
         border: 2px solid $primary;
 
@@ -1472,6 +1484,7 @@ switch:checked slider {
     font-weight: $h2_weight;
     min-width: 170px;
     padding: 10px 0px;
+
     &.active {
         background: $primary;
         color: $text;
@@ -1488,20 +1501,22 @@ switch:checked slider {
     font-weight: $h2_weight;
     min-width: 170px;
     padding: 10px 0px;
+
     &.active {
         background: $primary;
         color: $text;
     }
 }
 
-.theme{
+.theme {
     font-family: $h1_font;
     font-size: $h1_size;
     font-weight: $h1_weight;
     color: $text;
     padding: 7px;
 }
-.theme-buttons{
+
+.theme-buttons {
     background-color: $background-2;
     border: 2px solid $primary;
     border-radius: 30px;
@@ -1511,13 +1526,14 @@ switch:checked slider {
 
 }
 
-.label{
+.label {
     font-family: $paragraph_font;
     color: $text;
     font-size: $paragraph_size;
     font-weight: $paragraph_weight;
     padding-top: 15px;
 }
+
 /*Weather*/
 
 .weather-window {
