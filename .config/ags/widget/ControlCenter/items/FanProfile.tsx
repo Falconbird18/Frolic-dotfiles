@@ -1,4 +1,4 @@
-import ControlCenterButton from "../ControlCenterButton";
+import ControlCenterButton from "../../../common/WideIconButton";
 import FanProfilesService, { profileName } from "../../../service/FanProfiles";
 import { bind } from "astal";
 import icons from "../../../lib/icons";

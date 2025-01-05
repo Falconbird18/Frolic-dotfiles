@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import ControlCenterButton from "../ControlCenterButton";
+import ControlCenterButton from "../../../common/WideIconButton";
 import Bluetooth from "gi://AstalBluetooth?version=0.1";
 import icons from "../../../lib/icons";
 

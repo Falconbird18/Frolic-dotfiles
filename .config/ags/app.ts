@@ -1,6 +1,9 @@
 import { App, Gdk, Gtk } from "astal/gtk3";
+import { exec } from "astal";
 import Theme from "./widget/Popups/menus/ThemeSettings";
+const { GLib } = imports.gi;
 // const style = require(`../ags/style/frolic${Theme}/main.scss`);
+import { currentTheme, currentMode } from "./widget/Popups/menus/ThemeSettings";
 import style from "../ags/style/FrolicDark/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
@@ -21,6 +24,18 @@ import Verification from "./widget/Powermenu/Verification";
 import Powermenu from "./widget/Powermenu";
 import ScreenRecordService from "./service/ScreenRecord";
 import Dashboard from "./widget/Dashboard";
+
+const applyTheme = () => {
+    const homeDir = GLib.get_home_dir();
+    const theme = currentTheme.get();
+    const mode = currentMode.get();
+    const themePathCss = `${homeDir}/.config/ags/style/${theme}${mode}/main.css`;
+    const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
+    exec(`sass ${themePathScss} ${themePathCss}`);
+    console.log("Scss compiled");
+    App.apply_css(themePathCss);
+    console.log("Compiled css applied");
+};
 
 function main() {
 	const bars = new Map<Gdk.Monitor, Gtk.Widget>();
@@ -61,11 +76,14 @@ function main() {
 	});
 
 	monitorColorsChange();
-	monitorDashboard();
+	monitorDashboard()
+	applyTheme();
+
+	currentTheme.subscribe(applyTheme);
+	currentMode.subscribe(applyTheme);
 }
 
 App.start({
-	css: style,
 	main: main,
 	requestHandler(request: string, res: (response: any) => void) {
 		const args = request.split(" ");

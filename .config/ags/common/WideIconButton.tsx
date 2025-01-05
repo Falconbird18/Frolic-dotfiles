@@ -1,8 +1,8 @@
 import { App, Gtk, Gdk, Widget, Astal } from "astal/gtk3";
 import { bind, execAsync, timeout, Variable } from "astal";
-import icons from "../../lib/icons";
+import icons from "../lib/icons";
 import Binding, { Subscribable } from "astal/binding";
-import { controlCenterPage } from ".";
+import { controlCenterPage } from "../widget/ControlCenter";
 import Network from "gi://AstalNetwork?version=0.1";
 
 type ControlCenterButtonProps = {
