@@ -1,6 +1,45 @@
 import { Variable } from "astal";
+const { GLib, Gio } = imports.gi;
 
-const Location = "Richland,WA";
+const settingsFile = `${GLib.get_home_dir()}/.config/ags/service/weather-location.json`;
+console.log("Settings file:", settingsFile);
+
+export const loadLocation = () => {
+    try {
+        const file = Gio.File.new_for_path(settingsFile);
+        const [ok, contents] = file.load_contents(null);
+        if (ok) {
+            const settings = JSON.parse(new TextDecoder().decode(contents));
+            console.log("Loaded settings:", settings);
+            if (settings?.location && typeof settings.location === "string") {
+                return settings.location;
+            }
+        }
+    } catch (e) {
+        console.error("Failed to load location:", e);
+    }
+    return null;
+};
+
+export let Location = loadLocation();
+export const location = Variable(Location);
+
+export const setLocation = (newLocation: string) => {
+    Location = newLocation;
+    location.set(newLocation); // Update the Variable instance
+};
+
+export const updateWeatherCommands = () => {
+    temperature[1] = `wttr.in/${Location}?format=%c%t`;
+    feelslikeTemp[1] = `wttr.in/${Location}?format=%f`;
+    humid[1] = `wttr.in/${Location}?format=%h`;
+    Pressure[1] = `wttr.in/${Location}?format=%P`;
+    uvindex[1] = `wttr.in/${Location}?format=%u`;
+    Precipitation[1] = `wttr.in/${Location}?format=%p`;
+    Wind[1] = `wttr.in/${Location}?format=%w`;
+    bar[1] = `wttr.in/${Location}?format=${barFormat}`;
+};
+
 const temperature = [
   "curl",
   `wttr.in/${Location}?format=%c%t`,
@@ -36,7 +75,6 @@ const bar = [
   `wttr.in/${Location}?format=${barFormat}`,
 ];
 
-
 /**
  * Polls the weather API every 30 seconds and updates the weather variable.
  * The weather variable is an object containing the current weather data.
@@ -45,16 +83,16 @@ export const barWeather = Variable<any | null>(null).poll(
   30_000,
   bar,
   (out, prev) => {
-	console.log('Weather output:', out);
-	return out;
+    console.log('Weather output:', out);
+    return out;
   },
 );
 export const realTemp = Variable<any | null>(null).poll(
   30_000,
   temperature,
   (out, prev) => {
-	console.log('Temperature:', out);
-	return out;
+    console.log('Temperature:', out);
+    return out;
   },
 );
 export const feelsTemp = Variable<any | null>(null).poll(
@@ -124,4 +162,3 @@ export const precipitation = Variable<any | null>(null).poll(
     return out;
   },
 );
-export const location = Location

@@ -1465,6 +1465,14 @@ switch:checked slider {
     font-size: $h1_size;
     font-weight: $h1_weight;
 }
+.theme-buttons{
+    background-color: $card;
+    border: 2px solid $primary;
+    border-radius: 30px;
+    color: $text;
+    padding: 10px 16px;
+
+}
 /*Weather*/
 
 .weather-window {

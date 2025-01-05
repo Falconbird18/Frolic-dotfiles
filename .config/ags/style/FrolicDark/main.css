@@ -1183,6 +1183,14 @@ switch:checked slider {
   font-weight: normal;
 }
 
+.theme-buttons {
+  background-color: #202020;
+  border: 2px solid #E06F12;
+  border-radius: 30px;
+  color: #F5DECC;
+  padding: 10px 16px;
+}
+
 /*Weather*/
 .weather-window {
   background-color: #2C2621;
