@@ -3,8 +3,10 @@
 /* Colors */
 $background: #F0EDEA;
 /* background: hsl(27, 15%, 93%)*/
-$card: #F2F2F2;
-$background-light: #404040;
+$background-2: #F2F2F2;
+/* card: hsl(0, 0%, 95%)*/
+$background-3: #DAD3CD;
+/* background-light: hsl(27, 15%, 83%)*/
 $primary: #E06F12;
 /* primary: hsl(27, 85%, 47%)*/
 $secondary: #12DE52;
@@ -29,10 +31,6 @@ $h1_size: 24px;
 $h2_size: 18px;
 $paragraph_size: 14px;
 $subtext_size: 11px;
-
-
-
-
 
 /*Common*/
 
@@ -103,7 +101,7 @@ window.popup {
 
             &:hover {
                 // check that this is the correct color
-                background: $card;
+                background: $background-2;
             }
 
             &:first-child {
@@ -120,7 +118,7 @@ window.popup {
 switch {
     border: 2px solid $subtext;
     border-radius: 100px;
-    background-color: $card;
+    background-color: $background-2;
 }
 
 switch slider {
@@ -135,7 +133,7 @@ switch:active slider {
 }
 
 switch:active {
-    background-color: $card;
+    background-color: $background-2;
 }
 
 switch:checked {
@@ -160,12 +158,12 @@ switch:checked slider {
     &.filled {
         background-image: linear-gradient(45deg,
                 $primary 25%,
-                $card 25%,
-                $card 50%,
+                $background-2 25%,
+                $background-2 50%,
                 $primary 50%,
                 $primary 75%,
-                $card 75%,
-                $card);
+                $background-2 75%,
+                $background-2);
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
@@ -195,12 +193,12 @@ switch:checked slider {
         &:hover {
             background-image: linear-gradient(45deg,
                     $primary 25%,
-                    $card 25%,
-                    $card 50%,
+                    $background-2 25%,
+                    $background-2 50%,
                     $primary 50%,
                     $primary 75%,
-                    $card 75%,
-                    $card);
+                    $background-2 75%,
+                    $background-2);
             background-size: 8px 8px;
             border: 2px solid $primary;
             box-shadow: 0px 2px 0px 0px $secondary;
@@ -240,7 +238,7 @@ switch:checked slider {
     padding-right: 16px;
     min-height: 42px;
     border-radius: 24px;
-    background: $card;
+    background: $background-2;
     color: $text;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
@@ -303,7 +301,7 @@ switch:checked slider {
 }
 
 .bar__item.primary_container {
-    background: $card;
+    background: $background-2;
     color: $text;
 }
 
@@ -314,7 +312,7 @@ switch:checked slider {
     transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
     border-radius: 100px;
     border: 2px solid $primary;
-    background-color: $card;
+    background-color: $background-2;
     background-size: 8px 8px;
 
     &:hover {
@@ -378,7 +376,7 @@ switch:checked slider {
     min-width: 18px;
     min-height: 18px;
     background: $text;
-    color: $card;
+    color: $background-2;
 }
 
 .bar__tray {
@@ -457,7 +455,7 @@ switch:checked slider {
 }
 
 .control-center__page_header_button {
-    background: $card;
+    background: $background-2;
     border: 2px solid $primary;
     color: $text;
     min-width: 38px;
@@ -474,7 +472,7 @@ switch:checked slider {
     background: $background;
 
     &.active {
-        background: $card;
+        background: $background-2;
         color: $text;
     }
 
@@ -516,12 +514,12 @@ switch:checked slider {
     }
 
     &:hover {
-        background-color: $card;
+        background-color: $background-2;
     }
 }
 
 .control-center__button {
-    background-color: $card;
+    background-color: $background-2;
     border: 2px solid $primary;
     color: $text;
     padding: 10px 24px 10px 30px;
@@ -534,12 +532,12 @@ switch:checked slider {
     &.active {
         background-image: linear-gradient(45deg,
                 $primary 25%,
-                $card 25%,
-                $card 50%,
+                $background-2 25%,
+                $background-2 50%,
                 $primary 50%,
                 $primary 75%,
-                $card 75%,
-                $card );
+                $background-2 75%,
+                $background-2 );
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
@@ -560,12 +558,12 @@ switch:checked slider {
     &:hover {
         background-image: linear-gradient(45deg,
                 $primary 25%,
-                $card 25%,
-                $card 50%,
+                $background-2 25%,
+                $background-2 50%,
                 $primary 50%,
                 $primary 75%,
-                $card 75%,
-                $card );
+                $background-2 75%,
+                $background-2 );
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
@@ -586,7 +584,7 @@ switch:checked slider {
             color: $text;
 
             &:hover {
-                background: $card;
+                background: $background-2;
             }
 
             &:active {
@@ -641,7 +639,7 @@ switch:checked slider {
             background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
             color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
         border-radius: 100px;
-        background-color: $background-light;
+        background-color: $background-3;
         min-height: 15px;
 
         highlight {
@@ -651,12 +649,12 @@ switch:checked slider {
             transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
             background-image: linear-gradient(45deg,
                     $primary 25%,
-                    $card 25%,
-                    $card 50%,
+                    $background-2 25%,
+                    $background-2 50%,
                     $primary 50%,
                     $primary 75%,
-                    $card 75%,
-                    $card);
+                    $background-2 75%,
+                    $background-2);
             background-size: 8px 8px;
             border: 2px solid $primary;
             padding: 2px 0px;
@@ -699,7 +697,7 @@ switch:checked slider {
 .control-center__powermenu-button {
 	min-width: 42px;
 	min-height: 42px;
-	background: $card;
+	background: $background-2;
 	color: $text;
 	border: 2px solid $primary;
 	border-radius: 100px;
@@ -787,7 +785,7 @@ switch:checked slider {
 
 .calendar__button__today {
     border-radius: 100px;
-    background: $card;
+    background: $background-2;
     color: $text;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
@@ -857,7 +855,7 @@ switch:checked slider {
     min-width: 30px;
     margin-right: 14px;
     border-radius: 100px;
-    background: $card;
+    background: $background-2;
     border: 2px solid $primary;
 }
 
@@ -922,7 +920,7 @@ switch:checked slider {
     min-width: 22px;
     min-height: 22px;
     border-radius: 100px;
-    background-color: $card;
+    background-color: $background-2;
     color: $text;
     font-size: 16px;
     border: 2px solid $primary;
@@ -965,13 +963,13 @@ switch:checked slider {
     .notification {
         border-radius: 4px;
         transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-        background-color: $card;
+        background-color: $background-2;
         box-shadow: 0px 2px 0px 0px $secondary;
     }
 }
 
 .notifications-window__clear {
-    background: $card;
+    background: $background-2;
     padding: 10px 16px;
     margin-right: 18px;
     border-radius: 30px;
@@ -1030,7 +1028,7 @@ switch:checked slider {
 
 .indicator .progress {
     border-radius: 30px;
-    background-color: $background-light;
+    background-color: $background-3;
     margin: 25px;
     padding: 0px;
 
@@ -1042,12 +1040,12 @@ switch:checked slider {
         transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
         background-image: linear-gradient(45deg,
                 $primary 25%,
-                $card 25%,
-                $card 50%,
+                $background-2 25%,
+                $background-2 50%,
                 $primary 50%,
                 $primary 75%,
-                $card 75%,
-                $card);
+                $background-2 75%,
+                $background-2);
         background-size: 8px 8px;
         border: 2px solid $primary;
         padding: 2px 0px;
@@ -1068,7 +1066,7 @@ switch:checked slider {
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
     margin-bottom: 2px;
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 30px;
     background-size: cover;
     background-position: center;
@@ -1079,33 +1077,59 @@ switch:checked slider {
     font-size: 20px;
 }
 
+.player__box {
+    background-color: $background-2;
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid $primary;
+}
+
 .player__title {
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: $h1_weight;
+    font-size: $h1_size;
+    font-family: $h1_font;
+    color: $text;
     padding-right: 18px;
 }
 
 .player__artist {
     padding-right: 18px;
-    font-weight: 400;
-    font-size: 17px;
+    font-weight: $paragraph_weight;
+    font-size: $paragraph_size;
+    font-family: $paragraph_font;
+    color: $text;
+    padding-top: 10px;
 }
 
 .player__playpause {
     min-width: 60px;
     min-height: 60px;
     padding: 0;
-    background: $primary;
+    background: $background-2;
     color: $text;
+    font-size: $h1_size;
     border-radius: 0px;
+    border: 2px solid $primary;
     transition:
         background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
         border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1),
         color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
     border-radius: 30px;
+    background-size: 8px 8px;
 
     &.active {
         border-radius: 25px;
+        background: linear-gradient(45deg,
+            $primary 25%,
+            $background-2 25%,
+            $background-2 50%,
+            $primary 50%,
+            $primary 75%,
+            $background-2 75%,
+            $background-2);
+        background-size: 8px 8px;
+        border: 2px solid $primary;
+
     }
 }
 
@@ -1128,23 +1152,33 @@ switch:checked slider {
             background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
             color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
         border-radius: 100px;
+        background-color: $background-3;
+        min-height: 15px;
 
         highlight {
-            border-radius: 100px;
-            background-color: $text;
-            border-radius: 100px;
-            transition:
-                background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-                color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+            min-width: 15px;
+            transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+            border-radius: 30px;
+            transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+            background-image: linear-gradient(45deg,
+                    $primary 25%,
+                    $background-2 25%,
+                    $background-2 50%,
+                    $primary 50%,
+                    $primary 75%,
+                    $background-2 75%,
+                    $background-2);
+            background-size: 8px 8px;
+            border: 2px solid $primary;
+            padding: 2px 0px;
+            margin: -2px 0px;
         }
 
         slider {
-            margin: -10px;
-            padding: 2px 0;
-            border-radius: 7px;
-            border-radius: 10px;
+            min-width: 30px;
+            border-radius: 100px;
+            background-color: transparent;
             box-shadow: none;
-            background-color: $text;
 
             transition:
                 background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
@@ -1259,7 +1293,7 @@ switch:checked slider {
     }
 
     &:hover {
-        background-color: $card;
+        background-color: $background-2;
     }
 
     &:last-child {
@@ -1281,7 +1315,7 @@ switch:checked slider {
 }
 
 // .mixer__tooltip {
-// background: $card;
+// background: $background-2;
 // border-radius: 100px;
 // }
 
@@ -1313,13 +1347,13 @@ switch:checked slider {
 }
 
 .mixer__value {
-    background: $card;
+    background: $background-2;
     border-radius: 100px;
     min-width: 56px;
 }
 
 .bluetooth__percentage {
-    background: $card;
+    background: $background-2;
     color: $text;
     border-radius: 100px;
     padding: 0px 12px;
@@ -1352,7 +1386,7 @@ switch:checked slider {
 
 .powermenu__button {
     padding: 0;
-    background: $card;
+    background: $background-2;
     color: $text;
     min-width: 100px;
     min-height: 100px;
@@ -1377,7 +1411,7 @@ switch:checked slider {
     }
 
     &:active {
-        background: $card;
+        background: $background-2;
     }
 }
 
@@ -1427,7 +1461,7 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-    background-color: $card;
+    background-color: $background-2;
     border: 2px solid $primary;
     border-radius: 30px 0px 0px 30px;
     color: $text;
@@ -1443,7 +1477,7 @@ switch:checked slider {
 }
 
 .mode-settings__button_right {
-    background-color: $card;
+    background-color: $background-2;
     border: 2px solid $primary;
     border-radius: 0px 30px 30px 0px;
     color: $text;
@@ -1466,7 +1500,7 @@ switch:checked slider {
     padding: 7px;
 }
 .theme-buttons{
-    background-color: $card;
+    background-color: $background-2;
     border: 2px solid $primary;
     border-radius: 30px;
     color: $text;

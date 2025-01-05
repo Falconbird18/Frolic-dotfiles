@@ -68,7 +68,6 @@ const Player = ({ player }: PlayerProps) => {
 				};
 				toggleActive();
 				self.hook(player, "notify::playback-status", toggleActive);
-				self.hook(PlayerColors, "notify::colors", () => updateColors(self, PlayerColors.colors!));
 			}}
 		>
 			<icon
@@ -100,8 +99,8 @@ const Player = ({ player }: PlayerProps) => {
 			<box vexpand valign={Gtk.Align.START}>
 				<PlayerIcon />
 			</box>
-			<box hexpand vexpand valign={Gtk.Align.CENTER}>
-				<box vertical halign={Gtk.Align.START} vexpand valign={Gtk.Align.CENTER} className="player__title-box"
+			<box hexpand vexpand valign={Gtk.Align.CENTER} className="player__box">
+				<box vertical halign={Gtk.Align.START} vexpand valign={Gtk.Align.CENTER}
                 setup={(self) => {
 						self.hook(player, "notify::title", (_) => {
 							self.toggleClassName("dissappear", true);

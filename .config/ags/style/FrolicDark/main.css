@@ -1,5 +1,7 @@
 /* Colors */
 /* background: hsl(27, 15%, 15%)*/
+/* background-2: hsl(0, 0%, 13%)*/
+/* background-3: hsl(0, 0%, 25%)*/
 /* primary: hsl(27, 85%, 47%)*/
 /* secondary: hsl(139, 85%, 47%)*/
 /* text: hsl(27, 68%, 88%)*/
@@ -492,7 +494,7 @@ switch:checked slider {
 .control-center__volume-slider trough {
   transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  background-color: #404040;
+  background-color: #493F36;
   min-height: 15px;
 }
 .control-center__brightness-slider trough highlight,
@@ -818,7 +820,7 @@ switch:checked slider {
 
 .indicator .progress {
   border-radius: 30px;
-  background-color: #404040;
+  background-color: #493F36;
   margin: 25px;
   padding: 0px;
 }
@@ -845,7 +847,7 @@ switch:checked slider {
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
-  padding: 20px;
+  padding: 20px 10px;
   border-radius: 30px;
   background-size: cover;
   background-position: center;
@@ -856,30 +858,48 @@ switch:checked slider {
   font-size: 20px;
 }
 
+.player__box {
+  background-color: #202020;
+  padding: 10px;
+  border-radius: 30px;
+  border: 2px solid #E06F12;
+}
+
 .player__title {
-  font-weight: 600;
-  font-size: 19px;
+  font-weight: normal;
+  font-size: 24px;
+  font-family: "Monaspace Radon";
+  color: #F5DECC;
   padding-right: 18px;
 }
 
 .player__artist {
   padding-right: 18px;
-  font-weight: 400;
-  font-size: 17px;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: "Monaspace Xenon";
+  color: #F5DECC;
+  padding-top: 10px;
 }
 
 .player__playpause {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background: #E06F12;
+  background: #202020;
   color: #F5DECC;
+  font-size: 24px;
   border-radius: 0px;
+  border: 2px solid #E06F12;
   transition: background 0.3s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
+  background-size: 8px 8px;
 }
 .player__playpause.active {
   border-radius: 25px;
+  background: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  background-size: 8px 8px;
+  border: 2px solid #E06F12;
 }
 
 .player__next,
@@ -897,20 +917,25 @@ switch:checked slider {
 .player__position-slider trough {
   transition: background 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
+  background-color: #493F36;
+  min-height: 15px;
 }
 .player__position-slider trough highlight {
-  border-radius: 100px;
-  background-color: #F5DECC;
-  border-radius: 100px;
-  transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  min-width: 15px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  border-radius: 30px;
+  transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  background-size: 8px 8px;
+  border: 2px solid #E06F12;
+  padding: 2px 0px;
+  margin: -2px 0px;
 }
 .player__position-slider trough slider {
-  margin: -10px;
-  padding: 2px 0;
-  border-radius: 7px;
-  border-radius: 10px;
+  min-width: 30px;
+  border-radius: 100px;
+  background-color: transparent;
   box-shadow: none;
-  background-color: #F5DECC;
   transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
