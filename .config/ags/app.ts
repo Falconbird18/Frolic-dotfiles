@@ -7,6 +7,7 @@ import { currentTheme, currentMode } from "./widget/Popups/menus/ThemeSettings";
 import style from "../ags/style/FrolicDark/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
+import AppLauncher from "./widget/AppLauncher";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
 import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
@@ -53,6 +54,7 @@ function main() {
 	Verification();
 	Powermenu();
 	Dashboard();
+	AppLauncher();
 
 	for (const gdkmonitor of App.get_monitors()) {
 		bars.set(gdkmonitor, Bar(gdkmonitor));

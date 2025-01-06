@@ -34,6 +34,100 @@ $h2_size: 18px;
 $paragraph_size: 14px;
 $subtext_size: 11px;
 
+/* General */
+$transition: 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+
+/* AppLauncher */
+.app-launcher {
+	min-width: 650px;
+	border-radius: 30px;
+	padding: 0px;
+	background: $background;
+	min-height: 700px;
+    border: 2px solid $primary;
+}
+
+.app-launcher__input {
+	background: $background-2;
+	border: 2px solid $primary;
+	outline: none;
+	margin: 20px;
+	padding: 12px 22px;
+	border-radius: 30px;
+	box-shadow: none;
+    color: $text;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+
+	icon {
+		margin-right: 20px;
+	}
+}
+
+.app-launcher__list {
+	margin: 0 10px;
+	margin-top: 8px;
+	margin-bottom: 10px;
+}
+
+.app-launcher__item {
+	all: unset;
+	transition: all $transition;
+	padding: 12px 18px;
+	border-radius: 30px;
+    background-size: 8px 8px;
+
+	label {
+		transition: all $transition;
+
+		&.title {
+            font-family: $paragraph_font;
+            font-size: $paragraph_size;
+			font-weight: $paragraph_weight;
+			color: $text;
+            margin-bottom: 10px;
+		}
+
+		&.description {
+            font-family: $subtext_font;
+            font-size: $subtext_size;
+            font-weight: $subtext_weight;
+			color: $subtext;
+		}
+	}
+
+	icon {
+		font-size: 32px;
+		margin-right: 10px;
+	}
+
+	&:hover {
+		background: $background-2;
+        border: 2px solid $primary;
+        box-shadow: 0 2px 0 0 $secondary;
+	}
+
+	&:focus {
+		background-image: linear-gradient(45deg,
+                $primary 25%,
+                $background-2 25%,
+                $background-2 50%,
+                $primary 50%,
+                $primary 75%,
+                $background-2 75%,
+                $background-2);
+        background-size: 8px 8px;
+        border: 2px solid $primary;
+        box-shadow: 0 2px 0 0 $secondary;
+	}
+
+	&:active {
+		background-color: $background-3;
+		border-radius: 100px;
+	}
+}
+
 /*Common*/
 
 * {
@@ -99,7 +193,7 @@ window.popup {
             padding: 12px 6px;
             color: $text;
             border-radius: 100px;
-            transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+            transition: background $transition;
 
             &:hover {
                 // check that this is the correct color
@@ -247,7 +341,7 @@ switch:checked slider {
     box-shadow: 0px 2px 0px 0px $secondary;
     font-family: $h2_font;
     background-size: 8px 8px;
-    transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: all 0.3s $transition;
 
     &.bar__button {
         &:hover {
@@ -312,7 +406,7 @@ switch:checked slider {
     padding: 0;
     min-width: 8px;
     min-height: 8px;
-    transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: all $transition;
     border-radius: 100px;
     border: 2px solid $primary;
     background-color: $background-2;
@@ -486,7 +580,7 @@ switch:checked slider {
     border-radius: 30px;
     padding: 0px 22px;
     min-height: 80px;
-    transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: background $transition;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
 
@@ -516,7 +610,7 @@ switch:checked slider {
     color: $text;
     font-weight: $paragraph_weight;
     font-size: $paragraph_size;
-    transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: background $transition;
     box-shadow: 0px 2px 0px 0px $secondary;
 
     label {
@@ -541,7 +635,7 @@ switch:checked slider {
     font-family: 'Monaspace Radon';
     background-size: 8px 8px;
     margin-bottom: 2px;
-    transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: all $transition;
 
     &.active {
         background-image: linear-gradient(45deg,
@@ -650,17 +744,16 @@ switch:checked slider {
 
     trough {
         transition:
-            background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-            color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+            background-color $transition,
+            color $transition;
         border-radius: 100px;
         background-color: $background-3;
         min-height: 15px;
 
         highlight {
             min-width: 15px;
-            transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+            transition: all $transition;
             border-radius: 30px;
-            transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
             background-image: linear-gradient(45deg,
                     $primary 25%,
                     $background-2 25%,
@@ -682,8 +775,8 @@ switch:checked slider {
             box-shadow: none;
 
             transition:
-                background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-                color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+                background-color $transition,
+                color $transition;
         }
     }
 }
@@ -715,7 +808,7 @@ switch:checked slider {
     color: $text;
     border: 2px solid $primary;
     border-radius: 100px;
-    transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: all $transition;
 }
 
 .control-center__settings-button {
@@ -742,8 +835,8 @@ switch:checked slider {
     border-radius: 0px;
     min-width: 420px;
     transition:
-        background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
-        color 1s cubic-bezier(0.85, 0, 0.15, 1);
+        background-color $transition,
+        color $transition;
 }
 
 .block {
@@ -753,8 +846,8 @@ switch:checked slider {
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
     transition:
-        background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
-        color 1s cubic-bezier(0.85, 0, 0.15, 1);
+        background-color $transition,
+        color $transition;
     font-family: 'Monaspace Xenon';
     margin-bottom: 100px;
 }
@@ -911,13 +1004,13 @@ switch:checked slider {
 
 .notification__action {
     background: none;
-    transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: color $transition;
     color: $primary;
     border-radius: 100px;
 
     &:hover {
         color: $text;
-        transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+        transition: color $transition;
     }
 
     &:first-child {
@@ -939,8 +1032,8 @@ switch:checked slider {
     font-size: 16px;
     border: 2px solid $primary;
     transition:
-        background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1),
-        color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+        background-color $transition,
+        color $transition;
 
     &:hover {
         background: $error;
@@ -971,12 +1064,12 @@ switch:checked slider {
     margin-bottom: 2px;
     /* Don't cut off the box shadow*/
     transition:
-        background-color 0.1s cubic-bezier(0.85, 0, 0.15, 1),
-        color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+        background-color $transition,
+        color $transition;
 
     .notification {
         border-radius: 4px;
-        transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+        transition: border-radius $transition;
         background-color: $background-2;
         box-shadow: 0px 2px 0px 0px $secondary;
     }
@@ -1048,10 +1141,9 @@ switch:checked slider {
 
 
     .fill {
-        transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+        transition: all $transition;
         border-radius: 30px;
         color: $text;
-        transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
         background-image: linear-gradient(45deg,
                 $primary 25%,
                 $background-2 25%,
@@ -1084,7 +1176,7 @@ switch:checked slider {
     border-radius: 30px;
     background-size: cover;
     background-position: center;
-    transition: background 0.5s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: background 0.5s $transition;
 }
 
 .player__icon {
@@ -1125,9 +1217,9 @@ switch:checked slider {
     border-radius: 0px;
     border: 2px solid $primary;
     transition:
-        background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-        border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-        color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+        background $transition,
+        border-radius $transition,
+        color $transition;
     border-radius: 30px;
     background-size: 8px 8px;
 
@@ -1163,17 +1255,16 @@ switch:checked slider {
 .player__position-slider {
     trough {
         transition:
-            background 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-            color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+            background $transition,
+            color $transition;
         border-radius: 100px;
         background-color: $background-3;
         min-height: 15px;
 
         highlight {
             min-width: 15px;
-            transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+            transition: all $transition;
             border-radius: 30px;
-            transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
             background-image: linear-gradient(45deg,
                     $primary 25%,
                     $background-2 25%,
@@ -1195,8 +1286,8 @@ switch:checked slider {
             box-shadow: none;
 
             transition:
-                background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1),
-                color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+                background-color $transition,
+                color $transition;
         }
     }
 }
@@ -1208,7 +1299,7 @@ switch:checked slider {
     background: $background;
     border-radius: 100px;
     margin-bottom: 8px;
-    transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: all $transition;
 
     &.selected {
         background: $text;
@@ -1295,7 +1386,7 @@ switch:checked slider {
     padding: 18px;
     color: $text;
     border-radius: 100px;
-    transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+    transition: background $transition;
 
     label {
         font-size: 14px;

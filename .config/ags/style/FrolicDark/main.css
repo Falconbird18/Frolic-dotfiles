@@ -8,6 +8,83 @@
 /* subtext: hsl(27, 19%, 69%)*/
 /*Difference between hue of Primary and Secondary is 112*/
 /* Fonts */
+/* General */
+/* AppLauncher */
+.app-launcher {
+  min-width: 650px;
+  border-radius: 30px;
+  padding: 0px;
+  background: #2C2621;
+  min-height: 700px;
+  border: 2px solid #E06F12;
+}
+
+.app-launcher__input {
+  background: #202020;
+  border: 2px solid #E06F12;
+  outline: none;
+  margin: 20px;
+  padding: 12px 22px;
+  border-radius: 30px;
+  box-shadow: none;
+  color: #F5DECC;
+  font-family: "Monaspace Radon";
+  font-size: 18px;
+  font-weight: normal;
+}
+.app-launcher__input icon {
+  margin-right: 20px;
+}
+
+.app-launcher__list {
+  margin: 0 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.app-launcher__item {
+  all: unset;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  padding: 12px 18px;
+  border-radius: 30px;
+  background-size: 8px 8px;
+}
+.app-launcher__item label {
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.app-launcher__item label.title {
+  font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+  color: #F5DECC;
+  margin-bottom: 10px;
+}
+.app-launcher__item label.description {
+  font-family: "Monaspace Xenon";
+  font-size: 11px;
+  font-weight: 100;
+  color: #BFAEA1;
+}
+.app-launcher__item icon {
+  font-size: 32px;
+  margin-right: 10px;
+}
+.app-launcher__item:hover {
+  background: #202020;
+  border: 2px solid #E06F12;
+  box-shadow: 0 2px 0 0 #12DE52;
+}
+.app-launcher__item:focus {
+  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  background-size: 8px 8px;
+  border: 2px solid #E06F12;
+  box-shadow: 0 2px 0 0 #12DE52;
+}
+.app-launcher__item:active {
+  background-color: #493F36;
+  border-radius: 100px;
+}
+
 /*Common*/
 * {
   outline: none;
@@ -63,7 +140,7 @@ window.popup menu menuitem {
   padding: 12px 6px;
   color: #F5DECC;
   border-radius: 100px;
-  transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 window.popup menu menuitem:hover {
   background: #202020;
@@ -179,7 +256,7 @@ switch:checked slider {
   box-shadow: 0px 2px 0px 0px #12DE52;
   font-family: "Monaspace Radon";
   background-size: 8px 8px;
-  transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 0.3s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .bar__item.bar__button:hover {
   background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
@@ -228,7 +305,7 @@ switch:checked slider {
   padding: 0;
   min-width: 8px;
   min-height: 8px;
-  transition: all 0.4s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
   border: 2px solid #E06F12;
   background-color: #202020;
@@ -371,7 +448,7 @@ switch:checked slider {
   border-radius: 30px;
   padding: 0px 22px;
   min-height: 80px;
-  transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
 }
@@ -391,7 +468,7 @@ switch:checked slider {
   color: #F5DECC;
   font-weight: 300;
   font-size: 14px;
-  transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .control-center__page_item:first-child {
@@ -502,7 +579,7 @@ switch:checked slider {
 }
 .control-center__brightness-slider trough,
 .control-center__volume-slider trough {
-  transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
   background-color: #493F36;
   min-height: 15px;
@@ -512,7 +589,6 @@ switch:checked slider {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
   background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
   border: 2px solid #E06F12;
@@ -525,7 +601,7 @@ switch:checked slider {
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
-  transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .muted .control-center__volume-slider highlight {
@@ -550,7 +626,7 @@ switch:checked slider {
   color: #F5DECC;
   border: 2px solid #E06F12;
   border-radius: 100px;
-  transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__settings-button:hover {
@@ -571,7 +647,7 @@ switch:checked slider {
 .dashboard {
   border-radius: 0px;
   min-width: 420px;
-  transition: background-color 1s cubic-bezier(0.85, 0, 0.15, 1), color 1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .block {
@@ -580,7 +656,7 @@ switch:checked slider {
   padding: 20px;
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
-  transition: background-color 1s cubic-bezier(0.85, 0, 0.15, 1), color 1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
   margin-bottom: 100px;
 }
@@ -721,13 +797,13 @@ switch:checked slider {
 
 .notification__action {
   background: none;
-  transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   color: #E06F12;
   border-radius: 100px;
 }
 .notification__action:hover {
   color: #F5DECC;
-  transition: color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__action:first-child {
   margin-left: 0;
@@ -772,7 +848,7 @@ switch:checked slider {
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   /* Don't cut off the box shadow*/
-  transition: background-color 0.1s cubic-bezier(0.85, 0, 0.15, 1), color 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notifications-window .notification {
   border-radius: 4px;
@@ -838,7 +914,6 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
   color: #F5DECC;
-  transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
   background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
   border: 2px solid #E06F12;
@@ -861,7 +936,7 @@ switch:checked slider {
   border-radius: 30px;
   background-size: cover;
   background-position: center;
-  transition: background 0.5s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.5s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .player__icon {
@@ -901,7 +976,7 @@ switch:checked slider {
   font-size: 24px;
   border-radius: 0px;
   border: 2px solid #E06F12;
-  transition: background 0.3s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
   background-size: 8px 8px;
 }
@@ -925,7 +1000,7 @@ switch:checked slider {
 }
 
 .player__position-slider trough {
-  transition: background 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
   background-color: #493F36;
   min-height: 15px;
@@ -934,7 +1009,6 @@ switch:checked slider {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
   background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
   border: 2px solid #E06F12;
@@ -946,7 +1020,7 @@ switch:checked slider {
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
-  transition: background-color 0.3s cubic-bezier(0.85, 0, 0.15, 1), color 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .player__indicator {
@@ -955,7 +1029,7 @@ switch:checked slider {
   background: #2C2621;
   border-radius: 100px;
   margin-bottom: 8px;
-  transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .player__indicator.selected {
   background: #F5DECC;
@@ -1029,7 +1103,7 @@ switch:checked slider {
   padding: 18px;
   color: #F5DECC;
   border-radius: 100px;
-  transition: background 0.1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .popup-menu__item label {
   font-size: 14px;
