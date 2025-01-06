@@ -3,20 +3,27 @@
 /* Colors */
 $background: #F0EDEA;
 /* background: hsl(27, 15%, 93%)*/
-$background-2: #F2F2F2;
+$background-2: #bebebe;
 /* card: hsl(0, 0%, 95%)*/
 $background-3: #DAD3CD;
 /* background-light: hsl(27, 15%, 83%)*/
-$primary: #E06F12;
-/* primary: hsl(27, 85%, 47%)*/
-$secondary: #12DE52;
-/* secondary: hsl(139, 85%, 47%)*/
+$primary: #26E012;
+/* primary: hsl(114, 85%, 47%)*/
+$secondary: #1242DE;
+/* secondary: hsl(226, 85%, 47%)*/
 $text: #562F10;
 /* text: hsl(27, 69%, 20%)*/
 $subtext: #766251;
 /* subtext: hsl(27, 19%, 39%)*/
 $error: #e99898;
 $scrim: #000000;
+$highlight: #e9e9e9;
+$shadow: #b4b4b4;
+$highlight_primary: #47EF34;
+/* highlight_primary: hsl(114, 85%, 57%)*/
+$shadow_primary: #1EAF0E;
+/* shadow_primary: hsl(114, 85%, 37%)*/
+/*Difference between hue of Primary and Secondary is 112*/
 
 /* Fonts */
 $h1_font: 'Monaspace Radon';
@@ -34,100 +41,104 @@ $subtext_size: 11px;
 
 /* General */
 $transition: 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-$radius: 30px;
+$radius: 20px;
+$background_gradient: linear-gradient(145deg, $background-2, $background);
+$outset: inset 0px -5px 5px $shadow,
+        inset 5px 5px 5px $highlight;
+$outset_primary: inset 0px -5px 5px $shadow_primary,
+        inset 5px 5px 5px $highlight_primary;
+$inset: inset 5px 5px 5px $highlight,
+            inset 5px 5px 5px $shadow;
+$inset_primary: inset 5px 5px 5px $highlight_primary,
+            inset 5px 5px 5px $shadow_primary;
+$outset_margin: 6px;
+$border: 2px solid $shadow;
 
 /* AppLauncher */
 .app-launcher {
-	min-width: 650px;
-	border-radius: $radius;
-	padding: 0px;
-	background: $background;
-	min-height: 700px;
-    border: 2px solid $primary;
+    min-width: 650px;
+    background-image: $background_gradient;
+    border-radius: $radius;
+    padding: 0px;
+    min-height: 700px;
+    box-shadow: $inset;
 }
 
 .app-launcher__input {
-	background: $background-2;
-	border: 2px solid $primary;
-	outline: none;
-	margin: 20px;
-	padding: 12px 22px;
-	border-radius: $radius;
-	box-shadow: none;
+    background: $background-2;
+    outline: none;
+    margin: 20px;
+    padding: 12px 22px;
+    border-radius: $radius;
+    box-shadow: none;
     color: $text;
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
+    background-image: $background_gradient;
+    box-shadow: $inset;
+    border: $border;
 
-	icon {
-		margin-right: 20px;
-	}
+
+    icon {
+        margin-right: 20px;
+    }
 }
 
 .app-launcher__list {
-	margin: 0 10px;
-	margin-top: 8px;
-	margin-bottom: 10px;
+    margin: 0 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
 
 .app-launcher__item {
-	all: unset;
-	transition: all $transition;
-	padding: 12px 18px;
-	border-radius: $radius;
-    background-size: 8px 8px;
-    border: 2px solid $background;
-    box-shadow: 0 2px 0 0 $background;
-    margin-bottom: 2px;
+    all: unset;
+    transition: all $transition;
+    padding: 12px 18px;
+    border-radius: $radius;
+    box-shadow: $outset;
+    border: $border;
+    margin-bottom: 10px;
 
-	label {
-		transition: all $transition;
+    label {
+        transition: all $transition;
 
-		&.title {
+        &.title {
             font-family: $paragraph_font;
             font-size: $paragraph_size;
-			font-weight: $paragraph_weight;
-			color: $text;
+            font-weight: $paragraph_weight;
+            color: $text;
             margin-bottom: 10px;
-		}
+        }
 
-		&.description {
+        &.description {
             font-family: $subtext_font;
             font-size: $subtext_size;
             font-weight: $subtext_weight;
-			color: $subtext;
-		}
-	}
+            color: $subtext;
+        }
+    }
 
-	icon {
-		font-size: $h1_size;
-		margin-right: 10px;
-	}
+    icon {
+        font-size: $h1_size;
+        margin-right: 10px;
+    }
 
-	&:hover {
-		background: $background-2;
-        border: 2px solid $primary;
-        box-shadow: 0 2px 0 0 $secondary;
-	}
+    &:hover {
+        box-shadow: $inset;
+        background-color: $background-3;
+    }
 
-	&:focus {
-		background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-        box-shadow: 0 2px 0 0 $secondary;
-	}
+    &:focus {
+        background-color: $primary;
+        box-shadow: $inset_primary;
+    }
 
-	&:active {
-		background-color: $background-3;
-		border-radius: 100px;
-	}
+    &:active {
+        background-color: $primary;
+        box-shadow: $inset_primary;
+        border-radius: 100px;
+    }
 }
 
 /*Common*/
@@ -320,14 +331,14 @@ switch:checked slider {
 .bar {
     min-height: 60px;
     padding: 0 12px;
-    background: $background;
-    margin: 7px 7px 0px 7px;
+    background-image: $background_gradient;
+    margin: 7px 7px 7px 7px;
     border-radius: $radius;
-    border: 2px solid $primary;
+    box-shadow: $outset;
 }
 
 .arch-container {
-    padding: 10px 0px
+    padding: 10px 0px;
 }
 
 .bar__item {
@@ -339,29 +350,19 @@ switch:checked slider {
     border-radius: 24px;
     background: $background-2;
     color: $text;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $outset;
     font-family: $h2_font;
-    background-size: 8px 8px;
     transition: all 0.3s $transition;
+    margin-right: 6px;
+    border: $border;
 
     &.bar__button {
         &:hover {
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    transparent 75%,
-                    transparent);
-            background-size: 8px 8px;
-            text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+            box-shadow: $inset;
         }
 
         &:active {
             background: $primary;
-            background-size: 8px 8px;
         }
 
         &.active {
@@ -410,29 +411,20 @@ switch:checked slider {
     min-height: 8px;
     transition: all $transition;
     border-radius: 100px;
-    border: 2px solid $primary;
     background-color: $background-2;
-    background-size: 8px 8px;
+    box-shadow: $outset;
+    border: $border;
 
     &:hover {
-        background-color: color.adjust($primary, $alpha: -0.4);
+        box-shadow: $outset;
     }
 
     &.active,
     &:active {
         min-height: 12px;
         min-width: 40px;
-        border-radius: 100px;
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                transparent 25%,
-                transparent 50%,
-                $primary 50%,
-                $primary 75%,
-                transparent 75%,
-                transparent);
-        background-size: 8px 8px;
-        box-shadow: 0px 2px 0px 0px $secondary;
+        box-shadow: $outset_primary;
+        background-color: $primary;
     }
 }
 
@@ -523,10 +515,10 @@ switch:checked slider {
     border-radius: $radius;
     min-width: 450px;
     min-height: 650px;
-    background: $background;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    background-image: $background_gradient;
+    box-shadow: $outset;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
 }
 
 .control-center__page {
@@ -554,16 +546,16 @@ switch:checked slider {
 }
 
 .control-center__page_header_button {
-    background: $background-2;
-    border: 2px solid $primary;
+    background: $primary;
     color: $text;
     min-width: 38px;
     min-height: 38px;
     border-radius: 100px;
+    box-shadow: $outset;
 
     &:hover {
-        background-color: $primary;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        background-color: $background-2;
+        box-shadow: $inset;
     }
 }
 
@@ -583,8 +575,7 @@ switch:checked slider {
     padding: 0px 22px;
     min-height: 80px;
     transition: background $transition;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $inset;
 
     label {
         font-size: $h2_size;
@@ -595,7 +586,6 @@ switch:checked slider {
 
 .control-center__page_item {
     background: $background-2;
-    border: 2px solid $primary;
 
     &:first-child {
         border-top-left-radius: 30px;
@@ -613,7 +603,7 @@ switch:checked slider {
     font-weight: $paragraph_weight;
     font-size: $paragraph_size;
     transition: background $transition;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $inset;
 
     label {
         font-size: $paragraph_size;
@@ -624,65 +614,43 @@ switch:checked slider {
     }
 
     &:hover {
-        background-color: $background-3;
+        box-shadow: $outset;
     }
 }
 
 .control-center__button {
     background-color: $background-2;
-    border: 2px solid $primary;
     color: $text;
     padding: 10px 24px 10px 30px;
     border-radius: $radius;
-    font-family: 'Monaspace Radon';
-    background-size: 8px 8px;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
     margin-bottom: 2px;
     transition: all $transition;
+    box-shadow: $outset;
 
     &.active {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2 );
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-        box-shadow: 0px 2px 0px 0px $secondary;
+        box-shadow: $outset;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        background-color: $primary;
 
         &:hover {
             background: $primary;
-            background-size: 8px 8px;
+            box-shadow: $inset;
         }
 
         &:active {
             background: $primary;
-            background-size: 8px 8px;
+            box-shadow: $inset;
         }
     }
 
     &:hover {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2 );
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-        box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        background-color: $primary;
+        box-shadow: $inset;
     }
-
-    font-size: 14px;
-    font-weight: 600;
 
     &.no-label {
         padding: 0;
@@ -842,16 +810,16 @@ switch:checked slider {
 }
 
 .block {
-    background: $background;
+    background-image: $background_gradient;
     border-radius: $radius;
     padding: 20px;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $outset;
     transition:
         background-color $transition,
         color $transition;
     font-family: 'Monaspace Xenon';
-    margin-bottom: 100px;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
 }
 
 .placeholder {
@@ -894,22 +862,12 @@ switch:checked slider {
 
 .calendar__button__today {
     border-radius: 100px;
-    background: $background-2;
+    background: $primary;
     color: $text;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    background-image: linear-gradient(45deg,
-            $primary 25%,
-            transparent 25%,
-            transparent 50%,
-            $primary 50%,
-            $primary 75%,
-            transparent 75%,
-            transparent);
-    background-size: 8px 8px;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
-    font-family: 'Monaspace Radon';
-    font-weight: bold;
+    box-shadow: $outset;
+    font-family: $h1_font;
+    font-weight: $h1_weight;
+    font-size: $h1_size;
 }
 
 
@@ -952,11 +910,11 @@ switch:checked slider {
 .notification {
     padding: 14px 16px 14px 20px;
     color: $text;
-    background-color: $background;
+    background-image: $background_gradient;
     border-radius: $radius;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    box-shadow: $outset;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
 }
 
 .notification__icon {
@@ -965,7 +923,7 @@ switch:checked slider {
     margin-right: 14px;
     border-radius: 100px;
     background: $background-2;
-    border: 2px solid $primary;
+    box-shadow: $inset;
 }
 
 .notification__icon.telegram {
@@ -1029,17 +987,16 @@ switch:checked slider {
     min-width: 22px;
     min-height: 22px;
     border-radius: 100px;
-    background-color: $background-2;
+    background-color: $primary;
     color: $text;
     font-size: 16px;
-    border: 2px solid $primary;
+    box-shadow: $inset;
     transition:
         background-color $transition,
         color $transition;
 
     &:hover {
-        background: $error;
-        color: $subtext;
+        box-shadow: $outset;
     }
 }
 
@@ -1060,11 +1017,10 @@ switch:checked slider {
     min-width: 400px;
     min-height: 550px;
     padding: 10px 10px 0;
-    background: $background;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
-    /* Don't cut off the box shadow*/
+    background-image: $background_gradient;
+    box-shadow: $outset;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
     transition:
         background-color $transition,
         color $transition;
@@ -1130,14 +1086,15 @@ switch:checked slider {
 .container {
     background-color: $background;
     border-radius: $radius;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $outset;
     margin-bottom: 20px;
+    margin-right: $outset_margin;
 }
 
 .indicator .progress {
     border-radius: $radius;
-    background-color: $background-3;
+    background-color: $background-2;
+    box-shadow: $inset;
     margin: 25px;
     padding: 0px;
 
@@ -1146,16 +1103,8 @@ switch:checked slider {
         transition: all $transition;
         border-radius: $radius;
         color: $text;
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
-        background-size: 8px 8px;
-        border: 2px solid $primary;
+        box-shadow: $outset;
+        background-color: $primary;
         padding: 2px 0px;
         margin: -2px 0px;
 
@@ -1569,18 +1518,22 @@ switch:checked slider {
 
 .mode-settings__button_left {
     background-color: $background-2;
-    border: 2px solid $primary;
-    border-radius: $radius 0px 0px 30px;
+    border-radius: $radius;
     color: $text;
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
     min-width: 170px;
     padding: 10px 0px;
+    box-shadow: $outset;
+
+    &.hover{
+        box-shadow: $inset;
+    }
 
     &.active {
         background: $primary;
-        color: $text;
+        box-shadow: $outset;
     }
 }
 

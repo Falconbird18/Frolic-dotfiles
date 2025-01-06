@@ -69,7 +69,7 @@ export default () => {
                 <box horizontal className="buttons-container" spacing={spacing}>
                     <box vertical>
                         <button 
-                            onClick={() => setTheme("Glaciara", currentMode.get())}
+                            onClick={() => setTheme("Verdant", currentMode.get())}
                             className="theme-buttons"
                         >
                             <icon icon={icons.ui.edit} />
@@ -78,7 +78,7 @@ export default () => {
                     </box>
                     <box vertical>
                         <button 
-                            onClick={() => setTheme("Glaciara", currentMode.get())}
+                            onClick={() => setTheme("Zephyr", currentMode.get())}
                             className="theme-buttons"
                         >
                             <icon icon={icons.ui.edit} />
