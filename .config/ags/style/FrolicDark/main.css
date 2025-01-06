@@ -48,6 +48,9 @@
   padding: 12px 18px;
   border-radius: 30px;
   background-size: 8px 8px;
+  border: 2px solid #2C2621;
+  box-shadow: 0 2px 0 0 #2C2621;
+  margin-bottom: 2px;
 }
 .app-launcher__item label {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
