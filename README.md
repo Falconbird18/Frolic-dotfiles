@@ -27,7 +27,10 @@ Before you install, check that you have the following dependencies installed (an
 - `cliphist` - Wayland clipboard manager
 ## Installation
 
-To install, run the following commands.
+To install, run the install script, or the following commands.
+```
+bash <(curl -s "https://raw.githubusercontent.com/Falconbird18/Frolic-dotfiles/main/install.sh")
+```
 
 **Important:** The following commands will overwrite any existing configs for hyprland, ags, wofi, starship, fish, and spicetify. Back up any configs you do not want to lose before installing.
 ```
@@ -37,14 +40,6 @@ cp ~/Frolic-dotfiles/.local/bin/hyprland-flee-bravely ~/.local/bin/
 cp -r ~/Frolic-dotfiles/.spicetify/ ~/
 cp -r ~/Frolic-dotfiles/.icons ~/
 ```
-**Important:** The following commands have not been tested.
-
-Run this command.
-
-```
-bash <(curl -s "https://raw.githubusercontent.com/Falconbird18/Frolic-dotfiles/main/install.sh")
-```
-**Important:** This install script does not work yet, so use the commands above instead.
 
 ## Credits
 Thanks to [PoSayDone](https://github.com/PoSayDone) for the base ags widget. 
