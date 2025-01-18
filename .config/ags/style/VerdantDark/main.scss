@@ -1,12 +1,12 @@
 @use "sass:color";
 
 /* Colors */
-$background: #2C2621;
-/* background: hsl(27, 15%, 15%)*/
-$background-2: #202020;
-/* background-2: hsl(0, 0%, 13%)*/
-$background-3: #493F36;
-/* background-3: hsl(0, 0%, 25%)*/
+$background: #495049;
+/* background: hsl(114, 5%, 30%)*/
+$background-2: #3D433D;
+/* background-2: hsl(114, 5%, 25%)*/
+$background-3: #477043;
+/* background-3: hsl(115, 25%, 35%)*/
 $primary: #26E012;
 /* primary: hsl(114, 85%, 47%)*/
 $secondary: #1242DE;
@@ -17,14 +17,20 @@ $subtext: #BFAEA1;
 /* subtext: hsl(27, 19%, 69%)*/
 $error: #e99898;
 $scrim: #000000;
-
+$highlight: #ffffff7e;
+$shadow: #000000;
+/* shadow: hsl(0, 0%, 60%)*/
+$highlight_primary: #5eff4c;
+/* highlight_primary: hsl(114, 85%, 57%)*/
+$shadow_primary: #0e974a;
+/* shadow_primary: hsl(114, 85%, 13%)*/
 /*Difference between hue of Primary and Secondary is 112*/
 
 /* Fonts */
-$h1_font: 'Monaspace Radon';
-$h2_font: 'Monaspace Radon';
-$paragraph_font: 'Monaspace Xenon';
-$subtext_font: 'Monaspace Xenon';
+$h1_font: 'Open sans';
+$h2_font: 'Open sans';
+$paragraph_font: 'Open sans';
+$subtext_font: 'Open sans';
 $h1_weight: normal;
 $h2_weight: normal;
 $paragraph_weight: 300;
@@ -36,99 +42,105 @@ $subtext_size: 11px;
 
 /* General */
 $transition: 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+$radius: 20px;
+$background_gradient: linear-gradient(145deg, $background-2, $background);
+$outset: 0px -3px 5px $highlight,
+    0px 3px 5px $shadow;
+$outset_primary: inset 0px 1px 2px $highlight_primary,
+    inset 0px -1px 2px $shadow_primary,
+    0px -3px 5px $highlight,
+    0px 3px 5px $shadow;
+$inset: inset 0px 3px 5px $shadow,
+    inset 0px -5px 3px $highlight;
+$inset_primary: inset 0px 3px 5px $shadow_primary,
+    inset 0px -5px 3px $highlight_primary;
+$outset_margin: 5px;
+$border: none;
 
 /* AppLauncher */
 .app-launcher {
-	min-width: 650px;
-	border-radius: 30px;
-	padding: 0px;
-	background: $background;
-	min-height: 700px;
-    border: 2px solid $primary;
+    min-width: 650px;
+    background-image: $background_gradient;
+    border-radius: $radius;
+    padding: 0px;
+    min-height: 700px;
 }
 
 .app-launcher__input {
-	background: $background-2;
-	border: 2px solid $primary;
-	outline: none;
-	margin: 20px;
-	padding: 12px 22px;
-	border-radius: 30px;
-	box-shadow: none;
+    background: $background-2;
+    outline: none;
+    margin: 20px;
+    padding: 12px 22px;
+    border-radius: $radius;
+    box-shadow: none;
     color: $text;
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
+    background-image: $background_gradient;
+    box-shadow: $inset;
+    border: $border;
 
-	icon {
-		margin-right: 20px;
-	}
+
+    icon {
+        margin-right: 20px;
+    }
 }
 
 .app-launcher__list {
-	margin: 0 10px;
-	margin-top: 8px;
-	margin-bottom: 10px;
+    margin: 0 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
 
 .app-launcher__item {
-	all: unset;
-	transition: all $transition;
-	padding: 12px 18px;
-	border-radius: 30px;
-    background-size: 8px 8px;
-    border: 2px solid $background;
-    box-shadow: 0 2px 0 0 $background;
-    margin-bottom: 2px;
+    all: unset;
+    transition: all $transition;
+    padding: 12px 18px;
+    border-radius: $radius;
+    box-shadow: $outset;
+    border: $border;
+    margin-bottom: 10px;
 
-	label {
-		transition: all $transition;
+    label {
+        transition: all $transition;
 
-		&.title {
+        &.title {
             font-family: $paragraph_font;
             font-size: $paragraph_size;
-			font-weight: $paragraph_weight;
-			color: $text;
+            font-weight: $paragraph_weight;
+            color: $text;
             margin-bottom: 10px;
-		}
+        }
 
-		&.description {
+        &.description {
             font-family: $subtext_font;
             font-size: $subtext_size;
             font-weight: $subtext_weight;
-			color: $subtext;
-		}
-	}
+            color: $subtext;
+        }
+    }
 
-	icon {
-		font-size: $h1_size;
-		margin-right: 10px;
-	}
+    icon {
+        font-size: $h1_size;
+        margin-right: 10px;
+    }
 
-	&:hover {
-		background: $background-2;
-        border: 2px solid $primary;
-        box-shadow: 0 2px 0 0 $secondary;
-	}
+    &:hover {
+        box-shadow: $inset;
+        background-color: $background-3;
+    }
 
-	&:focus {
-		background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-        box-shadow: 0 2px 0 0 $secondary;
-	}
+    &:focus {
+        background-color: $primary;
+        box-shadow: $inset_primary;
+    }
 
-	&:active {
-		background-color: $background-3;
-		border-radius: 100px;
-	}
+    &:active {
+        background-color: $primary;
+        box-shadow: $inset_primary;
+        border-radius: 100px;
+    }
 }
 
 /*Common*/
@@ -247,7 +259,7 @@ switch:checked slider {
 /*Components*/
 
 .material-button {
-    border-radius: 30px;
+    border-radius: $radius;
     padding: 3px 15px;
 
     &:focus {
@@ -321,14 +333,13 @@ switch:checked slider {
 .bar {
     min-height: 60px;
     padding: 0 12px;
-    background: $background;
-    margin: 7px 7px 0px 7px;
-    border-radius: 30px;
-    border: 2px solid $primary;
+    background-image: $background_gradient;
+    margin: 7px 7px 7px 7px;
+    border-radius: $radius;
 }
 
 .arch-container {
-    padding: 10px 0px
+    padding: 10px 0px;
 }
 
 .bar__item {
@@ -340,29 +351,20 @@ switch:checked slider {
     border-radius: 24px;
     background: $background-2;
     color: $text;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $outset;
     font-family: $h2_font;
-    background-size: 8px 8px;
     transition: all 0.3s $transition;
+    margin-right: $outset_margin;
+    margin-left: $outset_margin;
+    border: $border;
 
     &.bar__button {
         &:hover {
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    transparent 75%,
-                    transparent);
-            background-size: 8px 8px;
-            text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+            box-shadow: $inset;
         }
 
         &:active {
             background: $primary;
-            background-size: 8px 8px;
         }
 
         &.active {
@@ -411,29 +413,19 @@ switch:checked slider {
     min-height: 8px;
     transition: all $transition;
     border-radius: 100px;
-    border: 2px solid $primary;
-    background-color: $background-2;
-    background-size: 8px 8px;
+    background-color: $background-3;
+    box-shadow: $outset;
 
     &:hover {
-        background-color: color.adjust($primary, $alpha: -0.4);
+        box-shadow: $outset;
     }
 
     &.active,
     &:active {
         min-height: 12px;
         min-width: 40px;
-        border-radius: 100px;
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                transparent 25%,
-                transparent 50%,
-                $primary 50%,
-                $primary 75%,
-                transparent 75%,
-                transparent);
-        background-size: 8px 8px;
-        box-shadow: 0px 2px 0px 0px $secondary;
+        box-shadow: $outset_primary;
+        background-color: $primary;
     }
 }
 
@@ -507,27 +499,24 @@ switch:checked slider {
 
 .bar__rounded-box>* {
     &:last-child {
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
     }
 
     &:first-child,
     &:first-child>* {
-        border-top-left-radius: 30px;
-        border-bottom-left-radius: 30px;
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
     }
 }
 
 /*Control Center*/
 
 .control-center__container {
-    border-radius: 30px;
+    border-radius: $radius;
     min-width: 450px;
     min-height: 650px;
-    background: $background;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    background-image: $background_gradient;
 }
 
 .control-center__page {
@@ -555,16 +544,16 @@ switch:checked slider {
 }
 
 .control-center__page_header_button {
-    background: $background-2;
-    border: 2px solid $primary;
+    background: $primary;
     color: $text;
     min-width: 38px;
     min-height: 38px;
     border-radius: 100px;
+    box-shadow: $outset;
 
     &:hover {
-        background-color: $primary;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        background-color: $background-2;
+        box-shadow: $inset;
     }
 }
 
@@ -580,12 +569,11 @@ switch:checked slider {
         background: $background-2;
     }
 
-    border-radius: 30px;
+    border-radius: $radius;
     padding: 0px 22px;
     min-height: 80px;
     transition: background $transition;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $inset;
 
     label {
         font-size: $h2_size;
@@ -596,17 +584,16 @@ switch:checked slider {
 
 .control-center__page_item {
     background: $background-2;
-    border: 2px solid $primary;
 
     &:first-child {
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
         margin-top: 10px;
     }
 
     &:last-child {
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: $radius;
+        border-bottom-right-radius: $radius;
     }
 
     padding: 18px 22px;
@@ -614,7 +601,7 @@ switch:checked slider {
     font-weight: $paragraph_weight;
     font-size: $paragraph_size;
     transition: background $transition;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    box-shadow: $inset;
 
     label {
         font-size: $paragraph_size;
@@ -625,65 +612,44 @@ switch:checked slider {
     }
 
     &:hover {
-        background-color: $background-3;
+        box-shadow: $outset;
     }
 }
 
 .control-center__button {
     background-color: $background-2;
-    border: 2px solid $primary;
     color: $text;
     padding: 10px 24px 10px 30px;
-    border-radius: 30px;
-    font-family: 'Monaspace Radon';
-    background-size: 8px 8px;
-    margin-bottom: 2px;
+    border-radius: $radius;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    margin-bottom: $outset_margin;
+    margin-left: $outset_margin;
     transition: all $transition;
+    box-shadow: $outset;
 
     &.active {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2 );
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-        box-shadow: 0px 2px 0px 0px $secondary;
+        box-shadow: $outset_primary;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        background-color: $primary;
 
         &:hover {
             background: $primary;
-            background-size: 8px 8px;
+            box-shadow: $inset_primary;
         }
 
         &:active {
             background: $primary;
-            background-size: 8px 8px;
+            box-shadow: $inset_primary;
         }
     }
 
     &:hover {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2 );
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-        box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        background-color: $primary;
+        box-shadow: $inset_primary;
     }
-
-    font-size: 14px;
-    font-weight: 600;
 
     &.no-label {
         padding: 0;
@@ -707,7 +673,7 @@ switch:checked slider {
 
 .control-center__dropdown-menu {
     background: $background;
-    border-radius: 30px;
+    border-radius: $radius;
     padding: 24px;
 }
 
@@ -756,7 +722,7 @@ switch:checked slider {
         highlight {
             min-width: 15px;
             transition: all $transition;
-            border-radius: 30px;
+            border-radius: $radius;
             background-image: linear-gradient(45deg,
                     $primary 25%,
                     $background-2 25%,
@@ -809,22 +775,23 @@ switch:checked slider {
     min-height: 42px;
     background: $background-2;
     color: $text;
-    border: 2px solid $primary;
+    border: $border;
     border-radius: 100px;
+    box-shadow: $outset;
     transition: all $transition;
 }
 
 .control-center__settings-button {
     &:hover {
-        background: $secondary;
         color: $text;
+        box-shadow: $inset;
     }
 }
 
 .control-center__powermenu-button {
     &:hover {
-        background: $secondary;
         color: $text;
+        box-shadow: $inset;
     }
 }
 
@@ -843,16 +810,15 @@ switch:checked slider {
 }
 
 .block {
-    background: $background;
-    border-radius: 30px;
+    background-image: $background_gradient;
+    border-radius: $radius;
     padding: 20px;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
     transition:
         background-color $transition,
         color $transition;
     font-family: 'Monaspace Xenon';
-    margin-bottom: 100px;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
 }
 
 .placeholder {
@@ -895,22 +861,12 @@ switch:checked slider {
 
 .calendar__button__today {
     border-radius: 100px;
-    background: $background-2;
+    background: $primary;
     color: $text;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    background-image: linear-gradient(45deg,
-            $primary 25%,
-            transparent 25%,
-            transparent 50%,
-            $primary 50%,
-            $primary 75%,
-            transparent 75%,
-            transparent);
-    background-size: 8px 8px;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
-    font-family: 'Monaspace Radon';
-    font-weight: bold;
+    box-shadow: $outset_primary;
+    font-family: $h1_font;
+    font-weight: $h1_weight;
+    font-size: $h1_size;
 }
 
 
@@ -953,11 +909,11 @@ switch:checked slider {
 .notification {
     padding: 14px 16px 14px 20px;
     color: $text;
-    background-color: $background;
-    border-radius: 30px;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    background-image: $background_gradient;
+    border-radius: $radius;
+    box-shadow: $outset;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
 }
 
 .notification__icon {
@@ -966,7 +922,7 @@ switch:checked slider {
     margin-right: 14px;
     border-radius: 100px;
     background: $background-2;
-    border: 2px solid $primary;
+    box-shadow: $inset;
 }
 
 .notification__icon.telegram {
@@ -1030,17 +986,16 @@ switch:checked slider {
     min-width: 22px;
     min-height: 22px;
     border-radius: 100px;
-    background-color: $background-2;
+    background-color: $primary;
     color: $text;
     font-size: 16px;
-    border: 2px solid $primary;
+    box-shadow: $inset;
     transition:
         background-color $transition,
         color $transition;
 
     &:hover {
-        background: $error;
-        color: $subtext;
+        box-shadow: $outset;
     }
 }
 
@@ -1057,15 +1012,14 @@ switch:checked slider {
 /*NotificationsWindow*/
 
 .notifications-window {
-    border-radius: 30px;
+    border-radius: $radius;
     min-width: 400px;
     min-height: 550px;
     padding: 10px 10px 0;
-    background: $background;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
-    /* Don't cut off the box shadow*/
+    background-image: $background_gradient;
+    box-shadow: $outset;
+    margin-bottom: $outset_margin;
+    margin-right: $outset_margin;
     transition:
         background-color $transition,
         color $transition;
@@ -1082,7 +1036,7 @@ switch:checked slider {
     background: $background-2;
     padding: 10px 16px;
     margin-right: 18px;
-    border-radius: 30px;
+    border-radius: $radius;
     color: $text;
     font-family: 'Monaspace Radon';
     border: 2px solid $primary;
@@ -1102,15 +1056,15 @@ switch:checked slider {
 
     revealer:first-child {
         .notification {
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
+            border-top-left-radius: $radius;
+            border-top-right-radius: $radius;
         }
     }
 
     revealer:last-child {
         .notification {
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: $radius;
+            border-bottom-right-radius: $radius;
             margin-bottom: 10px;
         }
     }
@@ -1129,34 +1083,25 @@ switch:checked slider {
 }
 
 .container {
-    background-color: $background;
-    border-radius: 30px;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
+    background: $background_gradient;
+    border-radius: $radius;
     margin-bottom: 20px;
 }
 
 .indicator .progress {
-    border-radius: 30px;
-    background-color: $background-3;
+    border-radius: $radius;
+    background-color: $background-2;
+    box-shadow: $inset;
     margin: 25px;
     padding: 0px;
 
 
     .fill {
         transition: all $transition;
-        border-radius: 30px;
+        border-radius: $radius;
         color: $text;
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
-        background-size: 8px 8px;
-        border: 2px solid $primary;
+        box-shadow: $outset_primary;
+        background-color: $primary;
         padding: 2px 0px;
         margin: -2px 0px;
 
@@ -1176,7 +1121,7 @@ switch:checked slider {
     box-shadow: 0px 2px 0px 0px $secondary;
     margin-bottom: 2px;
     padding: 20px 10px;
-    border-radius: 30px;
+    border-radius: $radius;
     background-size: cover;
     background-position: center;
     transition: background 0.5s $transition;
@@ -1189,7 +1134,7 @@ switch:checked slider {
 .player__box {
     background-color: $background-2;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: $radius;
     border: 2px solid $primary;
 }
 
@@ -1223,7 +1168,7 @@ switch:checked slider {
         background $transition,
         border-radius $transition,
         color $transition;
-    border-radius: 30px;
+    border-radius: $radius;
     background-size: 8px 8px;
 
     &.active {
@@ -1267,7 +1212,7 @@ switch:checked slider {
         highlight {
             min-width: 15px;
             transition: all $transition;
-            border-radius: 30px;
+            border-radius: $radius;
             background-image: linear-gradient(45deg,
                     $primary 25%,
                     $background-2 25%,
@@ -1343,7 +1288,7 @@ switch:checked slider {
 .popup-menu {
     min-height: 400px;
     background: $background;
-    border-radius: 30px;
+    border-radius: $radius;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
     margin-bottom: 2px;
@@ -1481,7 +1426,7 @@ switch:checked slider {
 
 .powermenu {
     padding: 24px;
-    border-radius: 30px;
+    border-radius: $radius;
     background: $background;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
@@ -1498,7 +1443,7 @@ switch:checked slider {
     color: $text;
     min-width: 100px;
     min-height: 100px;
-    border-radius: 30px;
+    border-radius: $radius;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
     text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
@@ -1534,7 +1479,7 @@ switch:checked slider {
 .verification {
     min-width: 300px;
     padding: 24px;
-    border-radius: 30px;
+    border-radius: $radius;
     background: $background;
     border: 2px solid $primary;
 }
@@ -1570,25 +1515,29 @@ switch:checked slider {
 
 .mode-settings__button_left {
     background-color: $background-2;
-    border: 2px solid $primary;
-    border-radius: 30px 0px 0px 30px;
+    border-radius: $radius;
     color: $text;
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
     min-width: 170px;
     padding: 10px 0px;
+    box-shadow: $outset;
+
+    &.hover {
+        box-shadow: $inset;
+    }
 
     &.active {
         background: $primary;
-        color: $text;
+        box-shadow: $outset;
     }
 }
 
 .mode-settings__button_right {
     background-color: $background-2;
     border: 2px solid $primary;
-    border-radius: 0px 30px 30px 0px;
+    border-radius: 0px $radius $radius 0px;
     color: $text;
     font-family: $h2_font;
     font-size: $h2_size;
@@ -1613,7 +1562,7 @@ switch:checked slider {
 .theme-buttons {
     background-color: $background-2;
     border: 2px solid $primary;
-    border-radius: 30px;
+    border-radius: $radius;
     color: $text;
     padding: 10px 0px;
     min-width: 75px;
@@ -1634,7 +1583,7 @@ switch:checked slider {
     background-color: $background;
     min-height: 150px;
     min-width: 300px;
-    border-radius: 30px;
+    border-radius: $radius;
     border: 2px solid $primary;
     padding: 20px;
     color: $text;
@@ -1648,7 +1597,7 @@ switch:checked slider {
 
 .location_input {
     background-color: $background;
-    border-radius: 30px;
+    border-radius: $radius;
     border: 2px solid $primary;
     padding: 5px;
     color: $text;

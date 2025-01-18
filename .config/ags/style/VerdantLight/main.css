@@ -19,7 +19,6 @@
   border-radius: 20px;
   padding: 0px;
   min-height: 700px;
-  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 
 .app-launcher__input {
@@ -318,7 +317,7 @@ switch:checked slider {
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
-  box-shadow: inset 0px 2px 5px #5eff4c, inset 0px -2px 5px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   background-color: #26E012;
 }
 
@@ -493,12 +492,13 @@ switch:checked slider {
   font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
+  margin-left: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 .control-center__button.active {
-  box-shadow: inset 0px 2px 5px #5eff4c, inset 0px -2px 5px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   color: #562F10;
   background-color: #26E012;
 }
@@ -611,19 +611,20 @@ switch:checked slider {
   min-height: 42px;
   background: #E0ECDF;
   color: #562F10;
-  border: 2px solid #26E012;
+  border: none;
   border-radius: 100px;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__settings-button:hover {
-  background: #1242DE;
   color: #562F10;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 
 .control-center__powermenu-button:hover {
-  background: #1242DE;
   color: #562F10;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 
 .control-center__footer {
@@ -641,7 +642,6 @@ switch:checked slider {
   background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
   margin-bottom: 5px;
@@ -686,7 +686,7 @@ switch:checked slider {
   border-radius: 100px;
   background: #26E012;
   color: #562F10;
-  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   font-family: "Open sans";
   font-weight: normal;
   font-size: 24px;
@@ -895,7 +895,7 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
   color: #562F10;
-  box-shadow: inset 0px 2px 5px #5eff4c, inset 0px -2px 5px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   background-color: #26E012;
   padding: 2px 0px;
   margin: -2px 0px;

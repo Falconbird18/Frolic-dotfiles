@@ -46,8 +46,8 @@ $radius: 20px;
 $background_gradient: linear-gradient(145deg, $background-2, $background);
 $outset: 0px -3px 5px $highlight,
     0px 3px 5px $shadow;
-$outset_primary: inset 0px 2px 5px $highlight_primary,
-    inset 0px -2px 5px $shadow_primary,
+$outset_primary: inset 0px 1px 2px $highlight_primary,
+    inset 0px -1px 2px $shadow_primary,
     0px -3px 5px $highlight,
     0px 3px 5px $shadow;
 $inset: inset 0px 3px 5px $shadow,
@@ -64,7 +64,6 @@ $border: none;
     border-radius: $radius;
     padding: 0px;
     min-height: 700px;
-    box-shadow: $inset;
 }
 
 .app-launcher__input {
@@ -625,7 +624,8 @@ switch:checked slider {
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
-    margin-bottom: 2px;
+    margin-bottom: $outset_margin;
+    margin-left: $outset_margin;
     transition: all $transition;
     box-shadow: $outset;
 
@@ -775,22 +775,23 @@ switch:checked slider {
     min-height: 42px;
     background: $background-2;
     color: $text;
-    border: 2px solid $primary;
+    border: $border;
     border-radius: 100px;
+    box-shadow: $outset;
     transition: all $transition;
 }
 
 .control-center__settings-button {
     &:hover {
-        background: $secondary;
         color: $text;
+        box-shadow: $inset;
     }
 }
 
 .control-center__powermenu-button {
     &:hover {
-        background: $secondary;
         color: $text;
+        box-shadow: $inset;
     }
 }
 
@@ -812,7 +813,6 @@ switch:checked slider {
     background-image: $background_gradient;
     border-radius: $radius;
     padding: 20px;
-    box-shadow: $outset;
     transition:
         background-color $transition,
         color $transition;
@@ -863,7 +863,7 @@ switch:checked slider {
     border-radius: 100px;
     background: $primary;
     color: $text;
-    box-shadow: $outset;
+    box-shadow: $outset_primary;
     font-family: $h1_font;
     font-weight: $h1_weight;
     font-size: $h1_size;

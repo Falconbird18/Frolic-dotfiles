@@ -15,12 +15,12 @@
   padding: 0px;
   background: #F0EDEA;
   min-height: 700px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .app-launcher__input {
   background: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   outline: none;
   margin: 20px;
   padding: 12px 22px;
@@ -60,12 +60,14 @@
   font-weight: 300;
   color: #562F10;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .app-launcher__item label.description {
   font-family: "Monaspace Xenon";
   font-size: 11px;
   font-weight: 100;
   color: #766251;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .app-launcher__item icon {
   font-size: 24px;
@@ -73,13 +75,13 @@
 }
 .app-launcher__item:hover {
   background: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0 2px 0 0 #12DE52;
 }
 .app-launcher__item:focus {
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0 2px 0 0 #12DE52;
 }
 .app-launcher__item:active {
@@ -91,16 +93,13 @@
 * {
   outline: none;
   border: none;
-  text-shadow: none;
-  box-shadow: none;
   padding: 0;
   margin: 0;
   -gtk-icon-shadow: none;
 }
 
 icon {
-  box-shadow: none;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  -gtk-icon-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 
 slider {
@@ -176,8 +175,8 @@ switch:active {
 }
 
 switch:checked {
-  background-color: #E06F12;
-  border: 2px solid #E06F12;
+  background-color: #DE6E12;
+  border: 2px solid #DE6E12;
 }
 
 switch:checked slider {
@@ -193,42 +192,42 @@ switch:checked slider {
   box-shadow: 0 0 0 1px #562F10;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   color: #562F10;
-  border: 2px solid #E06F12;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  border: 2px solid #DE6E12;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .material-button.filled:hover, .material-button.filled:focus {
-  background: #E06F12;
+  background: #DE6E12;
   background-size: 8px 8px;
   color: #F0EDEA;
 }
 .material-button.filled:active {
-  background: #E06F12;
+  background: #DE6E12;
   background-size: 8px 8px;
   color: #F0EDEA;
 }
 .material-button.outlined {
   background: none;
   color: #562F10;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
-  border: 2px solid #E06F12;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  border: 2px solid #DE6E12;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .material-button.outlined:focus {
-  background: #E06F12;
+  background: #DE6E12;
 }
 .material-button.outlined:active {
-  background: #E06F12;
+  background: #DE6E12;
 }
 
 /*Bar*/
@@ -238,7 +237,7 @@ switch:checked slider {
   background: #F0EDEA;
   margin: 7px 7px 0px 7px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .arch-container {
@@ -254,23 +253,23 @@ switch:checked slider {
   border-radius: 24px;
   background: #F2F2F2;
   color: #562F10;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   font-family: "Monaspace Radon";
   background-size: 8px 8px;
   transition: all 0.3s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .bar__item.bar__button:hover {
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #DE6E12 25%, transparent 25%, transparent 50%, #DE6E12 50%, #DE6E12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .bar__item.bar__button:active {
-  background: #E06F12;
+  background: #DE6E12;
   background-size: 8px 8px;
 }
 .bar__item.bar__button.active {
-  background: #E06F12;
+  background: #DE6E12;
   color: #562F10;
 }
 .bar__item.bar__button.bar__recording-indicator {
@@ -309,18 +308,18 @@ switch:checked slider {
   min-height: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   background-color: #F2F2F2;
   background-size: 8px 8px;
 }
 .bar__workspaces-indicator:hover {
-  background-color: rgba(224, 111, 18, 0.6);
+  background-color: #DE6E12;
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
   border-radius: 100px;
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #DE6E12 25%, transparent 25%, transparent 50%, #DE6E12 50%, #DE6E12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
   box-shadow: 0px 2px 0px 0px #12DE52;
 }
@@ -375,7 +374,7 @@ switch:checked slider {
   background: none;
 }
 .bar__tray-item:hover {
-  background-color: rgba(224, 111, 18, 0.6);
+  background-color: rgba(222, 110, 18, 0.6);
 }
 .bar__tray-item icon {
   font-size: 18px;
@@ -400,7 +399,7 @@ switch:checked slider {
   min-width: 450px;
   min-height: 650px;
   background: #F0EDEA;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
@@ -430,15 +429,15 @@ switch:checked slider {
 
 .control-center__page_header_button {
   background: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   color: #562F10;
   min-width: 38px;
   min-height: 38px;
   border-radius: 100px;
 }
 .control-center__page_header_button:hover {
-  background-color: #E06F12;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  background-color: #DE6E12;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 
 .control-center__page_item-header {
@@ -451,7 +450,7 @@ switch:checked slider {
   padding: 0px 22px;
   min-height: 80px;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
 }
 .control-center__page_item-header.active {
@@ -465,7 +464,7 @@ switch:checked slider {
 
 .control-center__page_item {
   background: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   padding: 18px 22px;
   color: #562F10;
   font-weight: 300;
@@ -495,7 +494,7 @@ switch:checked slider {
 
 .control-center__button {
   background-color: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   color: #562F10;
   padding: 10px 24px 10px 30px;
   border-radius: 30px;
@@ -507,28 +506,28 @@ switch:checked slider {
   font-weight: 600;
 }
 .control-center__button.active {
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   color: #562F10;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .control-center__button.active:hover {
-  background: #E06F12;
+  background: #DE6E12;
   background-size: 8px 8px;
 }
 .control-center__button.active:active {
-  background: #E06F12;
+  background: #DE6E12;
   background-size: 8px 8px;
 }
 .control-center__button:hover {
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   color: #562F10;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 .control-center__button.no-label {
   padding: 0;
@@ -591,9 +590,9 @@ switch:checked slider {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -626,7 +625,7 @@ switch:checked slider {
   min-height: 42px;
   background: #F2F2F2;
   color: #562F10;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   border-radius: 100px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -656,7 +655,7 @@ switch:checked slider {
   background: #F0EDEA;
   border-radius: 30px;
   padding: 20px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
@@ -701,11 +700,11 @@ switch:checked slider {
   border-radius: 100px;
   background: #F2F2F2;
   color: #562F10;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #DE6E12 25%, transparent 25%, transparent 50%, #DE6E12 50%, #DE6E12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
   font-family: "Monaspace Radon";
   font-weight: bold;
 }
@@ -735,7 +734,7 @@ switch:checked slider {
   min-width: 40px;
 }
 .calendar__day.active {
-  background: #E06F12;
+  background: #DE6E12;
 }
 .calendar__day.inactive {
   color: #F0EDEA;
@@ -747,7 +746,7 @@ switch:checked slider {
   color: #562F10;
   background-color: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
@@ -758,7 +757,7 @@ switch:checked slider {
   margin-right: 14px;
   border-radius: 100px;
   background: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .notification__icon.telegram {
@@ -800,7 +799,7 @@ switch:checked slider {
 .notification__action {
   background: none;
   transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  color: #E06F12;
+  color: #DE6E12;
   border-radius: 100px;
 }
 .notification__action:hover {
@@ -822,7 +821,7 @@ switch:checked slider {
   background-color: #F2F2F2;
   color: #562F10;
   font-size: 16px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__close-button:hover {
@@ -846,7 +845,7 @@ switch:checked slider {
   min-height: 550px;
   padding: 10px 10px 0;
   background: #F0EDEA;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   /* Don't cut off the box shadow*/
@@ -866,12 +865,12 @@ switch:checked slider {
   border-radius: 30px;
   color: #562F10;
   font-family: "Monaspace Radon";
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .notifications-window__clear:hover {
-  background: #E06F12;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  background: #DE6E12;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
 }
 
 .notifications-window__list revealer .notification {
@@ -901,7 +900,7 @@ switch:checked slider {
 .container {
   background-color: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 20px;
 }
@@ -916,9 +915,9 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
   color: #562F10;
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -931,7 +930,7 @@ switch:checked slider {
 .player {
   min-height: 155px;
   background: #F0EDEA;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   padding: 20px 10px;
@@ -949,7 +948,7 @@ switch:checked slider {
   background-color: #F2F2F2;
   padding: 10px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .player__title {
@@ -977,16 +976,16 @@ switch:checked slider {
   color: #562F10;
   font-size: 24px;
   border-radius: 0px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
   background-size: 8px 8px;
 }
 .player__playpause.active {
   border-radius: 25px;
-  background: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .player__next,
@@ -1011,9 +1010,9 @@ switch:checked slider {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  background-image: linear-gradient(45deg, #E06F12 25%, #F2F2F2 25%, #F2F2F2 50%, #E06F12 50%, #E06F12 75%, #F2F2F2 75%, #F2F2F2);
+  background-image: linear-gradient(45deg, #DE6E12 25%, #F2F2F2 25%, #F2F2F2 50%, #DE6E12 50%, #DE6E12 75%, #F2F2F2 75%, #F2F2F2);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1066,7 +1065,7 @@ switch:checked slider {
   min-height: 400px;
   background: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
   padding: 0 20px;
@@ -1145,7 +1144,7 @@ switch:checked slider {
 .mixer__slider trough highlight,
 .mixer__slider trough progress {
   border-radius: 100px;
-  background-color: #E06F12;
+  background-color: #DE6E12;
   border-radius: 100px;
 }
 .mixer__slider trough slider {
@@ -1168,7 +1167,7 @@ switch:checked slider {
   border-radius: 100px;
   padding: 0px 12px;
   margin-left: 12px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .mixer-placeholder {
@@ -1183,7 +1182,7 @@ switch:checked slider {
   padding: 24px;
   border-radius: 30px;
   background: #F0EDEA;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
 }
@@ -1199,13 +1198,13 @@ switch:checked slider {
   min-width: 100px;
   min-height: 100px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   box-shadow: 0px 2px 0px 0px #12DE52;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: 2px 2px 0 #F2F2F2, 2px -2px 0 #F2F2F2, -2px 2px 0 #F2F2F2, -2px -2px 0 #F2F2F2, 2px 0px 0 #F2F2F2, 0px 2px 0 #F2F2F2, -2px 0px 0 #F2F2F2, 0px -2px 0 #F2F2F2;
   background-size: 8px 8px;
 }
 .powermenu__button:hover, .powermenu__button:focus {
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, #DE6E12 25%, transparent 25%, transparent 50%, #DE6E12 50%, #DE6E12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
   box-shadow: 0px 2px 0px 0px #12DE52;
 }
@@ -1226,7 +1225,7 @@ switch:checked slider {
   padding: 24px;
   border-radius: 30px;
   background: #F0EDEA;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
 }
 
 .verification__title {
@@ -1258,7 +1257,7 @@ switch:checked slider {
 
 .mode-settings__button_left {
   background-color: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   border-radius: 30px 0px 0px 30px;
   color: #562F10;
   font-family: "Monaspace Radon";
@@ -1268,13 +1267,13 @@ switch:checked slider {
   padding: 10px 0px;
 }
 .mode-settings__button_left.active {
-  background: #E06F12;
+  background: #DE6E12;
   color: #562F10;
 }
 
 .mode-settings__button_right {
   background-color: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   border-radius: 0px 30px 30px 0px;
   color: #562F10;
   font-family: "Monaspace Radon";
@@ -1284,7 +1283,7 @@ switch:checked slider {
   padding: 10px 0px;
 }
 .mode-settings__button_right.active {
-  background: #E06F12;
+  background: #DE6E12;
   color: #562F10;
 }
 
@@ -1298,7 +1297,7 @@ switch:checked slider {
 
 .theme-buttons {
   background-color: #F2F2F2;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   border-radius: 30px;
   color: #562F10;
   padding: 10px 0px;
@@ -1319,7 +1318,7 @@ switch:checked slider {
   min-height: 150px;
   min-width: 300px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   padding: 20px;
   color: #562F10;
 }
@@ -1333,7 +1332,7 @@ switch:checked slider {
 .location_input {
   background-color: #F0EDEA;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #DE6E12;
   padding: 5px;
   color: #562F10;
   font-family: "Monaspace Xenon";
