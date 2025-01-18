@@ -1,40 +1,41 @@
 /* Colors */
-/* background: hsl(27, 15%, 93%)*/
-/* card: hsl(0, 0%, 95%)*/
+/* background: hsl(114, 25%, 94%)*/
+/* card: hsl(114, 25%, 90%)*/
 /* background-light: hsl(27, 15%, 83%)*/
 /* primary: hsl(114, 85%, 47%)*/
 /* secondary: hsl(226, 85%, 47%)*/
 /* text: hsl(27, 69%, 20%)*/
 /* subtext: hsl(27, 19%, 39%)*/
+/* shadow: hsl(0, 0%, 60%)*/
 /* highlight_primary: hsl(114, 85%, 57%)*/
-/* shadow_primary: hsl(114, 85%, 37%)*/
+/* shadow_primary: hsl(114, 85%, 13%)*/
 /*Difference between hue of Primary and Secondary is 112*/
 /* Fonts */
 /* General */
 /* AppLauncher */
 .app-launcher {
   min-width: 650px;
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
   border-radius: 20px;
   padding: 0px;
   min-height: 700px;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 
 .app-launcher__input {
-  background: #bebebe;
+  background: #E0ECDF;
   outline: none;
   margin: 20px;
   padding: 12px 22px;
   border-radius: 20px;
   box-shadow: none;
   color: #562F10;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
-  border: 2px solid #b4b4b4;
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
+  border: none;
 }
 .app-launcher__input icon {
   margin-right: 20px;
@@ -51,22 +52,22 @@
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 12px 18px;
   border-radius: 20px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  border: 2px solid #b4b4b4;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  border: none;
   margin-bottom: 10px;
 }
 .app-launcher__item label {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .app-launcher__item label.title {
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   font-size: 14px;
   font-weight: 300;
   color: #562F10;
   margin-bottom: 10px;
 }
 .app-launcher__item label.description {
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   font-size: 11px;
   font-weight: 100;
   color: #766251;
@@ -76,16 +77,16 @@
   margin-right: 10px;
 }
 .app-launcher__item:hover {
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
-  background-color: #DAD3CD;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
+  background-color: #F5F6F9;
 }
 .app-launcher__item:focus {
   background-color: #26E012;
-  box-shadow: inset 5px 5px 5px #47EF34, inset 5px 5px 5px #1EAF0E;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
 }
 .app-launcher__item:active {
   background-color: #26E012;
-  box-shadow: inset 5px 5px 5px #47EF34, inset 5px 5px 5px #1EAF0E;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   border-radius: 100px;
 }
 
@@ -102,13 +103,13 @@
 
 icon {
   box-shadow: none;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: -1.5px -1.5px 0 #EDF4EC, 1.5px -1.5px 0 #EDF4EC, -1.5px 1.5px 0 #EDF4EC, 1.5px 1.5px 0 #EDF4EC;
 }
 
 slider {
   border: none;
   outline: none;
-  background: #F0EDEA;
+  background: #EDF4EC;
 }
 
 separator {
@@ -136,7 +137,7 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: #F0EDEA;
+  background-color: #EDF4EC;
   padding: 10px;
 }
 window.popup menu menuitem {
@@ -147,7 +148,7 @@ window.popup menu menuitem {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 window.popup menu menuitem:hover {
-  background: #bebebe;
+  background: #E0ECDF;
 }
 window.popup menu menuitem:first-child {
   margin-top: 0;
@@ -159,7 +160,7 @@ window.popup menu menuitem:last-child {
 switch {
   border: 2px solid #766251;
   border-radius: 100px;
-  background-color: #bebebe;
+  background-color: #E0ECDF;
 }
 
 switch slider {
@@ -174,7 +175,7 @@ switch:active slider {
 }
 
 switch:active {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
 }
 
 switch:checked {
@@ -195,23 +196,23 @@ switch:checked slider {
   box-shadow: 0 0 0 1px #562F10;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #26E012 25%, #bebebe 25%, #bebebe 50%, #26E012 50%, #26E012 75%, #bebebe 75%, #bebebe);
+  background-image: linear-gradient(45deg, #26E012 25%, #E0ECDF 25%, #E0ECDF 50%, #26E012 50%, #26E012 75%, #E0ECDF 75%, #E0ECDF);
   background-size: 8px 8px;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
   color: #562F10;
   border: 2px solid #26E012;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: -1.5px -1.5px 0 #EDF4EC, 1.5px -1.5px 0 #EDF4EC, -1.5px 1.5px 0 #EDF4EC, 1.5px 1.5px 0 #EDF4EC;
 }
 .material-button.filled:hover, .material-button.filled:focus {
   background: #26E012;
   background-size: 8px 8px;
-  color: #F0EDEA;
+  color: #EDF4EC;
 }
 .material-button.filled:active {
   background: #26E012;
   background-size: 8px 8px;
-  color: #F0EDEA;
+  color: #EDF4EC;
 }
 .material-button.outlined {
   background: none;
@@ -219,12 +220,12 @@ switch:checked slider {
   border: 2px solid #26E012;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #26E012 25%, #bebebe 25%, #bebebe 50%, #26E012 50%, #26E012 75%, #bebebe 75%, #bebebe);
+  background-image: linear-gradient(45deg, #26E012 25%, #E0ECDF 25%, #E0ECDF 50%, #26E012 50%, #26E012 75%, #E0ECDF 75%, #E0ECDF);
   background-size: 8px 8px;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
   border: 2px solid #26E012;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: -1.5px -1.5px 0 #EDF4EC, 1.5px -1.5px 0 #EDF4EC, -1.5px 1.5px 0 #EDF4EC, 1.5px 1.5px 0 #EDF4EC;
 }
 .material-button.outlined:focus {
   background: #26E012;
@@ -237,10 +238,9 @@ switch:checked slider {
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
   margin: 7px 7px 7px 7px;
   border-radius: 20px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
 }
 
 .arch-container {
@@ -254,16 +254,17 @@ switch:checked slider {
   padding-right: 16px;
   min-height: 42px;
   border-radius: 24px;
-  background: #bebebe;
+  background: #E0ECDF;
   color: #562F10;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  font-family: "Monaspace Radon";
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  font-family: "Open sans";
   transition: all 0.3s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-right: 6px;
-  border: 2px solid #b4b4b4;
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
 }
 .bar__item.bar__button:hover {
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 .bar__item.bar__button:active {
   background: #26E012;
@@ -298,7 +299,7 @@ switch:checked slider {
 }
 
 .bar__item.primary_container {
-  background: #bebebe;
+  background: #E0ECDF;
   color: #562F10;
 }
 
@@ -308,17 +309,16 @@ switch:checked slider {
   min-height: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  background-color: #bebebe;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  border: 2px solid #b4b4b4;
+  background-color: #F5F6F9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 .bar__workspaces-indicator:hover {
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
-  box-shadow: inset 0px -5px 5px #1EAF0E, inset 5px 5px 5px #47EF34;
+  box-shadow: inset 0px 2px 5px #5eff4c, inset 0px -2px 5px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   background-color: #26E012;
 }
 
@@ -357,7 +357,7 @@ switch:checked slider {
   min-width: 18px;
   min-height: 18px;
   background: #562F10;
-  color: #bebebe;
+  color: #E0ECDF;
 }
 
 .bar__tray {
@@ -383,12 +383,12 @@ switch:checked slider {
 }
 
 .bar__rounded-box > *:last-child {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .bar__rounded-box > *:first-child, .bar__rounded-box > *:first-child > * {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 /*Control Center*/
@@ -396,10 +396,7 @@ switch:checked slider {
   border-radius: 20px;
   min-width: 450px;
   min-height: 650px;
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  margin-bottom: 6px;
-  margin-right: 6px;
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
 }
 
 .control-center__page {
@@ -422,7 +419,7 @@ switch:checked slider {
 .control-center__page_header label {
   font-size: 24px;
   font-weight: normal;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
 }
 
 .control-center__page_header_button {
@@ -431,27 +428,27 @@ switch:checked slider {
   min-width: 38px;
   min-height: 38px;
   border-radius: 100px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 .control-center__page_header_button:hover {
-  background-color: #bebebe;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  background-color: #E0ECDF;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 
 .control-center__page_item-header {
-  background: #F0EDEA;
+  background: #EDF4EC;
   color: #562F10;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
   border-radius: 20px;
   padding: 0px 22px;
   min-height: 80px;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 .control-center__page_item-header.active {
-  background: #bebebe;
+  background: #E0ECDF;
 }
 .control-center__page_item-header label {
   font-size: 18px;
@@ -460,63 +457,63 @@ switch:checked slider {
 }
 
 .control-center__page_item {
-  background: #bebebe;
+  background: #E0ECDF;
   padding: 18px 22px;
   color: #562F10;
   font-weight: 300;
   font-size: 14px;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 .control-center__page_item:first-child {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   margin-top: 10px;
 }
 .control-center__page_item:last-child {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .control-center__page_item label {
   font-size: 14px;
   font-weight: 300;
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   color: #562F10;
   margin-left: 16px;
 }
 .control-center__page_item:hover {
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 
 .control-center__button {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
   color: #562F10;
   padding: 10px 24px 10px 30px;
   border-radius: 20px;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
   margin-bottom: 2px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 .control-center__button.active {
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: inset 0px 2px 5px #5eff4c, inset 0px -2px 5px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   color: #562F10;
   background-color: #26E012;
 }
 .control-center__button.active:hover {
   background: #26E012;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
 }
 .control-center__button.active:active {
   background: #26E012;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
 }
 .control-center__button:hover {
   color: #562F10;
   background-color: #26E012;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
 }
 .control-center__button.no-label {
   padding: 0;
@@ -526,14 +523,14 @@ switch:checked slider {
   color: #562F10;
 }
 .control-center__button.recorder-indicator.active:hover {
-  background: #bebebe;
+  background: #E0ECDF;
 }
 .control-center__button.recorder-indicator.active:active {
   background: #e99898;
 }
 
 .control-center__dropdown-menu {
-  background: #F0EDEA;
+  background: #EDF4EC;
   border-radius: 20px;
   padding: 24px;
 }
@@ -571,7 +568,7 @@ switch:checked slider {
 .control-center__volume-slider trough {
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  background-color: #DAD3CD;
+  background-color: #F5F6F9;
   min-height: 15px;
 }
 .control-center__brightness-slider trough highlight,
@@ -579,7 +576,7 @@ switch:checked slider {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
-  background-image: linear-gradient(45deg, #26E012 25%, #bebebe 25%, #bebebe 50%, #26E012 50%, #26E012 75%, #bebebe 75%, #bebebe);
+  background-image: linear-gradient(45deg, #26E012 25%, #E0ECDF 25%, #E0ECDF 50%, #26E012 50%, #26E012 75%, #E0ECDF 75%, #E0ECDF);
   background-size: 8px 8px;
   border: 2px solid #26E012;
   padding: 2px 0px;
@@ -595,7 +592,7 @@ switch:checked slider {
 }
 
 .muted .control-center__volume-slider highlight {
-  background-color: #F0EDEA;
+  background-color: #EDF4EC;
 }
 .muted .control-center__slider-icon {
   color: #562F10;
@@ -605,14 +602,14 @@ switch:checked slider {
   color: #562F10;
   font-size: 14px;
   font-weight: 300;
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
 }
 
 .control-center__settings-button,
 .control-center__powermenu-button {
   min-width: 42px;
   min-height: 42px;
-  background: #bebebe;
+  background: #E0ECDF;
   color: #562F10;
   border: 2px solid #26E012;
   border-radius: 100px;
@@ -641,14 +638,14 @@ switch:checked slider {
 }
 
 .block {
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
-  margin-bottom: 6px;
-  margin-right: 6px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .placeholder {
@@ -661,7 +658,7 @@ switch:checked slider {
 .calendar__header {
   margin-top: 12px;
   padding: 10px;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 24px;
   font-weight: normal;
 }
@@ -669,7 +666,7 @@ switch:checked slider {
 .calendar__monthyear * {
   font-size: 24px;
   font-weight: normal;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   color: #562F10;
 }
 
@@ -689,22 +686,22 @@ switch:checked slider {
   border-radius: 100px;
   background: #26E012;
   color: #562F10;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  font-family: "Monaspace Radon";
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  font-family: "Open sans";
   font-weight: normal;
   font-size: 24px;
 }
 
 .calendar__button {
   color: #562F10;
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   font-weight: 300;
   font-size: 14px;
 }
 
 .calendar__button__other-month {
   color: #766251;
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   font-size: 11px;
   font-weight: 100;
 }
@@ -723,18 +720,18 @@ switch:checked slider {
   background: #26E012;
 }
 .calendar__day.inactive {
-  color: #F0EDEA;
+  color: #EDF4EC;
 }
 
 /*Notification*/
 .notification {
   padding: 14px 16px 14px 20px;
   color: #562F10;
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
   border-radius: 20px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  margin-bottom: 6px;
-  margin-right: 6px;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .notification__icon {
@@ -742,8 +739,8 @@ switch:checked slider {
   min-width: 30px;
   margin-right: 14px;
   border-radius: 100px;
-  background: #bebebe;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  background: #E0ECDF;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 
 .notification__icon.telegram {
@@ -807,11 +804,11 @@ switch:checked slider {
   background-color: #26E012;
   color: #562F10;
   font-size: 16px;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__close-button:hover {
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 
 /*NotificationsPopup*/
@@ -829,21 +826,21 @@ switch:checked slider {
   min-width: 400px;
   min-height: 550px;
   padding: 10px 10px 0;
-  background-image: linear-gradient(145deg, #bebebe, #F0EDEA);
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
-  margin-bottom: 6px;
-  margin-right: 6px;
+  background-image: linear-gradient(145deg, #E0ECDF, #EDF4EC);
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
+  margin-bottom: 5px;
+  margin-right: 5px;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notifications-window .notification {
   border-radius: 4px;
   transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background-color: #bebebe;
+  background-color: #E0ECDF;
   box-shadow: 0px 2px 0px 0px #1242DE;
 }
 
 .notifications-window__clear {
-  background: #bebebe;
+  background: #E0ECDF;
   padding: 10px 16px;
   margin-right: 18px;
   border-radius: 20px;
@@ -854,19 +851,19 @@ switch:checked slider {
 
 .notifications-window__clear:hover {
   background: #26E012;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: -1.5px -1.5px 0 #EDF4EC, 1.5px -1.5px 0 #EDF4EC, -1.5px 1.5px 0 #EDF4EC, 1.5px 1.5px 0 #EDF4EC;
 }
 
 .notifications-window__list revealer .notification {
   border-radius: 15px;
 }
 .notifications-window__list revealer:first-child .notification {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .notifications-window__list revealer:last-child .notification {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   margin-bottom: 10px;
 }
 
@@ -882,17 +879,15 @@ switch:checked slider {
 }
 
 .container {
-  background-color: #F0EDEA;
+  background: linear-gradient(145deg, #E0ECDF, #EDF4EC);
   border-radius: 20px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
   margin-bottom: 20px;
-  margin-right: 6px;
 }
 
 .indicator .progress {
   border-radius: 20px;
-  background-color: #bebebe;
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  background-color: #E0ECDF;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
   margin: 25px;
   padding: 0px;
 }
@@ -900,20 +895,20 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
   color: #562F10;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: inset 0px 2px 5px #5eff4c, inset 0px -2px 5px #0e974a, 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
   background-color: #26E012;
   padding: 2px 0px;
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: #F0EDEA;
+  background-color: #EDF4EC;
   color: #562F10;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: #F0EDEA;
+  background: #EDF4EC;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
   margin-bottom: 2px;
@@ -929,7 +924,7 @@ switch:checked slider {
 }
 
 .player__box {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
   padding: 10px;
   border-radius: 20px;
   border: 2px solid #26E012;
@@ -938,7 +933,7 @@ switch:checked slider {
 .player__title {
   font-weight: normal;
   font-size: 24px;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   color: #562F10;
   padding-right: 18px;
 }
@@ -947,7 +942,7 @@ switch:checked slider {
   padding-right: 18px;
   font-weight: 300;
   font-size: 14px;
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   color: #562F10;
   padding-top: 10px;
 }
@@ -956,7 +951,7 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background: #bebebe;
+  background: #E0ECDF;
   color: #562F10;
   font-size: 24px;
   border-radius: 0px;
@@ -967,7 +962,7 @@ switch:checked slider {
 }
 .player__playpause.active {
   border-radius: 25px;
-  background: linear-gradient(45deg, #26E012 25%, #bebebe 25%, #bebebe 50%, #26E012 50%, #26E012 75%, #bebebe 75%, #bebebe);
+  background: linear-gradient(45deg, #26E012 25%, #E0ECDF 25%, #E0ECDF 50%, #26E012 50%, #26E012 75%, #E0ECDF 75%, #E0ECDF);
   background-size: 8px 8px;
   border: 2px solid #26E012;
 }
@@ -987,14 +982,14 @@ switch:checked slider {
 .player__position-slider trough {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  background-color: #DAD3CD;
+  background-color: #F5F6F9;
   min-height: 15px;
 }
 .player__position-slider trough highlight {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
-  background-image: linear-gradient(45deg, #26E012 25%, #bebebe 25%, #bebebe 50%, #26E012 50%, #26E012 75%, #bebebe 75%, #bebebe);
+  background-image: linear-gradient(45deg, #26E012 25%, #E0ECDF 25%, #E0ECDF 50%, #26E012 50%, #26E012 75%, #E0ECDF 75%, #E0ECDF);
   background-size: 8px 8px;
   border: 2px solid #26E012;
   padding: 2px 0px;
@@ -1011,7 +1006,7 @@ switch:checked slider {
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: #F0EDEA;
+  background: #EDF4EC;
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
@@ -1047,7 +1042,7 @@ switch:checked slider {
 
 .popup-menu {
   min-height: 400px;
-  background: #F0EDEA;
+  background: #EDF4EC;
   border-radius: 20px;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
@@ -1075,7 +1070,7 @@ switch:checked slider {
 .popup-menu__header label {
   font-size: 24px;
   font-weight: normal;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   color: #562F10;
 }
 
@@ -1098,7 +1093,7 @@ switch:checked slider {
   margin-right: 16px;
 }
 .popup-menu__item:hover {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
 }
 .popup-menu__item:last-child {
   margin-bottom: 20px;
@@ -1122,7 +1117,7 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: #F0EDEA;
+  background-color: #EDF4EC;
   min-height: 14px;
 }
 .mixer__slider trough highlight,
@@ -1140,13 +1135,13 @@ switch:checked slider {
 }
 
 .mixer__value {
-  background: #bebebe;
+  background: #E0ECDF;
   border-radius: 100px;
   min-width: 56px;
 }
 
 .bluetooth__percentage {
-  background: #bebebe;
+  background: #E0ECDF;
   color: #562F10;
   border-radius: 100px;
   padding: 0px 12px;
@@ -1165,7 +1160,7 @@ switch:checked slider {
 .powermenu {
   padding: 24px;
   border-radius: 20px;
-  background: #F0EDEA;
+  background: #EDF4EC;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
   margin-bottom: 2px;
@@ -1177,14 +1172,14 @@ switch:checked slider {
 
 .powermenu__button {
   padding: 0;
-  background: #bebebe;
+  background: #E0ECDF;
   color: #562F10;
   min-width: 100px;
   min-height: 100px;
   border-radius: 20px;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
-  text-shadow: -1.5px -1.5px 0 #F0EDEA, 1.5px -1.5px 0 #F0EDEA, -1.5px 1.5px 0 #F0EDEA, 1.5px 1.5px 0 #F0EDEA;
+  text-shadow: -1.5px -1.5px 0 #EDF4EC, 1.5px -1.5px 0 #EDF4EC, -1.5px 1.5px 0 #EDF4EC, 1.5px 1.5px 0 #EDF4EC;
   background-size: 8px 8px;
 }
 .powermenu__button:hover, .powermenu__button:focus {
@@ -1193,7 +1188,7 @@ switch:checked slider {
   box-shadow: 0px 2px 0px 0px #1242DE;
 }
 .powermenu__button:active {
-  background: #bebebe;
+  background: #E0ECDF;
 }
 
 .powermenu__label {
@@ -1208,7 +1203,7 @@ switch:checked slider {
   min-width: 300px;
   padding: 24px;
   border-radius: 20px;
-  background: #F0EDEA;
+  background: #EDF4EC;
   border: 2px solid #26E012;
 }
 
@@ -1240,30 +1235,30 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
   border-radius: 20px;
   color: #562F10;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
   min-width: 170px;
   padding: 10px 0px;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 .mode-settings__button_left.hover {
-  box-shadow: inset 5px 5px 5px #e9e9e9, inset 5px 5px 5px #b4b4b4;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #FFFFFF;
 }
 .mode-settings__button_left.active {
   background: #26E012;
-  box-shadow: inset 0px -5px 5px #b4b4b4, inset 5px 5px 5px #e9e9e9;
+  box-shadow: 0px -3px 5px #FFFFFF, 0px 3px 5px #999999;
 }
 
 .mode-settings__button_right {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
   border: 2px solid #26E012;
-  border-radius: 0px 30px 30px 0px;
+  border-radius: 0px 20px 20px 0px;
   color: #562F10;
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
   min-width: 170px;
@@ -1275,7 +1270,7 @@ switch:checked slider {
 }
 
 .theme {
-  font-family: "Monaspace Radon";
+  font-family: "Open sans";
   font-size: 24px;
   font-weight: normal;
   color: #562F10;
@@ -1283,7 +1278,7 @@ switch:checked slider {
 }
 
 .theme-buttons {
-  background-color: #bebebe;
+  background-color: #E0ECDF;
   border: 2px solid #26E012;
   border-radius: 20px;
   color: #562F10;
@@ -1292,7 +1287,7 @@ switch:checked slider {
 }
 
 .label {
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   color: #562F10;
   font-size: 14px;
   font-weight: 300;
@@ -1301,7 +1296,7 @@ switch:checked slider {
 
 /*Weather*/
 .weather-window {
-  background-color: #F0EDEA;
+  background-color: #EDF4EC;
   min-height: 150px;
   min-width: 300px;
   border-radius: 20px;
@@ -1317,7 +1312,7 @@ switch:checked slider {
 }
 
 .location_input {
-  background-color: #F0EDEA;
+  background-color: #EDF4EC;
   border-radius: 20px;
   border: 2px solid #26E012;
   padding: 5px;

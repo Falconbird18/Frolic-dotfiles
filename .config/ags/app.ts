@@ -14,8 +14,6 @@ import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
 import {
-	monitorColorsChange,
-	monitorDashboard,
 	toggleWindow,
 } from "./lib/utils";
 import Scrim from "./widget/Scrims/Scrim";
@@ -77,8 +75,6 @@ function main() {
 		osds.delete(gdkmonitor);
 	});
 
-	monitorColorsChange();
-	monitorDashboard()
 	applyTheme();
 
 	currentTheme.subscribe(applyTheme);

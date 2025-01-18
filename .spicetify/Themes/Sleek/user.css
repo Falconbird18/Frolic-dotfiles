@@ -250,7 +250,7 @@ svg{
   color: var(--spice-main);
 }
 /* player */
-.main-nowPlayingBar-center .playback-progressbar {
+/* .main-nowPlayingBar-center .playback-progressbar {
   position: absolute;
   left: 0;
   bottom: 82px;
@@ -329,7 +329,7 @@ svg{
 }
 .main-coverSlotCollapsed-container[aria-hidden='true'] .cover-art-image {
   border-radius: var(--br-1);
-}
+} */
 /* friends */
 .main-buddyFeed-addFriendsContainer {
   background-color: var(--spice-sidebar);

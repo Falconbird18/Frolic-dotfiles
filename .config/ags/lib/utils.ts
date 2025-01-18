@@ -3,7 +3,6 @@ import { GLib, monitorFile, writeFile, exec, Gio, execAsync } from "astal";
 import { transparentScrimWindowNames, scrimWindowNames } from "./variables";
 import AstalNotifd from "gi://AstalNotifd?version=0.1";
 import { controlCenterPage } from "../widget/ControlCenter";
-import { Theme } from "./theme";
 
 export function range(length: number, start = 1) {
 	return Array.from({ length }, (_, i) => i + start);
@@ -67,28 +66,6 @@ export function lookUpIcon(name?: string, size = 16) {
 		name,
 		size,
 		Gtk.IconLookupFlags.USE_BUILTIN,
-	);
-}
-
-export function monitorColorsChange() {
-	monitorFile(`${GLib.getenv("HOME")}/.config/ags/style/frolic${Theme}/main.scss`, () => {
-		const target = "/tmp/astal/style.css";
-		exec(
-			`sass ${GLib.getenv("HOME")}/.config/ags/style/frolic${Theme}/main.scss ${target}`,
-		);
-		App.apply_css(target);
-	});
-}
-export function monitorDashboard() {
-	monitorFile(
-		`${GLib.getenv("HOME")}/.config/ags/style/frolic${Theme}/dashboard.scss`,
-		() => {
-			const target = "/tmp/astal/style.css";
-			exec(
-				`sass ${GLib.getenv("HOME")}/.config/ags/style/frolic${Theme}/main.scss ${target}`,
-			);
-			App.apply_css(target);
-		},
 	);
 }
 

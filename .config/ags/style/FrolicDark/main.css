@@ -61,12 +61,14 @@
   font-weight: 300;
   color: #F5DECC;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .app-launcher__item label.description {
   font-family: "Monaspace Xenon";
   font-size: 11px;
   font-weight: 100;
   color: #BFAEA1;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .app-launcher__item icon {
   font-size: 24px;
@@ -92,16 +94,13 @@
 * {
   outline: none;
   border: none;
-  text-shadow: none;
-  box-shadow: none;
   padding: 0;
   margin: 0;
   -gtk-icon-shadow: none;
 }
 
 icon {
-  box-shadow: none;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  -gtk-icon-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 
 slider {
@@ -200,7 +199,7 @@ switch:checked slider {
   box-shadow: 0px 2px 0px 0px #12DE52;
   color: #F5DECC;
   border: 2px solid #E06F12;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .material-button.filled:hover, .material-button.filled:focus {
   background: #E06F12;
@@ -223,7 +222,7 @@ switch:checked slider {
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   border: 2px solid #E06F12;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .material-button.outlined:focus {
   background: #E06F12;
@@ -264,7 +263,7 @@ switch:checked slider {
 .bar__item.bar__button:hover {
   background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .bar__item.bar__button:active {
   background: #E06F12;
@@ -315,7 +314,7 @@ switch:checked slider {
   background-size: 8px 8px;
 }
 .bar__workspaces-indicator:hover {
-  background-color: rgba(224, 111, 18, 0.6);
+  background-color: #E06F12;
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
@@ -439,7 +438,7 @@ switch:checked slider {
 }
 .control-center__page_header_button:hover {
   background-color: #E06F12;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 
 .control-center__page_item-header {
@@ -513,7 +512,7 @@ switch:checked slider {
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   color: #F5DECC;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .control-center__button.active:hover {
   background: #E06F12;
@@ -529,7 +528,7 @@ switch:checked slider {
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
   color: #F5DECC;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .control-center__button.no-label {
   padding: 0;
@@ -706,7 +705,7 @@ switch:checked slider {
   box-shadow: 0px 2px 0px 0px #12DE52;
   background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
   font-family: "Monaspace Radon";
   font-weight: bold;
 }
@@ -872,7 +871,7 @@ switch:checked slider {
 
 .notifications-window__clear:hover {
   background: #E06F12;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 
 .notifications-window__list revealer .notification {
@@ -1202,7 +1201,7 @@ switch:checked slider {
   border-radius: 30px;
   border: 2px solid #E06F12;
   box-shadow: 0px 2px 0px 0px #12DE52;
-  text-shadow: -1.5px -1.5px 0 #2C2621, 1.5px -1.5px 0 #2C2621, -1.5px 1.5px 0 #2C2621, 1.5px 1.5px 0 #2C2621;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
   background-size: 8px 8px;
 }
 .powermenu__button:hover, .powermenu__button:focus {

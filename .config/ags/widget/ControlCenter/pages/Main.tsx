@@ -44,7 +44,12 @@ export default () => {
   const FanProfile = FanProfileButton();
   const Network = NetworkButton();
   const Bluetooth = BluetoothButton();
-
+  <button
+  className="control-center__settings-button"
+  onClick={() => toggleWindow("popup-theme-settings")}
+>
+  <icon icon={icons.ui.settings} iconSize={16} />
+</button>
   if (Network != undefined) {
     fb.add(Network);
   }
