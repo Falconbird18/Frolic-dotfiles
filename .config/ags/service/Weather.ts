@@ -38,6 +38,7 @@ export const updateWeatherCommands = () => {
     Precipitation[1] = `wttr.in/${Location}?format=%p`;
     Wind[1] = `wttr.in/${Location}?format=%w`;
     bar[1] = `wttr.in/${Location}?format=${barFormat}`;
+    description[1] = `wttr.in/${Location}?format=%C`;
 };
 
 const temperature = [
@@ -69,6 +70,10 @@ const Wind = [
   "curl",
   `wttr.in/${Location}?format=%w`,
 ];
+const description = [
+  "curl",
+  `wttr.in/${Location}?format=%C`,
+]
 const barFormat = `%c+%f+%w`;
 const bar = [
   "curl",
@@ -83,48 +88,82 @@ export const barWeather = Variable<any | null>(null).poll(
   30_000,
   bar,
   (out, prev) => {
-    console.log('Weather output:', out);
+    try {
+      console.log('Raw weather output:', out);
 
-    // Remove extra spaces between the icon and the weather
-    const trimmedOutput = out.replace(/(\s{2,})/g, ' '); // Replace multiple spaces with a single space
+      // Step 1: Remove the weather icon (e.g., 🌫) but preserve wind direction arrows
+      const outputWithoutIcon = out.replace(/[^\x00-\x7F↖↗↙↘↔←→↑↓]/g, '').trim(); // Remove non-ASCII characters except wind arrows
 
-    // Remove the '+' sign from positive temperatures
-    const cleanedOutput = trimmedOutput.replace(/\+(\d+°[CF])/, '$1'); // Remove '+' for positive temperatures
+      // Step 2: Remove extra spaces between the remaining weather data
+      const trimmedOutput = outputWithoutIcon.replace(/\s+/g, ' '); // Replace multiple spaces with a single space
 
-    // Extract wind speed and direction from the output
-    const windMatch = cleanedOutput.match(/([↖↗↙↘↔←→↑↓]+)(\d+)mph/);
-    if (windMatch) {
-      const directionSymbol = windMatch[1]; // Wind direction symbol
-      const windSpeedMph = parseFloat(windMatch[2]); // Wind speed in mph
+      // Step 3: Remove the '+' sign from positive temperatures and ensure the degree symbol is present
+      const cleanedOutput = trimmedOutput.replace(/\+(\d+)([°]?)([CF])/, '$1°$3'); // Remove '+' and ensure ° is present
 
-      // Convert wind speed to knots
-      const windSpeedKnots = windSpeedMph * 0.868976;
+      // Step 4: Extract wind speed and direction from the output
+      const windMatch = cleanedOutput.match(/([↖↗↙↘↔←→↑↓]+)(\d+)mph/);
+      if (windMatch) {
+        const directionSymbol = windMatch[1]; // Wind direction symbol
+        const windSpeedMph = parseFloat(windMatch[2]); // Wind speed in mph
 
-      // Replace the mph value with knots in the output string
-      const updatedOutput = cleanedOutput.replace(/([↖↗↙↘↔←→↑↓]+)(\d+)mph/, `${directionSymbol}${windSpeedKnots.toFixed(2)}kt`);
+        // Step 5: Convert wind speed to knots
+        const windSpeedKnots = windSpeedMph * 0.868976;
 
-      console.log('Updated weather output with wind in knots, trimmed spaces, and cleaned temperature:', updatedOutput);
-      return updatedOutput;
+        // Step 6: Replace the mph value with knots in the output string
+        const updatedOutput = cleanedOutput.replace(/([↖↗↙↘↔←→↑↓]+)(\d+)mph/, `${directionSymbol}${windSpeedKnots.toFixed(2)}kt`);
+
+        console.log('Updated weather output:', updatedOutput);
+        return updatedOutput;
+      }
+
+      // If no wind data is found, return the cleaned output
+      console.log('Cleaned weather output:', cleanedOutput);
+      return cleanedOutput;
+    } catch (e) {
+      console.error('Error processing weather data:', e);
+      return prev; // Return the previous value if an error occurs
     }
-
-    // If no wind data is found, return the cleaned output
-    return cleanedOutput;
   },
 );
+export const weatherDescription = Variable<any | null>(null).poll(
+  30_000,
+  description,
+  (out, prev) => {
+    try {
+      console.log('Weather description:', out);
+      return out;
+    } catch (e) {
+      console.error('Error processing weather description:', e);
+      return prev;
+    }
+  },
+);
+
 export const realTemp = Variable<any | null>(null).poll(
   30_000,
   temperature,
   (out, prev) => {
-    console.log('Temperature:', out);
-    return out;
+    try {
+      console.log('Temperature:', out);
+      return out;
+    } catch (e) {
+      console.error('Error processing temperature:', e);
+      return prev;
+    }
   },
 );
+
 export const feelsTemp = Variable<any | null>(null).poll(
   30_000,
   feelslikeTemp,
   (out, prev) => {
-    console.log('Feels like temperature:', out);
-    return out;
+    try {
+      console.log('Feels like temperature:', out);
+      return out;
+    } catch (e) {
+      console.error('Error processing feels like temperature:', e);
+      return prev;
+    }
   },
 );
 export const humidity = Variable<any | null>(null).poll(

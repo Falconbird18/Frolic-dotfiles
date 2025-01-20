@@ -150,4 +150,15 @@ export default {
     keyboard: "keyboard-brightness",
     screen: "display-brightness",
   },
+  weather: {
+    clear: "weather-clear",
+    clearNight: "weather-clear-night",
+    lightClouds: "weather-few-clouds",
+    cloudy: "weather-overcast",
+    fog: "weather-fog",
+    rain: "weather-showers",
+    thunderstorm: "weather-severe-alert",
+    snow: "weather-snow",
+    unknown: "window-close",
+  }
 };
