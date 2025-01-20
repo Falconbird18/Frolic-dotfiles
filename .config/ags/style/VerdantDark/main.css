@@ -200,7 +200,6 @@ switch:checked slider {
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
   color: #F5DECC;
-  border: 2px solid #26E012;
   text-shadow: -1.5px -1.5px 0 #495049, 1.5px -1.5px 0 #495049, -1.5px 1.5px 0 #495049, 1.5px 1.5px 0 #495049;
 }
 .material-button.filled:hover, .material-button.filled:focus {
@@ -223,7 +222,6 @@ switch:checked slider {
   background-size: 8px 8px;
   border: 2px solid #26E012;
   box-shadow: 0px 2px 0px 0px #1242DE;
-  border: 2px solid #26E012;
   text-shadow: -1.5px -1.5px 0 #495049, 1.5px -1.5px 0 #495049, -1.5px 1.5px 0 #495049, 1.5px 1.5px 0 #495049;
 }
 .material-button.outlined:focus {
@@ -427,7 +425,7 @@ switch:checked slider {
   min-width: 38px;
   min-height: 38px;
   border-radius: 100px;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
 }
 .control-center__page_header_button:hover {
   background-color: #3D433D;
@@ -444,7 +442,8 @@ switch:checked slider {
   padding: 0px 22px;
   min-height: 80px;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  margin: 5px;
 }
 .control-center__page_item-header.active {
   background: #3D433D;
@@ -886,7 +885,7 @@ switch:checked slider {
 
 .indicator .progress {
   border-radius: 20px;
-  background-color: #3D433D;
+  background-color: #477043;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
   margin: 25px;
   padding: 0px;
@@ -909,9 +908,7 @@ switch:checked slider {
 .player {
   min-height: 155px;
   background: #495049;
-  border: 2px solid #26E012;
-  box-shadow: 0px 2px 0px 0px #1242DE;
-  margin-bottom: 2px;
+  border: none;
   padding: 20px 10px;
   border-radius: 20px;
   background-size: cover;
@@ -924,10 +921,10 @@ switch:checked slider {
 }
 
 .player__box {
-  background-color: #3D433D;
-  padding: 10px;
+  background-color: transparent;
+  padding: 0;
   border-radius: 20px;
-  border: 2px solid #26E012;
+  border: none;
 }
 
 .player__title {
@@ -951,20 +948,17 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background: #3D433D;
+  background-color: #26E012;
   color: #F5DECC;
   font-size: 24px;
   border-radius: 0px;
-  border: 2px solid #26E012;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  border: none;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
-  background-size: 8px 8px;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
 }
 .player__playpause.active {
-  border-radius: 25px;
-  background: linear-gradient(45deg, #26E012 25%, #3D433D 25%, #3D433D 50%, #26E012 50%, #26E012 75%, #3D433D 75%, #3D433D);
-  background-size: 8px 8px;
-  border: 2px solid #26E012;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
 }
 
 .player__next,
@@ -983,15 +977,15 @@ switch:checked slider {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
   background-color: #477043;
-  min-height: 15px;
+  min-height: 25px;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
 }
 .player__position-slider trough highlight {
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
-  background-image: linear-gradient(45deg, #26E012 25%, #3D433D 25%, #3D433D 50%, #26E012 50%, #26E012 75%, #3D433D 75%, #3D433D);
-  background-size: 8px 8px;
-  border: 2px solid #26E012;
+  background-color: #26E012;
+  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   padding: 2px 0px;
   margin: -2px 0px;
 }

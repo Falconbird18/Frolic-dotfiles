@@ -279,7 +279,6 @@ switch:checked slider {
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
-        border: 2px solid $primary;
         text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
 
         &:hover,
@@ -313,7 +312,6 @@ switch:checked slider {
             background-size: 8px 8px;
             border: 2px solid $primary;
             box-shadow: 0px 2px 0px 0px $secondary;
-            border: 2px solid $primary;
             text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
         }
 
@@ -549,7 +547,7 @@ switch:checked slider {
     min-width: 38px;
     min-height: 38px;
     border-radius: 100px;
-    box-shadow: $outset;
+    box-shadow: $outset_primary;
 
     &:hover {
         background-color: $background-2;
@@ -573,7 +571,8 @@ switch:checked slider {
     padding: 0px 22px;
     min-height: 80px;
     transition: background $transition;
-    box-shadow: $inset;
+    box-shadow: $outset;
+    margin: $outset_margin;
 
     label {
         font-size: $h2_size;
@@ -1090,7 +1089,7 @@ switch:checked slider {
 
 .indicator .progress {
     border-radius: $radius;
-    background-color: $background-2;
+    background-color: $background-3;
     box-shadow: $inset;
     margin: 25px;
     padding: 0px;
@@ -1117,9 +1116,7 @@ switch:checked slider {
 .player {
     min-height: 155px;
     background: $background;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    border: $border;
     padding: 20px 10px;
     border-radius: $radius;
     background-size: cover;
@@ -1132,10 +1129,10 @@ switch:checked slider {
 }
 
 .player__box {
-    background-color: $background-2;
-    padding: 10px;
+    background-color: transparent;
+    padding: 0;
     border-radius: $radius;
-    border: 2px solid $primary;
+    border: $border;
 }
 
 .player__title {
@@ -1159,31 +1156,17 @@ switch:checked slider {
     min-width: 60px;
     min-height: 60px;
     padding: 0;
-    background: $background-2;
+    background-color: $primary;
     color: $text;
     font-size: $h1_size;
     border-radius: 0px;
-    border: 2px solid $primary;
-    transition:
-        background $transition,
-        border-radius $transition,
-        color $transition;
+    border: $border;
+    transition: all $transition;
     border-radius: $radius;
-    background-size: 8px 8px;
+    box-shadow: $outset_primary;
 
     &.active {
-        border-radius: 25px;
-        background: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
-        background-size: 8px 8px;
-        border: 2px solid $primary;
-
+        box-shadow: $inset_primary;
     }
 }
 
@@ -1207,22 +1190,15 @@ switch:checked slider {
             color $transition;
         border-radius: 100px;
         background-color: $background-3;
-        min-height: 15px;
+        min-height: 25px;
+        box-shadow: $inset;
 
         highlight {
             min-width: 15px;
             transition: all $transition;
             border-radius: $radius;
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    $background-2 25%,
-                    $background-2 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    $background-2 75%,
-                    $background-2);
-            background-size: 8px 8px;
-            border: 2px solid $primary;
+            background-color: $primary;
+            box-shadow: $outset_primary;
             padding: 2px 0px;
             margin: -2px 0px;
         }

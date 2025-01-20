@@ -84,6 +84,24 @@ export const barWeather = Variable<any | null>(null).poll(
   bar,
   (out, prev) => {
     console.log('Weather output:', out);
+
+    // Extract wind speed and direction from the output
+    const windMatch = out.match(/([↖↗↙↘←→↑↓]+)(\d+)mph/);
+    if (windMatch) {
+      const directionSymbol = windMatch[1]; // Wind direction symbol
+      const windSpeedMph = parseFloat(windMatch[2]); // Wind speed in mph
+
+      // Convert wind speed to knots
+      const windSpeedKnots = windSpeedMph * 0.868976;
+
+      // Replace the mph value with knots in the output string
+      const updatedOutput = out.replace(/([↖↗↙↘←→↑↓]+)(\d+)mph/, `${directionSymbol}${windSpeedKnots.toFixed(2)} Kt`);
+
+      console.log('Updated weather output with wind in knots:', updatedOutput);
+      return updatedOutput;
+    }
+
+    // If no wind data is found, return the original output
     return out;
   },
 );
