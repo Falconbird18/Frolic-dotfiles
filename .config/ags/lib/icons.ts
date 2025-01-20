@@ -159,6 +159,6 @@ export default {
     rain: "weather-showers",
     thunderstorm: "weather-severe-alert",
     snow: "weather-snow",
-    unknown: "window-close",
+    unknown: "window-none-availible",
   }
 };
