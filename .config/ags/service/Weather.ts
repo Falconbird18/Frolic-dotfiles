@@ -85,8 +85,14 @@ export const barWeather = Variable<any | null>(null).poll(
   (out, prev) => {
     console.log('Weather output:', out);
 
+    // Remove extra spaces between the icon and the weather
+    const trimmedOutput = out.replace(/(\s{2,})/g, ' '); // Replace multiple spaces with a single space
+
+    // Remove the '+' sign from positive temperatures
+    const cleanedOutput = trimmedOutput.replace(/\+(\d+°[CF])/, '$1'); // Remove '+' for positive temperatures
+
     // Extract wind speed and direction from the output
-    const windMatch = out.match(/([↖↗↙↘←→↑↓]+)(\d+)mph/);
+    const windMatch = cleanedOutput.match(/([↖↗↙↘↔←→↑↓]+)(\d+)mph/);
     if (windMatch) {
       const directionSymbol = windMatch[1]; // Wind direction symbol
       const windSpeedMph = parseFloat(windMatch[2]); // Wind speed in mph
@@ -95,14 +101,14 @@ export const barWeather = Variable<any | null>(null).poll(
       const windSpeedKnots = windSpeedMph * 0.868976;
 
       // Replace the mph value with knots in the output string
-      const updatedOutput = out.replace(/([↖↗↙↘←→↑↓]+)(\d+)mph/, `${directionSymbol}${windSpeedKnots.toFixed(2)} Kt`);
+      const updatedOutput = cleanedOutput.replace(/([↖↗↙↘↔←→↑↓]+)(\d+)mph/, `${directionSymbol}${windSpeedKnots.toFixed(2)}kt`);
 
-      console.log('Updated weather output with wind in knots:', updatedOutput);
+      console.log('Updated weather output with wind in knots, trimmed spaces, and cleaned temperature:', updatedOutput);
       return updatedOutput;
     }
 
-    // If no wind data is found, return the original output
-    return out;
+    // If no wind data is found, return the cleaned output
+    return cleanedOutput;
   },
 );
 export const realTemp = Variable<any | null>(null).poll(
