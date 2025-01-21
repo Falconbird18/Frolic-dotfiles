@@ -49,9 +49,9 @@ export default {
     dark: "night-light",
     light: "night-light",
   },
-  record: "media-record",
-  screensnip: "edit-cut",
-  screenshot: "view-fullscreen",
+  record: "media-record-symbolic",
+  screensnip: "edit-cut-symbolic",
+  screenshot: "view-fullscreen-symbolic",
   arch: "/home/austin/.config/ags/arch.svg",
   powerprofile: {
     0: "power-profile-balanced",
@@ -83,7 +83,7 @@ export default {
     menu: "open-menu",
     refresh: "view-refresh",
     search: "system-search",
-    settings: "emblem-system",
+    settings: "emblem-system-symbolic",
     themes: "preferences-desktop-theme",
     tick: "object-select",
     time: "hourglass",
@@ -119,8 +119,8 @@ export default {
     mixer: "media-playlist-shuffle",
   },
   notifications: {
-    noisy: "preferences-system-notifications",
-    silent: "notifications-disabled",
+    noisy: "preferences-system-notifications-symbolic",
+    silent: "notifications-disabled-symbolic",
   },
   media: {
     fallback: "audio-x-generic",
@@ -146,8 +146,8 @@ export default {
     shutdown: "system-shutdown",
   },
   brightness: {
-    indicator: "display-brightness",
-    keyboard: "keyboard-brightness",
+    indicator: "display-brightness-symbolic",
+    keyboard: "keyboard-brightness-symbolic",
     screen: "display-brightness",
   },
   weather: {
