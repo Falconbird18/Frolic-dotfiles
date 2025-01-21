@@ -716,22 +716,16 @@ switch:checked slider {
             color $transition;
         border-radius: 100px;
         background-color: $background-3;
+        box-shadow: $inset;
         min-height: 15px;
 
         highlight {
+            background-color: $primary;
             min-width: 15px;
             transition: all $transition;
             border-radius: $radius;
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    $background-2 25%,
-                    $background-2 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    $background-2 75%,
-                    $background-2);
-            background-size: 8px 8px;
-            border: 2px solid $primary;
+            border: $border;
+            box-shadow: $outset_primary;
             padding: 2px 0px;
             margin: -2px 0px;
         }
@@ -1032,18 +1026,20 @@ switch:checked slider {
 }
 
 .notifications-window__clear {
-    background: $background-2;
+    background: $primary;
     padding: 10px 16px;
     margin-right: 18px;
     border-radius: $radius;
     color: $text;
-    font-family: 'Monaspace Radon';
-    border: 2px solid $primary;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    border: $border;
+    box-shadow: $outset_primary;
 }
 
 .notifications-window__clear:hover {
-    background: $primary;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+    box-shadow: $inset_primary;
 }
 
 .notifications-window__list {
@@ -1265,9 +1261,7 @@ switch:checked slider {
     min-height: 400px;
     background: $background;
     border-radius: $radius;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    border: $border;
     padding: 0 20px;
 
     &.sink {
@@ -1404,9 +1398,7 @@ switch:checked slider {
     padding: 24px;
     border-radius: $radius;
     background: $background;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    margin-bottom: 2px;
+    border: $border;
 }
 
 .powermenu__button_icon {
@@ -1420,34 +1412,25 @@ switch:checked slider {
     min-width: 100px;
     min-height: 100px;
     border-radius: $radius;
-    border: 2px solid $primary;
-    box-shadow: 0px 2px 0px 0px $secondary;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
-    background-size: 8px 8px;
+    border: $border;
+    box-shadow: $outset;
 
     &:hover,
     &:focus {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                transparent 25%,
-                transparent 50%,
-                $primary 50%,
-                $primary 75%,
-                transparent 75%,
-                transparent);
-        background-size: 8px 8px;
-        box-shadow: 0px 2px 0px 0px $secondary;
+        background-color: $primary;
+        box-shadow: $inset_primary;
     }
 
     &:active {
-        background: $background-2;
+        background-color: $primary;
+        box-shadow: $inset_primary;
     }
 }
 
 .powermenu__label {
-    font-size: 16px;
-    font-weight: 500;
-    font-family: 'monaspace xenon';
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    font-family: $h2_font;
     margin-top: 25px;
     color: $text;
 }
@@ -1457,19 +1440,20 @@ switch:checked slider {
     padding: 24px;
     border-radius: $radius;
     background: $background;
-    border: 2px solid $primary;
+    border: $border;
 }
 
 .verification__title {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'monaspace radon';
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    font-family: $h2_font;
 }
 
 .verification__description {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: 'monaspace xenon';
+    font-size: $paragraph_size;
+    font-weight: $paragraph_weight;
+    font-family: $paragraph_font;
+    color: $text;
 }
 
 /*Scrim*/
@@ -1496,9 +1480,10 @@ switch:checked slider {
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
-    min-width: 170px;
+    min-width: 160px;
     padding: 10px 0px;
     box-shadow: $outset;
+    margin-right: 10px;
 
     &.hover {
         box-shadow: $inset;
@@ -1506,24 +1491,29 @@ switch:checked slider {
 
     &.active {
         background: $primary;
-        box-shadow: $outset;
+        box-shadow: $outset_primary;
     }
 }
 
 .mode-settings__button_right {
     background-color: $background-2;
-    border: 2px solid $primary;
-    border-radius: 0px $radius $radius 0px;
+    border-radius: $radius;
     color: $text;
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
-    min-width: 170px;
+    min-width: 160px;
     padding: 10px 0px;
+    box-shadow: $outset;
+    margin-left: 10px;
+
+    &.hover {
+        box-shadow: $inset;
+    }
 
     &.active {
         background: $primary;
-        color: $text;
+        box-shadow: $outset_primary;
     }
 }
 
@@ -1537,7 +1527,8 @@ switch:checked slider {
 
 .theme-buttons {
     background-color: $background-2;
-    border: 2px solid $primary;
+    box-shadow: $outset;
+    border: $border;
     border-radius: $radius;
     color: $text;
     padding: 10px 0px;
@@ -1556,11 +1547,11 @@ switch:checked slider {
 /*Weather*/
 
 .weather-window {
-    background-color: $background;
+    background: $background_gradient;
     min-height: 150px;
     min-width: 300px;
     border-radius: $radius;
-    border: 2px solid $primary;
+    border: $border;
     padding: 20px;
     color: $text;
 }
@@ -1574,16 +1565,19 @@ switch:checked slider {
 .location_input {
     background-color: $background;
     border-radius: $radius;
-    border: 2px solid $primary;
+    border: $border;
     padding: 5px;
     color: $text;
-    font-family: 'Monaspace Xenon';
+    font-family: $paragraph_font;
+    font-size: $paragraph_size;
+    font-weight: $paragraph_weight;
+    box-shadow: $inset;
 }
 
 .location {
-    font-family: 'Monaspace Radon';
-    font-weight: bold;
-    font-size: 20px;
+    font-family: $h1_font;
+    font-weight: $h1_weight;
+    font-size: $h1_size;
     margin-bottom: 15px;
 }
 

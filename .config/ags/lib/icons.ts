@@ -59,8 +59,8 @@ export default {
     2: "power-profile-performance",
   },
   bluetooth: {
-    enabled: "bluetooth-active",
-    disabled: "bluetooth-disabled",
+    enabled: "bluetooth-active-symbolic",
+    disabled: "bluetooth-disabled-symbolic",
   },
   fallback: {
     executable: "application-x-executable",
@@ -99,10 +99,10 @@ export default {
   },
   audio: {
     mic: {
-      muted: "microphone-sensitivity-muted",
-      low: "microphone-sensitivity-low",
-      medium: "microphone-sensitivity-medium",
-      high: "microphone-sensitivity-high",
+      muted: "microphone-sensitivity-muted-symbolic",
+      low: "microphone-sensitivity-low-symbolic",
+      medium: "microphone-sensitivity-medium-symbolic",
+      high: "microphone-sensitivity-high-symbolic",
     },
     volume: {
       muted: "audio-volume-muted",
