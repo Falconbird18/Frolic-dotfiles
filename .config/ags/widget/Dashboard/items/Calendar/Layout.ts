@@ -39,7 +39,7 @@ export function getCalendarLayout(dateObject, highlight) {
 	const day = dateObject.getDate();
 	const month = dateObject.getMonth() + 1;
 	const year = dateObject.getFullYear();
-	const weekdayOfMonthFirst = (weekday + 35 - (day - 1)) % 7;
+	const weekdayOfMonthFirst = (weekday + 35 - (day - 1) + 1) % 7;
 	const daysInMonth = getMonthDays(month, year);
 	const daysInNextMonth = getNextMonthDays(month, year);
 	const daysInPrevMonth = getPrevMonthDays(month, year);
