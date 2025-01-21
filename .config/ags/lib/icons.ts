@@ -153,7 +153,7 @@ export default {
   weather: {
     clear: "weather-clear",
     clearNight: "weather-clear-night",
-    lightClouds: "weather-few-clouds",
+    partlyCloudy: "weather-few-clouds",
     cloudy: "weather-overcast",
     fog: "weather-fog",
     rain: "weather-showers",
