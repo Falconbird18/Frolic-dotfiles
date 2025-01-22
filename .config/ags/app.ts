@@ -32,6 +32,7 @@ const applyTheme = () => {
     const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
     exec(`sass ${themePathScss} ${themePathCss}`);
     console.log("Scss compiled");
+	App.reset_css();
     App.apply_css(themePathCss);
     console.log("Compiled css applied");
 };
