@@ -3,17 +3,17 @@
 /* Colors */
 $background: #252525;
 $background-2: #202020;
-$secondary: #EB308F;
+$secondary: #eb308f;
 $background-3: #404040;
-$primary: #3979EB;
-$text: #CAD3F5;
-$subtext: #A0A7BE;
+$primary: #3979eb;
+$text: #cad3f5;
+$subtext: #a0a7be;
 
 /* Fonts */
-$h1_font: 'Monaspace Radon';
-$h2_font: 'Monaspace Radon';
-$paragraph_font: 'Monaspace Xenon';
-$subtext_font: 'Monaspace Xenon';
+$h1_font: "Monaspace Radon";
+$h2_font: "Monaspace Radon";
+$paragraph_font: "Monaspace Xenon";
+$subtext_font: "Monaspace Xenon";
 $h1_weight: normal;
 $h2_weight: normal;
 $paragraph_weight: light;
@@ -22,7 +22,6 @@ $h1_size: 24px;
 $h2_size: 18px;
 $paragraph_size: 14px;
 $subtext_size: 11px;
-
 
 $blue: #b8c4ff;
 
@@ -120,7 +119,6 @@ $outline: #a08c89;
 
 $outline_variant: #534341;
 
-
 $primary_container: #73342c;
 
 $primary_fixed: #ffdad5;
@@ -144,7 +142,6 @@ $red_source: #f38ba8;
 $red_value: #f38ba8;
 
 $scrim: #000000;
-
 
 $secondary_container: #5d3f3b;
 
@@ -207,7 +204,11 @@ $yellow_value: #f9e2af;
 
 icon {
     box-shadow: none;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+    text-shadow:
+        -1.5px -1.5px 0 $background,
+        1.5px -1.5px 0 $background,
+        -1.5px 1.5px 0 $background,
+        1.5px 1.5px 0 $background;
 }
 
 slider {
@@ -237,7 +238,7 @@ label {
 }
 
 window.popup {
-    >* {
+    > * {
         border: none;
         box-shadow: none;
     }
@@ -294,7 +295,11 @@ switch:active slider {
 }
 
 switch:active {
-    background-color: color.mix($surface_container_highest, $on_surface, 0.08 * 1%);
+    background-color: color.mix(
+        $surface_container_highest,
+        $on_surface,
+        0.08 * 1%
+    );
 }
 
 switch:checked {
@@ -317,20 +322,26 @@ switch:checked slider {
     }
 
     &.filled {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            $background-2 25%,
+            $background-2 50%,
+            $primary 50%,
+            $primary 75%,
+            $background-2 75%,
+            $background-2
+        );
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
         border: 2px solid $primary;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        text-shadow:
+            -1.5px -1.5px 0 $background,
+            1.5px -1.5px 0 $background,
+            -1.5px 1.5px 0 $background,
+            1.5px 1.5px 0 $background;
 
         &:hover,
         &:focus {
@@ -352,19 +363,25 @@ switch:checked slider {
         border: 2px solid $primary;
 
         &:hover {
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    $background-2 25%,
-                    $background-2 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    $background-2 75%,
-                    $background-2);
+            background-image: linear-gradient(
+                45deg,
+                $primary 25%,
+                $background-2 25%,
+                $background-2 50%,
+                $primary 50%,
+                $primary 75%,
+                $background-2 75%,
+                $background-2
+            );
             background-size: 8px 8px;
             border: 2px solid $primary;
             box-shadow: 0px 2px 0px 0px $secondary;
             border: 2px solid $primary;
-            text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+            text-shadow:
+                -1.5px -1.5px 0 $background,
+                1.5px -1.5px 0 $background,
+                -1.5px 1.5px 0 $background,
+                1.5px 1.5px 0 $background;
         }
 
         &:focus {
@@ -376,7 +393,6 @@ switch:checked slider {
         }
     }
 }
-
 
 /*Bar*/
 
@@ -406,16 +422,22 @@ switch:checked slider {
 
     &.bar__button {
         &:hover {
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    transparent 75%,
-                    transparent);
+            background-image: linear-gradient(
+                45deg,
+                $primary 25%,
+                transparent 25%,
+                transparent 50%,
+                $primary 50%,
+                $primary 75%,
+                transparent 75%,
+                transparent
+            );
             background-size: 8px 8px;
-            text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+            text-shadow:
+                -1.5px -1.5px 0 $background,
+                1.5px -1.5px 0 $background,
+                -1.5px 1.5px 0 $background,
+                1.5px 1.5px 0 $background;
         }
 
         &:active {
@@ -482,14 +504,16 @@ switch:checked slider {
         min-height: 12px;
         min-width: 40px;
         border-radius: 100px;
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                transparent 25%,
-                transparent 50%,
-                $primary 50%,
-                $primary 75%,
-                transparent 75%,
-                transparent);
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            transparent 25%,
+            transparent 50%,
+            $primary 50%,
+            $primary 75%,
+            transparent 75%,
+            transparent
+        );
         background-size: 8px 8px;
         box-shadow: 0px 2px 0px 0px $secondary;
     }
@@ -563,14 +587,14 @@ switch:checked slider {
     }
 }
 
-.bar__rounded-box>* {
+.bar__rounded-box > * {
     &:last-child {
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
     }
 
     &:first-child,
-    &:first-child>* {
+    &:first-child > * {
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
     }
@@ -608,7 +632,7 @@ switch:checked slider {
     label {
         font-size: 18px;
         font-weight: 500;
-        font-family: 'Monaspace Radon';
+        font-family: "Monaspace Radon";
     }
 }
 
@@ -622,7 +646,11 @@ switch:checked slider {
 
     &:hover {
         background-color: $primary;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        text-shadow:
+            -1.5px -1.5px 0 $background,
+            1.5px -1.5px 0 $background,
+            -1.5px 1.5px 0 $background,
+            1.5px 1.5px 0 $background;
     }
 }
 
@@ -682,25 +710,31 @@ switch:checked slider {
     color: $text;
     padding: 10px 24px 10px 30px;
     border-radius: 30px;
-    font-family: 'Monaspace Radon';
+    font-family: "Monaspace Radon";
     background-size: 8px 8px;
     margin-bottom: 2px;
     transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 
     &.active {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2 );
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            $background-2 25%,
+            $background-2 50%,
+            $primary 50%,
+            $primary 75%,
+            $background-2 75%,
+            $background-2
+        );
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        text-shadow:
+            -1.5px -1.5px 0 $background,
+            1.5px -1.5px 0 $background,
+            -1.5px 1.5px 0 $background,
+            1.5px 1.5px 0 $background;
 
         &:hover {
             background: $primary;
@@ -714,19 +748,25 @@ switch:checked slider {
     }
 
     &:hover {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2 );
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            $background-2 25%,
+            $background-2 50%,
+            $primary 50%,
+            $primary 75%,
+            $background-2 75%,
+            $background-2
+        );
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        text-shadow:
+            -1.5px -1.5px 0 $background,
+            1.5px -1.5px 0 $background,
+            -1.5px 1.5px 0 $background,
+            1.5px 1.5px 0 $background;
     }
 
     font-size: 14px;
@@ -805,14 +845,16 @@ switch:checked slider {
             transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
             border-radius: 30px;
             transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    $background-2 25%,
-                    $background-2 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    $background-2 75%,
-                    $background-2);
+            background-image: linear-gradient(
+                45deg,
+                $primary 25%,
+                $background-2 25%,
+                $background-2 50%,
+                $primary 50%,
+                $primary 75%,
+                $background-2 75%,
+                $background-2
+            );
             background-size: 8px 8px;
             border: 2px solid $primary;
             padding: 2px 0px;
@@ -845,39 +887,39 @@ switch:checked slider {
 }
 
 .control-center__time-to-empty {
-	color: $subtext;
-	font-size: 16px;
-	font-weight: 500;
-    font-family: 'Monsapace Xenon';
+    color: $subtext;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Monsapace Xenon";
 }
 
 .control-center__settings-button,
 .control-center__powermenu-button {
-	min-width: 42px;
-	min-height: 42px;
-	background: $background-2;
-	color: $on_surface;
-	border: 2px solid $primary;
-	border-radius: 100px;
-	transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
+    min-width: 42px;
+    min-height: 42px;
+    background: $background-2;
+    color: $on_surface;
+    border: 2px solid $primary;
+    border-radius: 100px;
+    transition: all 0.15s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__settings-button {
-	&:hover {
-		background: $tertiary;
-		color: $on_tertiary;
-	}
+    &:hover {
+        background: $tertiary;
+        color: $on_tertiary;
+    }
 }
 
 .control-center__powermenu-button {
-	&:hover {
-		background: $secondary;
-		color: $on_secondary;
-	}
+    &:hover {
+        background: $secondary;
+        color: $on_secondary;
+    }
 }
 
 .control-center__footer {
-	margin: 10px 8px;
+    margin: 10px 8px;
 }
 
 /*Dashboard*/
@@ -900,7 +942,7 @@ switch:checked slider {
     transition:
         background-color 1s cubic-bezier(0.85, 0, 0.15, 1),
         color 1s cubic-bezier(0.85, 0, 0.15, 1);
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
     margin-bottom: 2px;
 }
 
@@ -922,7 +964,7 @@ switch:checked slider {
     * {
         font-size: 18px;
         font-weight: bold;
-        font-family: 'Monaspace Radon';
+        font-family: "Monaspace Radon";
         color: $text;
     }
 }
@@ -945,20 +987,25 @@ switch:checked slider {
     color: $text;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
-    background-image: linear-gradient(45deg,
-            $primary 25%,
-            transparent 25%,
-            transparent 50%,
-            $primary 50%,
-            $primary 75%,
-            transparent 75%,
-            transparent);
+    background-image: linear-gradient(
+        45deg,
+        $primary 25%,
+        transparent 25%,
+        transparent 50%,
+        $primary 50%,
+        $primary 75%,
+        transparent 75%,
+        transparent
+    );
     background-size: 8px 8px;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
-    font-family: 'Monaspace Radon';
+    text-shadow:
+        -1.5px -1.5px 0 $background,
+        1.5px -1.5px 0 $background,
+        -1.5px 1.5px 0 $background,
+        1.5px 1.5px 0 $background;
+    font-family: "Monaspace Radon";
     font-weight: bold;
 }
-
 
 .calendar__button {
     color: $text;
@@ -967,7 +1014,6 @@ switch:checked slider {
 .calendar__button__other-month {
     color: $subtext;
 }
-
 
 .calendar__weekday {
     min-height: 40px;
@@ -1019,13 +1065,13 @@ switch:checked slider {
 .notification__title {
     font-size: 15px;
     font-weight: 500;
-    font-family: 'monaspace radon';
+    font-family: "monaspace radon";
 }
 
 .notification__header {
     margin-top: 6px;
     margin-bottom: 10px;
-    font-family: 'monaspace radon';
+    font-family: "monaspace radon";
 }
 
 .notification__app-name,
@@ -1034,14 +1080,14 @@ switch:checked slider {
     color: $subtext;
     font-size: 12px;
     font-weight: 400;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
 }
 
 .notification__description {
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: 400;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
 }
 
 .notification__actions {
@@ -1127,13 +1173,17 @@ switch:checked slider {
     margin-right: 18px;
     border-radius: 30px;
     color: $text;
-    font-family: 'Monaspace Radon';
+    font-family: "Monaspace Radon";
     border: 2px solid $primary;
 }
 
 .notifications-window__clear:hover {
     background: $primary;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+    text-shadow:
+        -1.5px -1.5px 0 $background,
+        1.5px -1.5px 0 $background,
+        -1.5px 1.5px 0 $background,
+        1.5px 1.5px 0 $background;
 }
 
 .notifications-window__list {
@@ -1185,20 +1235,21 @@ switch:checked slider {
     margin: 25px;
     padding: 0px;
 
-
     .fill {
         transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
         border-radius: 30px;
         color: $text;
         transition: min-width 0.1s cubic-bezier(0.85, 0, 0.15, 1);
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            $background-2 25%,
+            $background-2 50%,
+            $primary 50%,
+            $primary 75%,
+            $background-2 75%,
+            $background-2
+        );
         background-size: 8px 8px;
         border: 2px solid $primary;
         padding: 2px 0px;
@@ -1304,7 +1355,6 @@ switch:checked slider {
     }
 }
 
-
 .player__indicator {
     min-width: 8px;
     min-height: 8px;
@@ -1317,7 +1367,6 @@ switch:checked slider {
         background: $inverse_surface;
     }
 }
-
 
 @keyframes slide {
     from {
@@ -1382,12 +1431,12 @@ switch:checked slider {
     label {
         font-size: 30px;
         font-weight: 600;
-        font-family: 'Monaspace Radon';
+        font-family: "Monaspace Radon";
     }
 }
 
 .popup-menu__content {
-    >*>* {
+    > * > * {
         background: none;
     }
 }
@@ -1508,19 +1557,25 @@ switch:checked slider {
     border-radius: 30px;
     border: 2px solid $primary;
     box-shadow: 0px 2px 0px 0px $secondary;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+    text-shadow:
+        -1.5px -1.5px 0 $background,
+        1.5px -1.5px 0 $background,
+        -1.5px 1.5px 0 $background,
+        1.5px 1.5px 0 $background;
     background-size: 8px 8px;
 
     &:hover,
     &:focus {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                transparent 25%,
-                transparent 50%,
-                $primary 50%,
-                $primary 75%,
-                transparent 75%,
-                transparent);
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            transparent 25%,
+            transparent 50%,
+            $primary 50%,
+            $primary 75%,
+            transparent 75%,
+            transparent
+        );
         background-size: 8px 8px;
         box-shadow: 0px 2px 0px 0px $secondary;
     }
@@ -1533,7 +1588,7 @@ switch:checked slider {
 .powermenu__label {
     font-size: 16px;
     font-weight: 500;
-    font-family: 'monaspace xenon';
+    font-family: "monaspace xenon";
     margin-top: 25px;
     color: $text;
 }
@@ -1549,13 +1604,13 @@ switch:checked slider {
 .verification__title {
     font-size: 20px;
     font-weight: bold;
-    font-family: 'monaspace radon';
+    font-family: "monaspace radon";
 }
 
 .verification__description {
     font-size: 16px;
     font-weight: 400;
-    font-family: 'monaspace xenon';
+    font-family: "monaspace xenon";
 }
 
 /*Scrim*/
@@ -1580,7 +1635,7 @@ switch:checked slider {
     border: 2px solid $primary;
     border-radius: 30px 0px 0px 30px;
     color: $text;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
     min-width: 180px;
     padding: 10px 0px;
     &.active {
@@ -1594,7 +1649,7 @@ switch:checked slider {
     border: 2px solid $primary;
     border-radius: 0px 30px 30px 0px;
     color: $text;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
     min-width: 180px;
     padding: 10px 0px;
     &.active {
@@ -1607,7 +1662,7 @@ switch:checked slider {
     padding: 20px;
 }
 
-.theme{
+.theme {
     font-family: $h1_font;
     font-size: $h1_size;
     font-weight: $h1_weight;
@@ -1626,7 +1681,7 @@ switch:checked slider {
 
 .temperature {
     font-size: 30px;
-    font-family: 'Monaspace Radon';
+    font-family: "Monaspace Radon";
     font-weight: bold;
 }
 
@@ -1636,11 +1691,11 @@ switch:checked slider {
     border: 2px solid $primary;
     padding: 5px;
     color: $text;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
 }
 
 .location {
-    font-family: 'Monaspace Radon';
+    font-family: "Monaspace Radon";
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 15px;

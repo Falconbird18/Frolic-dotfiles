@@ -3,17 +3,17 @@
 /* Colors */
 $background: #495049;
 /* background: hsl(114, 5%, 30%)*/
-$background-2: #3D433D;
+$background-2: #3d433d;
 /* background-2: hsl(114, 5%, 25%)*/
 $background-3: #477043;
 /* background-3: hsl(115, 25%, 35%)*/
-$primary: #26E012;
+$primary: #26e012;
 /* primary: hsl(114, 85%, 47%)*/
-$secondary: #1242DE;
+$secondary: #1242de;
 /* secondary: hsl(226, 85%, 47%)*/
-$text: #F5DECC;
+$text: #f5decc;
 /* text: hsl(27, 68%, 88%)*/
-$subtext: #BFAEA1;
+$subtext: #bfaea1;
 /* subtext: hsl(27, 19%, 69%)*/
 $error: #e99898;
 $scrim: #000000;
@@ -27,10 +27,10 @@ $shadow_primary: #0e974a;
 /*Difference between hue of Primary and Secondary is 112*/
 
 /* Fonts */
-$h1_font: 'Open sans';
-$h2_font: 'Open sans';
-$paragraph_font: 'Open sans';
-$subtext_font: 'Open sans';
+$h1_font: "Open sans";
+$h2_font: "Open sans";
+$paragraph_font: "Open sans";
+$subtext_font: "Open sans";
 $h1_weight: normal;
 $h2_weight: normal;
 $paragraph_weight: 300;
@@ -44,15 +44,19 @@ $subtext_size: 11px;
 $transition: 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 $radius: 20px;
 $background_gradient: linear-gradient(145deg, $background-2, $background);
-$outset: 0px -3px 5px $highlight,
+$outset:
+    0px -3px 5px $highlight,
     0px 3px 5px $shadow;
-$outset_primary: inset 0px 1px 2px $highlight_primary,
+$outset_primary:
+    inset 0px 1px 2px $highlight_primary,
     inset 0px -1px 2px $shadow_primary,
     0px -3px 5px $highlight,
     0px 3px 5px $shadow;
-$inset: inset 0px 3px 5px $shadow,
+$inset:
+    inset 0px 3px 5px $shadow,
     inset 0px -5px 3px $highlight;
-$inset_primary: inset 0px 3px 5px $shadow_primary,
+$inset_primary:
+    inset 0px 3px 5px $shadow_primary,
     inset 0px -5px 3px $highlight_primary;
 $outset_margin: 5px;
 $border: none;
@@ -80,7 +84,6 @@ $border: none;
     background-image: $background_gradient;
     box-shadow: $inset;
     border: $border;
-
 
     icon {
         margin-right: 20px;
@@ -157,7 +160,11 @@ $border: none;
 
 icon {
     box-shadow: none;
-    text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+    text-shadow:
+        -1.5px -1.5px 0 $background,
+        1.5px -1.5px 0 $background,
+        -1.5px 1.5px 0 $background,
+        1.5px 1.5px 0 $background;
 }
 
 slider {
@@ -187,7 +194,7 @@ label {
 }
 
 window.popup {
-    >* {
+    > * {
         border: none;
         box-shadow: none;
     }
@@ -267,19 +274,25 @@ switch:checked slider {
     }
 
     &.filled {
-        background-image: linear-gradient(45deg,
-                $primary 25%,
-                $background-2 25%,
-                $background-2 50%,
-                $primary 50%,
-                $primary 75%,
-                $background-2 75%,
-                $background-2);
+        background-image: linear-gradient(
+            45deg,
+            $primary 25%,
+            $background-2 25%,
+            $background-2 50%,
+            $primary 50%,
+            $primary 75%,
+            $background-2 75%,
+            $background-2
+        );
         background-size: 8px 8px;
         border: 2px solid $primary;
         box-shadow: 0px 2px 0px 0px $secondary;
         color: $text;
-        text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+        text-shadow:
+            -1.5px -1.5px 0 $background,
+            1.5px -1.5px 0 $background,
+            -1.5px 1.5px 0 $background,
+            1.5px 1.5px 0 $background;
 
         &:hover,
         &:focus {
@@ -301,18 +314,24 @@ switch:checked slider {
         border: 2px solid $primary;
 
         &:hover {
-            background-image: linear-gradient(45deg,
-                    $primary 25%,
-                    $background-2 25%,
-                    $background-2 50%,
-                    $primary 50%,
-                    $primary 75%,
-                    $background-2 75%,
-                    $background-2);
+            background-image: linear-gradient(
+                45deg,
+                $primary 25%,
+                $background-2 25%,
+                $background-2 50%,
+                $primary 50%,
+                $primary 75%,
+                $background-2 75%,
+                $background-2
+            );
             background-size: 8px 8px;
             border: 2px solid $primary;
             box-shadow: 0px 2px 0px 0px $secondary;
-            text-shadow: -1.5px -1.5px 0 $background, 1.5px -1.5px 0 $background, -1.5px 1.5px 0 $background, 1.5px 1.5px 0 $background;
+            text-shadow:
+                -1.5px -1.5px 0 $background,
+                1.5px -1.5px 0 $background,
+                -1.5px 1.5px 0 $background,
+                1.5px 1.5px 0 $background;
         }
 
         &:focus {
@@ -324,7 +343,6 @@ switch:checked slider {
         }
     }
 }
-
 
 /*Bar*/
 
@@ -495,14 +513,14 @@ switch:checked slider {
     }
 }
 
-.bar__rounded-box>* {
+.bar__rounded-box > * {
     &:last-child {
         border-top-right-radius: $radius;
         border-bottom-right-radius: $radius;
     }
 
     &:first-child,
-    &:first-child>* {
+    &:first-child > * {
         border-top-left-radius: $radius;
         border-bottom-left-radius: $radius;
     }
@@ -561,7 +579,6 @@ switch:checked slider {
     font-family: $h2_font;
     font-size: $h2_size;
     font-weight: $h2_weight;
-
 
     &.active {
         background: $background-2;
@@ -809,7 +826,7 @@ switch:checked slider {
     transition:
         background-color $transition,
         color $transition;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
     margin-bottom: $outset_margin;
     margin-right: $outset_margin;
 }
@@ -862,7 +879,6 @@ switch:checked slider {
     font-size: $h1_size;
 }
 
-
 .calendar__button {
     color: $text;
     font-family: $paragraph_font;
@@ -876,7 +892,6 @@ switch:checked slider {
     font-size: $subtext_size;
     font-weight: $subtext_weight;
 }
-
 
 .calendar__weekday {
     min-height: 40px;
@@ -925,13 +940,13 @@ switch:checked slider {
 .notification__title {
     font-size: 15px;
     font-weight: 500;
-    font-family: 'monaspace radon';
+    font-family: "monaspace radon";
 }
 
 .notification__header {
     margin-top: 6px;
     margin-bottom: 10px;
-    font-family: 'monaspace radon';
+    font-family: "monaspace radon";
 }
 
 .notification__app-name,
@@ -940,14 +955,14 @@ switch:checked slider {
     color: $subtext;
     font-size: 12px;
     font-weight: 400;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
 }
 
 .notification__description {
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: 400;
-    font-family: 'Monaspace Xenon';
+    font-family: "Monaspace Xenon";
 }
 
 .notification__actions {
@@ -1090,7 +1105,6 @@ switch:checked slider {
     margin: 25px;
     padding: 0px;
 
-
     .fill {
         transition: all $transition;
         border-radius: $radius;
@@ -1212,7 +1226,6 @@ switch:checked slider {
     }
 }
 
-
 .player__indicator {
     min-width: 8px;
     min-height: 8px;
@@ -1225,7 +1238,6 @@ switch:checked slider {
         background: $text;
     }
 }
-
 
 @keyframes slide {
     from {
@@ -1294,7 +1306,7 @@ switch:checked slider {
 }
 
 .popup-menu__content {
-    >*>* {
+    > * > * {
         background: none;
     }
 }
@@ -1533,7 +1545,6 @@ switch:checked slider {
     color: $text;
     padding: 10px 0px;
     min-width: 75px;
-
 }
 
 .label {
@@ -1583,4 +1594,14 @@ switch:checked slider {
 
 .location-header-container {
     min-width: 300px;
+}
+/*SideBar*/
+.sidebar-window {
+    background: $background_gradient;
+    min-height: 900px;
+    min-width: 300px;
+    border-radius: $radius;
+    border: $border;
+    padding: 20px;
+    color: $text;
 }

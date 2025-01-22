@@ -64,12 +64,12 @@ const icon = icons.ui.edit;
 const isEntryVisible = new Variable(false);
 
 const Entry = new Widget.Entry({
-  placeholder_text: bind(location).as((value) =>
-    value ? value.replace(/,/g, ", ") : "N/A",
-  ), // Bind placeholder to the current location
+  placeholder_text: "Ask Gemini",
   canFocus: true,
   className: "location_input",
-  visible: bind(isEntryVisible).as((value) => value), // Bind visibility to the Variable
+  anchor: Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT,
+  valign: Gtk.Align.END,
+  // halign={Gtk.Align.START}
   onActivate: (self) => {
     const newLocation = self.get_text();
     saveLocation(newLocation);
@@ -127,7 +127,6 @@ export default () => {
       keymode={Astal.Keymode.EXCLUSIVE}
       name="SideBar"
       namespace="SideBar"
-      className="weather"
       exclusivity={Astal.Exclusivity.NORMAL}
       anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT}
       application={App}
@@ -138,7 +137,7 @@ export default () => {
         }
       }}
     >
-      <box vertical className="weather-window" spacing={spacing}>
+      <box vertical className="sidebar-window" spacing={spacing}>
         <box
           horizontal
           className="location-header-container"
@@ -150,12 +149,6 @@ export default () => {
             halign={Gtk.Align.START}
             hexpand={true} // Allow the label to expand and push the button to the right
           />
-          <button
-            valign={Gtk.Align.CENTER}
-            onClicked={() => isEntryVisible.set(!isEntryVisible.value)} // Toggle visibility on button click
-          >
-            <icon icon={icon} />
-          </button>
         </box>
         {Entry}
         <box horizontal halign={Gtk.Align.FILL}>
