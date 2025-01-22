@@ -24,10 +24,8 @@ const Start = () => {
 };
 
 const Center = () => {
-  Arch;
   return (
     <box spacing={spacing}>
-      <Arch />
       <Clock />
     </box>
   );
@@ -45,6 +43,7 @@ const End = () => {
         <SystemIndicators />
       </box>
       <Battery />
+      <Arch />
     </box>
   );
 };

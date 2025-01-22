@@ -6,31 +6,37 @@
 /* secondary: hsl(139, 85%, 47%)*/
 /* text: hsl(27, 68%, 88%)*/
 /* subtext: hsl(27, 19%, 69%)*/
+/* highlight_primary: hsl(114, 85%, 57%)*/
+/* shadow_primary: hsl(114, 85%, 13%)*/
 /*Difference between hue of Primary and Secondary is 112*/
 /* Fonts */
 /* General */
+/*Components*/
 /* AppLauncher */
 .app-launcher {
   min-width: 650px;
+  background-image: linear-gradient(145deg, #2c2621, #2c2621);
   border-radius: 30px;
   padding: 0px;
-  background: #2C2621;
   min-height: 700px;
-  border: 2px solid #E06F12;
+  border: 2px solid #e06f12;
+  box-shadow: 0px 2px 0px #12de52;
 }
 
 .app-launcher__input {
   background: #202020;
-  border: 2px solid #E06F12;
   outline: none;
   margin: 20px;
   padding: 12px 22px;
   border-radius: 30px;
   box-shadow: none;
-  color: #F5DECC;
+  color: #f5decc;
   font-family: "Monaspace Radon";
   font-size: 18px;
   font-weight: normal;
+  background-image: linear-gradient(145deg, #2c2621, #2c2621);
+  box-shadow: 0 0 0 transparent;
+  border: 2px solid #e06f12;
 }
 .app-launcher__input icon {
   margin-right: 20px;
@@ -43,13 +49,11 @@
 }
 
 .app-launcher__item {
-  all: unset;
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  padding: 12px 18px;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  background-size: 8px 8px;
-  border: 2px solid #2C2621;
-  box-shadow: 0 2px 0 0 #2C2621;
   margin-bottom: 2px;
 }
 .app-launcher__item label {
@@ -59,34 +63,30 @@
   font-family: "Monaspace Xenon";
   font-size: 14px;
   font-weight: 300;
-  color: #F5DECC;
+  color: #f5decc;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .app-launcher__item label.description {
   font-family: "Monaspace Xenon";
   font-size: 11px;
   font-weight: 100;
-  color: #BFAEA1;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  color: #bfaea1;
 }
 .app-launcher__item icon {
   font-size: 24px;
   margin-right: 10px;
 }
 .app-launcher__item:hover {
-  background: #202020;
-  border: 2px solid #E06F12;
-  box-shadow: 0 2px 0 0 #12DE52;
+  box-shadow: 0 0 0 transparent;
+  background-color: #493f36;
 }
 .app-launcher__item:focus {
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
-  background-size: 8px 8px;
-  border: 2px solid #E06F12;
-  box-shadow: 0 2px 0 0 #12DE52;
+  background-color: #e06f12;
+  box-shadow: 0 0 0 transparent;
 }
 .app-launcher__item:active {
-  background-color: #493F36;
+  background-color: #e06f12;
+  box-shadow: 0 0 0 transparent;
   border-radius: 100px;
 }
 
@@ -94,19 +94,22 @@
 * {
   outline: none;
   border: none;
+  text-shadow: none;
+  box-shadow: none;
   padding: 0;
   margin: 0;
   -gtk-icon-shadow: none;
 }
 
 icon {
-  -gtk-icon-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  box-shadow: none;
+  text-shadow: -1.5px -1.5px 0 #2c2621, 1.5px -1.5px 0 #2c2621, -1.5px 1.5px 0 #2c2621, 1.5px 1.5px 0 #2c2621;
 }
 
 slider {
   border: none;
   outline: none;
-  background: #2C2621;
+  background: #2c2621;
 }
 
 separator {
@@ -134,13 +137,13 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: #2C2621;
+  background-color: #2c2621;
   padding: 10px;
 }
 window.popup menu menuitem {
   min-width: 140px;
   padding: 12px 6px;
-  color: #F5DECC;
+  color: #f5decc;
   border-radius: 100px;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -155,7 +158,7 @@ window.popup menu menuitem:last-child {
 }
 
 switch {
-  border: 2px solid #BFAEA1;
+  border: 2px solid #bfaea1;
   border-radius: 100px;
   background-color: #202020;
 }
@@ -163,12 +166,12 @@ switch {
 switch slider {
   box-shadow: none;
   border-radius: 100px;
-  background-color: #BFAEA1;
+  background-color: #bfaea1;
 }
 
 switch:hover slider,
 switch:active slider {
-  background-color: #BFAEA1;
+  background-color: #bfaea1;
 }
 
 switch:active {
@@ -176,12 +179,12 @@ switch:active {
 }
 
 switch:checked {
-  background-color: #E06F12;
-  border: 2px solid #E06F12;
+  background-color: #e06f12;
+  border: 2px solid #e06f12;
 }
 
 switch:checked slider {
-  background-color: #12DE52;
+  background-color: #12de52;
 }
 
 /*Components*/
@@ -190,55 +193,53 @@ switch:checked slider {
   padding: 3px 15px;
 }
 .material-button:focus {
-  box-shadow: 0 0 0 1px #F5DECC;
+  box-shadow: 0 0 0 1px #f5decc;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  color: #F5DECC;
-  border: 2px solid #E06F12;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  border: 2px solid #e06f12;
+  box-shadow: 0px 2px 0px 0px #12de52;
+  color: #f5decc;
+  text-shadow: -1.5px -1.5px 0 #2c2621, 1.5px -1.5px 0 #2c2621, -1.5px 1.5px 0 #2c2621, 1.5px 1.5px 0 #2c2621;
 }
 .material-button.filled:hover, .material-button.filled:focus {
-  background: #E06F12;
+  background: #e06f12;
   background-size: 8px 8px;
-  color: #2C2621;
+  color: #2c2621;
 }
 .material-button.filled:active {
-  background: #E06F12;
+  background: #e06f12;
   background-size: 8px 8px;
-  color: #2C2621;
+  color: #2c2621;
 }
 .material-button.outlined {
   background: none;
-  color: #F5DECC;
-  border: 2px solid #E06F12;
+  color: #f5decc;
+  border: 2px solid #e06f12;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  border: 2px solid #E06F12;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  border: 2px solid #e06f12;
+  box-shadow: 0px 2px 0px 0px #12de52;
+  text-shadow: -1.5px -1.5px 0 #2c2621, 1.5px -1.5px 0 #2c2621, -1.5px 1.5px 0 #2c2621, 1.5px 1.5px 0 #2c2621;
 }
 .material-button.outlined:focus {
-  background: #E06F12;
+  background: #e06f12;
 }
 .material-button.outlined:active {
-  background: #E06F12;
+  background: #e06f12;
 }
 
 /*Bar*/
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background: #2C2621;
-  margin: 7px 7px 0px 7px;
+  background-image: linear-gradient(145deg, #2c2621, #2c2621);
+  margin: 7px 7px 7px 7px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #e06f12;
 }
 
 .arch-container {
@@ -251,38 +252,38 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  border-radius: 24px;
   background: #202020;
-  color: #F5DECC;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
   background-size: 8px 8px;
-  transition: all 0.3s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  border-radius: 30px;
 }
 .bar__item.bar__button:hover {
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
   text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
 }
 .bar__item.bar__button:active {
-  background: #E06F12;
+  background: #e06f12;
+  box-shadow: 0 0 0 transparent;
   background-size: 8px 8px;
-}
-.bar__item.bar__button.active {
-  background: #E06F12;
-  color: #F5DECC;
 }
 .bar__item.bar__button.bar__recording-indicator {
   padding: 0;
   min-height: 42px;
   min-width: 42px;
   background: #e99898;
-  color: #F5DECC;
+  color: #f5decc;
 }
 .bar__item.bar__button.bar__recording-indicator:hover {
   color: #e99898;
-  background: #F5DECC;
+  background: #f5decc;
 }
 .bar__item.bar__button.bar__recording-indicator.spacing {
   padding-left: 16px;
@@ -295,12 +296,12 @@ switch:checked slider {
 
 .bar__item.transparent {
   background: transparent;
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .bar__item.primary_container {
   background: #202020;
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .bar__workspaces-indicator {
@@ -308,21 +309,36 @@ switch:checked slider {
   min-width: 8px;
   min-height: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 100px;
-  border: 2px solid #E06F12;
-  background-color: #202020;
+  border-radius: 30px;
+  background-color: #493f36;
+  box-shadow: 0 0 0 transparent;
+  border: 2px solid #e06f12;
   background-size: 8px 8px;
 }
 .bar__workspaces-indicator:hover {
-  background-color: #E06F12;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
-  border-radius: 100px;
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
   background-size: 8px 8px;
-  box-shadow: 0px 2px 0px 0px #12DE52;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  padding: 0;
+  min-height: 10px;
 }
 
 .bar__active-app {
@@ -359,7 +375,7 @@ switch:checked slider {
   border-radius: 9px;
   min-width: 18px;
   min-height: 18px;
-  background: #F5DECC;
+  background: #f5decc;
   color: #202020;
 }
 
@@ -396,13 +412,14 @@ switch:checked slider {
 
 /*Control Center*/
 .control-center__container {
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  min-width: 450px;
-  min-height: 650px;
-  background: #2C2621;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
+  min-width: 450px;
+  min-height: 800px;
 }
 
 .control-center__page {
@@ -418,7 +435,7 @@ switch:checked slider {
 }
 
 .control-center__page_header {
-  color: #F5DECC;
+  color: #f5decc;
   margin-top: 8px;
   margin-bottom: 24px;
 }
@@ -429,113 +446,108 @@ switch:checked slider {
 }
 
 .control-center__page_header_button {
-  background: #202020;
-  border: 2px solid #E06F12;
-  color: #F5DECC;
-  min-width: 38px;
-  min-height: 38px;
-  border-radius: 100px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .control-center__page_header_button:hover {
-  background-color: #E06F12;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  background-color: #202020;
 }
 
 .control-center__page_item-header {
-  background: #2C2621;
-  color: #F5DECC;
+  color: #f5decc;
   font-family: "Monaspace Radon";
   font-size: 18px;
   font-weight: normal;
-  border-radius: 30px;
-  padding: 0px 22px;
   min-height: 80px;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-}
-.control-center__page_item-header.active {
-  background: #202020;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  margin-bottom: 20px;
 }
 .control-center__page_item-header label {
   font-size: 18px;
   font-weight: normal;
+  font-family: "Monaspace Radon";
   margin-left: 16px;
 }
 
 .control-center__page_item {
-  background: #202020;
-  border: 2px solid #E06F12;
-  padding: 18px 22px;
-  color: #F5DECC;
+  color: #f5decc;
   font-weight: 300;
   font-size: 14px;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: 0px 2px 0px 0px #12DE52;
-}
-.control-center__page_item:first-child {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  margin-top: 10px;
-}
-.control-center__page_item:last-child {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  font-family: "Monaspace Xenon";
+  min-height: 40px;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
 }
 .control-center__page_item label {
   font-size: 14px;
   font-weight: 300;
   font-family: "Monaspace Xenon";
-  color: #F5DECC;
+  color: #f5decc;
   margin-left: 16px;
 }
 .control-center__page_item:hover {
-  background-color: #493F36;
+  box-shadow: 0 0 0 transparent;
 }
 
 .control-center__button {
-  background-color: #202020;
-  border: 2px solid #E06F12;
-  color: #F5DECC;
-  padding: 10px 24px 10px 30px;
-  border-radius: 30px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  background-size: 8px 8px;
-  margin-bottom: 2px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  font-size: 14px;
-  font-weight: 600;
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 .control-center__button.active {
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
-  background-size: 8px 8px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  color: #F5DECC;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  background-color: #e06f12;
 }
 .control-center__button.active:hover {
-  background: #E06F12;
-  background-size: 8px 8px;
+  background-color: #202020;
 }
 .control-center__button.active:active {
-  background: #E06F12;
-  background-size: 8px 8px;
+  background-color: #e06f12;
 }
 .control-center__button:hover {
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
-  background-size: 8px 8px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  color: #F5DECC;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  background-color: #202020;
 }
 .control-center__button.no-label {
   padding: 0;
 }
 .control-center__button.recorder-indicator.active {
   background: #e99898;
-  color: #F5DECC;
+  color: #f5decc;
 }
 .control-center__button.recorder-indicator.active:hover {
   background: #202020;
@@ -545,14 +557,14 @@ switch:checked slider {
 }
 
 .control-center__dropdown-menu {
-  background: #2C2621;
+  background: #2c2621;
   border-radius: 30px;
   padding: 24px;
 }
 
 .control-center__dropdown-menu_icon {
   font-size: 20px;
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .control-center__dropdown-menu_title {
@@ -575,7 +587,7 @@ switch:checked slider {
 }
 .control-center__brightness-slider .control-center__slider-icon,
 .control-center__volume-slider .control-center__slider-icon {
-  color: #F5DECC;
+  color: #f5decc;
   margin-left: 0;
   font-size: 20px;
 }
@@ -583,17 +595,18 @@ switch:checked slider {
 .control-center__volume-slider trough {
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 100px;
-  background-color: #493F36;
+  background-color: #493f36;
+  box-shadow: 0 0 0 transparent;
   min-height: 15px;
 }
 .control-center__brightness-slider trough highlight,
 .control-center__volume-slider trough highlight {
+  background-color: #e06f12;
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
-  background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border: 2px solid #e06f12;
+  box-shadow: 0 0 0 transparent;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -607,14 +620,14 @@ switch:checked slider {
 }
 
 .muted .control-center__volume-slider highlight {
-  background-color: #2C2621;
+  background-color: #2c2621;
 }
 .muted .control-center__slider-icon {
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .control-center__time-to-empty {
-  color: #F5DECC;
+  color: #f5decc;
   font-size: 14px;
   font-weight: 300;
   font-family: "Monaspace Xenon";
@@ -622,23 +635,31 @@ switch:checked slider {
 
 .control-center__settings-button,
 .control-center__powermenu-button {
-  min-width: 42px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
   min-height: 42px;
   background: #202020;
-  color: #F5DECC;
-  border: 2px solid #E06F12;
-  border-radius: 100px;
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  padding: 10px;
+  min-height: 0;
 }
 
-.control-center__settings-button:hover {
-  background: #12DE52;
-  color: #F5DECC;
-}
-
+.control-center__settings-button:hover,
 .control-center__powermenu-button:hover {
-  background: #12DE52;
-  color: #F5DECC;
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
 }
 
 .control-center__footer {
@@ -647,20 +668,20 @@ switch:checked slider {
 
 /*Dashboard*/
 .dashboard {
-  border-radius: 0px;
-  min-width: 420px;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
 }
 
 .block {
-  background: #2C2621;
-  border-radius: 30px;
   padding: 20px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   font-family: "Monaspace Xenon";
-  margin-bottom: 100px;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  background: transparent;
 }
 
 .placeholder {
@@ -682,15 +703,15 @@ switch:checked slider {
   font-size: 24px;
   font-weight: normal;
   font-family: "Monaspace Radon";
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .calendar__weekdays {
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .calendar__days {
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .calendar__button {
@@ -698,27 +719,35 @@ switch:checked slider {
 }
 
 .calendar__button__today {
-  border-radius: 100px;
-  background: #202020;
-  color: #F5DECC;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
-  background-size: 8px 8px;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  font-weight: bold;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  padding: 10px;
+  min-height: 0;
 }
 
 .calendar__button {
-  color: #F5DECC;
+  color: #f5decc;
   font-family: "Monaspace Xenon";
   font-weight: 300;
   font-size: 14px;
 }
 
 .calendar__button__other-month {
-  color: #BFAEA1;
+  color: #bfaea1;
   font-family: "Monaspace Xenon";
   font-size: 11px;
   font-weight: 100;
@@ -735,30 +764,32 @@ switch:checked slider {
   min-width: 40px;
 }
 .calendar__day.active {
-  background: #E06F12;
+  background: #e06f12;
 }
 .calendar__day.inactive {
-  color: #2C2621;
+  color: #2c2621;
 }
 
 /*Notification*/
 .notification {
-  padding: 14px 16px 14px 20px;
-  color: #F5DECC;
-  background-color: #2C2621;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
+  padding: 14px 16px 14px 20px;
+  margin-right: 2px;
 }
 
 .notification__icon {
-  min-height: 30px;
-  min-width: 30px;
+  min-height: 24px;
+  min-width: 24px;
   margin-right: 14px;
-  border-radius: 100px;
+  border-radius: 30px;
   background: #202020;
-  border: 2px solid #E06F12;
+  box-shadow: 0 0 0 transparent;
+  border: 2px solid #e06f12;
 }
 
 .notification__icon.telegram {
@@ -766,30 +797,35 @@ switch:checked slider {
 }
 
 .notification__title {
-  font-size: 15px;
-  font-weight: 500;
-  font-family: "monaspace radon";
+  font-size: 24px;
+  font-weight: normal;
+  font-family: "Monaspace Radon";
+  color: #f5decc;
 }
 
 .notification__header {
   margin-top: 6px;
   margin-bottom: 10px;
-  font-family: "monaspace radon";
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  font-size: 18px;
+  color: #f5decc;
 }
 
 .notification__app-name,
 .notification__dot,
 .notification__time {
-  color: #BFAEA1;
-  font-size: 12px;
-  font-weight: 400;
+  color: #bfaea1;
+  font-size: 11px;
+  font-weight: 100;
   font-family: "Monaspace Xenon";
 }
 
 .notification__description {
   margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 400;
+  color: #bfaea1;
+  font-size: 11px;
+  font-weight: 100;
   font-family: "Monaspace Xenon";
 }
 
@@ -800,11 +836,11 @@ switch:checked slider {
 .notification__action {
   background: none;
   transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  color: #E06F12;
+  color: #e06f12;
   border-radius: 100px;
 }
 .notification__action:hover {
-  color: #F5DECC;
+  color: #f5decc;
   transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notification__action:first-child {
@@ -815,19 +851,27 @@ switch:checked slider {
 }
 
 .notification__close-button {
-  padding: 0;
-  min-width: 22px;
-  min-height: 22px;
-  border-radius: 100px;
-  background-color: #202020;
-  color: #F5DECC;
-  font-size: 16px;
-  border: 2px solid #E06F12;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #202020;
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
 }
 .notification__close-button:hover {
-  background: #e99898;
-  color: #BFAEA1;
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
 }
 
 /*NotificationsPopup*/
@@ -841,49 +885,50 @@ switch:checked slider {
 
 /*NotificationsWindow*/
 .notifications-window {
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
+  margin-bottom: 2px;
   min-width: 400px;
   min-height: 550px;
-  padding: 10px 10px 0;
-  background: #2C2621;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  margin-bottom: 2px;
-  /* Don't cut off the box shadow*/
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
 }
 .notifications-window .notification {
   border-radius: 4px;
   transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: #202020;
-  box-shadow: 0px 2px 0px 0px #12DE52;
+  box-shadow: 0px 2px 0px 0px #12de52;
 }
 
 .notifications-window__clear {
-  background: #202020;
-  padding: 10px 16px;
-  margin-right: 18px;
-  border-radius: 30px;
-  color: #F5DECC;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  border: 2px solid #E06F12;
-}
-
-.notifications-window__clear:hover {
-  background: #E06F12;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
   text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
 }
 
-.notifications-window__list revealer .notification {
-  border-radius: 15px;
+.notifications-window__clear:hover {
+  background-color: #202020;
 }
-.notifications-window__list revealer:first-child .notification {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+
+.notifications-window__list revealer .notification {
+  border-radius: 30px;
 }
 .notifications-window__list revealer:last-child .notification {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
   margin-bottom: 10px;
 }
 
@@ -899,41 +944,52 @@ switch:checked slider {
 }
 
 .container {
-  background-color: #2C2621;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
+  margin-bottom: 2px;
   margin-bottom: 20px;
 }
 
 .indicator .progress {
   border-radius: 30px;
-  background-color: #493F36;
+  background-color: #493f36;
+  box-shadow: 0 0 0 transparent;
   margin: 25px;
   padding: 0px;
 }
 .indicator .progress .fill {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 30px;
-  color: #F5DECC;
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
   padding: 2px 0px;
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: #2C2621;
-  color: #F5DECC;
+  background-color: #2c2621;
+  color: #f5decc;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: #2C2621;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  margin-bottom: 2px;
+  background: #2c2621;
+  border: 2px solid #e06f12;
   padding: 20px 10px;
   border-radius: 30px;
   background-size: cover;
@@ -946,17 +1002,17 @@ switch:checked slider {
 }
 
 .player__box {
-  background-color: #202020;
-  padding: 10px;
+  background-color: transparent;
+  padding: 0;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #e06f12;
 }
 
 .player__title {
   font-weight: normal;
   font-size: 24px;
   font-family: "Monaspace Radon";
-  color: #F5DECC;
+  color: #f5decc;
   padding-right: 18px;
 }
 
@@ -965,7 +1021,7 @@ switch:checked slider {
   font-weight: 300;
   font-size: 14px;
   font-family: "Monaspace Xenon";
-  color: #F5DECC;
+  color: #f5decc;
   padding-top: 10px;
 }
 
@@ -973,20 +1029,17 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background: #202020;
-  color: #F5DECC;
+  background-color: #e06f12;
+  color: #f5decc;
   font-size: 24px;
   border-radius: 0px;
-  border: 2px solid #E06F12;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  border: 2px solid #e06f12;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 30px;
-  background-size: 8px 8px;
+  box-shadow: 0 0 0 transparent;
 }
 .player__playpause.active {
-  border-radius: 25px;
-  background: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
-  background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  box-shadow: 0 0 0 transparent;
 }
 
 .player__next,
@@ -1003,17 +1056,29 @@ switch:checked slider {
 
 .player__position-slider trough {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 100px;
-  background-color: #493F36;
-  min-height: 15px;
+  border-radius: 30px;
+  background-color: #493f36;
+  min-height: 25px;
+  box-shadow: 0 0 0 transparent;
 }
 .player__position-slider trough highlight {
-  min-width: 15px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 30px;
-  background-image: linear-gradient(45deg, #E06F12 25%, #202020 25%, #202020 50%, #E06F12 50%, #E06F12 75%, #202020 75%, #202020);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
   background-size: 8px 8px;
-  border: 2px solid #E06F12;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  min-width: 15px;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1028,13 +1093,13 @@ switch:checked slider {
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: #2C2621;
+  background: #2c2621;
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .player__indicator.selected {
-  background: #F5DECC;
+  background: #f5decc;
 }
 
 @keyframes slide {
@@ -1063,13 +1128,13 @@ switch:checked slider {
 }
 
 .popup-menu {
-  min-height: 400px;
-  background: #2C2621;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
-  padding: 0 20px;
+  min-height: 400px;
 }
 .popup-menu.sink {
   min-width: 350px;
@@ -1093,7 +1158,7 @@ switch:checked slider {
   font-size: 24px;
   font-weight: normal;
   font-family: "Monaspace Radon";
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .popup-menu__content > * > * {
@@ -1103,7 +1168,7 @@ switch:checked slider {
 .popup-menu__item {
   background: none;
   padding: 18px;
-  color: #F5DECC;
+  color: #f5decc;
   border-radius: 100px;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -1139,13 +1204,13 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: #2C2621;
+  background-color: #2c2621;
   min-height: 14px;
 }
 .mixer__slider trough highlight,
 .mixer__slider trough progress {
   border-radius: 100px;
-  background-color: #E06F12;
+  background-color: #e06f12;
   border-radius: 100px;
 }
 .mixer__slider trough slider {
@@ -1164,11 +1229,11 @@ switch:checked slider {
 
 .bluetooth__percentage {
   background: #202020;
-  color: #F5DECC;
+  color: #f5decc;
   border-radius: 100px;
   padding: 0px 12px;
   margin-left: 12px;
-  border: 2px solid #E06F12;
+  border: 2px solid #e06f12;
 }
 
 .mixer-placeholder {
@@ -1176,16 +1241,19 @@ switch:checked slider {
 }
 .mixer-placeholder label {
   font-size: 18px;
+  font-family: "Monaspace Radon";
+  font-weight: normal;
 }
 
 /*PowerMenu*/
 .powermenu {
-  padding: 24px;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  background: #2C2621;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
   margin-bottom: 2px;
+  padding: 20px;
 }
 
 .powermenu__button_icon {
@@ -1193,52 +1261,67 @@ switch:checked slider {
 }
 
 .powermenu__button {
-  padding: 0;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
   background: #202020;
-  color: #F5DECC;
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
   min-width: 100px;
   min-height: 100px;
-  border-radius: 30px;
-  border: 2px solid #E06F12;
-  box-shadow: 0px 2px 0px 0px #12DE52;
-  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
-  background-size: 8px 8px;
 }
 .powermenu__button:hover, .powermenu__button:focus {
-  background-image: linear-gradient(45deg, #E06F12 25%, transparent 25%, transparent 50%, #E06F12 50%, #E06F12 75%, transparent 75%, transparent);
   background-size: 8px 8px;
-  box-shadow: 0px 2px 0px 0px #12DE52;
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
 }
 .powermenu__button:active {
-  background: #202020;
+  background: #e06f12;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 
 .powermenu__label {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "monaspace xenon";
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Monaspace Radon";
   margin-top: 25px;
-  color: #F5DECC;
+  color: #f5decc;
 }
 
 .verification {
-  min-width: 300px;
-  padding: 24px;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  background: #2C2621;
-  border: 2px solid #E06F12;
+  margin-bottom: 2px;
+  min-width: 300px;
+  padding: 20px;
 }
 
 .verification__title {
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "monaspace radon";
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Monaspace Radon";
+  color: #f5decc;
 }
 
 .verification__description {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "monaspace xenon";
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Monaspace Xenon";
+  color: #f5decc;
 }
 
 /*Scrim*/
@@ -1257,57 +1340,94 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-  background-color: #202020;
-  border: 2px solid #E06F12;
-  border-radius: 30px 0px 0px 30px;
-  color: #F5DECC;
-  font-family: "Monaspace Radon";
   font-size: 18px;
   font-weight: normal;
-  min-width: 170px;
-  padding: 10px 0px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  margin-right: 10px;
+  min-width: 160px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.mode-settings__button_left.hover {
+  background-color: #202020;
 }
 .mode-settings__button_left.active {
-  background: #E06F12;
-  color: #F5DECC;
+  background-color: #e06f12;
 }
 
 .mode-settings__button_right {
-  background-color: #202020;
-  border: 2px solid #E06F12;
-  border-radius: 0px 30px 30px 0px;
-  color: #F5DECC;
-  font-family: "Monaspace Radon";
   font-size: 18px;
   font-weight: normal;
-  min-width: 170px;
-  padding: 10px 0px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  margin-left: 10px;
+  min-width: 160px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.mode-settings__button_right.hover {
+  background-color: #202020;
 }
 .mode-settings__button_right.active {
-  background: #E06F12;
-  color: #F5DECC;
+  background-color: #e06f12;
 }
 
 .theme {
   font-family: "Monaspace Radon";
   font-size: 24px;
   font-weight: normal;
-  color: #F5DECC;
+  color: #f5decc;
   padding: 7px;
 }
 
 .theme-buttons {
-  background-color: #202020;
-  border: 2px solid #E06F12;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #202020;
+  color: #f5decc;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #e06f12;
+  background-size: 8px 8px;
   border-radius: 30px;
-  color: #F5DECC;
-  padding: 10px 0px;
   min-width: 75px;
+  padding: 0;
 }
 
 .label {
   font-family: "Monaspace Xenon";
-  color: #F5DECC;
+  color: #f5decc;
   font-size: 14px;
   font-weight: 300;
   padding-top: 15px;
@@ -1315,39 +1435,110 @@ switch:checked slider {
 
 /*Weather*/
 .weather-window {
-  background-color: #2C2621;
-  min-height: 150px;
-  min-width: 300px;
+  background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  margin-bottom: 2px;
   padding: 20px;
-  color: #F5DECC;
 }
 
 .temperature {
-  font-size: 30px;
+  font-size: 40px;
   font-family: "Monaspace Radon";
-  font-weight: bold;
+  font-weight: normal;
+  color: #f5decc;
 }
 
 .location_input {
-  background-color: #2C2621;
+  background-color: #2c2621;
   border-radius: 30px;
-  border: 2px solid #E06F12;
+  border: 2px solid #e06f12;
   padding: 5px;
-  color: #F5DECC;
+  color: #f5decc;
   font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #f5decc;
 }
 
 .location {
   font-family: "Monaspace Radon";
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: normal;
+  font-size: 24px;
+  color: #f5decc;
   margin-bottom: 15px;
 }
 
 .location-header-container {
   min-width: 300px;
+}
+
+.weather-info-title {
+  color: #f5decc;
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.weather-info {
+  color: #bfaea1;
+  font-family: "Monaspace Xenon";
+  font-size: 11px;
+  font-weight: 100;
+}
+
+/*SideBar*/
+.sidebar-window {
+  background: linear-gradient(145deg, #2c2621, #2c2621);
+  min-height: 900px;
+  min-width: 300px;
+  border-radius: 30px;
+  border: 2px solid #e06f12;
+  padding: 20px;
+  color: #f5decc;
+}
+
+.sidebar-prompt-example {
+  background-color: #202020;
+  border-radius: 30px;
+  box-shadow: 0 0 0 transparent;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.label-paragraph {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Monaspace Xenon";
+  color: #f5decc;
+}
+
+.label-subtext {
+  font-size: 11px;
+  font-weight: 100;
+  font-family: "Monaspace Xenon";
+  color: #bfaea1;
+}
+
+.gemini-header-container {
+  min-width: 300px;
+}
+
+.gemini {
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  font-size: 24px;
+  margin-bottom: 300px;
+}
+
+.greeting {
+  font-size: 40px;
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  margin-bottom: 350px;
 }
 
 /*# sourceMappingURL=main.css.map */

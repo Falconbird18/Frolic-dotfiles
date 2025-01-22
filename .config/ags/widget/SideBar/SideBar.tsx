@@ -50,7 +50,6 @@ const displayLocation = bind(location).as((value) => {
   return value.replace(/,/g, ", "); // Add a space after the comma
 });
 
-const temperature = bind(realTemp).as((value) => value || "N/A");
 const feelsTemperature = bind(feelsTemp).as((value) => value || "N/A");
 const uv = bind(uvIndex).as((value) => value || "N/A");
 const Wind = bind(wind).as((value) => value || "N/A");
@@ -58,63 +57,27 @@ const Precipitation = bind(precipitation).as((value) => value || "N/A");
 const Pressure = bind(pressure).as((value) => value || "N/A");
 const Humidity = bind(humidity).as((value) => value || "N/A");
 
-const icon = icons.ui.edit;
-
-// Create a Variable to control the visibility of the Entry widget
-const isEntryVisible = new Variable(false);
-
 const Entry = new Widget.Entry({
   placeholder_text: "Ask Gemini",
   canFocus: true,
   className: "location_input",
-  anchor: Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT,
-  valign: Gtk.Align.END,
-  // halign={Gtk.Align.START}
   onActivate: (self) => {
     const newLocation = self.get_text();
     saveLocation(newLocation);
-    isEntryVisible.set(false); // Hide the Entry after saving the location
   },
   onFocusInEvent: (self) => {
-    // Clear the placeholder text when the Entry gains focus
     if (self.get_text() === self.placeholder_text) {
       self.set_text("");
     }
   },
 });
 
-const desc = bind(weatherDescription); // Bind the description variable
+let entryFocused = false;
 
-// Function to map weather description to an icon
-const getWeatherIcon = (description: string | undefined) => {
-  if (!description) {
-    return icons.weather.unknown; // Fallback for undefined/null
-  }
+const username =
+  GLib.get_user_name().charAt(0).toUpperCase() + GLib.get_user_name().slice(1);
 
-  switch (description.toLowerCase()) {
-    case "clear":
-    case "sunny":
-      return icons.weather.clear;
-    case "cloudy":
-      return icons.weather.cloudy;
-    case "rain":
-    case "rainy":
-      return icons.weather.rain;
-    case "snow":
-    case "snowy":
-      return icons.weather.snow;
-    case "thunderstorm":
-      return icons.weather.thunderstorm;
-    case "mist":
-      return icons.weather.fog;
-    case "haze":
-      return icons.weather.fog;
-    case "partly cloudy":
-      return icons.weather.partlyCloudy;
-    default:
-      return icons.weather.unknown; // Fallback for unknown descriptions
-  }
-};
+const greeting = `Hello, ${username}`;
 
 export default () => {
   return (
@@ -132,58 +95,65 @@ export default () => {
       application={App}
       onKeyPressEvent={(self, event) => {
         const [keyEvent, keyCode] = event.get_keycode();
+
         if (keyEvent && keyCode == 9) {
+          // Tab key pressed
           App.toggle_window(self.name);
+        } else if (keyEvent && keyCode === 65 && !entryFocused) {
+          // 'A' key pressed and not focused
+          Entry.grab_focus(); // Focus the Entry
+          entryFocused = true;
+        } else if (keyEvent && keyCode != 65 && entryFocused) {
+          // any key pressed other than 'A' and it is focused
+          entryFocused = false;
         }
       }}
     >
       <box vertical className="sidebar-window" spacing={spacing}>
         <box
           horizontal
-          className="location-header-container"
+          className="gemini-header-container"
           halign={Gtk.Align.FILL} // Ensure the container fills the available space
         >
           <label
-            label={displayLocation}
-            className="location"
+            label="Gemini"
+            className="gemini"
             halign={Gtk.Align.START}
             hexpand={true} // Allow the label to expand and push the button to the right
           />
         </box>
-        {Entry}
         <box horizontal halign={Gtk.Align.FILL}>
-          <icon icon={desc.as((value) => getWeatherIcon(value))} size={100} />
           <label
-            label={temperature}
-            className="temperature"
+            label={greeting}
+            className="greeting"
             halign={Gtk.Align.START}
           />
         </box>
-        <box horizontal className="weather-info" spacing={spacing}>
-          <box vertical className="weather-info-title">
-            <label label="Humidity" />
-            <label label={Humidity} />
+        <box
+          vertical
+          spacing={spacing}
+          halign={Gtk.Align.FILL}
+          valign={Gtk.Align.END} // Align to the bottom
+        >
+          <box horizontal spacing={spacing}>
+            <box vertical className="sidebar-prompt-example">
+              <label class="label-paragraph" label="Tell me what" />
+              <label class="label-subtext" label="you can do" />
+            </box>
+            <box vertical className="sidebar-prompt-example">
+              <label class="label-paragraph" label="Give me" />
+              <label class="label-subtext" label="study tips" />
+            </box>
+            <box vertical className="sidebar-prompt-example">
+              <label class="label-paragraph" label="Save me" />
+              <label class="label-subtext" label="time" />
+            </box>
+            <box vertical className="sidebar-prompt-example">
+              <label class="label-paragraph" label="Inspire" />
+              <label class="label-subtext" label="me" />
+            </box>
           </box>
-          <box vertical className="weather-info-title">
-            <label label="Wind" />
-            <label label={Wind} />
-          </box>
-          <box vertical className="weather-info-title">
-            <label label="Precipitation" />
-            <label label={Precipitation} />
-          </box>
-          <box vertical className="weather-info-title">
-            <label label="Pressure" />
-            <label label={Pressure} />
-          </box>
-          <box vertical className="weather-info-title">
-            <label label="UV Index" />
-            <label label={uv} />
-          </box>
-          <box vertical className="weather-info-title">
-            <label label="Feels like" />
-            <label label={feelsTemperature} />
-          </box>
+          {Entry}
         </box>
       </box>
     </PopupWindow>

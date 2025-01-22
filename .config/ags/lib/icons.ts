@@ -52,7 +52,8 @@ export default {
   record: "media-record-symbolic",
   screensnip: "edit-cut-symbolic",
   screenshot: "view-fullscreen-symbolic",
-  arch: "/home/austin/.config/ags/arch.svg",
+  arch: "$XDG_CONFIG_HOME/ags/arch.svg",
+  ai: "$XDG_CONFIG_HOME/ags/ai.svg",
   powerprofile: {
     0: "power-profile-balanced",
     1: "power-profile-power-saver",
@@ -160,5 +161,5 @@ export default {
     thunderstorm: "weather-severe-alert",
     snow: "weather-snow",
     unknown: "window-none-availible",
-  }
+  },
 };

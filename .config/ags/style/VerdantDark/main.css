@@ -6,12 +6,12 @@
 /* secondary: hsl(226, 85%, 47%)*/
 /* text: hsl(27, 68%, 88%)*/
 /* subtext: hsl(27, 19%, 69%)*/
-/* shadow: hsl(0, 0%, 60%)*/
 /* highlight_primary: hsl(114, 85%, 57%)*/
 /* shadow_primary: hsl(114, 85%, 13%)*/
 /*Difference between hue of Primary and Secondary is 112*/
 /* Fonts */
 /* General */
+/*Components*/
 /* AppLauncher */
 .app-launcher {
   min-width: 650px;
@@ -19,6 +19,8 @@
   border-radius: 20px;
   padding: 0px;
   min-height: 700px;
+  border: none;
+  box-shadow: 0 0 0 transparent;
 }
 
 .app-launcher__input {
@@ -47,13 +49,12 @@
 }
 
 .app-launcher__item {
-  all: unset;
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  padding: 12px 18px;
-  border-radius: 20px;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
-  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 .app-launcher__item label {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
@@ -238,6 +239,7 @@ switch:checked slider {
   background-image: linear-gradient(145deg, #3d433d, #495049);
   margin: 7px 7px 7px 7px;
   border-radius: 20px;
+  border: none;
 }
 
 .arch-container {
@@ -250,25 +252,27 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  border-radius: 24px;
   background: #3d433d;
   color: #f5decc;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.3s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
 }
 .bar__item.bar__button:hover {
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .bar__item.bar__button:active {
   background: #26e012;
-}
-.bar__item.bar__button.active {
-  background: #26e012;
-  color: #f5decc;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-size: 8px 8px;
 }
 .bar__item.bar__button.bar__recording-indicator {
   padding: 0;
@@ -305,18 +309,36 @@ switch:checked slider {
   min-width: 8px;
   min-height: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 100px;
+  border-radius: 20px;
   background-color: #477043;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  background-size: 8px 8px;
 }
 .bar__workspaces-indicator:hover {
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
   min-width: 40px;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  background-color: #26e012;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  padding: 0;
+  min-height: 10px;
 }
 
 .bar__active-app {
@@ -390,10 +412,14 @@ switch:checked slider {
 
 /*Control Center*/
 .control-center__container {
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
   border-radius: 20px;
+  margin-bottom: 5px;
   min-width: 450px;
-  min-height: 650px;
-  background-image: linear-gradient(145deg, #3d433d, #495049);
+  min-height: 800px;
 }
 
 .control-center__page {
@@ -420,57 +446,60 @@ switch:checked slider {
 }
 
 .control-center__page_header_button {
-  background: #26e012;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
   color: #f5decc;
-  min-width: 38px;
-  min-height: 38px;
-  border-radius: 100px;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
 }
 .control-center__page_header_button:hover {
   background-color: #3d433d;
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
 }
 
 .control-center__page_item-header {
-  background: #495049;
   color: #f5decc;
   font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
-  border-radius: 20px;
-  padding: 0px 22px;
   min-height: 80px;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  margin: 5px;
-}
-.control-center__page_item-header.active {
-  background: #3d433d;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 .control-center__page_item-header label {
   font-size: 18px;
   font-weight: normal;
+  font-family: "Open sans";
   margin-left: 16px;
 }
 
 .control-center__page_item {
-  background: #3d433d;
-  padding: 18px 22px;
   color: #f5decc;
   font-weight: 300;
   font-size: 14px;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
-}
-.control-center__page_item:first-child {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin-top: 10px;
-}
-.control-center__page_item:last-child {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  font-family: "Open sans";
+  min-height: 40px;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 .control-center__page_item label {
   font-size: 14px;
@@ -484,35 +513,34 @@ switch:checked slider {
 }
 
 .control-center__button {
-  background-color: #3d433d;
-  color: #f5decc;
-  padding: 10px 24px 10px 30px;
-  border-radius: 20px;
-  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
-  margin-bottom: 5px;
-  margin-left: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
 }
 .control-center__button.active {
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  color: #f5decc;
   background-color: #26e012;
 }
 .control-center__button.active:hover {
-  background: #26e012;
-  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-color: #3d433d;
 }
 .control-center__button.active:active {
-  background: #26e012;
-  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-color: #26e012;
 }
 .control-center__button:hover {
-  color: #f5decc;
-  background-color: #26e012;
-  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-color: #3d433d;
 }
 .control-center__button.no-label {
   padding: 0;
@@ -607,24 +635,31 @@ switch:checked slider {
 
 .control-center__settings-button,
 .control-center__powermenu-button {
-  min-width: 42px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
   min-height: 42px;
   background: #3d433d;
   color: #f5decc;
-  border: none;
-  border-radius: 100px;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  padding: 10px;
+  min-height: 0;
 }
 
-.control-center__settings-button:hover {
-  color: #f5decc;
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
-}
-
+.control-center__settings-button:hover,
 .control-center__powermenu-button:hover {
-  color: #f5decc;
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 
 .control-center__footer {
@@ -633,19 +668,20 @@ switch:checked slider {
 
 /*Dashboard*/
 .dashboard {
-  border-radius: 0px;
-  min-width: 420px;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 
 .block {
-  background-image: linear-gradient(145deg, #3d433d, #495049);
-  border-radius: 20px;
   padding: 20px;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  font-family: "Monaspace Xenon";
+  font-family: "Open sans";
   margin-bottom: 5px;
   margin-right: 5px;
+  background: transparent;
 }
 
 .placeholder {
@@ -683,13 +719,24 @@ switch:checked slider {
 }
 
 .calendar__button__today {
-  border-radius: 100px;
-  background: #26e012;
-  color: #f5decc;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  font-family: "Open sans";
+  font-size: 18px;
   font-weight: normal;
-  font-size: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  padding: 10px;
+  min-height: 0;
 }
 
 .calendar__button {
@@ -725,22 +772,24 @@ switch:checked slider {
 
 /*Notification*/
 .notification {
-  padding: 14px 16px 14px 20px;
-  color: #f5decc;
-  background-image: linear-gradient(145deg, #3d433d, #495049);
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
   border-radius: 20px;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   margin-bottom: 5px;
+  padding: 14px 16px 14px 20px;
   margin-right: 5px;
 }
 
 .notification__icon {
-  min-height: 30px;
-  min-width: 30px;
+  min-height: 24px;
+  min-width: 24px;
   margin-right: 14px;
-  border-radius: 100px;
+  border-radius: 20px;
   background: #3d433d;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  border: none;
 }
 
 .notification__icon.telegram {
@@ -748,31 +797,36 @@ switch:checked slider {
 }
 
 .notification__title {
-  font-size: 15px;
-  font-weight: 500;
-  font-family: "monaspace radon";
+  font-size: 24px;
+  font-weight: normal;
+  font-family: "Open sans";
+  color: #f5decc;
 }
 
 .notification__header {
   margin-top: 6px;
   margin-bottom: 10px;
-  font-family: "monaspace radon";
+  font-family: "Open sans";
+  font-weight: normal;
+  font-size: 18px;
+  color: #f5decc;
 }
 
 .notification__app-name,
 .notification__dot,
 .notification__time {
   color: #bfaea1;
-  font-size: 12px;
-  font-weight: 400;
-  font-family: "Monaspace Xenon";
+  font-size: 11px;
+  font-weight: 100;
+  font-family: "Open sans";
 }
 
 .notification__description {
   margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Monaspace Xenon";
+  color: #bfaea1;
+  font-size: 11px;
+  font-weight: 100;
+  font-family: "Open sans";
 }
 
 .notification__actions {
@@ -797,18 +851,27 @@ switch:checked slider {
 }
 
 .notification__close-button {
-  padding: 0;
-  min-width: 22px;
-  min-height: 22px;
-  border-radius: 100px;
-  background-color: #26e012;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #3d433d;
   color: #f5decc;
-  font-size: 16px;
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
 }
 .notification__close-button:hover {
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 
 /*NotificationsPopup*/
@@ -822,15 +885,15 @@ switch:checked slider {
 
 /*NotificationsWindow*/
 .notifications-window {
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
   border-radius: 20px;
+  margin-bottom: 5px;
   min-width: 400px;
   min-height: 550px;
-  padding: 10px 10px 0;
-  background-image: linear-gradient(145deg, #3d433d, #495049);
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  margin-bottom: 5px;
   margin-right: 5px;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .notifications-window .notification {
   border-radius: 4px;
@@ -840,32 +903,32 @@ switch:checked slider {
 }
 
 .notifications-window__clear {
-  background: #26e012;
-  padding: 10px 16px;
-  margin-right: 18px;
-  border-radius: 20px;
-  color: #f5decc;
-  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
   border: none;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
 }
 
 .notifications-window__clear:hover {
-  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-color: #3d433d;
 }
 
 .notifications-window__list revealer .notification {
-  border-radius: 15px;
-}
-.notifications-window__list revealer:first-child .notification {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 20px;
 }
 .notifications-window__list revealer:last-child .notification {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   margin-bottom: 10px;
 }
 
@@ -881,8 +944,12 @@ switch:checked slider {
 }
 
 .container {
-  background: linear-gradient(145deg, #3d433d, #495049);
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
   border-radius: 20px;
+  margin-bottom: 5px;
   margin-bottom: 20px;
 }
 
@@ -894,11 +961,22 @@ switch:checked slider {
   padding: 0px;
 }
 .indicator .progress .fill {
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 20px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
   color: #f5decc;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  background-color: #26e012;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -978,17 +1056,29 @@ switch:checked slider {
 
 .player__position-slider trough {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  border-radius: 100px;
+  border-radius: 20px;
   background-color: #477043;
   min-height: 25px;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
 }
 .player__position-slider trough highlight {
-  min-width: 15px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
   border-radius: 20px;
-  background-color: #26e012;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  min-width: 15px;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1038,11 +1128,13 @@ switch:checked slider {
 }
 
 .popup-menu {
-  min-height: 400px;
-  background: #495049;
-  border-radius: 20px;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
-  padding: 0 20px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  min-height: 400px;
 }
 .popup-menu.sink {
   min-width: 350px;
@@ -1149,14 +1241,19 @@ switch:checked slider {
 }
 .mixer-placeholder label {
   font-size: 18px;
+  font-family: "Open sans";
+  font-weight: normal;
 }
 
 /*PowerMenu*/
 .powermenu {
-  padding: 24px;
-  border-radius: 20px;
-  background: #495049;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  padding: 20px;
 }
 
 .powermenu__button_icon {
@@ -1164,22 +1261,34 @@ switch:checked slider {
 }
 
 .powermenu__button {
-  padding: 0;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
   background: #3d433d;
   color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
   min-width: 100px;
   min-height: 100px;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
 }
 .powermenu__button:hover, .powermenu__button:focus {
-  background-color: #26e012;
-  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .powermenu__button:active {
-  background-color: #26e012;
+  background: #26e012;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-size: 8px 8px;
 }
 
 .powermenu__label {
@@ -1191,17 +1300,21 @@ switch:checked slider {
 }
 
 .verification {
-  min-width: 300px;
-  padding: 24px;
-  border-radius: 20px;
-  background: #495049;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  min-width: 300px;
+  padding: 20px;
 }
 
 .verification__title {
   font-size: 18px;
   font-weight: normal;
   font-family: "Open sans";
+  color: #f5decc;
 }
 
 .verification__description {
@@ -1227,43 +1340,61 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-  background-color: #3d433d;
-  border-radius: 20px;
-  color: #f5decc;
-  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
-  min-width: 160px;
-  padding: 10px 0px;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
   margin-right: 10px;
+  min-width: 160px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .mode-settings__button_left.hover {
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  background-color: #3d433d;
 }
 .mode-settings__button_left.active {
-  background: #26e012;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  background-color: #26e012;
 }
 
 .mode-settings__button_right {
-  background-color: #3d433d;
-  border-radius: 20px;
-  color: #f5decc;
-  font-family: "Open sans";
   font-size: 18px;
   font-weight: normal;
-  min-width: 160px;
-  padding: 10px 0px;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
   margin-left: 10px;
+  min-width: 160px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .mode-settings__button_right.hover {
-  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  background-color: #3d433d;
 }
 .mode-settings__button_right.active {
-  background: #26e012;
-  box-shadow: inset 0px 1px 2px #5eff4c, inset 0px -1px 2px #0e974a, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  background-color: #26e012;
 }
 
 .theme {
@@ -1275,13 +1406,23 @@ switch:checked slider {
 }
 
 .theme-buttons {
-  background-color: #3d433d;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
-  border: none;
-  border-radius: 20px;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #3d433d;
   color: #f5decc;
-  padding: 10px 0px;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
   min-width: 75px;
+  padding: 0;
 }
 
 .label {
@@ -1294,19 +1435,20 @@ switch:checked slider {
 
 /*Weather*/
 .weather-window {
-  background: linear-gradient(145deg, #3d433d, #495049);
-  min-height: 150px;
-  min-width: 300px;
-  border-radius: 20px;
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
   padding: 20px;
-  color: #f5decc;
 }
 
 .temperature {
   font-size: 40px;
   font-family: "Open sans";
   font-weight: normal;
+  color: #f5decc;
 }
 
 .location_input {
@@ -1319,17 +1461,33 @@ switch:checked slider {
   font-size: 14px;
   font-weight: 300;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
+  caret-color: #f5decc;
 }
 
 .location {
   font-family: "Open sans";
   font-weight: normal;
   font-size: 24px;
+  color: #f5decc;
   margin-bottom: 15px;
 }
 
 .location-header-container {
   min-width: 300px;
+}
+
+.weather-info-title {
+  color: #f5decc;
+  font-family: "Open sans";
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.weather-info {
+  color: #bfaea1;
+  font-family: "Open sans";
+  font-size: 11px;
+  font-weight: 100;
 }
 
 /*SideBar*/
@@ -1341,6 +1499,46 @@ switch:checked slider {
   border: none;
   padding: 20px;
   color: #f5decc;
+}
+
+.sidebar-prompt-example {
+  background-color: #3d433d;
+  border-radius: 20px;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.label-paragraph {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Open sans";
+  color: #f5decc;
+}
+
+.label-subtext {
+  font-size: 11px;
+  font-weight: 100;
+  font-family: "Open sans";
+  color: #bfaea1;
+}
+
+.gemini-header-container {
+  min-width: 300px;
+}
+
+.gemini {
+  font-family: "Open sans";
+  font-weight: normal;
+  font-size: 24px;
+  margin-bottom: 300px;
+}
+
+.greeting {
+  font-size: 40px;
+  font-family: "Open sans";
+  font-weight: normal;
+  margin-bottom: 350px;
 }
 
 /*# sourceMappingURL=main.css.map */
