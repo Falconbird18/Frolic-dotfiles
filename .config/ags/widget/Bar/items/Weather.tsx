@@ -31,6 +31,8 @@ export default () => {
                 return icons.weather.thunderstorm;
             case "mist":
                 return icons.weather.fog;
+            case "haze":
+                return icons.weather.fog;
             case "partly cloudy":
                 return icons.weather.partlyCloudy;
             default:

@@ -3,7 +3,7 @@ import { App, Gtk, Astal, Widget } from "astal/gtk3";
 const { GLib, Gio } = imports.gi;
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
-import { feelsTemp, humidity, location, precipitation, pressure, realTemp, updateWeatherCommands, uvIndex, wind, loadLocation, setLocation } from "../../service/Weather";
+import { feelsTemp, humidity, location, precipitation, pressure, realTemp, updateWeatherCommands, uvIndex, wind, loadLocation, setLocation, weatherDescription } from "../../service/Weather";
 import icons from "../../lib/icons";
 
 const settingsFile = `${GLib.get_home_dir()}/.config/ags/service/weather-location.json`;
@@ -62,6 +62,41 @@ const Entry = new Widget.Entry({
     },
 });
 
+
+const desc = bind(weatherDescription); // Bind the description variable
+
+// Function to map weather description to an icon
+const getWeatherIcon = (description: string | undefined) => {
+    if (!description) {
+        return icons.weather.unknown; // Fallback for undefined/null
+    }
+
+    switch (description.toLowerCase()) {
+        case "clear":
+        case "sunny":
+            return icons.weather.clear;
+        case "cloudy":
+            return icons.weather.cloudy;
+        case "rain":
+        case "rainy":
+            return icons.weather.rain;
+        case "snow":
+        case "snowy":
+            return icons.weather.snow;
+        case "thunderstorm":
+            return icons.weather.thunderstorm;
+        case "mist":
+            return icons.weather.fog;
+        case "haze":
+            return icons.weather.fog;
+        case "partly cloudy":
+            return icons.weather.partlyCloudy;
+        default:
+            return icons.weather.unknown; // Fallback for unknown descriptions
+    }
+};
+
+
 export default () => {
     return (
         <PopupWindow
@@ -98,7 +133,6 @@ export default () => {
                         hexpand={true} // Allow the label to expand and push the button to the right
                     />
                     <button
-                        className="icon-button"
                         valign={Gtk.Align.CENTER}
                         onClicked={() => isEntryVisible.set(!isEntryVisible.value)} // Toggle visibility on button click
                     >
@@ -108,11 +142,20 @@ export default () => {
                     </button>
                 </box>
                 {Entry}
-                <label
-                    label={temperature}
-                    className="temperature"
-                    halign={Gtk.Align.START}
-                />
+                <box
+                    horizontal
+                    halign={Gtk.Align.FILL}
+                >
+                    <icon
+                        icon={desc.as((value) => getWeatherIcon(value))}
+                        size={100}
+                    />
+                    <label
+                        label={temperature}
+                        className="temperature"
+                        halign={Gtk.Align.START}
+                    />
+                </box>
                 <box horizontal className="weather-info" spacing={spacing}>
                     <box vertical className="weather-info-title">
                         <label label="Humidity" />

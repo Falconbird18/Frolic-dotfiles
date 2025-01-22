@@ -145,7 +145,12 @@ export const realTemp = Variable<any | null>(null).poll(
   (out, prev) => {
     try {
       console.log('Temperature:', out);
-      return out;
+
+      // Remove the emoji and the '+' sign, but keep the degree symbol
+      const cleanedOutput = out.replace(/[^\x00-\x7F°]/g, '').replace(/\+/g, '');
+
+      console.log('Cleaned temperature output:', cleanedOutput);
+      return cleanedOutput;
     } catch (e) {
       console.error('Error processing temperature:', e);
       return prev;
@@ -159,7 +164,12 @@ export const feelsTemp = Variable<any | null>(null).poll(
   (out, prev) => {
     try {
       console.log('Feels like temperature:', out);
-      return out;
+
+      // Remove the '+' sign
+      const cleanedOutput = out.replace(/\+/g, '');
+
+      console.log('Cleaned feels like temperature output:', cleanedOutput);
+      return cleanedOutput;
     } catch (e) {
       console.error('Error processing feels like temperature:', e);
       return prev;

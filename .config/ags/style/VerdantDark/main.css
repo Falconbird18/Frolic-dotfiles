@@ -1304,9 +1304,9 @@ switch:checked slider {
 }
 
 .temperature {
-  font-size: 30px;
-  font-family: "Monaspace Radon";
-  font-weight: bold;
+  font-size: 40px;
+  font-family: "Open sans";
+  font-weight: normal;
 }
 
 .location_input {
