@@ -1,4 +1,5 @@
 import { Variable } from "astal";
+import icons from "../lib/icons";
 const { GLib, Gio } = imports.gi;
 
 const settingsFile = `${GLib.get_home_dir()}/.config/ags/service/weather-location.json`;
@@ -235,3 +236,33 @@ export const precipitation = Variable<any | null>(null).poll(
     return out;
   },
 );
+
+export const WeatherIcon = (description: string | undefined) => {
+    if (!description) {
+        return icons.weather.unknown; // Fallback for undefined/null
+    }
+
+    switch (description.toLowerCase()) {
+        case "clear":
+        case "sunny":
+            return icons.weather.clear;
+        case "cloudy":
+            return icons.weather.cloudy;
+        case "rain":
+        case "rainy":
+            return icons.weather.rain;
+        case "snow":
+        case "snowy":
+            return icons.weather.snow;
+        case "thunderstorm":
+            return icons.weather.thunderstorm;
+        case "mist":
+            return icons.weather.fog;
+        case "haze":
+            return icons.weather.fog;
+        case "partly cloudy":
+            return icons.weather.partlyCloudy;
+        default:
+            return icons.weather.unknown; // Fallback for unknown descriptions
+    }
+};
