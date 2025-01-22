@@ -10,9 +10,13 @@ const settingsFile = `${GLib.get_home_dir()}/.config/ags/service/weather-locatio
 
 const saveLocation = (location: string) => {
     try {
+        // Remove spaces between city and state (e.g., "Richland, Wa" -> "Richland,Wa")
+        const formattedLocation = location.replace(/, /g, ",");
+
         const file = Gio.File.new_for_path(settingsFile);
-        const contents = JSON.stringify({ location });
+        const contents = JSON.stringify({ location: formattedLocation });
         file.replace_contents(contents, null, false, Gio.FileCreateFlags.NONE, null);
+
         // Call the functions to update the weather data
         setLocation(loadLocation());
         updateWeatherCommands();
@@ -20,6 +24,12 @@ const saveLocation = (location: string) => {
         console.error("Failed to save location:", e);
     }
 };
+
+// Add a space between city and state when displaying the location (e.g., "Richland,Wa" -> "Richland, Wa")
+const displayLocation = bind(location).as(value => {
+    if (!value) return "N/A";
+    return value.replace(/,/g, ", "); // Add a space after the comma
+});
 
 const temperature = bind(realTemp).as(value => value || "N/A");
 const feelsTemperature = bind(feelsTemp).as(value => value || "N/A");
@@ -30,26 +40,26 @@ const Pressure = bind(pressure).as(value => value || "N/A");
 const Humidity = bind(humidity).as(value => value || "N/A");
 
 const icon = icons.ui.edit
-const displayLocation = bind(location).as(value => value || "N/A");
+
+// Create a Variable to control the visibility of the Entry widget
+const isEntryVisible = new Variable(false);
 
 const Entry = new Widget.Entry({
-    text: "Location",
+    placeholder_text: bind(location).as(value => value ? value.replace(/,/g, ", ") : "N/A"), // Bind placeholder to the current location
     canFocus: true,
     className: "location_input",
+    visible: bind(isEntryVisible).as(value => value), // Bind visibility to the Variable
     onActivate: (self) => {
         const newLocation = self.get_text();
         saveLocation(newLocation);
-        // App.toggle_window("weather");
+        isEntryVisible.set(false); // Hide the Entry after saving the location
     },
-    // onActivate: () => {
-    //     items.get()[0]?.app.launch();
-    //     App.toggle_window("app-launcher");
-    // },
-    // setup: (self) => {
-    //     self.hook(self, "notify::text", () => {
-    //         query.set(self.get_text());
-    //     });
-    // },
+    onFocusInEvent: (self) => {
+        // Clear the placeholder text when the Entry gains focus
+        if (self.get_text() === self.placeholder_text) {
+            self.set_text("");
+        }
+    },
 });
 
 export default () => {
@@ -74,36 +84,34 @@ export default () => {
                 }
             }}
         >
+
             <box vertical className="weather-window" spacing={spacing}>
                 <box
                     horizontal
                     className="location-header-container"
+                    halign={Gtk.Align.FILL} // Ensure the container fills the available space
                 >
                     <label
                         label={displayLocation}
                         className="location"
                         halign={Gtk.Align.START}
+                        hexpand={true} // Allow the label to expand and push the button to the right
                     />
-                    <box
-                        horizontal
-                        halign={Gtk.Align.CENTER}
+                    <button
+                        className="icon-button"
+                        valign={Gtk.Align.CENTER}
+                        onClicked={() => isEntryVisible.set(!isEntryVisible.value)} // Toggle visibility on button click
                     >
-                        <button
-                            className="icon-button"
-                            valign={Gtk.Align.CENTER}
-                        >
-                            <icon
-                                icon={icon}
-                            />
-                        </button>
-                    </box>
+                        <icon
+                            icon={icon}
+                        />
+                    </button>
                 </box>
                 {Entry}
                 <label
                     label={temperature}
                     className="temperature"
                     halign={Gtk.Align.START}
-
                 />
                 <box horizontal className="weather-info" spacing={spacing}>
                     <box vertical className="weather-info-title">
