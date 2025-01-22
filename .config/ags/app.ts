@@ -4,12 +4,12 @@ import Theme from "./widget/Popups/menus/ThemeSettings";
 const { GLib } = imports.gi;
 // const style = require(`../ags/style/frolic${Theme}/main.scss`);
 import { currentTheme, currentMode } from "./widget/Popups/menus/ThemeSettings";
-import style from "../ags/style/FrolicDark/main.scss";
 import Bar from "./widget/Bar";
 import ControlCenter from "./widget/ControlCenter";
 import AppLauncher from "./widget/AppLauncher";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
+import SideBar from "./widget/SideBar/SideBar";
 import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
@@ -44,6 +44,7 @@ function main() {
 
 	Notifications();
 	Weather();
+	SideBar();
 	ThemeSettings();
 	ControlCenter();
 	Scrim({ scrimType: "opaque", className: "scrim" });

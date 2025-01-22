@@ -11,6 +11,7 @@ import Arch from "./items/Arch";
 import KeyboardLayout from "./items/KeyboardLayout";
 import Weather from "./items/Weather";
 import RecordingIndicator from "./items/RecordingIndicator";
+import SideBar from "./items/SideBar";
 
 const Start = () => {
 	return (
@@ -25,6 +26,7 @@ const Start = () => {
 const Center = () => {Arch
 	return (
 		<box spacing={spacing}>
+			<SideBar />
 			<Clock />
 		</box>
 	);
