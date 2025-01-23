@@ -104,6 +104,10 @@ cp -r * ~/.local/share/fonts
 cd $HOME
 echo "Github fonts installed."
 
+echo "Installing Open Sans..."
+sudo pacman -S --needed ttf-opensans
+echo "Open Sans installed."
+
 # Clone the dotfiles repository
 echo "Cloning the dotfiles repository..."
 if [ -d "$HOME/Frolic-dotfiles" ]; then
@@ -139,4 +143,55 @@ else
     echo "Skipping Spicetify installation."
 fi
 
-echo "Installation complete. Please restart your system to apply the changes, and
+# Ask the user if they want to install Ollama
+read -p "Do you want to install Ollama? (y/n): " ollama_choice
+if [[ "$ollama_choice" =~ ^[Yy]$ ]]; then
+    echo "Proceeding with Ollama installation..."
+    curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+    sudo tar -C /usr -xzf ollama-linux-amd64.tgz
+    echo "Ollama installed."
+
+    # Check if Ollama is installed
+    if command -v ollama &> /dev/null; then
+        echo "Ollama is installed. Would you like to install models?"
+	echo "1) Install Llama 3.2 (2.0GB)"
+	echo "2) Install Gemma 2 (1.6GB)"
+	echo "3) Install Mistral (4.1GB)"
+	echo "4) Install All Models (7.7GB)"
+        echo "5) Skip Model Installation"
+        read -p "Enter your choice: " model_choice
+
+        case $model_choice in
+            1)
+                echo "Installing Llama 3.2..."
+		ollama pull llama3.2
+                ;;
+            2)
+                echo "Installing Gemma 2..."
+		ollama pull gemma2:2b
+                ;;
+            3)
+                echo "Installing Mistral..."
+                ollama install model-c
+                ;;
+            4)
+                echo "Installing all models..."
+                ollama install model-a
+                ollama install model-b
+                ollama install model-c
+                ;;
+            5)
+                echo "Skipping model installation."
+                ;;
+            *)
+                echo "Invalid choice. Skipping model installation."
+                ;;
+        esac
+    else
+        echo "Ollama is not properly installed. Skipping model installation."
+    fi
+else
+    echo "Skipping Ollama installation."
+fi
+
+echo "Installation complete. Please restart your system to apply the changes."
