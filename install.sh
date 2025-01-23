@@ -164,21 +164,25 @@ if [[ "$ollama_choice" =~ ^[Yy]$ ]]; then
         case $model_choice in
             1)
                 echo "Installing Llama 3.2..."
-		ollama pull llama3.2
+		ollama serve
+		ollama pull llama3.2:1b
                 ;;
             2)
                 echo "Installing Gemma 2..."
+		ollama serve
 		ollama pull gemma2:2b
                 ;;
             3)
                 echo "Installing Mistral..."
-                ollama install model-c
+		ollama serve
+                ollama install mistral
                 ;;
             4)
                 echo "Installing all models..."
-                ollama install model-a
-                ollama install model-b
-                ollama install model-c
+		ollama serve
+                ollama pull llama3.2:1b
+                ollama install gemma2:2b
+                ollama install mistral
                 ;;
             5)
                 echo "Skipping model installation."
