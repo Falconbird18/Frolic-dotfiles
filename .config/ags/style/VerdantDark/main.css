@@ -266,7 +266,7 @@ switch:checked slider {
 .bar__item.bar__button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .bar__item.bar__button:active {
@@ -336,7 +336,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   padding: 0;
   min-height: 10px;
 }
@@ -461,7 +461,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
 }
 .control-center__page_header_button:hover {
   background-color: #3d433d;
@@ -528,7 +528,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
 }
 .control-center__button.active {
   background-color: #26e012;
@@ -658,7 +658,7 @@ switch:checked slider {
 .control-center__powermenu-button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 
@@ -734,7 +734,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   padding: 10px;
   min-height: 0;
 }
@@ -870,7 +870,7 @@ switch:checked slider {
 .notification__close-button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 
@@ -918,7 +918,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
 }
 
 .notifications-window__clear:hover {
@@ -976,7 +976,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1077,7 +1077,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   min-width: 15px;
   padding: 2px 0px;
   margin: -2px 0px;
@@ -1282,7 +1282,7 @@ switch:checked slider {
 .powermenu__button:hover, .powermenu__button:focus {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .powermenu__button:active {
@@ -1355,7 +1355,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   margin-right: 10px;
   min-width: 160px;
   padding-left: 0;
@@ -1384,7 +1384,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  text-shadow: none;
   margin-left: 10px;
   min-width: 160px;
   padding-left: 0;
