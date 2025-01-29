@@ -598,7 +598,11 @@ switch:checked slider {
 }
 
 .control-center__button {
-    @include primary-button;
+    @include secondary-button;
+
+    &.secondary {
+        @include secondary-button;
+    }
 
     &.active {
         @include primary-button-active;
@@ -613,7 +617,7 @@ switch:checked slider {
     }
 
     &:hover {
-        @include primary-button-hover;
+        @include secondary-button-hover;
     }
 
     &.no-label {
@@ -686,7 +690,8 @@ switch:checked slider {
         min-height: 15px;
 
         highlight {
-            background-color: $primary;
+            background: $background-image;
+            background-size: $background-size;
             min-width: 15px;
             transition: all $transition;
             border-radius: $radius;
