@@ -35,9 +35,9 @@ const saveSettings = (theme: string, mode: string) => {
     const contents = JSON.stringify({
       theme,
       mode,
-      wallpaperDir,
-      slideshow,
-      themSpecificWallpaper,
+      wallpaperDir: currentWallpaperDir.get(),
+      slideshow: currentSlideshow.get(),
+      themeSpecificWallpaper: currentThemeSpecificWallpaper.get(),
     });
     file.replace_contents(
       contents,
