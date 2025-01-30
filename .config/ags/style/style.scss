@@ -1422,6 +1422,18 @@ switch:checked slider {
     padding: 20px;
 }
 
+.wallpaper-button{
+    @include primary-button;
+}
+
+.wallpaper-button:hover{
+    @include primary-button-hover;
+}
+
+.wallpaper-button:active{
+    @include primary-button-active;
+}
+
 /*Weather*/
 
 .weather-window {

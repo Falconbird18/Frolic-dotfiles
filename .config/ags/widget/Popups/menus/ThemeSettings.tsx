@@ -13,6 +13,7 @@ const loadSettings = () => {
         const [ok, contents] = file.load_contents(null);
         if (ok) {
             const settings = JSON.parse(new TextDecoder().decode(contents));
+            console.log(settings);
             return settings;
         }
     } catch (e) {
@@ -22,8 +23,8 @@ const loadSettings = () => {
         theme: "Frolic",
         mode: "Light",
         slideshow: false,
-        wallpaper: "",
-        wallpaperDirectory: ""
+        wallpaper: "747.jpg",
+        wallpaperDirectory: "/home/austin/Pictures/wallpapers"
     };
 };
 
@@ -40,40 +41,50 @@ const saveSettings = (theme: string, mode: string, slideshow: boolean, wallpaper
 const settings = loadSettings();
 
 export const currentTheme = Variable(settings.theme);
+console.log(`Theme: ${currentTheme}`);
 export const currentMode = Variable(settings.mode);
 export const slideshow = Variable(settings.slideshow);
-export const wallpaper = Variable(settings.wallpaper);
-export const wallpaperDirectory = Variable(settings.wallpaperDirectory);
+export const wallpaperImage = Variable(settings.wallpaper);
+console.log(`Wallpaper: ${wallpaperImage}`);
+export const wallpaperFolder = Variable(settings.wallpaperDirectory);
 
 const setTheme = (theme: string, mode: string) => {
     currentTheme.set(theme);
     currentMode.set(mode);
-    saveSettings(theme, mode, slideshow.get(), wallpaper.get(), wallpaperDirectory.get());
+    saveSettings(theme, mode, slideshow.get(), wallpaperImage.get(), wallpaperFolder.get());
 };
 
-const setSlideshow = (slideshow: boolean) => {
-    slideshow.set(slideshow);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow, wallpaper.get(), wallpaperDirectory.get());
+const setSlideshow = (isSlideshow: boolean) => {
+    slideshow.set(isSlideshow);
+    saveSettings(currentTheme.get(), currentMode.get(), isSlideshow, wallpaperImage.get(), wallpaperFolder.get());
 };
+
 
 const setWallpaper = (wallpaper: string) => {
-    wallpaper.set(wallpaper);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperDirectory.get());
+    wallpaperImage.set(wallpaper);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperFolder.get());
+    console.log(`New Wallpaper: ${wallpaper}`);
+    const wallpaperImagePath = wallpaperFolder.get() + wallpaper;
+    exec(`swww img "${wallpaperImagePath}" --transition-step 100 --transition-fps 120 --transition-type grow --transition-angle 30 --transition-duration 1`);
 };
 
 const setWallpaperDirectory = (wallpaperDirectory: string) => {
-    wallpaperDirectory.set(wallpaperDirectory);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper.get(), wallpaperDirectory);
+    wallpaperFolder.set(wallpaperDirectory);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperDirectory);
 };
 
 const chooseWallpaperDirectory = () => {
-    const chooser = Gtk.FileChooserNative.new(
+    const chooser = Gtk.FileChooserDialog.new(
         "Choose Wallpaper Directory",
         null,
         Gtk.FileChooserAction.SELECT_FOLDER,
         "Select",
         "Cancel"
     );
+    chooser.set_modal(false); // Set modal to false to make it floating
+    chooser.set_transient_for(null); // Set the parent window to null to make it floating
+    chooser.set_skip_taskbar_hint(true); // Set skip taskbar hint to true to make it floating
+    chooser.set_skip_pager_hint(true); // Set skip pager hint to true to make it floating
     chooser.connect("response", (chooser, response) => {
         if (response === Gtk.ResponseType.ACCEPT) {
             const file = chooser.get_filename();
@@ -81,13 +92,13 @@ const chooseWallpaperDirectory = () => {
         }
         chooser.destroy();
     });
-    chooser.show();
+    chooser.show_all();
 };
 
 const getWallpaperImages = () => {
     const images = [];
-    if (wallpaperDirectory.get()) {
-        const directory = Gio.File.new_for_path(wallpaperDirectory.get());
+    if (wallpaperFolder.get()) {
+        const directory = Gio.File.new_for_path(wallpaperFolder.get());
         const enumerator = directory.enumerate_children("standard::*", Gio.FileQueryInfoFlags.NONE, null);
         while (true) {
             const info = enumerator.next_file(null);
@@ -176,14 +187,15 @@ export default () => {
                     </switch>
                     <label label="Slideshow" className="label" />
                     <switch
-                        active={wallpaper.get() !== ""}
-                        onActivate={() => setWallpaper(wallpaper.get() === "" ? "default" : "")}
+                        active={wallpaperImage.get() !== ""}
+                        onActivate={() => setWallpaper(wallpaperImage.get() === "" ? "default" : wallpaperImage.get())}
                     >
                     </switch>
                     <label label="Set Wallpaper" className="label" />
                 </box>
                 <button
                     onClick={chooseWallpaperDirectory}
+                    className="wallpaper-button"
                 >
                     <label label="Choose Wallpaper Directory" />
                 </button>
@@ -199,7 +211,7 @@ export default () => {
                         </box>
                     ))}
                 </box>
-            </box>
-        </PopupMenu>
+            </box >
+        </PopupMenu >
     );
 };
