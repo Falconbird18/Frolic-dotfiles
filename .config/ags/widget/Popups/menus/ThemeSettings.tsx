@@ -199,18 +199,23 @@ export default () => {
                 >
                     <label label="Choose Wallpaper Directory" />
                 </button>
-                <box vertical className="wallpaper-images-container">
-                    {getWallpaperImages().map((image) => (
-                        <box key={image} horizontal>
-                            <label label={image} />
-                            <button
+            <box vertical>
+                <label label="Wallpaper Thumbnails" className="theme" halign={Gtk.Align.START} />
+                <box horizontal wrap className="wallpaper-thumbnails-container">
+                    {getWallpaperImages().map((image) => {
+                        const imagePath = `${wallpaperFolder.get()}/${image}`;
+                        return (
+                            <button 
+                                key={image} 
+                                className="thumbnail-box"
+                                css={`background-image: url('${imagePath}'); min-width: 100px; min-height: 100px; background-size: cover; background-position: center; border-radius: 8px; margin: 5px;`}
                                 onClick={() => setWallpaper(image)}
-                            >
-                                <label label="Set as Wallpaper" />
-                            </button>
-                        </box>
-                    ))}
+                            />
+                        );
+                    })}
                 </box>
+            </box>
+
             </box >
         </PopupMenu >
     );
