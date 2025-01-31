@@ -15,7 +15,8 @@ import {
   wind,
   loadLocation,
   setLocation,
-  weatherDescription,
+  weatherDescription, 
+  WeatherIcon,
 } from "../../service/Weather";
 import icons from "../../lib/icons";
 
@@ -142,24 +143,24 @@ export default () => {
         <box
           horizontal
           className="location-header-container"
-          halign={Gtk.Align.FILL} // Ensure the container fills the available space
+          halign={Gtk.Align.FILL}
         >
           <label
             label={displayLocation}
             className="location"
             halign={Gtk.Align.START}
-            hexpand={true} // Allow the label to expand and push the button to the right
+            hexpand={true}
           />
           <button
             valign={Gtk.Align.CENTER}
-            onClicked={() => isEntryVisible.set(!isEntryVisible.value)} // Toggle visibility on button click
+            onClicked={() => isEntryVisible.set(!isEntryVisible.value)}
           >
             <icon icon={icon} />
           </button>
         </box>
         {Entry}
         <box horizontal halign={Gtk.Align.FILL}>
-          <icon icon={desc.as((value) => getWeatherIcon(value))} size={100} />
+          <icon icon={desc.as((value) => WeatherIcon(value))} size={100} />W
           <label
             label={temperature}
             className="temperature"

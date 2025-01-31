@@ -262,6 +262,8 @@ export const WeatherIcon = (description: string | undefined) => {
             return icons.weather.fog;
         case "partly cloudy":
             return icons.weather.partlyCloudy;
+	case "light freezing rain, mist":
+	    return icons.weather.freezingRain;
         default:
             return icons.weather.unknown; // Fallback for unknown descriptions
     }

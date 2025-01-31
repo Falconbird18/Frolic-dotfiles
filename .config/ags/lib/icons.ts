@@ -160,6 +160,7 @@ export default {
     rain: "weather-showers",
     thunderstorm: "weather-severe-alert",
     snow: "weather-snow",
+    freezingRain: "weather-freezing-rain",
     unknown: "window-none-availible",
   },
 };
