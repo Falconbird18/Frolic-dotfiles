@@ -4,6 +4,7 @@ import icons from "../lib/icons";
 import Binding, { Subscribable } from "astal/binding";
 import { controlCenterPage } from "../widget/ControlCenter";
 import Network from "gi://AstalNetwork?version=0.1";
+import Button from "./Button";
 
 type ControlCenterButtonProps = {
 	icon: Widget.IconProps["icon"];
@@ -24,48 +25,56 @@ export default ({
 	...props
 }: ControlCenterButtonProps) => {
 	return (
-		<button
-			className={`${className} control-center__button ${!label && "no-label"}`}
-			setup={(self) => {
-				if (connection) {
-					let [service, condition] = connection;
+		<box horizontal>
+			<button
+				className={`${className} control-center__button ${!label && "no-label"}`}
+				setup={(self) => {
+					if (connection) {
+						let [service, condition] = connection;
 
-					self.toggleClassName("active", condition());
-
-					self.hook(service, () => {
 						self.toggleClassName("active", condition());
-					});
-				}
-			}}
-			onClickRelease={(_, event: Astal.ClickEvent) => {
-				if (event.button == 1 && onPrimaryClick) {
-					onPrimaryClick();
-				}
-				if (event.button == 3 && menuName) {
-					if (menuName == "network") {
-						const network = Network.get_default();
-						const { wifi } = Network.get_default();
-						if (wifi == null) return;
+
+						self.hook(service, () => {
+							self.toggleClassName("active", condition());
+						});
 					}
-					controlCenterPage.set(menuName);
-				}
-			}}
-			{...props}
-		>
-			<box
-				hexpand
-				spacing={12}
-				halign={!label ? Gtk.Align.CENTER : Gtk.Align.FILL}
+				}}
+				onClickRelease={(_, event: Astal.ClickEvent) => {
+					if (event.button == 1 && onPrimaryClick) {
+						onPrimaryClick();
+					}
+				}}
+				{...props}
 			>
-				<icon icon={icon} />
-				{label && (
-					<label
-						label={label}
-						halign={Gtk.Align.START}
-						hexpand
-						truncate
-					/>
-				)}
+				<box
+					hexpand
+					spacing={12}
+					halign={!label ? Gtk.Align.CENTER : Gtk.Align.FILL}
+				>
+					<icon icon={icon} />
+					{label && (
+						<label
+							label={label}
+							halign={Gtk.Align.START}
+							hexpand
+							truncate
+						/>
+					)}
+				</box>
+			</button>
+			<button
+				className={`${className} control-center__button ${!label && "no-label"}`}
+				onClickRelease={(_, event: Astal.ClickEvent) => {
+					if (event.button == 1 && menuName) {
+						if (menuName == "network") {
+							const network = Network.get_default();
+							const { wifi } = Network.get_default();
+							if (wifi == null) return;
+						}
+						controlCenterPage.set(menuName);
+					}
+				}}
+			>
 				{menuName && (
 					<box hexpand={false} halign={Gtk.Align.END}>
 						<icon
@@ -74,7 +83,7 @@ export default ({
 						/>
 					</box>
 				)}
-			</box>
-		</button>
+			</button>
+		</box>
 	);
 };

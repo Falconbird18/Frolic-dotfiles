@@ -19,7 +19,7 @@ const DeviceItem = ({ device }: DeviceItemProps) => {
 					bluetooth.toggle();
 				}
 				timeout(100, () => {
-					device.connect_device(() => {});
+					device.connect_device(() => { });
 				});
 			}}
 		>

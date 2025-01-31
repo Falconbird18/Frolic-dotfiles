@@ -9,7 +9,6 @@ import icons from "../../../lib/icons";
 import Brightness from "../items/Brightness";
 import FanProfileButton from "../items/FanProfile";
 import ScreenRecord from "../items/ScreenRecord";
-import ColorScheme from "../items/ColorScheme";
 import ScreenRecordMenu from "../items/ScreenRecordMenu";
 import ScreenRecordService from "../../../service/ScreenRecord";
 import BluetoothButton from "../items/Bluetooth";
@@ -66,7 +65,6 @@ export default () => {
       spacing,
       homogeneous: true,
       children: [
-        ColorScheme(),
         ScreenRecord({
           onClicked: () => {
             if (ScreenRecordService.recording) {

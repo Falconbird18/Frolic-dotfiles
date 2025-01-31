@@ -1,6 +1,6 @@
 import Gio from "gi://Gio";
 import GLib from "gi://GLib"; // Import GLib for user directories
-import ControlCenterButton from "../../../common/WideIconButton";
+import ControlCenterButton from "../../../common/WideButton";
 import icons from "../../../lib/icons";
 
 const takeScreenshot = () => {
