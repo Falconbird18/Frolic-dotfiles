@@ -14,7 +14,8 @@ $subtext_size: 11px;
 
 /* General */
 $transition: 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-$radius: 30px;
+$primary-radius: 30px;
+$secondary-radius: 30px;
 $background_gradient: linear-gradient(145deg, $background, $background);
 $text-shadow:
     2px 2px 0 $background-2,
@@ -42,4 +43,5 @@ $inset: 0 0 0 transparent;
 $inset_primary: 0 0 0 transparent;
 $outset_margin: 2px;
 $border-shadow: 0px 2px 0px $secondary;
-$border: 2px solid $primary;
+$primary-border: 2px solid $primary;
+$secondary-border: 2px solid $primary;
