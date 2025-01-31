@@ -116,7 +116,16 @@ const getWallpaperImages = () => {
     return images;
 };
 
+const chunkArray = (arr, size) => {
+    return arr.reduce((acc, _, i) => {
+        if (i % size === 0) acc.push(arr.slice(i, i + size));
+        return acc;
+    }, []);
+};
+
 export default () => {
+	const images = getWallpaperImages();
+	const rows = chunkArray(images, 2);
     return (
         <PopupMenu
             vexpand={true}
@@ -200,21 +209,23 @@ export default () => {
                     <label label="Choose Wallpaper Directory" />
                 </button>
             <box vertical>
-                <label label="Wallpaper Thumbnails" className="theme" halign={Gtk.Align.START} />
-                <box horizontal wrap className="wallpaper-thumbnails-container">
-                    {getWallpaperImages().map((image) => {
-                        const imagePath = `${wallpaperFolder.get()}/${image}`;
-                        return (
-                            <button 
-                                key={image} 
-                                className="thumbnail-box"
-                                css={`background-image: url('${imagePath}'); min-width: 100px; min-height: 100px; background-size: cover; background-position: center; border-radius: 8px; margin: 5px;`}
-                                onClick={() => setWallpaper(image)}
-                            />
-                        );
-                    })}
+                <box vertical className="wallpaper-thumbnails-container">
+                    {rows.map((row, rowIndex) => (
+                        <box key={rowIndex} horizontal>
+                            {row.map((image) => {
+                                const imagePath = `${wallpaperFolder.get()}/${image}`;
+                                return (
+                                    <button
+                                        key={image}
+                                        className="thumbnail-box"
+                                	css={`background-image: url('${imagePath}'); min-width: 160px; min-height: 160px; background-size: cover; background-position: center;`}
+                                        onClick={() => setWallpaper(image)}
+                                    />
+                                );
+                            })}
+                        </box>
+                    ))}
                 </box>
-            </box>
 
             </box >
         </PopupMenu >

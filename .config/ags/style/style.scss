@@ -1422,16 +1422,14 @@ switch:checked slider {
     padding: 20px;
 }
 
-.wallpaper-button{
-    @include primary-button;
+.wallpaper-thumbnails-container{
+    min-width: 360px;
+    padding: 20px
 }
 
-.wallpaper-button:hover{
-    @include primary-button-hover;
-}
-
-.wallpaper-button:active{
-    @include primary-button-active;
+.thumbnail-box{
+  border-radius: $radius;
+  margin: 10px;
 }
 
 /*Weather*/
