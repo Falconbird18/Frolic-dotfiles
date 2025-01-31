@@ -1,7 +1,7 @@
 [SddmGreeterTheme]
 Name=sddm-astronaut-theme
-Description=sddm-astronaut-theme
-Author=keyitdev
+Description=Frolic SDDM theme
+Author=Austin Tallent (Based on theme by keyitdev)
 Website=https://github.com/Keyitdev/sddm-astronaut-theme
 License=GPL-3.0-or-later
 Type=sddm-theme
