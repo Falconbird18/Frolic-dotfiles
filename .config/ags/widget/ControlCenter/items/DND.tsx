@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import ControlCenterButton from "../../../common/WideIconButton";
+import ControlCenterButton from "../../../common/WideButton";
 import AstalNotifd from "gi://AstalNotifd?version=0.1";
 import icons from "../../../lib/icons";
 

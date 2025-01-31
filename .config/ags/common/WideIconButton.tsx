@@ -63,7 +63,18 @@ export default ({
 				</box>
 			</button>
 			<button
-				className={`${className} control-center__button ${!label && "no-label"}`}
+				className="control-center__button-icon"
+				setup={(self) => {
+					if (connection) {
+						let [service, condition] = connection;
+
+						self.toggleClassName("active");
+
+						self.hook(service, () => {
+							self.toggleClassName("active", condition());
+						});
+					}
+				}}
 				onClickRelease={(_, event: Astal.ClickEvent) => {
 					if (event.button == 1 && menuName) {
 						if (menuName == "network") {
@@ -74,6 +85,7 @@ export default ({
 						controlCenterPage.set(menuName);
 					}
 				}}
+				{...props}
 			>
 				{menuName && (
 					<box hexpand={false} halign={Gtk.Align.END}>

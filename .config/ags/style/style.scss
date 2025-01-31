@@ -572,8 +572,24 @@ switch:checked slider {
     }
 }
 
+.control-center__button-icon{
+    @include secondary-button;
+    border-radius: $secondary-radius $primary-radius $primary-radius $secondary-radius;
+    margin-left: 2px;
+
+    &:hover {
+        @include secondary-button-hover;
+    }
+
+    &.active {
+        @include secondary-button-active;
+    }
+}
+
 .control-center__button {
     @include secondary-button;
+    border-radius: $primary-radius $secondary-radius $secondary-radius $primary-radius;
+    margin-right: 2px;
 
     &.secondary {
         @include secondary-button;
@@ -593,6 +609,7 @@ switch:checked slider {
 
     &:hover {
         @include secondary-button-hover;
+
     }
 
     &.no-label {

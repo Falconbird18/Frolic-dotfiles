@@ -499,6 +499,37 @@ switch:checked slider {
   box-shadow: 0 0 0 transparent;
 }
 
+.control-center__button-icon {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #ECDFEA;
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  border-radius: 4px 8px 8px 4px;
+  margin-left: 2px;
+}
+.control-center__button-icon:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.control-center__button-icon.active {
+  background: #d161bd;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
+}
+
 .control-center__button {
   font-size: 18px;
   font-weight: normal;
@@ -515,6 +546,8 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
+  border-radius: 8px 4px 4px 8px;
+  margin-right: 2px;
 }
 .control-center__button.secondary {
   font-size: 18px;
