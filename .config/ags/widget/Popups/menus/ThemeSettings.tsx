@@ -208,7 +208,6 @@ export default () => {
                 >
                     <label label="Choose Wallpaper Directory" />
                 </button>
-            <box vertical>
                 <box vertical className="wallpaper-thumbnails-container">
                     {rows.map((row, rowIndex) => (
                         <box key={rowIndex} horizontal>
