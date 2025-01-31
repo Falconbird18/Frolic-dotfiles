@@ -29,8 +29,9 @@ Column {
         anchors.horizontalCenter: parent.horizontalCenter
 
         font.pointSize: root.font.pointSize * 9
-        font.bold: true
-        color: config.TimeTextColor
+        font.bold: false
+        font.family: config.primaryFont
+        color: config.TextColor
         renderType: Text.QtRendering
 
         function updateTime() {
@@ -43,9 +44,10 @@ Column {
 
         anchors.horizontalCenter: parent.horizontalCenter
         
-        color: config.DateTextColor
+        color: config.TextColor
         font.pointSize: root.font.pointSize * 2
-        font.bold: true
+        font.bold: false
+        font.family: config.secondaryFont
         renderType: Text.QtRendering
 
         function updateTime() {
