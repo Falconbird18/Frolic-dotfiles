@@ -57,7 +57,7 @@
   margin-bottom: 2px;
 }
 .app-launcher__item label {
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .app-launcher__item label.title {
   font-family: "Monaspace Xenon";
@@ -145,7 +145,7 @@ window.popup menu menuitem {
   padding: 12px 6px;
   color: #562f10;
   border-radius: 100px;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 window.popup menu menuitem:hover {
   background: #f2f2f2;
@@ -256,7 +256,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -308,7 +308,7 @@ switch:checked slider {
   padding: 0;
   min-width: 8px;
   min-height: 8px;
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
   background-color: #dad3cd;
   box-shadow: 0 0 0 transparent;
@@ -330,7 +330,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -455,7 +455,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -518,17 +518,33 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  background: #f2f2f2;
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
   background-size: 8px 8px;
   border-radius: 30px;
-  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+}
+.control-center__button.secondary {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
 }
 .control-center__button.active {
   background-color: #de6e12;
@@ -540,7 +556,10 @@ switch:checked slider {
   background-color: #de6e12;
 }
 .control-center__button:hover {
-  background-color: #f2f2f2;
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
 }
 .control-center__button.no-label {
   padding: 0;
@@ -593,7 +612,7 @@ switch:checked slider {
 }
 .control-center__brightness-slider trough,
 .control-center__volume-slider trough {
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 100px;
   background-color: #dad3cd;
   box-shadow: 0 0 0 transparent;
@@ -601,9 +620,10 @@ switch:checked slider {
 }
 .control-center__brightness-slider trough highlight,
 .control-center__volume-slider trough highlight {
-  background-color: #de6e12;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  background-size: 8px 8px;
   min-width: 15px;
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
   border: 2px solid #de6e12;
   box-shadow: 0 0 0 transparent;
@@ -616,7 +636,7 @@ switch:checked slider {
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .muted .control-center__volume-slider highlight {
@@ -644,7 +664,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -728,7 +748,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -835,13 +855,13 @@ switch:checked slider {
 
 .notification__action {
   background: none;
-  transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   color: #de6e12;
   border-radius: 100px;
 }
 .notification__action:hover {
   color: #562f10;
-  transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .notification__action:first-child {
   margin-left: 0;
@@ -860,7 +880,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -897,7 +917,7 @@ switch:checked slider {
 }
 .notifications-window .notification {
   border-radius: 4px;
-  transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: border-radius 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   background-color: #f2f2f2;
   box-shadow: 0px 2px 0px 0px #12de52;
 }
@@ -912,7 +932,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -970,7 +990,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -994,7 +1014,7 @@ switch:checked slider {
   border-radius: 30px;
   background-size: cover;
   background-position: center;
-  transition: background 0.5s 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.5s 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .player__icon {
@@ -1034,7 +1054,7 @@ switch:checked slider {
   font-size: 24px;
   border-radius: 0px;
   border: 2px solid #de6e12;
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
   box-shadow: 0 0 0 transparent;
 }
@@ -1055,7 +1075,7 @@ switch:checked slider {
 }
 
 .player__position-slider trough {
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
   background-color: #dad3cd;
   min-height: 25px;
@@ -1071,7 +1091,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1087,7 +1107,7 @@ switch:checked slider {
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .player__indicator {
@@ -1096,7 +1116,7 @@ switch:checked slider {
   background: #f0edea;
   border-radius: 100px;
   margin-bottom: 8px;
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .player__indicator.selected {
   background: #562f10;
@@ -1170,7 +1190,7 @@ switch:checked slider {
   padding: 18px;
   color: #562f10;
   border-radius: 100px;
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .popup-menu__item label {
   font-size: 14px;
@@ -1270,7 +1290,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1349,7 +1369,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1378,7 +1398,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1415,7 +1435,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1431,6 +1451,21 @@ switch:checked slider {
   font-size: 14px;
   font-weight: 300;
   padding-top: 15px;
+}
+
+.switches-container {
+  min-width: 60px;
+  padding: 20px;
+}
+
+.wallpaper-thumbnails-container {
+  min-width: 360px;
+  padding: 20px;
+}
+
+.thumbnail-box {
+  border-radius: 30px;
+  margin: 10px;
 }
 
 /*Weather*/

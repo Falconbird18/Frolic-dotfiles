@@ -14,9 +14,9 @@ $subtext_size: 11px;
 
 /* General */
 $transition: 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-$primary-radius: 8px;
-$secondary-radius: 4px;
-$background_gradient: linear-gradient(145deg, $background, $background);
+$primary-radius: 20px;
+$secondary-radius: 10px;
+$background_gradient: linear-gradient(145deg, $background-2, $background);
 $text-shadow:
     2px 2px 0 $background-2,
     2px -2px 0 $background-2,
@@ -37,10 +37,20 @@ $background-image: linear-gradient(
     $primary
 );
 $background-size: 8px 8px;
-$outset: 0 0 0 transparent;
-$outset_primary: 0 0 0 transparent;
-$inset: 0 0 0 transparent;
-$inset_primary: 0 0 0 transparent;
+$outset:
+    0px -3px 5px $highlight,
+    0px 3px 5px $shadow;
+$outset_primary:
+    inset 0px 1px 2px $highlight_primary,
+    inset 0px -1px 2px $shadow_primary,
+    0px -3px 5px $highlight,
+    0px 3px 5px $shadow;
+$inset:
+    inset 0px 3px 5px $shadow,
+    inset 0px -5px 3px $highlight;
+$inset_primary:
+    inset 0px 3px 5px $shadow_primary,
+    inset 0px -5px 3px $highlight_primary;
 $outset_margin: 5px;
 $border-shadow: 0 0 0 transparent;
 $primary-border: none;

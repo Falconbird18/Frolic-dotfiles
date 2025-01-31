@@ -24,19 +24,18 @@
 }
 
 .app-launcher__input {
-  background: #202020;
-  outline: none;
+  background-color: #202020;
+  border-radius: 30px;
+  border: 2px solid #e06f12;
+  padding: 5px;
+  color: #f5decc;
+  font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #f5decc;
   margin: 20px;
   padding: 12px 22px;
-  border-radius: 30px;
-  box-shadow: none;
-  color: #f5decc;
-  font-family: "Monaspace Radon";
-  font-size: 18px;
-  font-weight: normal;
-  background-image: linear-gradient(145deg, #2c2621, #2c2621);
-  box-shadow: 0 0 0 transparent;
-  border: 2px solid #e06f12;
 }
 .app-launcher__input icon {
   margin-right: 20px;
@@ -397,19 +396,6 @@ switch:checked slider {
   font-size: 18px;
 }
 
-.bar__rounded-box .bar__item {
-  border-radius: 15px;
-}
-
-.bar__rounded-box > *:last-child {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-.bar__rounded-box > *:first-child, .bar__rounded-box > *:first-child > * {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-
 /*Control Center*/
 .control-center__container {
   background-color: #202020;
@@ -418,6 +404,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  background-color: #2c2621;
   min-width: 450px;
   min-height: 800px;
 }
@@ -1487,7 +1474,7 @@ switch:checked slider {
 }
 
 .location_input {
-  background-color: #2c2621;
+  background-color: #202020;
   border-radius: 30px;
   border: 2px solid #e06f12;
   padding: 5px;
@@ -1538,8 +1525,11 @@ switch:checked slider {
 
 .sidebar-prompt-example {
   background-color: #202020;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #e06f12;
+  padding: 10px;
   border-radius: 30px;
-  box-shadow: 0 0 0 transparent;
+  margin-bottom: 2px;
   padding: 10px;
   margin-bottom: 20px;
 }
