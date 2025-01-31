@@ -24,19 +24,18 @@
 }
 
 .app-launcher__input {
-  background: #f2f2f2;
-  outline: none;
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  border: 2px solid #de6e12;
+  padding: 5px;
+  color: #562f10;
+  font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #562f10;
   margin: 20px;
   padding: 12px 22px;
-  border-radius: 30px;
-  box-shadow: none;
-  color: #562f10;
-  font-family: "Monaspace Radon";
-  font-size: 18px;
-  font-weight: normal;
-  background-image: linear-gradient(145deg, #f0edea, #f0edea);
-  box-shadow: 0 0 0 transparent;
-  border: 2px solid #de6e12;
 }
 .app-launcher__input icon {
   margin-right: 20px;
@@ -55,6 +54,7 @@
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .app-launcher__item label {
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
@@ -397,19 +397,6 @@ switch:checked slider {
   font-size: 18px;
 }
 
-.bar__rounded-box .bar__item {
-  border-radius: 15px;
-}
-
-.bar__rounded-box > *:last-child {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-.bar__rounded-box > *:first-child, .bar__rounded-box > *:first-child > * {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-
 /*Control Center*/
 .control-center__container {
   background-color: #f2f2f2;
@@ -418,6 +405,8 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  background-color: #f0edea;
   min-width: 450px;
   min-height: 800px;
 }
@@ -479,6 +468,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-bottom: 20px;
 }
 .control-center__page_item-header label {
@@ -500,6 +490,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__page_item label {
   font-size: 14px;
@@ -510,6 +501,100 @@ switch:checked slider {
 }
 .control-center__page_item:hover {
   box-shadow: 0 0 0 transparent;
+}
+
+.control-center__button-icon {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  border-radius: 15px 30px 30px 15px;
+  margin-left: 2px;
+}
+.control-center__button-icon:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.control-center__button-icon.active {
+  background: #de6e12;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
+}
+
+.control-center__button-wide {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+}
+.control-center__button-wide.secondary {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+}
+.control-center__button-wide.active {
+  background-color: #de6e12;
+}
+.control-center__button-wide.active:hover {
+  background-color: #f2f2f2;
+}
+.control-center__button-wide.active:active {
+  background-color: #de6e12;
+}
+.control-center__button-wide:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.control-center__button-wide.no-label {
+  padding: 0;
+}
+.control-center__button-wide.recorder-indicator.active {
+  background: #e99898;
+  color: #562f10;
+}
+.control-center__button-wide.recorder-indicator.active:hover {
+  background: #f2f2f2;
+}
+.control-center__button-wide.recorder-indicator.active:active {
+  background: #e99898;
 }
 
 .control-center__button {
@@ -528,6 +613,8 @@ switch:checked slider {
   border: 2px solid #de6e12;
   background-size: 8px 8px;
   border-radius: 30px;
+  border-radius: 30px 15px 15px 30px;
+  margin-right: 2px;
 }
 .control-center__button.secondary {
   font-size: 18px;
@@ -694,6 +781,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .block {
@@ -798,6 +886,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 14px 16px 14px 20px;
   margin-right: 2px;
 }
@@ -911,6 +1000,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   min-width: 400px;
   min-height: 550px;
   margin-right: 2px;
@@ -970,6 +1060,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-bottom: 20px;
 }
 
@@ -997,6 +1088,7 @@ switch:checked slider {
   background-size: 8px 8px;
   border-radius: 30px;
   text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  min-height: 10px;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1078,7 +1170,6 @@ switch:checked slider {
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
   background-color: #dad3cd;
-  min-height: 25px;
   box-shadow: 0 0 0 transparent;
 }
 .player__position-slider trough highlight {
@@ -1099,6 +1190,7 @@ switch:checked slider {
   border-radius: 30px;
   text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
   min-width: 15px;
+  min-height: 10px;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1154,6 +1246,8 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  background: linear-gradient(145deg, #f0edea, #f0edea);
   min-height: 400px;
 }
 .popup-menu.sink {
@@ -1273,6 +1367,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
 }
 
@@ -1326,6 +1421,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   min-width: 300px;
   padding: 20px;
 }
@@ -1476,6 +1572,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
 }
 
@@ -1487,7 +1584,7 @@ switch:checked slider {
 }
 
 .location_input {
-  background-color: #f0edea;
+  background-color: #f2f2f2;
   border-radius: 30px;
   border: 2px solid #de6e12;
   padding: 5px;
@@ -1538,8 +1635,12 @@ switch:checked slider {
 
 .sidebar-prompt-example {
   background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
   border-radius: 30px;
-  box-shadow: 0 0 0 transparent;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 10px;
   margin-bottom: 20px;
 }

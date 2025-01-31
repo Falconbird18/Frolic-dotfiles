@@ -19,6 +19,7 @@
     padding: 10px;
     border-radius: $secondary-radius;
     margin-bottom: $outset_margin;
+    transition: all $transition;
 }
 
 @mixin primary-button {
@@ -574,7 +575,7 @@ switch:checked slider {
 
 .control-center__button-icon{
     @include secondary-button;
-    border-radius: $secondary-radius $primary-radius $primary-radius $secondary-radius;
+    border-radius: $tertiary-radius $primary-radius $primary-radius $tertiary-radius;
     margin-left: 2px;
 
     &:hover {
@@ -586,9 +587,53 @@ switch:checked slider {
     }
 }
 
+.control-center__button-wide {
+    @include secondary-button;
+
+    &.secondary {
+        @include secondary-button;
+    }
+
+    &.active {
+        @include primary-button-active;
+
+        &:hover {
+            @include primary-button-hover;
+        }
+
+        &:active {
+            @include primary-button-active;
+        }
+    }
+
+    &:hover {
+        @include secondary-button-hover;
+
+    }
+
+    &.no-label {
+        padding: 0;
+    }
+
+    &.recorder-indicator {
+        &.active {
+            background: $error;
+            color: $text;
+
+            &:hover {
+                background: $background-2;
+            }
+
+            &:active {
+                background: $error;
+            }
+        }
+    }
+}
+
 .control-center__button {
     @include secondary-button;
-    border-radius: $primary-radius $secondary-radius $secondary-radius $primary-radius;
+    border-radius: $primary-radius $tertiary-radius $tertiary-radius $primary-radius;
     margin-right: 2px;
 
     &.secondary {
