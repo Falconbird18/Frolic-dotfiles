@@ -85,7 +85,7 @@ echo "Yay installed."
 # Install packages
 echo "Installing packages..."
 sudo pacman -S --needed hyprland wofi fish starship hyprpicker hyprlock wl-clipboard brightnessctl bluez-utils cliphist sddm git
-yay -S --needed aylurs-gtk-shell
+yay -S --needed aylurs-gtk-shell nbfc-linux
 echo "Packages installed."
 
 # Install github fonts
