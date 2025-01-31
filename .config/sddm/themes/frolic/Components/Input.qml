@@ -215,14 +215,15 @@ Column {
             id: username
 
             anchors.centerIn: parent
-            height: root.font.pointSize * 3
+            height: root.font.pointSize * 4
             width: parent.width
             horizontalAlignment: TextInput.AlignHCenter
             z: 1
 
             text: config.ForceLastUser == "true" ? selectUser.currentText : null
-            color: config.LoginFieldTextColor
-            font.bold: true
+            color: config.TextColor
+            font.bold: false
+            font.family: config.primaryFont
             font.capitalization: config.AllowUppercaseLettersInUsernames == "false" ? Font.AllLowercase : Font.MixedCase
             placeholderText: config.TranslatePlaceholderUsername || textConstants.userName
             placeholderTextColor: config.PlaceholderTextColor
@@ -235,10 +236,10 @@ Column {
             }
 
             background: Rectangle {
-                color: config.LoginFieldBackgroundColor
-                opacity: 0.2
-                border.color: "transparent"
-                border.width: parent.activeFocus ? 2 : 1
+                color: config.BackgroundColor
+                opacity: 1
+                border.color: config.PrimaryColor
+                border.width: 2
                 radius: config.RoundCorners || 0
             }
             
@@ -346,13 +347,14 @@ Column {
         TextField {
             id: password
 
-            height: root.font.pointSize * 3
+            height: root.font.pointSize * 4
             width: parent.width
             anchors.centerIn: parent
             horizontalAlignment: TextInput.AlignHCenter
             
-            font.bold: true
-            color: config.PasswordFieldTextColor
+            font.bold: false
+            font.family: config.secondaryFont
+            color: config.TextColor
             focus: config.PasswordFocus == "true" ? true : false
             echoMode: passwordIcon.checked ? TextInput.Normal : TextInput.Password
             placeholderText: config.TranslatePlaceholderPassword || textConstants.password
@@ -363,10 +365,10 @@ Column {
             selectByMouse: true
             
             background: Rectangle {
-                color: config.PasswordFieldBackgroundColor
-                opacity: 0.2
-                border.color: "transparent"
-                border.width: parent.activeFocus ? 2 : 1
+                color: config.BackgroundColor
+                opacity: 1
+                border.color: config.PrimaryColor
+                border.width: 2
                 radius: config.RoundCorners || 0
             }
             onAccepted: config.AllowUppercaseLettersInUsernames == "false" ? sddm.login(username.text.toLowerCase(), password.text, sessionSelect.selectedSession) : sddm.login(username.text, password.text, sessionSelect.selectedSession)
@@ -411,7 +413,7 @@ Column {
         Button {
             id: loginButton
 
-            height: root.font.pointSize * 3
+            height: root.font.pointSize * 4
             implicitWidth: parent.width
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -424,19 +426,21 @@ Column {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
-                font.bold: true
+                font.bold: false
                 font.pointSize: root.font.pointSize
-                font.family: root.font.family
-                color: config.LoginButtonTextColor
+                font.family: config.primaryFont
+                color: config.TextColor
                 text: parent.text
-                opacity: 0.5
+                opacity: 1
             }
 
             background: Rectangle {
                 id: buttonBackground
 
-                color: config.LoginButtonBackgroundColor
-                opacity: 0.2
+                color: config.BackgroundColor
+                opacity: 1             
+                border.color: config.PrimaryColor
+                border.width: 2
                 radius: config.RoundCorners || 0
             }
 
@@ -458,7 +462,7 @@ Column {
                     when: loginButton.hovered
                     PropertyChanges {
                         target: buttonBackground
-                        color: Qt.lighter(config.LoginButtonBackgroundColor, 1.15)
+                        color: config.PrimaryColor
                         opacity: 1
                     }
                     PropertyChanges {
