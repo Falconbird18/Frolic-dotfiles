@@ -59,13 +59,22 @@ const setSlideshow = (isSlideshow: boolean) => {
     saveSettings(currentTheme.get(), currentMode.get(), isSlideshow, wallpaperImage.get(), wallpaperFolder.get());
 };
 
-
 const setWallpaper = (wallpaper: string) => {
     wallpaperImage.set(wallpaper);
     saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperFolder.get());
     console.log(`New Wallpaper: ${wallpaper}`);
-    const wallpaperImagePath = wallpaperFolder.get() + wallpaper;
-    exec(`swww img "${wallpaperImagePath}" --transition-step 100 --transition-fps 120 --transition-type grow --transition-angle 30 --transition-duration 1`);
+
+    const wallpaperImagePath = `${wallpaperFolder.get()}/${wallpaper}`;
+    const destinationPath = `${GLib.get_home_dir()}/.config/wallpaper/wallpaper.jpg`;
+
+    // Ensure the destination directory exists
+    exec(`mkdir -p ${GLib.get_home_dir()}/.config/wallpaper`);
+
+    // Copy and rename the wallpaper
+    exec(`cp "${wallpaperImagePath}" "${destinationPath}"`);
+
+    // Set the wallpaper using swww
+    exec(`swww img "${destinationPath}" --transition-step 100 --transition-fps 120 --transition-type grow --transition-angle 30 --transition-duration 1`);
 };
 
 const setWallpaperDirectory = (wallpaperDirectory: string) => {
@@ -188,6 +197,22 @@ export default () => {
                     </box>
                 </box>
                 <label label="Wallpaper" className="theme" halign={Gtk.Align.START} />
+<box horizontal className="switches-container">
+    <box vertical valign={Gtk.Align.CENTER}>
+        <switch active={slideshow.get()} onActivate={() => setSlideshow(!slideshow.get())} />
+        <label label="Slideshow" className="label" />
+    </box>
+    <box vertical valign={Gtk.Align.CENTER}>
+        <switch
+            active={wallpaperImage.get() !== ""}
+            onActivate={() => setWallpaper(wallpaperImage.get() === "" ? "default" : wallpaperImage.get())}
+        />
+        <label label="Set Wallpaper" className="label" />
+    </box>
+</box>
+
+
+
                 <box vertical className="switches-container">
                     <switch
                         active={slideshow.get()}
