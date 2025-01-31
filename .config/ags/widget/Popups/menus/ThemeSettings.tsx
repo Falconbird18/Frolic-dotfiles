@@ -51,6 +51,8 @@ export const wallpaperFolder = Variable(settings.wallpaperDirectory);
 const setTheme = (theme: string, mode: string) => {
     currentTheme.set(theme);
     currentMode.set(mode);
+    exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf`);
+    exec(`cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`);
     saveSettings(theme, mode, slideshow.get(), wallpaperImage.get(), wallpaperFolder.get());
 };
 
