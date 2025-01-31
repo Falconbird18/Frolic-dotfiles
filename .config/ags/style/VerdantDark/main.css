@@ -1458,6 +1458,16 @@ switch:checked slider {
   padding: 20px;
 }
 
+.wallpaper-thumbnails-container {
+  min-width: 360px;
+  padding: 20px;
+}
+
+.thumbnail-box {
+  border-radius: 20px;
+  margin: 10px;
+}
+
 /*Weather*/
 .weather-window {
   background-color: #3d433d;
