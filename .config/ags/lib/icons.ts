@@ -10,7 +10,7 @@ interface substitutions {
 
 const archFile = `${GLib.get_home_dir()}/.config/ags/svg/arch.svg`;
 const aiFile = `${GLib.get_home_dir()}/.config/ags/svg/ai.svg`;
-const Verdant = `${GLib.get_home_dir()}/.config/ags/svg/verant.svg`;
+const Verdant = `${GLib.get_home_dir()}/.config/ags/svg/verdant.svg`;
 const Zephyr = `${GLib.get_home_dir()}/.config/ags/svg/zephyr.svg`;
 const Frolic = `${GLib.get_home_dir()}/.config/ags/svg/frolic.svg`;
 const Glaciara = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
