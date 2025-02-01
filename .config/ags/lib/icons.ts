@@ -1,3 +1,4 @@
+const { GLib, Gio } = imports.gi;
 interface substitutions {
   icons: {
     [key: string]: string | undefined;
@@ -7,6 +8,12 @@ interface substitutions {
   };
 }
 
+const archFile = `${GLib.get_home_dir()}/.config/ags/svg/arch.svg`;
+const aiFile = `${GLib.get_home_dir()}/.config/ags/svg/ai.svg`;
+const Verdant = `${GLib.get_home_dir()}/.config/ags/svg/verant.svg`;
+const Zephyr = `${GLib.get_home_dir()}/.config/ags/svg/zephyr.svg`;
+const Frolic = `${GLib.get_home_dir()}/.config/ags/svg/frolic.svg`;
+const Glaciara = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
 export const substitutions: substitutions = {
   icons: {
     "transmission-gtk": "transmission",
@@ -52,8 +59,14 @@ export default {
   record: "media-record-symbolic",
   screensnip: "edit-cut-symbolic",
   screenshot: "view-fullscreen-symbolic",
-  arch: "$XDG_CONFIG_HOME/ags/arch.svg",
-  ai: "$XDG_CONFIG_HOME/ags/ai.svg",
+  arch: archFile,
+  ai: aiFile,
+  seasons: {
+    spring: Verdant,
+    summer: Zephyr,
+    fall: Frolic,
+    winter: Glaciara,
+  },
   powerprofile: {
     0: "power-profile-balanced",
     1: "power-profile-power-saver",
