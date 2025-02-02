@@ -1403,7 +1403,8 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-    @include primary-button;
+    //@include primary-button;
+    background-color: $background-2;
     margin-right: 10px;
     min-width: 160px;
     padding-left: 0;
@@ -1415,11 +1416,13 @@ switch:checked slider {
 
     &.active {
         @include primary-button-active;
+        background-color: red;
     }
 }
 
 .mode-settings__button_right {
-    @include primary-button;
+    //@include primary-button;
+    background-color: $background-2;
     margin-left: 10px;
     min-width: 160px;
     padding-left: 0;
@@ -1431,6 +1434,7 @@ switch:checked slider {
 
     &.active {
         @include primary-button-active;
+        background-color: red;
     }
 }
 

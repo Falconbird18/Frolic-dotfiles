@@ -199,14 +199,18 @@ export default () => {
       <box vertical>
         <box className="buttons-container">
           <button
-            className="mode-settings__button_left"
             onClick={() => setTheme(currentTheme.get(), "Light")}
+            className={`mode-settings__button_left ${
+              currentMode.get() === "Light" ? "active" : ""
+            }`}
           >
             <label label="Light" />
           </button>
           <button
-            className="mode-settings__button_right"
             onClick={() => setTheme(currentTheme.get(), "Dark")}
+            className={`mode-settings__button_right ${
+              currentMode.get() === "Dark" ? "active" : ""
+            }`}
           >
             <label label="Dark" />
           </button>
