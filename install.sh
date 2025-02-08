@@ -127,6 +127,7 @@ mkdir -p $HOME/.local/bin
 cp $HOME/Frolic-dotfiles/.local/bin/hyprland-flee-bravely $HOME/.local/bin/
 cp -r $HOME/Frolic-dotfiles/.spicetify/ $HOME/
 cp -r $HOME/Frolic-dotfiles/.icons $HOME/
+sudo cp -r $HOME/Frolic-dotfiles/.config/sddm/ /usr/share/sddm/
 echo "Config files installed."
 
 # Ask the user if they want to install Spicetify
