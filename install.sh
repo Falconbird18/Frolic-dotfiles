@@ -130,6 +130,10 @@ cp -r $HOME/Frolic-dotfiles/.icons $HOME/
 sudo cp -r $HOME/Frolic-dotfiles/.config/sddm/ /usr/share/sddm/
 echo "Config files installed."
 
+echo "Adding wallpaper images..."
+cp -r $HOME/Frolic-dotfiles/wallpapers $HOME/Pictures/
+echo "Wallpapers copied."
+
 # Ask the user if they want to install Spicetify
 read -p "Do you want to install Spicetify? (y/n): " spicetify_choice
 
