@@ -127,7 +127,8 @@ mkdir -p $HOME/.local/bin
 cp $HOME/Frolic-dotfiles/.local/bin/hyprland-flee-bravely $HOME/.local/bin/
 cp -r $HOME/Frolic-dotfiles/.spicetify/ $HOME/
 cp -r $HOME/Frolic-dotfiles/.icons $HOME/
-sudo cp -r $HOME/Frolic-dotfiles/.config/sddm/ /usr/share/sddm/
+sudo cp -r $HOME/Frolic-dotfiles/.config/sddm/themes /usr/share/sddm/
+sudo cp $HOME/Frolic-dotfiles/.config/sddm/sddm.conf /etc/
 echo "Config files installed."
 
 echo "Adding wallpaper images..."
