@@ -84,7 +84,7 @@ echo "Yay installed."
 
 # Install packages
 echo "Installing packages..."
-sudo pacman -S --needed hyprland wofi fish starship hyprpicker hyprlock hypridle wl-clipboard brightnessctl bluez-utils cliphist sddm git swww
+sudo pacman -S --needed hyprland wofi fish starship hyprpicker hyprlock hypridle wl-clipboard brightnessctl bluez-utils cliphist sddm git swww unzip
 yay -S --needed aylurs-gtk-shell nbfc-linux bibata-cursor-theme-bin
 echo "Packages installed."
 
@@ -140,7 +140,7 @@ read -p "Do you want to install Spicetify? (y/n): " spicetify_choice
 
 if [[ "$spicetify_choice" =~ ^[Yy]$ ]]; then
     echo "Proceeding with Spicetify installation..."
-    yay -S spicetify-cli
+    curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
     sudo chmod a+wr /opt/spotify
     sudo chmod a+wr /opt/spotify/Apps -R
     spicetify apply
