@@ -53,7 +53,11 @@ export default () => {
   const settingsContainer = new Widget.Box({
     spacing,
     className: "control-center__settings-container",
+    vertical: true,
     children: [
+      new Widget.Label({ label: "Connectivity",
+        className: "control-center__settings-container-header",
+      }),
       Network ? Network : null,
       Bluetooth ? Bluetooth : null,
     ].filter(Boolean), // Filter out any null values if any of Network, Bluetooth, FanProfile are not valid widgets
@@ -132,4 +136,3 @@ export default () => {
     </box>
   );
 };
-

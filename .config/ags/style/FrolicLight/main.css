@@ -411,6 +411,13 @@ switch:checked slider {
   min-height: 800px;
 }
 
+.control-center__settings-container-header {
+  color: #562f10;
+  font-size: 18px;
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+}
+
 .control-center__settings-container {
   background-color: #f2f2f2;
   box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;

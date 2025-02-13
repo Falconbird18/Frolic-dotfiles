@@ -503,6 +503,13 @@ switch:checked slider {
     min-height: 800px;
 }
 
+.control-center__settings-container-header{
+    color: $text;
+    font-size: $h2_size;
+    font-family: $h2_font;
+    font-weight: $h2_weight;
+}
+
 .control-center__settings-container {
     @include card;
 }
