@@ -40,49 +40,30 @@ export default () => {
     columnSpacing: spacing,
   });
 
-//   const FanProfile = FanProfileButton();
-//   const Network = NetworkButton();
-//   const Bluetooth = BluetoothButton();
+  const FanProfile = FanProfileButton();
+  const Network = NetworkButton();
+  const Bluetooth = BluetoothButton();
   <button
   className="control-center__settings-button"
   onClick={() => toggleWindow("popup-theme-settings")}
->
+  >
   <icon icon={icons.ui.settings} iconSize={16} />
-</button>
-  // fb.add(
-  //   new Widget.Box({
-  //     spacing,
-  //     className: "control-center__settings-container",
-  //     children: [
-  //       fb.add(Network),
-  //       fb.add(Bluetooth),
-  //       fb.add(FanProfile),
-  //     ]
-  //   })
-  // )
+  </button>
+
   const settingsContainer = new Widget.Box({
     spacing,
     className: "control-center__settings-container",
-    children: [], // Start with an empty children array
+    children: [
+      Network ? Network : null,
+      Bluetooth ? Bluetooth : null,
+    ].filter(Boolean), // Filter out any null values if any of Network, Bluetooth, FanProfile are not valid widgets
   });
 
-  const Network = NetworkButton();
-  if (Network) {
-    settingsContainer.children.push(Network); // Push the Network widget directly
+
+  fb.add(settingsContainer);
+  if (FanProfile != undefined) {
+    fb.add(FanProfile);
   }
-
-  const Bluetooth = BluetoothButton();
-  if (Bluetooth) {
-    settingsContainer.children.push(Bluetooth); // Push the Bluetooth widget directly
-  }
-
-  const FanProfile = FanProfileButton();
-  if (FanProfile) {
-    settingsContainer.children.push(FanProfile); // Push the FanProfile widget directly
-  }
-
-  fb.add(settingsContainer); // Add the settingsContainer (containing the buttons) to the FlowBox
-
   fb.add(Microphone());
   fb.add(DND());
   fb.add(
@@ -108,46 +89,47 @@ export default () => {
       homogeneous: true,
       children: [
         ScreenShot(),
-        ScreenSnip(),
+                   ScreenSnip(),
       ],
     }),
   );
 
   return (
     <box
-      name="main"
-      className="control-center__page main"
-      vertical
-      spacing={spacing}
+    name="main"
+    className="control-center__page main"
+    vertical
+    spacing={spacing}
     >
-      {fb}
-      <ScreenRecordMenu
-        revealMenu={bind(revealScreenRecord)}
-        closeMenu={() => revealScreenRecord.set(!revealScreenRecord.get())}
-      />
-      <box
-        horizontal
-        spacing={spacing}
-      >
-        <Volume />
-        {Brightness()}
-      </box>
-      <box spacing={16} className="control-center__footer">
-        <button
-          className="control-center__powermenu-button"
-          onClick={() => toggleWindow("powermenu")}
-        >
-          <icon icon={icons.powermenu.shutdown} iconSize={16} />
-        </button>
-        <box hexpand />
-        <label className="control-center__time-to-empty" label={bind(uptime)} />
-        <button
-          className="control-center__settings-button"
-          onClick={() => toggleWindow("popup-theme-settings")}
-        >
-          <icon icon={icons.ui.settings} iconSize={16} />
-        </button>
-      </box>
+    {fb}
+    <ScreenRecordMenu
+    revealMenu={bind(revealScreenRecord)}
+    closeMenu={() => revealScreenRecord.set(!revealScreenRecord.get())}
+    />
+    <box
+    horizontal
+    spacing={spacing}
+    >
+    <Volume />
+    {Brightness()}
+    </box>
+    <box spacing={16} className="control-center__footer">
+    <button
+    className="control-center__powermenu-button"
+    onClick={() => toggleWindow("powermenu")}
+    >
+    <icon icon={icons.powermenu.shutdown} iconSize={16} />
+    </button>
+    <box hexpand />
+    <label className="control-center__time-to-empty" label={bind(uptime)} />
+    <button
+    className="control-center__settings-button"
+    onClick={() => toggleWindow("popup-theme-settings")}
+    >
+    <icon icon={icons.ui.settings} iconSize={16} />
+    </button>
+    </box>
     </box>
   );
 };
+
