@@ -503,6 +503,10 @@ switch:checked slider {
     min-height: 800px;
 }
 
+.control-center__settings-container {
+    @include card;
+}
+
 .control-center__page {
     padding: 20px 20px 0px 20px;
 }

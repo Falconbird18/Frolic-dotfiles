@@ -40,24 +40,49 @@ export default () => {
     columnSpacing: spacing,
   });
 
-  const FanProfile = FanProfileButton();
-  const Network = NetworkButton();
-  const Bluetooth = BluetoothButton();
+//   const FanProfile = FanProfileButton();
+//   const Network = NetworkButton();
+//   const Bluetooth = BluetoothButton();
   <button
   className="control-center__settings-button"
   onClick={() => toggleWindow("popup-theme-settings")}
 >
   <icon icon={icons.ui.settings} iconSize={16} />
 </button>
-  if (Network != undefined) {
-    fb.add(Network);
+  // fb.add(
+  //   new Widget.Box({
+  //     spacing,
+  //     className: "control-center__settings-container",
+  //     children: [
+  //       fb.add(Network),
+  //       fb.add(Bluetooth),
+  //       fb.add(FanProfile),
+  //     ]
+  //   })
+  // )
+  const settingsContainer = new Widget.Box({
+    spacing,
+    className: "control-center__settings-container",
+    children: [], // Start with an empty children array
+  });
+
+  const Network = NetworkButton();
+  if (Network) {
+    settingsContainer.children.push(Network); // Push the Network widget directly
   }
-  if (Bluetooth != undefined) {
-    fb.add(Bluetooth);
+
+  const Bluetooth = BluetoothButton();
+  if (Bluetooth) {
+    settingsContainer.children.push(Bluetooth); // Push the Bluetooth widget directly
   }
-  if (FanProfile != undefined) {
-    fb.add(FanProfile);
+
+  const FanProfile = FanProfileButton();
+  if (FanProfile) {
+    settingsContainer.children.push(FanProfile); // Push the FanProfile widget directly
   }
+
+  fb.add(settingsContainer); // Add the settingsContainer (containing the buttons) to the FlowBox
+
   fb.add(Microphone());
   fb.add(DND());
   fb.add(
