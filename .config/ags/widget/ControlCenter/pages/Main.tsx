@@ -56,7 +56,7 @@ export default () => {
     vertical: true,
     children: [
       new Widget.Label({ label: "Connectivity",
-        className: "control-center__settings-container-header",
+        className: "h2",
       }),
       Network ? Network : null,
       Bluetooth ? Bluetooth : null,

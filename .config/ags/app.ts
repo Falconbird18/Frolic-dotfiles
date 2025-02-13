@@ -27,9 +27,9 @@ const applyTheme = () => {
   const theme = currentTheme.get();
   const mode = currentMode.get();
   const themePathCss = `${homeDir}/.config/ags/style/${theme}${mode}/main.css`;
-  const spicetifyPathCss = `${homeDir}/.spicetify/Themes/Frolic/user.css`;
   const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
   const spicetifyPathScss = `${homeDir}/.config/ags/style/${theme}${mode}/spicetify.scss`;
+  const spicetifyPathCss = `${homeDir}/.config/spicetify/Themes/Frolic/user.css`;
   exec(`sass ${themePathScss} ${themePathCss}`);
   exec(`sass ${spicetifyPathScss} ${spicetifyPathCss}`);
   console.log("Scss compiled");

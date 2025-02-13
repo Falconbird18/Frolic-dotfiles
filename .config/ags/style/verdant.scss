@@ -1,14 +1,17 @@
 /* Fonts */
 $h1_font: "Open sans";
 $h2_font: "Open sans";
+$h3_font: "Open sans";
 $paragraph_font: "Open sans";
 $subtext_font: "Open sans";
 $h1_weight: normal;
 $h2_weight: normal;
+$h3_weight: bold;
 $paragraph_weight: 300;
 $subtext_weight: 100;
 $h1_size: 24px;
 $h2_size: 18px;
+$h3_size: 16px;
 $paragraph_size: 14px;
 $subtext_size: 11px;
 
@@ -19,14 +22,14 @@ $secondary-radius: 4px;
 $tertiary-radius: 4px;
 $background_gradient: linear-gradient(145deg, $background, $background);
 $text-shadow:
-    2px 2px 0 $background-2,
-    2px -2px 0 $background-2,
-    -2px 2px 0 $background-2,
-    -2px -2px 0 $background-2,
-    2px 0px 0 $background-2,
-    0px 2px 0 $background-2,
-    -2px 0px 0 $background-2,
-    0px -2px 0 $background-2;
+    2px 2px 0 $primary,
+    2px -2px 0 $primary,
+    -2px 2px 0 $primary,
+    -2px -2px 0 $primary,
+    2px 0px 0 $primary,
+    0px 2px 0 $primary,
+    -2px 0px 0 $primary,
+    0px -2px 0 $primary;
 $background-image: linear-gradient(
     45deg,
     $primary 25%,

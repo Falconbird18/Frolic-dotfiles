@@ -153,14 +153,46 @@
 
 /*Common*/
 
+.h1{
+    color: $text;
+    font-family: $h1_font;
+    font-size: $h1_size;
+    font-weight: $h1_weight;
+}
+
+.h2{
+    color: $text;
+    font-family: $h2_font;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+}
+
+.h3{
+    color: $text;
+    font-family: $h3_font;
+    font-size: $h3_size;
+    font-weight: $h3_weight;
+}
+
+.paragraph{
+    color: $text;
+    font-family: $paragraph_font;
+    font-size: $paragraph_size;
+    font-weight: $paragraph_weight;
+}
+
+.subtext{
+    color: $subtext;
+    font-family: $subtext_font;
+    font-size: $subtext_size;
+    font-weight: $subtext_weight;
+}
+
 * {
     outline: none;
     border: none;
-    text-shadow: none;
-    box-shadow: none;
     padding: 0;
     margin: 0;
-    -gtk-icon-shadow: none;
 }
 
 icon {
@@ -170,6 +202,7 @@ icon {
         1.5px -1.5px 0 $background,
         -1.5px 1.5px 0 $background,
         1.5px 1.5px 0 $background;
+    color: $text;
 }
 
 slider {
@@ -501,13 +534,6 @@ switch:checked slider {
     background-color: $background;
     min-width: 450px;
     min-height: 800px;
-}
-
-.control-center__settings-container-header{
-    color: $text;
-    font-size: $h2_size;
-    font-family: $h2_font;
-    font-weight: $h2_weight;
 }
 
 .control-center__settings-container {

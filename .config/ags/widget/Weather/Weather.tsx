@@ -160,7 +160,7 @@ export default () => {
         </box>
         {Entry}
         <box horizontal halign={Gtk.Align.FILL}>
-          <icon icon={desc.as((value) => WeatherIcon(value))} size={100} />W
+          <icon icon={desc.as((value) => WeatherIcon(value))} iconSize={100} />W
           <label
             label={temperature}
             className="temperature"

@@ -91,19 +91,52 @@
 }
 
 /*Common*/
+.h1 {
+  color: #562f10;
+  font-family: "Monaspace Radon";
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.h2 {
+  color: #562f10;
+  font-family: "Monaspace Radon";
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.h3 {
+  color: #562f10;
+  font-family: "Monaspace Xenon";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.paragraph {
+  color: #562f10;
+  font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.subtext {
+  color: #766251;
+  font-family: "Monaspace Xenon";
+  font-size: 11px;
+  font-weight: 100;
+}
+
 * {
   outline: none;
   border: none;
-  text-shadow: none;
-  box-shadow: none;
   padding: 0;
   margin: 0;
-  -gtk-icon-shadow: none;
 }
 
 icon {
   box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #f0edea, 1.5px -1.5px 0 #f0edea, -1.5px 1.5px 0 #f0edea, 1.5px 1.5px 0 #f0edea;
+  color: #562f10;
 }
 
 slider {
@@ -409,13 +442,6 @@ switch:checked slider {
   background-color: #f0edea;
   min-width: 450px;
   min-height: 800px;
-}
-
-.control-center__settings-container-header {
-  color: #562f10;
-  font-size: 18px;
-  font-family: "Monaspace Radon";
-  font-weight: normal;
 }
 
 .control-center__settings-container {

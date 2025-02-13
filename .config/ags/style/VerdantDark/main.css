@@ -54,6 +54,7 @@
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .app-launcher__item label {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
@@ -90,19 +91,52 @@
 }
 
 /*Common*/
+.h1 {
+  color: #F5CCED;
+  font-family: "Open sans";
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.h2 {
+  color: #F5CCED;
+  font-family: "Open sans";
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.h3 {
+  color: #F5CCED;
+  font-family: "Open sans";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.paragraph {
+  color: #F5CCED;
+  font-family: "Open sans";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.subtext {
+  color: #BFA1B9;
+  font-family: "Open sans";
+  font-size: 11px;
+  font-weight: 100;
+}
+
 * {
   outline: none;
   border: none;
-  text-shadow: none;
-  box-shadow: none;
   padding: 0;
   margin: 0;
-  -gtk-icon-shadow: none;
 }
 
 icon {
   box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #50494F, 1.5px -1.5px 0 #50494F, -1.5px 1.5px 0 #50494F, 1.5px 1.5px 0 #50494F;
+  color: #F5CCED;
 }
 
 slider {
@@ -265,7 +299,7 @@ switch:checked slider {
 .bar__item.bar__button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .bar__item.bar__button:active {
@@ -335,7 +369,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   padding: 0;
   min-height: 10px;
 }
@@ -404,9 +438,20 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: #50494F;
   min-width: 450px;
   min-height: 800px;
+}
+
+.control-center__settings-container {
+  background-color: #433D42;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__page {
@@ -448,7 +493,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
 .control-center__page_header_button:hover {
   background-color: #433D42;
@@ -466,6 +511,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-bottom: 20px;
 }
 .control-center__page_item-header label {
@@ -487,6 +533,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__page_item label {
   font-size: 14px;
@@ -497,6 +544,100 @@ switch:checked slider {
 }
 .control-center__page_item:hover {
   box-shadow: 0 0 0 transparent;
+}
+
+.control-center__button-icon {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #433D42;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  border-radius: 4px 8px 8px 4px;
+  margin-left: 2px;
+}
+.control-center__button-icon:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.control-center__button-icon.active {
+  background: #E012BA;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
+}
+
+.control-center__button-wide {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #433D42;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+}
+.control-center__button-wide.secondary {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #433D42;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+}
+.control-center__button-wide.active {
+  background-color: #E012BA;
+}
+.control-center__button-wide.active:hover {
+  background-color: #433D42;
+}
+.control-center__button-wide.active:active {
+  background-color: #E012BA;
+}
+.control-center__button-wide:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.control-center__button-wide.no-label {
+  padding: 0;
+}
+.control-center__button-wide.recorder-indicator.active {
+  background: #e99898;
+  color: #F5CCED;
+}
+.control-center__button-wide.recorder-indicator.active:hover {
+  background: #433D42;
+}
+.control-center__button-wide.recorder-indicator.active:active {
+  background: #e99898;
 }
 
 .control-center__button {
@@ -515,6 +656,8 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
+  border-radius: 8px 4px 4px 8px;
+  margin-right: 2px;
 }
 .control-center__button.secondary {
   font-size: 18px;
@@ -545,7 +688,7 @@ switch:checked slider {
 .control-center__button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .control-center__button.no-label {
@@ -665,7 +808,7 @@ switch:checked slider {
 .control-center__powermenu-button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 
@@ -681,6 +824,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .block {
@@ -741,7 +885,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   padding: 10px;
   min-height: 0;
 }
@@ -785,6 +929,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 14px 16px 14px 20px;
   margin-right: 5px;
 }
@@ -877,7 +1022,7 @@ switch:checked slider {
 .notification__close-button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 
@@ -898,6 +1043,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   min-width: 400px;
   min-height: 550px;
   margin-right: 5px;
@@ -925,7 +1071,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
 
 .notifications-window__clear:hover {
@@ -957,6 +1103,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-bottom: 20px;
 }
 
@@ -983,7 +1130,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   min-height: 10px;
   padding: 2px 0px;
   margin: -2px 0px;
@@ -1084,7 +1231,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   min-width: 15px;
   min-height: 10px;
   padding: 2px 0px;
@@ -1132,7 +1279,7 @@ switch:checked slider {
 }
 /*PopupMenu*/
 .PopupMenu {
-  background: linear-gradient(145deg, #50494F, #50494F);
+  background: none;
 }
 
 .popup-menu {
@@ -1142,6 +1289,8 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background: linear-gradient(145deg, #50494F, #50494F);
   min-height: 400px;
 }
 .popup-menu.sink {
@@ -1261,6 +1410,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
 }
 
@@ -1290,7 +1440,7 @@ switch:checked slider {
 .powermenu__button:hover, .powermenu__button:focus {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .powermenu__button:active {
@@ -1314,6 +1464,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   min-width: 300px;
   padding: 20px;
 }
@@ -1348,22 +1499,7 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-  font-size: 18px;
-  font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
-  min-height: 42px;
-  background: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  color: #F5CCED;
-  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
-  font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-right: 5px;
-  margin-left: 5px;
-  border: none;
-  background-size: 8px 8px;
-  border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  background-color: #433D42;
   margin-right: 10px;
   min-width: 160px;
   padding-left: 0;
@@ -1374,25 +1510,11 @@ switch:checked slider {
 }
 .mode-settings__button_left.active {
   background-color: #E012BA;
+  background-color: red;
 }
 
 .mode-settings__button_right {
-  font-size: 18px;
-  font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
-  min-height: 42px;
-  background: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
-  color: #F5CCED;
-  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
-  font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-right: 5px;
-  margin-left: 5px;
-  border: none;
-  background-size: 8px 8px;
-  border-radius: 8px;
-  text-shadow: 2px 2px 0 #433D42, 2px -2px 0 #433D42, -2px 2px 0 #433D42, -2px -2px 0 #433D42, 2px 0px 0 #433D42, 0px 2px 0 #433D42, -2px 0px 0 #433D42, 0px -2px 0 #433D42;
+  background-color: #433D42;
   margin-left: 10px;
   min-width: 160px;
   padding-left: 0;
@@ -1403,6 +1525,7 @@ switch:checked slider {
 }
 .mode-settings__button_right.active {
   background-color: #E012BA;
+  background-color: red;
 }
 
 .theme {
@@ -1464,6 +1587,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
 }
 
@@ -1531,6 +1655,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 10px;
   margin-bottom: 20px;
 }

@@ -1,4 +1,5 @@
 import { bind, Variable } from "astal";
+import { spacing } from "../../../lib/variables";
 import icons from "../../../lib/icons";
 import ControlCenterButton from "../../../common/WideIconButton";
 import { controlCenterPage } from "../index";
@@ -48,12 +49,14 @@ export default () => {
 	const connection = [bind(wifi, "enabled"), () => wifi.enabled];
 
 	return (
-		<ControlCenterButton
-			name="network"
-			icon={bind(icon)}
-			label={bind(label)}
-			connection={connection}
-			onPrimaryClick={() => {
+		<box
+			spacing={spacing}
+		>
+		<icon icon={bind(icon)} iconSize={24} />
+		<label label={bind(label)} className="paragraph"/>
+		<switch
+// 			active={slideshow.get()}
+            onActivate={() => {
 				if (wifi.enabled) {
 					wifi.enabled = false;
 				} else {
@@ -61,7 +64,23 @@ export default () => {
 					wifi.scan();
 				}
 			}}
-			menuName="network"
-		/>
+          >
+          </switch>
+		</box>
+// 		<ControlCenterButton
+// 			name="network"
+// 			icon={bind(icon)}
+// 			label={bind(label)}
+// 			connection={connection}
+// 			onPrimaryClick={() => {
+// 				if (wifi.enabled) {
+// 					wifi.enabled = false;
+// 				} else {
+// 					wifi.enabled = true;
+// 					wifi.scan();
+// 				}
+// 			}}
+// 			menuName="network"
+// 		/>
 	);
 };
