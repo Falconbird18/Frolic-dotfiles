@@ -299,7 +299,7 @@ switch:checked slider {
 .bar__item.bar__button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .bar__item.bar__button:active {
@@ -369,7 +369,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   padding: 0;
   min-height: 10px;
 }
@@ -493,7 +493,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
 }
 .control-center__page_header_button:hover {
   background-color: #ECDFEA;
@@ -568,7 +568,7 @@ switch:checked slider {
 .control-center__button-icon:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .control-center__button-icon.active {
@@ -623,7 +623,7 @@ switch:checked slider {
 .control-center__button-wide:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .control-center__button-wide.no-label {
@@ -688,7 +688,7 @@ switch:checked slider {
 .control-center__button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .control-center__button.no-label {
@@ -808,7 +808,7 @@ switch:checked slider {
 .control-center__powermenu-button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 
@@ -885,7 +885,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   padding: 10px;
   min-height: 0;
 }
@@ -1022,7 +1022,7 @@ switch:checked slider {
 .notification__close-button:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 
@@ -1071,7 +1071,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
 }
 
 .notifications-window__clear:hover {
@@ -1130,7 +1130,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   min-height: 10px;
   padding: 2px 0px;
   margin: -2px 0px;
@@ -1231,7 +1231,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   min-width: 15px;
   min-height: 10px;
   padding: 2px 0px;
@@ -1440,7 +1440,7 @@ switch:checked slider {
 .powermenu__button:hover, .powermenu__button:focus {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
-  text-shadow: 2px 2px 0 #ECDFEA, 2px -2px 0 #ECDFEA, -2px 2px 0 #ECDFEA, -2px -2px 0 #ECDFEA, 2px 0px 0 #ECDFEA, 0px 2px 0 #ECDFEA, -2px 0px 0 #ECDFEA, 0px -2px 0 #ECDFEA;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
 }
 .powermenu__button:active {

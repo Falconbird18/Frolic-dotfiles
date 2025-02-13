@@ -54,6 +54,7 @@
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .app-launcher__item label {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
@@ -90,19 +91,52 @@
 }
 
 /*Common*/
+.h1 {
+  color: #f5decc;
+  font-family: "Open sans";
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.h2 {
+  color: #f5decc;
+  font-family: "Open sans";
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.h3 {
+  color: #f5decc;
+  font-family: "Open sans";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.paragraph {
+  color: #f5decc;
+  font-family: "Open sans";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.subtext {
+  color: #bfaea1;
+  font-family: "Open sans";
+  font-size: 11px;
+  font-weight: 100;
+}
+
 * {
   outline: none;
   border: none;
-  text-shadow: none;
-  box-shadow: none;
   padding: 0;
   margin: 0;
-  -gtk-icon-shadow: none;
 }
 
 icon {
   box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #495049, 1.5px -1.5px 0 #495049, -1.5px 1.5px 0 #495049, 1.5px 1.5px 0 #495049;
+  color: #f5decc;
 }
 
 slider {
@@ -404,9 +438,20 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: #495049;
   min-width: 450px;
   min-height: 800px;
+}
+
+.control-center__settings-container {
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__page {
@@ -466,6 +511,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-bottom: 20px;
 }
 .control-center__page_item-header label {
@@ -487,6 +533,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__page_item label {
   font-size: 14px;
@@ -497,6 +544,100 @@ switch:checked slider {
 }
 .control-center__page_item:hover {
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+}
+
+.control-center__button-icon {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #3d433d;
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  border-radius: 8px 20px 20px 8px;
+  margin-left: 2px;
+}
+.control-center__button-icon:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
+}
+.control-center__button-icon.active {
+  background: #26e012;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-size: 8px 8px;
+}
+
+.control-center__button-wide {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #3d433d;
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+}
+.control-center__button-wide.secondary {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #3d433d;
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+}
+.control-center__button-wide.active {
+  background-color: #26e012;
+}
+.control-center__button-wide.active:hover {
+  background-color: #3d433d;
+}
+.control-center__button-wide.active:active {
+  background-color: #26e012;
+}
+.control-center__button-wide:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
+}
+.control-center__button-wide.no-label {
+  padding: 0;
+}
+.control-center__button-wide.recorder-indicator.active {
+  background: #e99898;
+  color: #f5decc;
+}
+.control-center__button-wide.recorder-indicator.active:hover {
+  background: #3d433d;
+}
+.control-center__button-wide.recorder-indicator.active:active {
+  background: #e99898;
 }
 
 .control-center__button {
@@ -515,6 +656,8 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 20px;
+  border-radius: 20px 8px 8px 20px;
+  margin-right: 2px;
 }
 .control-center__button.secondary {
   font-size: 18px;
@@ -681,6 +824,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .block {
@@ -785,6 +929,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 14px 16px 14px 20px;
   margin-right: 5px;
 }
@@ -898,6 +1043,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   min-width: 400px;
   min-height: 550px;
   margin-right: 5px;
@@ -957,6 +1103,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-bottom: 20px;
 }
 
@@ -984,6 +1131,7 @@ switch:checked slider {
   background-size: 8px 8px;
   border-radius: 20px;
   text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  min-height: 10px;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1065,7 +1213,6 @@ switch:checked slider {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 10px;
   background-color: #477043;
-  min-height: 25px;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
 }
 .player__position-slider trough highlight {
@@ -1086,6 +1233,7 @@ switch:checked slider {
   border-radius: 20px;
   text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
   min-width: 15px;
+  min-height: 10px;
   padding: 2px 0px;
   margin: -2px 0px;
 }
@@ -1141,6 +1289,8 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background: linear-gradient(145deg, #3d433d, #495049);
   min-height: 400px;
 }
 .popup-menu.sink {
@@ -1260,6 +1410,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
 }
 
@@ -1313,6 +1464,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   min-width: 300px;
   padding: 20px;
 }
@@ -1347,22 +1499,7 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-  font-size: 18px;
-  font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
-  min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
-  color: #f5decc;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
-  font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-right: 5px;
-  margin-left: 5px;
-  border: none;
-  background-size: 8px 8px;
-  border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  background-color: #3d433d;
   margin-right: 10px;
   min-width: 160px;
   padding-left: 0;
@@ -1373,25 +1510,11 @@ switch:checked slider {
 }
 .mode-settings__button_left.active {
   background-color: #26e012;
+  background-color: red;
 }
 
 .mode-settings__button_right {
-  font-size: 18px;
-  font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
-  min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
-  color: #f5decc;
-  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
-  font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  margin-right: 5px;
-  margin-left: 5px;
-  border: none;
-  background-size: 8px 8px;
-  border-radius: 20px;
-  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  background-color: #3d433d;
   margin-left: 10px;
   min-width: 160px;
   padding-left: 0;
@@ -1402,6 +1525,7 @@ switch:checked slider {
 }
 .mode-settings__button_right.active {
   background-color: #26e012;
+  background-color: red;
 }
 
 .theme {
@@ -1463,6 +1587,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
 }
 
@@ -1530,6 +1655,7 @@ switch:checked slider {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 10px;
   margin-bottom: 20px;
 }

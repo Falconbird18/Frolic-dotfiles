@@ -66,6 +66,8 @@ export default () => {
 			}}
           >
           </switch>
+          <button
+			onclick
 		</box>
 // 		<ControlCenterButton
 // 			name="network"
