@@ -147,3 +147,13 @@
 .Button-buttonTertiary-medium-medium-iconLeading-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed{
     @include primary-button;
 }
+/*Filter buttons*/
+.ChipInnerComponent-sm-isUsingKeyboard{
+    @include secondary-button;
+}
+.ChipInnerComponent-sm-isUsingKeyboard:hover{
+    @include secondary-button-hover;
+}
+.ChipInnerComponent-sm-selected-isUsingKeyboard{
+    @include secondary-button-active;
+}
