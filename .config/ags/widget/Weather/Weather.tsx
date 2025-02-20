@@ -155,12 +155,12 @@ export default () => {
             valign={Gtk.Align.CENTER}
             onClicked={() => isEntryVisible.set(!isEntryVisible.value)}
           >
-            <icon icon={icon} />
+            <icon icon={icon} className="location" />
           </button>
         </box>
         {Entry}
         <box horizontal halign={Gtk.Align.FILL}>
-          <icon icon={desc.as((value) => WeatherIcon(value))} iconSize={100} />W
+          <icon icon={desc.as((value) => WeatherIcon(value))} className="temperature" />W
           <label
             label={temperature}
             className="temperature"

@@ -303,6 +303,18 @@ switch:checked slider {
 
 /*Components*/
 
+.primary-button {
+    @include primary-button;
+}
+.primary-button-circular {
+    @include primary-button;
+    border-radius: 100%;
+    padding: 0;
+    min-height: 42px;
+    min-width: 42px;
+}
+
+
 .material-button {
     border-radius: $primary-radius;
     padding: 3px 15px;

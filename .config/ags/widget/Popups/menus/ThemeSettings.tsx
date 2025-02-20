@@ -105,15 +105,15 @@ const setWallpaper = (wallpaper: string) => {
   console.log(`New Wallpaper: ${wallpaper}`);
 
   const wallpaperImagePath = `${wallpaperFolder.get()}/${wallpaper}`;
-  const destinationPath = `${GLib.get_home_dir()}/.config/sddm/themes/frolic/Backgrounds/wallpaper.jpg`;
+  const destinationPath = `/usr/share/sddm/themes/frolic/Backgrounds/wallpaper.jpg`;
 
   // Ensure the destination directory exists
   exec(
-    `mkdir -p ${GLib.get_home_dir()}/.config/sddm/themes/frolic/Backgrounds`,
+    `sudo mkdir -p /usr/share/sddm/themes/frolic/Backgrounds`,
   );
 
   // Copy and rename the wallpaper
-  exec(`cp "${wallpaperImagePath}" "${destinationPath}"`);
+  exec(`sudo cp "${wallpaperImagePath}" "${destinationPath}"`);
 
   // Set the wallpaper using swww
   exec(

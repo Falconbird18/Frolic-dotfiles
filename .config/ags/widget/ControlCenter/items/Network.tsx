@@ -46,17 +46,16 @@ export default () => {
 		},
 	);
 
+	const menuName = "network";
+
 	const connection = [bind(wifi, "enabled"), () => wifi.enabled];
 
 	return (
 		<box
 			spacing={spacing}
 		>
-		<icon icon={bind(icon)} iconSize={24} />
-		<label label={bind(label)} className="paragraph"/>
-		<switch
-// 			active={slideshow.get()}
-            onActivate={() => {
+		<button
+			onClickRelease={() => {
 				if (wifi.enabled) {
 					wifi.enabled = false;
 				} else {
@@ -64,8 +63,26 @@ export default () => {
 					wifi.scan();
 				}
 			}}
-          >
-          </switch>
+			className="primary-button-circular"
+		>
+			<icon icon={bind(icon)} className="h1" />
+		</button>
+		<label label={bind(label)} className="h2"/>
+		<button
+				onClickRelease={(_, event: Astal.ClickEvent) => {
+					if (event.button == 1 && menuName) {
+						if (menuName == "network") {
+							const network = Network.get_default();
+							const { wifi } = Network.get_default();
+							if (wifi == null) return;
+						}
+						controlCenterPage.set(menuName);
+					}
+				}}
+		>
+			<icon icon={icons.ui.arrow.right} className="h1" />
+		</button>
+
 		</box>
 // 		<ControlCenterButton
 // 			name="network"

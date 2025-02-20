@@ -30,11 +30,15 @@ const applyTheme = () => {
   const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
   const spicetifyPathScss = `${homeDir}/.config/ags/style/${theme}${mode}/spicetify.scss`;
   const spicetifyPathCss = `${homeDir}/.config/spicetify/Themes/Frolic/user.css`;
+  exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf`);
+  exec(
+    `cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`);
   exec(`sass ${themePathScss} ${themePathCss}`);
   exec(`sass ${spicetifyPathScss} ${spicetifyPathCss}`);
   console.log("Scss compiled");
   App.reset_css();
   App.apply_css(themePathCss);
+  exec("hyprctl reload");
   exec("spicetify update");
   console.log("Compiled css applied");
 };
