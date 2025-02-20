@@ -41,7 +41,7 @@ export default () => {
 			if (primary == Network.Primary.WIFI) {
 				return ssid || "Wi-Fi";
 			} else {
-				return "Ethernet";
+				return "Wifi";
 			}
 		},
 	);
@@ -67,7 +67,11 @@ export default () => {
 		>
 			<icon icon={bind(icon)} className="h1" />
 		</button>
-		<label label={bind(label)} className="h2"/>
+		<box
+			className="control-center-label-container"
+		>
+			<label label={bind(label)} className="h2"/>
+		</box>
 		<button
 				onClickRelease={(_, event: Astal.ClickEvent) => {
 					if (event.button == 1 && menuName) {
@@ -82,8 +86,9 @@ export default () => {
 		>
 			<icon icon={icons.ui.arrow.right} className="h1" />
 		</button>
-
 		</box>
+
+
 // 		<ControlCenterButton
 // 			name="network"
 // 			icon={bind(icon)}

@@ -548,6 +548,10 @@ switch:checked slider {
     min-height: 800px;
 }
 
+.control-center-label-container{
+    min-width: 120px;
+}
+
 .control-center__settings-container {
     @include card;
 }
