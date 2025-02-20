@@ -517,6 +517,17 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
+.control-center__wide-settings-container {
+  background-color: #433D42;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  min-width: 450px;
+}
+
 .control-center__page {
   padding: 20px 20px 0px 20px;
 }
