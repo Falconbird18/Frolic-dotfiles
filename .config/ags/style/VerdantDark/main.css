@@ -241,6 +241,23 @@ switch:checked slider {
 }
 
 .primary-button-circular {
+  background: #704367;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  border-radius: 100%;
+  padding: 0;
+  min-height: 42px;
+  min-width: 42px;
+}
+.primary-button-circular.active {
   font-size: 18px;
   font-weight: normal;
   padding-left: 16px;
