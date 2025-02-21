@@ -1845,4 +1845,25 @@ switch:checked slider {
   text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
 
+.message-sender {
+  font-family: "Open sans";
+  font-weight: bold;
+  font-size: 16px;
+  color: #F5CCED;
+}
+
+.message-text {
+  font-family: "Open sans";
+  font-weight: 300;
+  font-size: 14px;
+  color: #F5CCED;
+}
+
+.message-time {
+  font-family: "Open sans";
+  font-weight: 100;
+  font-size: 11px;
+  color: #BFA1B9;
+}
+
 /*# sourceMappingURL=main.css.map */

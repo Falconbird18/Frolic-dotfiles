@@ -1,4 +1,39 @@
 /*Components*/
+@mixin h1 {
+    font-family: $h1_font;
+    font-weight: $h1_weight;
+    font-size: $h1_size;
+    color: $text;
+}
+
+@mixin h2 {
+    font-family: $h2_font;
+    font-weight: $h2_weight;
+    font-size: $h2_size;
+    color: $text;
+}
+
+@mixin h3 {
+    font-family: $h3_font;
+    font-weight: $h3_weight;
+    font-size: $h3_size;
+    color: $text;
+}
+
+@mixin paragraph {
+    font-family: $paragraph_font;
+    font-weight: $paragraph_weight;
+    font-size: $paragraph_size;
+    color: $text;
+}
+
+@mixin subtext {
+    font-family: $subtext_font;
+    font-weight: $subtext_weight;
+    font-size: $subtext_size;
+    color: $subtext;
+}
+
 @mixin textbox {
     background-color: $background-2;
     border-radius: $secondary-radius;
@@ -1708,4 +1743,16 @@ switch:checked slider {
     &.active{
         @include primary-circular-button;
     }
+}
+
+.message-sender{
+    @include h3;
+}
+
+.message-text{
+    @include paragraph;
+}
+
+.message-time{
+    @include subtext;
 }

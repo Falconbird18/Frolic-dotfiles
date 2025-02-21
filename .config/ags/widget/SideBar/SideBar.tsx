@@ -279,7 +279,7 @@ const ChatMessages = () => (
       messages.map((msg) => (
         <box vertical className={`message ${msg.sender}-message`} spacing={2}>
           <label
-            label={`${getSenderName(msg.sender)} (${msg.timestamp}):`}
+            label={`${getSenderName(msg.sender)}`}
             className="message-sender"
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
           />
@@ -287,6 +287,11 @@ const ChatMessages = () => (
             label={msg.text}
             className="message-text"
             wrap={true}
+            halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
+          />
+          <label
+            label={`${msg.timestamp}`}
+            className="message-time"
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
           />
         </box>
