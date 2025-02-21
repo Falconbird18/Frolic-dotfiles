@@ -239,6 +239,12 @@ switch:checked slider {
   border-radius: 8px;
   text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
+.primary-button:hover {
+  background-color: #433D42;
+}
+.primary-button:active {
+  background-color: #E012BA;
+}
 
 .primary-circular-button {
   font-size: 18px;
@@ -1815,6 +1821,12 @@ switch:checked slider {
   font-weight: 300;
 }
 
+.model-buttons {
+  background-color: #433D42;
+  border-radius: 8px;
+  margin: 0;
+}
+
 .model-button {
   font-size: 18px;
   font-weight: normal;
@@ -1830,6 +1842,19 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 100%;
+  border-radius: 8px;
+  margin: 0;
+}
+.model-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.model-button:active {
+  background: #E012BA;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 .model-button.active {
   font-size: 18px;
@@ -1847,6 +1872,14 @@ switch:checked slider {
   background-size: 8px 8px;
   border-radius: 100%;
   text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  border-radius: 8px;
+  margin: 0;
+}
+.model-button.active:hover {
+  background-color: #433D42;
+}
+.model-button.active:active {
+  background-color: #E012BA;
 }
 
 .message-sender {

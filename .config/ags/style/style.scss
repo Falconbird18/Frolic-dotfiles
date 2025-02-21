@@ -389,6 +389,13 @@ switch:checked slider {
 
 .primary-button {
     @include primary-button;
+
+    &:hover{
+        @include primary-button-hover;
+    }
+    &:active{
+        @include primary-button-active;
+    }
 }
 
 .primary-circular-button {
@@ -1741,11 +1748,35 @@ switch:checked slider {
     font-weight: $paragraph_weight;
 }
 
+.model-buttons{
+    background-color: $background-2;
+    border-radius: $primary-radius;
+    margin: 0;
+}
 .model-button{
     @include secondary-circular-button;
+    border-radius: $primary-radius;
+    margin: 0;
+
+    &:hover{
+        @include secondary-button-hover;
+    }
+
+    &:active{
+        @include secondary-button-active;
+    }
 
     &.active{
         @include primary-circular-button;
+        border-radius: $primary-radius;
+        margin: 0;
+
+        &:hover{
+            @include primary-button-hover;
+        }
+        &:active{
+            @include primary-button-active;
+        }
     }
 }
 

@@ -112,19 +112,25 @@ const selectedModel = Variable(models[0]);
 
 // Create buttons for each model
 const ModelButtons = () => (
-  <box horizontal spacing={spacing} className="model-buttons">
-    {models.map((model) => (
-      <button
-        className={`model-button ${bind(selectedModel).as((m) => (m === model ? "active" : ""))}`}
-        onClicked={() => selectedModel.set(model)}
-        tooltip_text={model} // Add tooltip to show model name on hover
-      >
-        <Widget.Icon
-          icon={modelIcons[model]} // Use the mapped icon
-          size={24} // Adjust size as needed
-        />
-      </button>
-    ))}
+  <box horizontal halign={Gtk.Align.CENTER} expand={false}>
+    <box
+      horizontal
+      className="model-buttons"
+      halign={Gtk.Align.CENTER}
+      expand={false}
+    >
+      {models.map((model) => (
+        <button
+          className={bind(selectedModel).as(
+            (m) => `model-button${m === model ? " active" : ""}`,
+          )}
+          onClicked={() => selectedModel.set(model)}
+          tooltip_text={model}
+        >
+          <Widget.Icon icon={modelIcons[model]} size={24} />
+        </button>
+      ))}
+    </box>
   </box>
 );
 
@@ -693,14 +699,24 @@ function submitPrompt() {
   }
 }
 
+function getModelDisplayName(model: string): string {
+  if (model.includes("llama")) return "Llama";
+  if (model.includes("gemma")) return "Gemma";
+  if (model === "gemini") return "Gemini";
+  if (model === "phi3") return "Phi3";
+  return "Ollama";
+}
+
 const Entry = new Widget.Entry({
-  placeholder_text: "Ask Ollama",
+  placeholder_text: bind(selectedModel).as(
+    (model) => `Ask ${getModelDisplayName(model)}`,
+  ),
   canFocus: true,
   className: "message-input",
-  hexpand: true, // Makes it take available horizontal space
-  on_activate: () => submitPrompt(), // Enter key submits
+  hexpand: true,
+  on_activate: () => submitPrompt(),
   on_key_press_event: (self, event) => {
-    return false; // Let entry handle all key events
+    return false;
   },
   on_changed: (self) => {
     const text = self.get_text();
@@ -710,14 +726,12 @@ const Entry = new Widget.Entry({
       self.className = "message-input";
     }
   },
-  // New properties for wrapping and scrolling
-  wrap_mode: Gtk.WrapMode.WORD_CHAR, // Wrap at word boundaries or characters
-  max_height: 100, // Maximum height in pixels (adjust as needed)
-  vscrollbar_policy: Gtk.PolicyType.AUTOMATIC, // Show scrollbar when needed
-  max_length: 0, // Remove any character limit (0 means unlimited)
+  wrap_mode: Gtk.WrapMode.WORD_CHAR,
+  max_height: 100,
+  vscrollbar_policy: Gtk.PolicyType.AUTOMATIC,
+  max_length: 0,
 });
 
-// Also update the containing box to ensure proper layout
 const InputBox = () => (
   <box horizontal spacing={spacing} halign={Gtk.Align.FILL}>
     {Entry}
