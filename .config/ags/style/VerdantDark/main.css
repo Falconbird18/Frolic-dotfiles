@@ -1766,4 +1766,31 @@ switch:checked slider {
   margin-bottom: 350px;
 }
 
+.user-message {
+  background-color: #433D42;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  font-size: 14px;
+  font-family: "Open sans";
+  font-weight: 300;
+}
+
+.ollama-message {
+  background-color: #433D42;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #704367;
+  font-size: 14px;
+  font-family: "Open sans";
+  font-weight: 300;
+}
+
 /*# sourceMappingURL=main.css.map */

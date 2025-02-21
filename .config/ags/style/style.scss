@@ -1648,3 +1648,18 @@ switch:checked slider {
     font-weight: $h1_weight;
     margin-bottom: 350px;
 }
+
+.user-message{
+    @include card;
+    font-size: $paragraph_size;
+    font-family: $paragraph_font;
+    font-weight: $paragraph_weight;
+}
+
+.ollama-message{
+    @include card;
+    background-color: $background-3;
+    font-size: $paragraph_size;
+    font-family: $paragraph_font;
+    font-weight: $paragraph_weight;
+}
