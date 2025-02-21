@@ -55,7 +55,11 @@ const ModelButtons = () => (
 async function queryOllama(prompt) {
   console.log("Starting queryOllama with prompt:", prompt);
   try {
-    const timestamp = new Date().toLocaleTimeString();
+    const timestamp = new Date().toLocaleTimeString([], {
+      hour12: true,
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     console.log("Adding user message to chatHistory");
     chatHistory.set([
       ...chatHistory.get(),
@@ -90,7 +94,11 @@ async function queryOllama(prompt) {
     });
 
     let ollamaResponse = "";
-    const ollamaTimestamp = new Date().toLocaleTimeString();
+    const ollamaTimestamp = new Date().toLocaleTimeString([], {
+      hour12: true,
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
     // Asynchronous stream reading
     const readStream = () => {
