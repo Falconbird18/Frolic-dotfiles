@@ -55,37 +55,78 @@ const ModelButtons = () => (
 // Function to split message into parts (regular text and code blocks)
 function splitMessageParts(
   text: string,
-): { type: "text" | "code"; content: string }[] {
-  const parts: { type: "text" | "code"; content: string }[] = [];
+): { type: "text" | "code" | "math" | "display_math"; content: string }[] {
+  const parts: {
+    type: "text" | "code" | "math" | "display_math";
+    content: string;
+  }[] = [];
   const codeBlockRegex = /```([\s\S]*?)```/g;
+  const displayMathRegex = /\$\$([\s\S]*?)\$\$/g;
+  const inlineMathRegex = /\$([^$\n]+?)\$/g;
+  let remainingText = text;
   let lastIndex = 0;
-  let match;
 
-  while ((match = codeBlockRegex.exec(text)) !== null) {
-    // Add text before the code block if any
-    if (match.index > lastIndex) {
+  // Helper function to process regex matches
+  function processMatches(
+    regex: RegExp,
+    type: "code" | "math" | "display_math",
+  ) {
+    let match;
+    regex.lastIndex = 0; // Reset regex index
+    while ((match = regex.exec(remainingText)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push({
+          type: "text",
+          content: remainingText.slice(lastIndex, match.index),
+        });
+      }
       parts.push({
-        type: "text",
-        content: text.slice(lastIndex, match.index),
+        type,
+        content: match[1].trim(),
       });
+      lastIndex = regex.lastIndex;
     }
-    // Add the code block
-    parts.push({
-      type: "code",
-      content: match[1].trim(),
-    });
-    lastIndex = codeBlockRegex.lastIndex;
   }
 
-  // Add remaining text after last code block
-  if (lastIndex < text.length) {
+  // Process display math first ($$...$$)
+  processMatches(displayMathRegex, "display_math");
+
+  // Update remaining text after display math
+  if (parts.length > 0) {
+    remainingText = remainingText.slice(lastIndex);
+    lastIndex = 0;
+    parts.length = 0; // Reset parts and rebuild with remaining text
+    processMatches(displayMathRegex, "display_math");
+  }
+
+  // Process code blocks (```...```)
+  let tempText = remainingText.slice(lastIndex);
+  processMatches(codeBlockRegex, "code");
+
+  // Update remaining text after code blocks
+  if (parts.length > 0) {
+    remainingText = remainingText.slice(lastIndex);
+    lastIndex = 0;
+    parts.length = 0; // Reset parts and rebuild
+    processMatches(displayMathRegex, "display_math");
+    tempText = remainingText.slice(lastIndex);
+    processMatches(codeBlockRegex, "code");
+  }
+
+  // Process inline math ($...$)
+  remainingText = tempText;
+  lastIndex = 0;
+  processMatches(inlineMathRegex, "math");
+
+  // Add remaining text
+  if (lastIndex < remainingText.length) {
     parts.push({
       type: "text",
-      content: text.slice(lastIndex),
+      content: remainingText.slice(lastIndex),
     });
   }
 
-  // If no code blocks were found, add the whole text as regular text
+  // If no special parts were found, add the whole text as regular text
   if (parts.length === 0) {
     parts.push({
       type: "text",
@@ -101,7 +142,10 @@ function markdownToPango(text: string): string {
   let result = text;
 
   // Escape Pango special characters
-  result = result.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
+  result = result
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 
   // Bold: **text** or __text__
   result = result
@@ -124,6 +168,34 @@ function markdownToPango(text: string): string {
 
   // Preserve line breaks
   result = result.replace(/\n/g, "\n");
+
+  return result;
+}
+
+// New function to format math expressions
+function formatMath(content: string, isDisplay: boolean = false): string {
+  let result = content;
+
+  // Replace common LaTeX commands with Pango approximations
+  // Superscripts: x^2
+  result = result.replace(/(\w+)\^(\d+)/g, "$1<sup>$2</sup>");
+
+  // Subscripts: x_1
+  result = result.replace(/(\w+)_(\d+)/g, "$1<sub>$2</sub>");
+
+  // Fractions: \frac{a}{b}
+  result = result.replace(
+    /\\frac\{([^}]+)\}\{([^}]+)\}/g,
+    "<span>$1</span>/<span>$2</span>",
+  );
+
+  // Wrap in monospace for math-like appearance
+  result = `<tt>${result}</tt>`;
+
+  // For display math, increase size and center it
+  if (isDisplay) {
+    result = `<span size="large">${result}</span>`;
+  }
 
   return result;
 }
@@ -374,6 +446,7 @@ function getSenderName(sender: "user" | "ollama") {
 }
 
 // Chat message display component
+
 const ChatMessages = () => (
   <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
     {bind(chatHistory).as((messages) =>
@@ -391,46 +464,86 @@ const ChatMessages = () => (
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
           />
           <box vertical spacing={2}>
-            {splitMessageParts(msg.text).map((part, index) =>
-              part.type === "text" ? (
-                <label
-                  key={`text-${index}`}
-                  label={markdownToPango(part.content)}
-                  use_markup={true}
-                  className="message-text"
-                  wrap={true}
-                  halign={
-                    msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START
-                  }
-                  hexpand={false}
-                  max_width_chars={40}
-                />
-              ) : (
-                <box
-                  key={`code-${index}`}
-                  className="code-block"
-                  spacing={4}
-                  css={`
-                    background-color: #2e3440;
-                    border: 1px solid #4b5563;
-                    padding: 8px;
-                    border-radius: 4px;
-                  `}
-                >
+            {splitMessageParts(msg.text).map((part, index) => {
+              if (part.type === "text") {
+                return (
                   <label
-                    label={part.content}
-                    className="code-text"
-                    css={`
-                      font-family: monospace;
-                      color: #d8dee9;
-                    `}
+                    key={`text-${index}`}
+                    label={markdownToPango(part.content)}
+                    use_markup={true}
+                    className="message-text"
                     wrap={true}
+                    halign={
+                      msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START
+                    }
                     hexpand={false}
                     max_width_chars={40}
                   />
-                </box>
-              ),
-            )}
+                );
+              } else if (part.type === "code") {
+                return (
+                  <box
+                    key={`code-${index}`}
+                    className="code-block"
+                    spacing={4}
+                    css={`
+                      background-color: #2e3440;
+                      border: 1px solid #4b5563;
+                      padding: 8px;
+                      border-radius: 4px;
+                    `}
+                  >
+                    <label
+                      label={part.content}
+                      className="code-text"
+                      css={`
+                        font-family: monospace;
+                        color: #d8dee9;
+                      `}
+                      wrap={true}
+                      hexpand={false}
+                      max_width_chars={40}
+                    />
+                  </box>
+                );
+              } else if (part.type === "math") {
+                return (
+                  <label
+                    key={`math-${index}`}
+                    label={formatMath(part.content, false)}
+                    use_markup={true}
+                    className="math-text"
+                    wrap={true}
+                    halign={
+                      msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START
+                    }
+                    hexpand={false}
+                    max_width_chars={40}
+                  />
+                );
+              } else if (part.type === "display_math") {
+                return (
+                  <box
+                    key={`display-math-${index}`}
+                    className="display-math"
+                    css={`
+                      padding: 8px;
+                      text-align: center;
+                    `}
+                  >
+                    <label
+                      label={formatMath(part.content, true)}
+                      use_markup={true}
+                      className="math-text"
+                      wrap={true}
+                      halign={Gtk.Align.CENTER}
+                      hexpand={false}
+                      max_width_chars={40}
+                    />
+                  </box>
+                );
+              }
+            })}
           </box>
           <label
             label={`${msg.timestamp}`}
