@@ -4,13 +4,42 @@ const { GLib, Gio } = imports.gi;
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 
+// Variable to store and display Ollama response
+const ollamaResponse = Variable("");
+
+async function queryOllama(prompt) {
+  try {
+    // Assuming Ollama is running locally on default port 11434
+    const response = await exec([
+      "curl",
+      "-X",
+      "POST",
+      "http://localhost:11434/api/generate",
+      "-d",
+      JSON.stringify({
+        model: "llama3.2", // Change this to your preferred model
+        prompt: prompt,
+        stream: false,
+      }),
+    ]);
+
+    const result = JSON.parse(response);
+    ollamaResponse.set(result.response || "No response received");
+  } catch (error) {
+    ollamaResponse.set(`Error: ${error.message}`);
+  }
+}
+
 const Entry = new Widget.Entry({
-  placeholder_text: "Ask Gemini",
+  placeholder_text: "Ask Ollama",
   canFocus: true,
   className: "location_input",
   onActivate: (self) => {
-    const newLocation = self.get_text();
-    saveLocation(newLocation);
+    const prompt = self.get_text();
+    if (prompt) {
+      queryOllama(prompt);
+      self.set_text(""); // Clear entry after sending
+    }
   },
   onFocusInEvent: (self) => {
     if (self.get_text() === self.placeholder_text) {
@@ -48,7 +77,7 @@ export default () => {
           App.toggle_window(self.name);
         } else if (keyEvent && keyCode === 65 && !entryFocused) {
           // 'A' key pressed and not focused
-          Entry.grab_focus(); // Focus the Entry
+          Entry.grab_focus();
           entryFocused = true;
         } else if (keyEvent && keyCode != 65 && entryFocused) {
           // any key pressed other than 'A' and it is focused
@@ -59,14 +88,14 @@ export default () => {
       <box vertical className="sidebar-window" spacing={spacing}>
         <box
           horizontal
-          className="gemini-header-container"
-          halign={Gtk.Align.FILL} // Ensure the container fills the available space
+          className="ollama-header-container"
+          halign={Gtk.Align.FILL}
         >
           <label
-            label="Gemini"
-            className="gemini"
+            label="Ollama"
+            className="ollama"
             halign={Gtk.Align.START}
-            hexpand={true} // Allow the label to expand and push the button to the right
+            hexpand={true}
           />
         </box>
         <box horizontal halign={Gtk.Align.FILL}>
@@ -76,11 +105,19 @@ export default () => {
             halign={Gtk.Align.START}
           />
         </box>
+        <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
+          <label
+            label={bind(ollamaResponse)} // Dynamically update with response
+            className="p"
+            wrap={true}
+            halign={Gtk.Align.FILL}
+          />
+        </box>
         <box
           vertical
           spacing={spacing}
           halign={Gtk.Align.FILL}
-          valign={Gtk.Align.END} // Align to the bottom
+          valign={Gtk.Align.END}
         >
           <box horizontal spacing={spacing}>
             <box vertical className="sidebar-prompt-example">
