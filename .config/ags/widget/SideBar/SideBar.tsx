@@ -9,7 +9,6 @@ const ollamaResponse = Variable("");
 
 async function queryOllama(prompt) {
   try {
-    // Assuming Ollama is running locally on default port 11434
     const response = await exec([
       "curl",
       "-X",
@@ -17,7 +16,7 @@ async function queryOllama(prompt) {
       "http://localhost:11434/api/generate",
       "-d",
       JSON.stringify({
-        model: "llama3.2", // Change this to your preferred model
+        model: "llama3.2",
         prompt: prompt,
         stream: false,
       }),
@@ -30,22 +29,35 @@ async function queryOllama(prompt) {
   }
 }
 
+// Reset conversation function
+function resetConversation() {
+  ollamaResponse.set("");
+  Entry.set_text("");
+}
+
 const Entry = new Widget.Entry({
   placeholder_text: "Ask Ollama",
   canFocus: true,
   className: "location_input",
-  onActivate: (self) => {
+  // Remove onActivate to handle submission with button or Enter
+  primary_icon_name: "system-search-symbolic", // Optional: adds a search icon
+  on_changed: (self) => {
+    // This allows typing multiple words without losing input
+    self.get_text();
+  },
+  on_activate: (self) => {
     const prompt = self.get_text();
     if (prompt) {
       queryOllama(prompt);
-      self.set_text(""); // Clear entry after sending
+      // Don't clear entry immediately, let user decide when to reset
     }
   },
-  onFocusInEvent: (self) => {
-    if (self.get_text() === self.placeholder_text) {
-      self.set_text("");
-    }
-  },
+});
+
+const NewConversationButton = new Widget.Button({
+  label: "New Conversation",
+  className: "primary-button",
+  onClicked: () => resetConversation(),
 });
 
 let entryFocused = false;
@@ -107,7 +119,7 @@ export default () => {
         </box>
         <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
           <label
-            label={bind(ollamaResponse)} // Dynamically update with response
+            label={bind(ollamaResponse)}
             className="p"
             wrap={true}
             halign={Gtk.Align.FILL}
@@ -137,7 +149,10 @@ export default () => {
               <label class="label-subtext" label="me" />
             </box>
           </box>
-          {Entry}
+          <box horizontal spacing={spacing}>
+            {Entry}
+            {NewConversationButton}
+          </box>
         </box>
       </box>
     </PopupWindow>
