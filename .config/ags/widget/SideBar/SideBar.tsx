@@ -4,8 +4,15 @@ const { GLib, Gio } = imports.gi;
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 
-// Variable to store and display Ollama response
-const ollamaResponse = Variable("");
+// Array to store chat messages
+const chatHistory = Variable([]);
+
+// Message type definition
+type ChatMessage = {
+  sender: "user" | "ollama";
+  text: string;
+  timestamp: string;
+};
 
 async function queryOllama(prompt) {
   try {
@@ -23,15 +30,36 @@ async function queryOllama(prompt) {
     ]);
 
     const result = JSON.parse(response);
-    ollamaResponse.set(result.response || "No response received");
+    const timestamp = new Date().toLocaleTimeString();
+
+    // Add user message to history
+    chatHistory.set([
+      ...chatHistory.get(),
+      { sender: "user", text: prompt, timestamp },
+    ]);
+
+    // Add Ollama response to history
+    chatHistory.set([
+      ...chatHistory.get(),
+      {
+        sender: "ollama",
+        text: result.response || "No response received",
+        timestamp,
+      },
+    ]);
   } catch (error) {
-    ollamaResponse.set(`Error: ${error.message}`);
+    const timestamp = new Date().toLocaleTimeString();
+    chatHistory.set([
+      ...chatHistory.get(),
+      { sender: "user", text: prompt, timestamp },
+      { sender: "ollama", text: `Error: ${error.message}`, timestamp },
+    ]);
   }
 }
 
 // Reset conversation function
 function resetConversation() {
-  ollamaResponse.set("");
+  chatHistory.set([]);
   Entry.set_text("");
 }
 
@@ -40,26 +68,20 @@ const Entry = new Widget.Entry({
   canFocus: true,
   className: "location_input",
   primary_icon_name: "system-search-symbolic",
-  // Handle text input properly
-  on_changed: (self) => {
-    // No need to do anything here, just let the entry handle its text
-  },
   on_activate: (self) => {
     const prompt = self.get_text();
     if (prompt) {
       queryOllama(prompt);
+      self.set_text(""); // Clear entry after sending
     }
   },
-  // Ensure the entry can receive all key events
   on_key_press_event: (self, event) => {
-    const [keyEvent, keyCode] = event.get_keycode();
-    // Let the entry handle space (keyCode 65) and other normal input
-    return false; // false means the event continues to be processed by the entry
+    return false; // Let entry handle all key events
   },
 });
 
 const NewConversationButton = new Widget.Button({
-  label: "New Conversation",
+  label: "New Chat",
   className: "primary-button",
   onClicked: () => resetConversation(),
 });
@@ -70,6 +92,32 @@ const username =
   GLib.get_user_name().charAt(0).toUpperCase() + GLib.get_user_name().slice(1);
 
 const greeting = `Hello, ${username}`;
+
+// Chat message display component
+const ChatMessages = () => (
+  <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
+    {bind(chatHistory).as((messages) =>
+      messages.map((msg) => (
+        <box
+          vertical
+          className={`message ${msg.sender === "user" ? "user-message" : "ollama-message"}`}
+          spacing={2}
+        >
+          <label
+            label={`${msg.sender === "user" ? username : "Ollama"} (${msg.timestamp}):`}
+            className="message-sender"
+          />
+          <label
+            label={msg.text}
+            className="message-text"
+            wrap={true}
+            halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
+          />
+        </box>
+      )),
+    )}
+  </box>
+);
 
 export default () => {
   return (
@@ -89,22 +137,19 @@ export default () => {
         const [keyEvent, keyCode] = event.get_keycode();
 
         if (keyEvent && keyCode == 9) {
-          // Tab key pressed to toggle window
           App.toggle_window(self.name);
-          return true; // Event handled
+          return true;
         } else if (
           keyEvent &&
           keyCode === 65 &&
           !entryFocused &&
           !Entry.has_focus()
         ) {
-          // 'A' key pressed and not focused
           Entry.grab_focus();
           entryFocused = true;
-          return true; // Event handled
+          return true;
         } else if (Entry.has_focus()) {
-          // If entry is focused, let it handle its own key events
-          return false; // Let event propagate to Entry
+          return false;
         }
         return false;
       }}
@@ -116,7 +161,7 @@ export default () => {
           halign={Gtk.Align.FILL}
         >
           <label
-            label="Ollama"
+            label="Ollama Chat"
             className="ollama"
             halign={Gtk.Align.START}
             hexpand={true}
@@ -129,14 +174,14 @@ export default () => {
             halign={Gtk.Align.START}
           />
         </box>
-        <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
-          <label
-            label={bind(ollamaResponse)}
-            className="p"
-            wrap={true}
-            halign={Gtk.Align.FILL}
-          />
-        </box>
+        <scrollable
+          vscroll={Gtk.PolicyType.AUTOMATIC}
+          hscroll={Gtk.PolicyType.NEVER}
+          className="chat-container"
+          vexpand={true}
+        >
+          <ChatMessages />
+        </scrollable>
         <box
           vertical
           spacing={spacing}
