@@ -52,14 +52,56 @@ const ModelButtons = () => (
   </box>
 );
 
+// Function to split message into parts (regular text and code blocks)
+function splitMessageParts(
+  text: string,
+): { type: "text" | "code"; content: string }[] {
+  const parts: { type: "text" | "code"; content: string }[] = [];
+  const codeBlockRegex = /```([\s\S]*?)```/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = codeBlockRegex.exec(text)) !== null) {
+    // Add text before the code block if any
+    if (match.index > lastIndex) {
+      parts.push({
+        type: "text",
+        content: text.slice(lastIndex, match.index),
+      });
+    }
+    // Add the code block
+    parts.push({
+      type: "code",
+      content: match[1].trim(),
+    });
+    lastIndex = codeBlockRegex.lastIndex;
+  }
+
+  // Add remaining text after last code block
+  if (lastIndex < text.length) {
+    parts.push({
+      type: "text",
+      content: text.slice(lastIndex),
+    });
+  }
+
+  // If no code blocks were found, add the whole text as regular text
+  if (parts.length === 0) {
+    parts.push({
+      type: "text",
+      content: text,
+    });
+  }
+
+  return parts;
+}
+
+// Updated markdownToPango for regular text only
 function markdownToPango(text: string): string {
   let result = text;
 
-  // Escape Pango special characters first
-  result = result
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  // Escape Pango special characters
+  result = result.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
 
   // Bold: **text** or __text__
   result = result
@@ -82,10 +124,6 @@ function markdownToPango(text: string): string {
 
   // Preserve line breaks
   result = result.replace(/\n/g, "\n");
-
-  // Debug the converted output
-  console.log(`Original text: "${text}"`);
-  console.log(`Converted Pango markup: "${result}"`);
 
   return result;
 }
@@ -352,15 +390,48 @@ const ChatMessages = () => (
             className="message-sender"
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
           />
-          <label
-            label={markdownToPango(msg.text)} // Convert Markdown to Pango markup
-            use_markup={true} // Enable Pango markup rendering
-            className="message-text"
-            wrap={true}
-            halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
-            hexpand={false}
-            max_width_chars={40}
-          />
+          <box vertical spacing={2}>
+            {splitMessageParts(msg.text).map((part, index) =>
+              part.type === "text" ? (
+                <label
+                  key={`text-${index}`}
+                  label={markdownToPango(part.content)}
+                  use_markup={true}
+                  className="message-text"
+                  wrap={true}
+                  halign={
+                    msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START
+                  }
+                  hexpand={false}
+                  max_width_chars={40}
+                />
+              ) : (
+                <box
+                  key={`code-${index}`}
+                  className="code-block"
+                  spacing={4}
+                  css={`
+                    background-color: #2e3440;
+                    border: 1px solid #4b5563;
+                    padding: 8px;
+                    border-radius: 4px;
+                  `}
+                >
+                  <label
+                    label={part.content}
+                    className="code-text"
+                    css={`
+                      font-family: monospace;
+                      color: #d8dee9;
+                    `}
+                    wrap={true}
+                    hexpand={false}
+                    max_width_chars={40}
+                  />
+                </box>
+              ),
+            )}
+          </box>
           <label
             label={`${msg.timestamp}`}
             className="message-time"
