@@ -5,6 +5,8 @@ import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 import icons from "../../lib/icons";
 
+// const GEMINI_API_KEY = "AIzaSyAJS1WVALYZ-gvaMr2DVKX1kEj7nuvcOew";
+
 // Array to store chat messages
 const chatHistory = Variable([]);
 // Variable to track if greeting should be shown
@@ -22,6 +24,7 @@ const models = [
   "llama3.2",
   "gemma2:2b",
   "phi3",
+  "gemini",
   // Add more models as needed
 ];
 
@@ -29,7 +32,80 @@ const modelIcons = {
   "llama3.2": icons.models.llama || "dialog-information-symbolic", // Fallback icon if not in icons
   "gemma2:2b": icons.models.gemma || "dialog-question-symbolic",
   phi3: icons.models.phi3 || "dialog-warning-symbolic",
+  gemini: icons.models.gemini || "dialog-question-symbolic",
 };
+
+function loadGeminiApiKey(): string {
+  const configDir = GLib.get_user_config_dir();
+  const appName = "ags";
+  const configPath = GLib.build_filenamev([
+    configDir,
+    appName,
+    "gemini-key.json",
+  ]);
+
+  try {
+    const file = Gio.File.new_for_path(configPath);
+    const [success, contents] = file.load_contents(null);
+    if (!success) {
+      return ""; // File doesn't exist or can't be read, return empty
+    }
+
+    const decoder = new TextDecoder("utf-8");
+    const jsonString = decoder.decode(contents);
+    const config = JSON.parse(jsonString);
+
+    return config.gemini_api_key || "";
+  } catch (error) {
+    console.error(
+      `Failed to load Gemini API key from ${configPath}: ${error.message}`,
+    );
+    return ""; // Return empty string on error
+  }
+}
+
+function saveGeminiApiKey(apiKey: string): boolean {
+  const configDir = GLib.get_user_config_dir();
+  const appName = "ags"; // Replace with your actual app name
+  const configPath = GLib.build_filenamev([
+    configDir,
+    appName,
+    "gemini-key.json",
+  ]);
+
+  try {
+    const config = { gemini_api_key: apiKey };
+    const jsonString = JSON.stringify(config);
+
+    const file = Gio.File.new_for_path(configPath);
+    const dir = file.get_parent();
+    if (!dir.query_exists(null)) {
+      dir.make_directory_with_parents(null); // Create directory if it doesn't exist
+    }
+
+    file.replace_contents(
+      jsonString,
+      null,
+      false,
+      Gio.FileCreateFlags.REPLACE_DESTINATION,
+      null,
+    );
+
+    // Set file permissions to owner-only (600)
+    const fileInfo = new Gio.FileInfo();
+    fileInfo.set_attribute_uint32("unix::mode", 0o600);
+    file.set_attributes_from_info(fileInfo, Gio.FileQueryInfoFlags.NONE, null);
+
+    return true;
+  } catch (error) {
+    console.error(
+      `Failed to save Gemini API key to ${configPath}: ${error.message}`,
+    );
+    return false;
+  }
+}
+
+let GEMINI_API_KEY = loadGeminiApiKey();
 
 // Variable to track the selected model
 const selectedModel = Variable(models[0]);
@@ -200,8 +276,8 @@ function formatMath(content: string, isDisplay: boolean = false): string {
   return result;
 }
 
-async function queryOllama(prompt) {
-  console.log("Starting queryOllama with prompt:", prompt);
+async function queryGemini(prompt: string) {
+  console.log("Starting queryGemini with prompt:", prompt);
   try {
     const timestamp = new Date().toLocaleTimeString([], {
       hour12: false,
@@ -215,7 +291,6 @@ async function queryOllama(prompt) {
       { sender: "user", text: prompt, timestamp },
     ]);
 
-    console.log("Launching curl subprocess");
     const subprocess = new Gio.Subprocess({
       argv: [
         "curl",
@@ -224,33 +299,42 @@ async function queryOllama(prompt) {
         "-N",
         "-X",
         "POST",
-        "http://localhost:11434/api/generate",
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:streamGenerateContent?key=${GEMINI_API_KEY}`,
+        "-H",
+        "Content-Type: application/json",
         "-d",
         JSON.stringify({
-          model: selectedModel.get(),
-          prompt: prompt,
-          stream: true,
+          contents: [
+            {
+              parts: [{ text: prompt }],
+            },
+          ],
+          generationConfig: {
+            temperature: 0.9,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 1024,
+          },
         }),
       ],
       flags: Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE,
     });
 
     subprocess.init(null);
-    console.log("Subprocess initialized");
+    console.log("Gemini subprocess initialized");
 
     const stdout = new Gio.DataInputStream({
       base_stream: subprocess.get_stdout_pipe(),
     });
 
-    let ollamaResponse = "";
-    const ollamaTimestamp = new Date().toLocaleTimeString([], {
+    let fullResponse = "";
+    const geminiTimestamp = new Date().toLocaleTimeString([], {
       hour12: false,
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
     });
 
-    // Asynchronous stream reading
     const readStream = () => {
       return new Promise((resolve) => {
         const readNextLine = () => {
@@ -260,67 +344,51 @@ async function queryOllama(prompt) {
             (source, result) => {
               const [line, length] = stdout.read_line_finish_utf8(result);
               if (line === null) {
-                console.log("Stream ended");
-                // Remove the duplicate addition here
+                console.log("Gemini stream ended");
+                try {
+                  // Parse the full response, accounting for the outer array
+                  const parsedArray = JSON.parse(fullResponse);
+                  const firstResponse = parsedArray[0]; // Get the first object in the array
+                  const geminiResponse =
+                    firstResponse?.candidates[0]?.content?.parts[0]?.text ||
+                    "No response received";
+                  console.log("Full Gemini response:", geminiResponse);
+                  chatHistory.set([
+                    ...chatHistory.get(),
+                    {
+                      sender: "ollama",
+                      text: geminiResponse,
+                      timestamp: geminiTimestamp,
+                    },
+                  ]);
+                } catch (e) {
+                  console.error(
+                    "Error parsing full Gemini response:",
+                    e.message,
+                    "Response:",
+                    fullResponse,
+                  );
+                  chatHistory.set([
+                    ...chatHistory.get(),
+                    {
+                      sender: "ollama",
+                      text: `Error parsing response: ${e.message}`,
+                      timestamp: geminiTimestamp,
+                    },
+                  ]);
+                }
                 resolve();
                 return;
               }
 
-              console.log("Raw line from stream:", line);
-              if (!line.trim() || !line.startsWith("{")) {
-                console.log("Skipping non-JSON line:", line);
-                readNextLine(); // Continue reading
-                return;
-              }
-
-              try {
-                const parsed = JSON.parse(line);
-                if (parsed.response) {
-                  ollamaResponse += parsed.response;
-                  console.log("Partial response:", ollamaResponse);
-                  // Update only the latest Ollama message during streaming
-                  const currentHistory = chatHistory.get();
-                  const lastMessage = currentHistory[currentHistory.length - 1];
-                  if (
-                    lastMessage?.sender === "ollama" &&
-                    lastMessage?.timestamp === ollamaTimestamp
-                  ) {
-                    // Update existing message
-                    chatHistory.set([
-                      ...currentHistory.slice(0, -1),
-                      {
-                        sender: "ollama",
-                        text: ollamaResponse,
-                        timestamp: ollamaTimestamp,
-                      },
-                    ]);
-                  } else {
-                    // Add new message
-                    chatHistory.set([
-                      ...currentHistory,
-                      {
-                        sender: "ollama",
-                        text: ollamaResponse,
-                        timestamp: ollamaTimestamp,
-                      },
-                    ]);
-                  }
-                }
-              } catch (e) {
-                console.error(
-                  "Error parsing stream line:",
-                  e.message,
-                  "Line:",
-                  line,
-                );
-              }
-
-              readNextLine(); // Continue reading the next line
+              console.log("Raw line from Gemini stream:", line);
+              fullResponse += line; // Accumulate the response
+              readNextLine(); // Continue reading
             },
           );
         };
 
-        console.log("Starting to read stream");
+        console.log("Starting to read Gemini stream");
         readNextLine();
       });
     };
@@ -330,7 +398,7 @@ async function queryOllama(prompt) {
         subprocess.wait_async(null, (proc, result) => {
           try {
             subprocess.wait_finish(result);
-            console.log("Subprocess completed");
+            console.log("Gemini subprocess completed");
             resolve();
           } catch (e) {
             reject(e);
@@ -338,7 +406,7 @@ async function queryOllama(prompt) {
         });
       });
 
-    console.log("Starting stream reading and waiting for subprocess");
+    console.log("Starting Gemini stream reading and waiting for subprocess");
     const readPromise = readStream();
     await waitForSubprocess();
     await readPromise;
@@ -361,7 +429,251 @@ async function queryOllama(prompt) {
     if (showGreeting.get()) {
       showGreeting.set(false);
     }
-    console.error("Streaming error:", error);
+    console.error("Gemini streaming error:", error);
+  }
+}
+
+async function queryOllama(prompt: string) {
+  const currentModel = selectedModel.get();
+
+  // Handle API key submission with \key command
+  if (prompt.startsWith("\\key ")) {
+    const apiKey = prompt.substring(5).trim();
+    if (currentModel === "gemini") {
+      const timestamp = new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      if (saveGeminiApiKey(apiKey)) {
+        GEMINI_API_KEY = apiKey; // Update the in-memory key
+        chatHistory.set([
+          ...chatHistory.get(),
+          { sender: "user", text: prompt, timestamp },
+          {
+            sender: "ollama",
+            text: "Gemini API key saved successfully!",
+            timestamp,
+          },
+        ]);
+      } else {
+        chatHistory.set([
+          ...chatHistory.get(),
+          { sender: "user", text: prompt, timestamp },
+          {
+            sender: "ollama",
+            text: "Failed to save Gemini API key.",
+            timestamp,
+          },
+        ]);
+      }
+    } else {
+      const timestamp = new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      chatHistory.set([
+        ...chatHistory.get(),
+        { sender: "user", text: prompt, timestamp },
+        {
+          sender: "ollama",
+          text: "Switch to Gemini model to set the API key.",
+          timestamp,
+        },
+      ]);
+    }
+    return;
+  }
+
+  if (currentModel === "gemini") {
+    if (!GEMINI_API_KEY) {
+      const timestamp = new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      chatHistory.set([
+        ...chatHistory.get(),
+        { sender: "user", text: prompt, timestamp },
+        {
+          sender: "ollama",
+          text: "No Gemini API key found. Please submit your key using: \\key YOUR_API_KEY",
+          timestamp,
+        },
+      ]);
+      return;
+    }
+    await queryGemini(prompt);
+  } else {
+    // Existing Ollama query logic
+    console.log("Starting queryOllama with prompt:", prompt);
+    try {
+      const timestamp = new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      console.log("Adding user message to chatHistory");
+      chatHistory.set([
+        ...chatHistory.get(),
+        { sender: "user", text: prompt, timestamp },
+      ]);
+
+      console.log("Launching curl subprocess");
+      const subprocess = new Gio.Subprocess({
+        argv: [
+          "curl",
+          "--silent",
+          "--no-buffer",
+          "-N",
+          "-X",
+          "POST",
+          "http://localhost:11434/api/generate",
+          "-d",
+          JSON.stringify({
+            model: currentModel,
+            prompt: prompt,
+            stream: true,
+          }),
+        ],
+        flags:
+          Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE,
+      });
+
+      subprocess.init(null);
+      console.log("Subprocess initialized");
+
+      const stdout = new Gio.DataInputStream({
+        base_stream: subprocess.get_stdout_pipe(),
+      });
+
+      let ollamaResponse = "";
+      const ollamaTimestamp = new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+
+      // Asynchronous stream reading
+      const readStream = () => {
+        return new Promise((resolve) => {
+          const readNextLine = () => {
+            stdout.read_line_async(
+              GLib.PRIORITY_DEFAULT,
+              null,
+              (source, result) => {
+                const [line, length] = stdout.read_line_finish_utf8(result);
+                if (line === null) {
+                  console.log("Stream ended");
+                  // Remove the duplicate addition here
+                  resolve();
+                  return;
+                }
+
+                console.log("Raw line from stream:", line);
+                if (!line.trim() || !line.startsWith("{")) {
+                  console.log("Skipping non-JSON line:", line);
+                  readNextLine(); // Continue reading
+                  return;
+                }
+
+                try {
+                  const parsed = JSON.parse(line);
+                  if (parsed.response) {
+                    ollamaResponse += parsed.response;
+                    console.log("Partial response:", ollamaResponse);
+                    // Update only the latest Ollama message during streaming
+                    const currentHistory = chatHistory.get();
+                    const lastMessage =
+                      currentHistory[currentHistory.length - 1];
+                    if (
+                      lastMessage?.sender === "ollama" &&
+                      lastMessage?.timestamp === ollamaTimestamp
+                    ) {
+                      // Update existing message
+                      chatHistory.set([
+                        ...currentHistory.slice(0, -1),
+                        {
+                          sender: "ollama",
+                          text: ollamaResponse,
+                          timestamp: ollamaTimestamp,
+                        },
+                      ]);
+                    } else {
+                      // Add new message
+                      chatHistory.set([
+                        ...currentHistory,
+                        {
+                          sender: "ollama",
+                          text: ollamaResponse,
+                          timestamp: ollamaTimestamp,
+                        },
+                      ]);
+                    }
+                  }
+                } catch (e) {
+                  console.error(
+                    "Error parsing stream line:",
+                    e.message,
+                    "Line:",
+                    line,
+                  );
+                }
+
+                readNextLine(); // Continue reading the next line
+              },
+            );
+          };
+
+          console.log("Starting to read stream");
+          readNextLine();
+        });
+      };
+
+      const waitForSubprocess = () =>
+        new Promise((resolve, reject) => {
+          subprocess.wait_async(null, (proc, result) => {
+            try {
+              subprocess.wait_finish(result);
+              console.log("Subprocess completed");
+              resolve();
+            } catch (e) {
+              reject(e);
+            }
+          });
+        });
+
+      console.log("Starting stream reading and waiting for subprocess");
+      const readPromise = readStream();
+      await waitForSubprocess();
+      await readPromise;
+
+      if (showGreeting.get()) {
+        showGreeting.set(false);
+      }
+    } catch (error) {
+      const timestamp = new Date().toLocaleTimeString([], {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      chatHistory.set([
+        ...chatHistory.get(),
+        { sender: "user", text: prompt, timestamp },
+        { sender: "ollama", text: `Error: ${error.message}`, timestamp },
+      ]);
+      if (showGreeting.get()) {
+        showGreeting.set(false);
+      }
+      console.error("Streaming error:", error);
+    }
   }
 }
 
@@ -442,10 +754,9 @@ function getSenderName(sender: "user" | "ollama") {
   const currentModel = selectedModel.get();
   if (currentModel.includes("llama")) return "Llama";
   if (currentModel.includes("gemma")) return "Gemma";
+  if (currentModel === "gemini") return "Gemini"; // Add Gemini name
   return "Ollama"; // Default for other models like phi3
 }
-
-// Chat message display component
 
 const ChatMessages = () => (
   <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
