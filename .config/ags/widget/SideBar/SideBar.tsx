@@ -3,59 +3,6 @@ import { App, Gtk, Astal, Widget } from "astal/gtk3";
 const { GLib, Gio } = imports.gi;
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
-import {
-  feelsTemp,
-  humidity,
-  location,
-  precipitation,
-  pressure,
-  realTemp,
-  updateWeatherCommands,
-  uvIndex,
-  wind,
-  loadLocation,
-  setLocation,
-  weatherDescription,
-} from "../../service/Weather";
-import icons from "../../lib/icons";
-
-const settingsFile = `${GLib.get_home_dir()}/.config/ags/service/weather-location.json`;
-
-const saveLocation = (location: string) => {
-  try {
-    // Remove spaces between city and state (e.g., "Richland, Wa" -> "Richland,Wa")
-    const formattedLocation = location.replace(/, /g, ",");
-
-    const file = Gio.File.new_for_path(settingsFile);
-    const contents = JSON.stringify({ location: formattedLocation });
-    file.replace_contents(
-      contents,
-      null,
-      false,
-      Gio.FileCreateFlags.NONE,
-      null,
-    );
-
-    // Call the functions to update the weather data
-    setLocation(loadLocation());
-    updateWeatherCommands();
-  } catch (e) {
-    console.error("Failed to save location:", e);
-  }
-};
-
-// Add a space between city and state when displaying the location (e.g., "Richland,Wa" -> "Richland, Wa")
-const displayLocation = bind(location).as((value) => {
-  if (!value) return "N/A";
-  return value.replace(/,/g, ", "); // Add a space after the comma
-});
-
-const feelsTemperature = bind(feelsTemp).as((value) => value || "N/A");
-const uv = bind(uvIndex).as((value) => value || "N/A");
-const Wind = bind(wind).as((value) => value || "N/A");
-const Precipitation = bind(precipitation).as((value) => value || "N/A");
-const Pressure = bind(pressure).as((value) => value || "N/A");
-const Humidity = bind(humidity).as((value) => value || "N/A");
 
 const Entry = new Widget.Entry({
   placeholder_text: "Ask Gemini",
