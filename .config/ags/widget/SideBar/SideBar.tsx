@@ -39,18 +39,22 @@ const Entry = new Widget.Entry({
   placeholder_text: "Ask Ollama",
   canFocus: true,
   className: "location_input",
-  // Remove onActivate to handle submission with button or Enter
-  primary_icon_name: "system-search-symbolic", // Optional: adds a search icon
+  primary_icon_name: "system-search-symbolic",
+  // Handle text input properly
   on_changed: (self) => {
-    // This allows typing multiple words without losing input
-    self.get_text();
+    // No need to do anything here, just let the entry handle its text
   },
   on_activate: (self) => {
     const prompt = self.get_text();
     if (prompt) {
       queryOllama(prompt);
-      // Don't clear entry immediately, let user decide when to reset
     }
+  },
+  // Ensure the entry can receive all key events
+  on_key_press_event: (self, event) => {
+    const [keyEvent, keyCode] = event.get_keycode();
+    // Let the entry handle space (keyCode 65) and other normal input
+    return false; // false means the event continues to be processed by the entry
   },
 });
 
@@ -85,16 +89,24 @@ export default () => {
         const [keyEvent, keyCode] = event.get_keycode();
 
         if (keyEvent && keyCode == 9) {
-          // Tab key pressed
+          // Tab key pressed to toggle window
           App.toggle_window(self.name);
-        } else if (keyEvent && keyCode === 65 && !entryFocused) {
+          return true; // Event handled
+        } else if (
+          keyEvent &&
+          keyCode === 65 &&
+          !entryFocused &&
+          !Entry.has_focus()
+        ) {
           // 'A' key pressed and not focused
           Entry.grab_focus();
           entryFocused = true;
-        } else if (keyEvent && keyCode != 65 && entryFocused) {
-          // any key pressed other than 'A' and it is focused
-          entryFocused = false;
+          return true; // Event handled
+        } else if (Entry.has_focus()) {
+          // If entry is focused, let it handle its own key events
+          return false; // Let event propagate to Entry
         }
+        return false;
       }}
     >
       <box vertical className="sidebar-window" spacing={spacing}>
