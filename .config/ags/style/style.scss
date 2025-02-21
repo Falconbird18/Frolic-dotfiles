@@ -1784,6 +1784,10 @@ switch:checked slider {
     @include h3;
 }
 
+.chat-container{
+    min-height: 200px;
+}
+
 .message-text{
     @include paragraph;
 }

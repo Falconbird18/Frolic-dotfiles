@@ -1889,6 +1889,10 @@ switch:checked slider {
   color: #F5CCED;
 }
 
+.chat-container {
+  min-height: 200px;
+}
+
 .message-text {
   font-family: "Open sans";
   font-weight: 300;

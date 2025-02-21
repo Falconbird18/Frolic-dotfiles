@@ -417,9 +417,6 @@ async function queryGemini(prompt: string) {
     await waitForSubprocess();
     await readPromise;
 
-    if (showGreeting.get()) {
-      showGreeting.set(false);
-    }
   } catch (error) {
     const timestamp = new Date().toLocaleTimeString([], {
       hour12: false,
@@ -432,9 +429,6 @@ async function queryGemini(prompt: string) {
       { sender: "user", text: prompt, timestamp },
       { sender: "ollama", text: `Error: ${error.message}`, timestamp },
     ]);
-    if (showGreeting.get()) {
-      showGreeting.set(false);
-    }
     console.error("Gemini streaming error:", error);
   }
 }
@@ -515,7 +509,6 @@ async function queryOllama(prompt: string) {
     }
     await queryGemini(prompt);
   } else {
-    // Existing Ollama query logic
     console.log("Starting queryOllama with prompt:", prompt);
     try {
       const timestamp = new Date().toLocaleTimeString([], {
@@ -660,9 +653,6 @@ async function queryOllama(prompt: string) {
       await waitForSubprocess();
       await readPromise;
 
-      if (showGreeting.get()) {
-        showGreeting.set(false);
-      }
     } catch (error) {
       const timestamp = new Date().toLocaleTimeString([], {
         hour12: false,
@@ -675,9 +665,6 @@ async function queryOllama(prompt: string) {
         { sender: "user", text: prompt, timestamp },
         { sender: "ollama", text: `Error: ${error.message}`, timestamp },
       ]);
-      if (showGreeting.get()) {
-        showGreeting.set(false);
-      }
       console.error("Streaming error:", error);
     }
   }
@@ -694,6 +681,9 @@ function resetConversation() {
 function submitPrompt() {
   const prompt = Entry.get_text();
   if (prompt) {
+    if (showGreeting.get()) {
+      showGreeting.set(false); // Hide greeting immediately on submission
+    }
     queryOllama(prompt);
     Entry.set_text(""); // Clear entry after sending
   }
@@ -883,90 +873,97 @@ const ChatMessages = () => (
 export default () => {
   return (
     <PopupWindow
-      scrimType="transparent"
-      layer={Astal.Layer.OVERLAY}
-      visible={false}
-      margin={12}
-      vexpand={true}
-      keymode={Astal.Keymode.EXCLUSIVE}
-      name="SideBar"
-      namespace="SideBar"
-      exclusivity={Astal.Exclusivity.NORMAL}
-      anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT}
-      application={App}
-      onKeyPressEvent={(self, event) => {
-        const [keyEvent, keyCode] = event.get_keycode();
-
-        if (keyEvent && keyCode == 9) {
-          App.toggle_window(self.name);
-          return true;
-        } else if (
-          keyEvent &&
-          keyCode === 65 &&
-          !entryFocused &&
-          !Entry.has_focus // Changed from has_focus() to has_focus
-        ) {
-          Entry.grab_focus();
-          entryFocused = true;
-          return true;
-        } else if (Entry.has_focus) {
-          // Changed from has_focus() to has_focus
-          return false;
-        }
+    scrimType="transparent"
+    layer={Astal.Layer.OVERLAY}
+    visible={false}
+    margin={12}
+    vexpand={true}
+    keymode={Astal.Keymode.EXCLUSIVE}
+    name="SideBar"
+    namespace="SideBar"
+    exclusivity={Astal.Exclusivity.NORMAL}
+    anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT}
+    application={App}
+    onKeyPressEvent={(self, event) => {
+      const [keyEvent, keyCode] = event.get_keycode();
+      if (keyEvent && keyCode == 9) {
+        App.toggle_window(self.name);
+        return true;
+      } else if (
+        keyEvent &&
+        keyCode === 65 &&
+        !entryFocused &&
+        !Entry.has_focus
+      ) {
+        Entry.grab_focus();
+        entryFocused = true;
+        return true;
+      } else if (Entry.has_focus) {
         return false;
-      }}
+      }
+      return false;
+    }}
     >
-      <box vertical className="sidebar-window" spacing={spacing}>
-        <box vertical halign={Gtk.Align.FILL} spacing={spacing}>
-          {NewConversationButton}
-          <ModelButtons />
-        </box>
-        {bind(showGreeting).as((visible) =>
-          visible ? (
-            <box horizontal halign={Gtk.Align.FILL}>
-              <label
-                label={greeting}
-                className="greeting"
-                halign={Gtk.Align.START}
-              />
-            </box>
-          ) : null,
-        )}
-        <scrollable
-          vscroll={Gtk.PolicyType.AUTOMATIC}
-          hscroll={Gtk.PolicyType.NEVER}
-          className="chat-container"
-          vexpand={true}
-        >
-          <ChatMessages />
-        </scrollable>
+    <box vertical className="sidebar-window" spacing={spacing}>
+    <box vertical halign={Gtk.Align.FILL} spacing={spacing}>
+    {NewConversationButton}
+    <ModelButtons />
+    </box>
+    {bind(showGreeting).as((visible) =>
+      visible ? (
         <box
-          vertical
-          spacing={spacing}
-          halign={Gtk.Align.FILL}
-          valign={Gtk.Align.END}
+        vertical
+        halign={Gtk.Align.FILL}
+        valign={Gtk.Align.CENTER}
+        vexpand={true}
         >
-          <box horizontal spacing={spacing}>
-            <box vertical className="sidebar-prompt-example">
-              <label class="label-paragraph" label="Tell me what" />
-              <label class="label-subtext" label="you can do" />
-            </box>
-            <box vertical className="sidebar-prompt-example">
-              <label class="label-paragraph" label="Give me" />
-              <label class="label-subtext" label="study tips" />
-            </box>
-            <box vertical className="sidebar-prompt-example">
-              <label class="label-paragraph" label="Save me" />
-              <label class="label-subtext" label="time" />
-            </box>
-            <box vertical className="sidebar-prompt-example">
-              <label class="label-paragraph" label="Inspire" />
-              <label class="label-subtext" label="me" />
-            </box>
-          </box>
-          <InputBox />
+        <box horizontal halign={Gtk.Align.CENTER}>
+        <label
+        label={greeting}
+        className="greeting"
+        halign={Gtk.Align.CENTER}
+        />
         </box>
-      </box>
+        </box>
+      ) : (
+        <box visible={false} /> // Placeholder to avoid null gap
+      ),
+    )}
+    <scrollable
+    vscroll={Gtk.PolicyType.AUTOMATIC}
+    hscroll={Gtk.PolicyType.NEVER}
+    className="chat-container"
+    vexpand={true}
+    >
+    <ChatMessages />
+    </scrollable>
+    <box
+    vertical
+    spacing={spacing}
+    halign={Gtk.Align.FILL}
+    valign={Gtk.Align.END}
+    >
+    <box horizontal spacing={spacing}>
+    <box vertical className="sidebar-prompt-example">
+    <label class="label-paragraph" label="Tell me what" />
+    <label class="label-subtext" label="you can do" />
+    </box>
+    <box vertical className="sidebar-prompt-example">
+    <label class="label-paragraph" label="Give me" />
+    <label class="label-subtext" label="study tips" />
+    </box>
+    <box vertical className="sidebar-prompt-example">
+    <label class="label-paragraph" label="Save me" />
+    <label class="label-subtext" label="time" />
+    </box>
+    <box vertical className="sidebar-prompt-example">
+    <label class="label-paragraph" label="Inspire" />
+    <label class="label-subtext" label="me" />
+    </box>
+    </box>
+    <InputBox />
+    </box>
+    </box>
     </PopupWindow>
   );
 };
