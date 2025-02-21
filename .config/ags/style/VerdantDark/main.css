@@ -1394,6 +1394,9 @@ switch:checked slider {
 .popup-menu.theme-settings {
   min-width: 400px;
 }
+.popup-menu.clipboard {
+  min-width: 400px;
+}
 
 .profiles {
   min-height: 270px;

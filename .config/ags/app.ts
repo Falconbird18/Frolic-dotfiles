@@ -11,6 +11,7 @@ import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
 import SideBar from "./widget/SideBar/SideBar";
 import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
+import Clipboard from "./widget/Popups/menus/Clipboard";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
 import { toggleWindow } from "./lib/utils";
@@ -32,7 +33,8 @@ const applyTheme = () => {
   const spicetifyPathCss = `${homeDir}/.config/spicetify/Themes/Frolic/user.css`;
   exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf`);
   exec(
-    `cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`);
+    `cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`,
+  );
   exec(`sass ${themePathScss} ${themePathCss}`);
   exec(`sass ${spicetifyPathScss} ${spicetifyPathCss}`);
   console.log("Scss compiled");
@@ -52,6 +54,7 @@ function main() {
   Weather();
   SideBar();
   ThemeSettings();
+  Clipboard();
   ControlCenter();
   Scrim({ scrimType: "opaque", className: "scrim" });
   Scrim({ scrimType: "transparent", className: "transparent-scrim" });
