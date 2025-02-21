@@ -52,6 +52,44 @@ const ModelButtons = () => (
   </box>
 );
 
+function markdownToPango(text: string): string {
+  let result = text;
+
+  // Escape Pango special characters first
+  result = result
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Bold: **text** or __text__
+  result = result
+    .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+    .replace(/__(.+?)__/g, "<b>$1</b>");
+
+  // Italic: *text* or _text_
+  result = result
+    .replace(/\*(.+?)\*/g, "<i>$1</i>")
+    .replace(/_(.+?)_/g, "<i>$1</i>");
+
+  // Headings: # Heading, ## Heading, ### Heading
+  result = result
+    .replace(/^### (.+)$/gm, '<span size="large"><b>$1</b></span>')
+    .replace(/^## (.+)$/gm, '<span size="x-large"><b>$1</b></span>')
+    .replace(/^# (.+)$/gm, '<span size="xx-large"><b>$1</b></span>');
+
+  // Unordered lists: - item or * item
+  result = result.replace(/^[-*]\s+(.+)$/gm, "• $1");
+
+  // Preserve line breaks
+  result = result.replace(/\n/g, "\n");
+
+  // Debug the converted output
+  console.log(`Original text: "${text}"`);
+  console.log(`Converted Pango markup: "${result}"`);
+
+  return result;
+}
+
 async function queryOllama(prompt) {
   console.log("Starting queryOllama with prompt:", prompt);
   try {
@@ -306,8 +344,8 @@ const ChatMessages = () => (
           vertical
           className={`message ${msg.sender}-message`}
           spacing={2}
-          halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START} // Align entire box
-          hexpand={false} // Prevent box from expanding beyond content
+          halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
+          hexpand={false}
         >
           <label
             label={`${getSenderName(msg.sender)}`}
@@ -315,12 +353,13 @@ const ChatMessages = () => (
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
           />
           <label
-            label={msg.text}
+            label={markdownToPango(msg.text)} // Convert Markdown to Pango markup
+            use_markup={true} // Enable Pango markup rendering
             className="message-text"
-            wrap={true} // Enable wrapping for long messages
+            wrap={true}
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
-            hexpand={false} // Natural width
-            max_width_chars={40} // Suggest a wrapping point (adjust as needed)
+            hexpand={false}
+            max_width_chars={40}
           />
           <label
             label={`${msg.timestamp}`}
