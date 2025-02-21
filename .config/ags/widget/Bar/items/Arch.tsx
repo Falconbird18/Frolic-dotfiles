@@ -1,5 +1,4 @@
 import { App, Gtk, Widget } from "astal/gtk3";
-import BarButton from "../BarButton";
 import { toggleWindow } from "../../../lib/utils";
 import icons from "../../../lib/icons";
 
@@ -19,7 +18,7 @@ export default () => (
         }
       }}
     >
-      <icon icon={icons.arch} Size={20} />
+      <icon icon={icons.arch} className="icon" />
     </button>
     <box />
   </box>

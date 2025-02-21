@@ -134,9 +134,15 @@
 }
 
 icon {
-  box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #2c2621, 1.5px -1.5px 0 #2c2621, -1.5px 1.5px 0 #2c2621, 1.5px 1.5px 0 #2c2621;
   color: #f5decc;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #2c2621, 1.5px -1.5px 0px #2c2621, -1.5px 1.5px 0px #2c2621, 1.5px 1.5px 0px #2c2621;
+}
+
+.icon {
+  text-shadow: -1.5px -1.5px 0 #2c2621, 1.5px -1.5px 0 #2c2621, -1.5px 1.5px 0 #2c2621, 1.5px 1.5px 0 #2c2621;
+  color: #f5decc;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #2c2621, 1.5px -1.5px 0px #2c2621, -1.5px 1.5px 0px #2c2621, 1.5px 1.5px 0px #2c2621;
 }
 
 slider {

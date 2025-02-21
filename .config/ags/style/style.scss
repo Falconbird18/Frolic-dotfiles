@@ -265,13 +265,31 @@
 }
 
 icon {
-    box-shadow: none;
     text-shadow:
         -1.5px -1.5px 0 $background,
         1.5px -1.5px 0 $background,
         -1.5px 1.5px 0 $background,
         1.5px 1.5px 0 $background;
     color: $text;
+    -gtk-icon-shadow:
+        -1.5px -1.5px 0px $background,
+        1.5px -1.5px 0px $background,
+        -1.5px 1.5px 0px $background,
+        1.5px 1.5px 0px $background;
+}
+
+.icon {
+    text-shadow:
+        -1.5px -1.5px 0 $background,
+        1.5px -1.5px 0 $background,
+        -1.5px 1.5px 0 $background,
+        1.5px 1.5px 0 $background;
+    color: #FF0000;
+    -gtk-icon-shadow:
+        -1.5px -1.5px 0px $background,
+        1.5px -1.5px 0px $background,
+        -1.5px 1.5px 0px $background,
+        1.5px 1.5px 0px $background;
 }
 
 slider {

@@ -92,38 +92,38 @@
 
 /*Common*/
 .h1 {
-  color: #562f10;
   font-family: "Monaspace Radon";
-  font-size: 24px;
   font-weight: normal;
+  font-size: 24px;
+  color: #562f10;
 }
 
 .h2 {
-  color: #562f10;
   font-family: "Monaspace Radon";
-  font-size: 18px;
   font-weight: normal;
+  font-size: 18px;
+  color: #562f10;
 }
 
 .h3 {
-  color: #562f10;
   font-family: "Monaspace Xenon";
-  font-size: 16px;
   font-weight: bold;
+  font-size: 16px;
+  color: #562f10;
 }
 
 .paragraph {
-  color: #562f10;
   font-family: "Monaspace Xenon";
-  font-size: 14px;
   font-weight: 300;
+  font-size: 14px;
+  color: #562f10;
 }
 
 .subtext {
-  color: #766251;
   font-family: "Monaspace Xenon";
-  font-size: 11px;
   font-weight: 100;
+  font-size: 11px;
+  color: #766251;
 }
 
 * {
@@ -134,9 +134,15 @@
 }
 
 icon {
-  box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #f0edea, 1.5px -1.5px 0 #f0edea, -1.5px 1.5px 0 #f0edea, 1.5px 1.5px 0 #f0edea;
   color: #562f10;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #f0edea, 1.5px -1.5px 0px #f0edea, -1.5px 1.5px 0px #f0edea, 1.5px 1.5px 0px #f0edea;
+}
+
+.icon {
+  text-shadow: -1.5px -1.5px 0 #f0edea, 1.5px -1.5px 0 #f0edea, -1.5px 1.5px 0 #f0edea, 1.5px 1.5px 0 #f0edea;
+  color: #FF0000;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #f0edea, 1.5px -1.5px 0px #f0edea, -1.5px 1.5px 0px #f0edea, 1.5px 1.5px 0px #f0edea;
 }
 
 slider {
@@ -221,6 +227,89 @@ switch:checked slider {
 }
 
 /*Components*/
+.primary-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+}
+.primary-button:hover {
+  background-color: #f2f2f2;
+}
+.primary-button:active {
+  background-color: #de6e12;
+}
+
+.primary-circular-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+}
+
+.primary-button-circular {
+  background: #dad3cd;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  border-radius: 100%;
+  padding: 0;
+  min-height: 42px;
+  min-width: 42px;
+}
+.primary-button-circular.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  border-radius: 100%;
+  padding: 0;
+  min-height: 42px;
+  min-width: 42px;
+}
+
 .material-button {
   border-radius: 30px;
   padding: 3px 15px;
@@ -444,6 +533,10 @@ switch:checked slider {
   min-height: 800px;
 }
 
+.control-center-label-container {
+  min-width: 120px;
+}
+
 .control-center__settings-container {
   background-color: #f2f2f2;
   box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
@@ -452,6 +545,17 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 2px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.control-center__wide-settings-container {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  min-width: 450px;
 }
 
 .control-center__page {
@@ -1302,6 +1406,9 @@ switch:checked slider {
 .popup-menu.theme-settings {
   min-width: 400px;
 }
+.popup-menu.clipboard {
+  min-width: 400px;
+}
 
 .profiles {
   min-height: 270px;
@@ -1589,6 +1696,7 @@ switch:checked slider {
   margin-bottom: 2px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
+  background: #f0edea;
 }
 
 .temperature {
@@ -1648,6 +1756,10 @@ switch:checked slider {
   color: #562f10;
 }
 
+.sidebar-prompt-container {
+  min-width: 300px;
+}
+
 .sidebar-prompt-example {
   background-color: #f2f2f2;
   box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
@@ -1658,20 +1770,6 @@ switch:checked slider {
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 10px;
   margin-bottom: 20px;
-}
-
-.label-paragraph {
-  font-size: 14px;
-  font-weight: 300;
-  font-family: "Monaspace Xenon";
-  color: #562f10;
-}
-
-.label-subtext {
-  font-size: 11px;
-  font-weight: 100;
-  font-family: "Monaspace Xenon";
-  color: #766251;
 }
 
 .gemini-header-container {
@@ -1690,6 +1788,146 @@ switch:checked slider {
   font-family: "Monaspace Radon";
   font-weight: normal;
   margin-bottom: 350px;
+}
+
+.user-message {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  font-size: 14px;
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+}
+
+.ollama-message {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  background-color: #dad3cd;
+  font-size: 14px;
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+}
+
+.model-buttons {
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  margin: 0;
+}
+
+.model-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  border-radius: 30px;
+  margin: 0;
+}
+.model-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.model-button:active {
+  background: #de6e12;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
+}
+.model-button.active {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  border-radius: 30px;
+  margin: 0;
+}
+.model-button.active:hover {
+  background-color: #f2f2f2;
+}
+.model-button.active:active {
+  background-color: #de6e12;
+}
+
+.message-sender {
+  font-family: "Monaspace Xenon";
+  font-weight: bold;
+  font-size: 16px;
+  color: #562f10;
+}
+
+.chat-container {
+  min-height: 200px;
+}
+
+.message-text {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #562f10;
+}
+
+.message-time {
+  font-family: "Monaspace Xenon";
+  font-weight: 100;
+  font-size: 11px;
+  color: #766251;
+}
+
+.message-input {
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  border: 2px solid #de6e12;
+  padding: 5px;
+  color: #562f10;
+  font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #562f10;
+  min-width: 0; /* Allows proper shrinking if needed */
+  min-height: 32px; /* Minimum height */
+  padding: 8px; /* Comfortable padding */
+  transition: height 0.2s ease; /* Smooth height expansion */
+}
+
+.message-input.expanded {
+  /* No need to set explicit height here as it will grow naturally */
+}
+
+.message-input textview {
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

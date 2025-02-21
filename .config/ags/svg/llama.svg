@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-
-<svg
-   fill="#000000"
-   width="64"
-   height="64"
-   viewBox="0 0 64 64"
-   id="Camada_1"
-   version="1.1"
-   xml:space="preserve"
-   sodipodi:docname="llama.svg"
-   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
-     id="defs1" /><sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="9.6769714"
-     inkscape:cx="15.397379"
-     inkscape:cy="36.891708"
-     inkscape:window-width="1910"
-     inkscape:window-height="996"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="Camada_1" /><path
-     d="m 6.83274,38.718861 c 0,-10.476868 5.238434,-21.409252 11.387901,-21.409252 3.41637,0 6.149466,2.049822 10.476868,8.199288 -4.099644,6.377224 -6.604982,10.24911 -6.604982,10.24911 C 16.626335,44.412811 14.80427,46.234875 11.843416,46.234875 8.882562,46.462633 6.83274,43.729537 6.83274,38.718861 m 35.758007,-3.871886 -3.871886,-6.377224 c -0.911032,-1.594307 -2.049822,-3.188612 -2.960854,-4.55516 3.41637,-5.238434 6.149466,-7.971531 9.565836,-7.971531 6.832741,0 12.298933,10.249111 12.298933,23.003558 0,4.782919 -1.594306,7.516014 -4.782918,7.516014 -3.188612,0 -4.327402,-2.049822 -10.249111,-11.615657 M 32.797153,19.359431 C 27.786477,12.754449 23.459075,10.249111 18.448399,10.249111 7.97153,10.249111 0,24.142349 0,38.718861 c 0,9.11032 4.327402,14.804271 11.615658,14.804271 5.238435,0 8.882563,-2.505338 15.715303,-14.348755 0,0 2.733096,-5.010676 4.782918,-8.427046 0.683274,1.13879 1.366548,2.27758 2.049822,3.644128 l 3.188612,5.466192 C 43.501779,50.334519 46.918149,53.750889 53.067616,53.750889 60.128114,53.750889 64,47.82918 64,38.491102 63.772242,23.003558 55.572954,10.24911 45.779359,10.24911 c -5.238434,0 -9.338078,4.099644 -12.982206,9.11032"
-     id="path1"
-     style="stroke-width:2.27758" /></svg>
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" fill="#000000" width="24" height="24" viewBox="0 0 24 24" id="Camada_1" version="1.1" xml:space="preserve" sodipodi:docname="llama.svg" inkscape:version="1.4 (e7c3feb100, 2024-10-09)">
+  <defs id="defs1"/>
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:zoom="20.768296" inkscape:cx="21.450965" inkscape:cy="17.478564" inkscape:window-width="1906" inkscape:window-height="986" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="Camada_1"/>
+  <path d="m 2.5622775,14.519572 c 0,-3.928824 1.9644128,-8.0284685 4.2704629,-8.0284685 1.2811387,0 2.3060498,0.7686829 3.9288256,3.0747334 C 9.2241993,11.957295 8.2846976,13.409252 8.2846976,13.409252 6.2348757,16.654804 5.5516012,17.338078 4.441281,17.338078 3.3309607,17.423485 2.5622775,16.398575 2.5622775,14.519572 M 15.97153,13.067616 14.519573,10.676157 c -0.341638,-0.597865 -0.768683,-1.1957303 -1.11032,-1.7081862 1.281138,-1.9644124 2.306049,-2.9893233 3.587188,-2.9893233 2.562279,0 4.612101,3.8434164 4.612101,8.6263345 0,1.793593 -0.597865,2.818505 -1.793596,2.818505 -1.195728,0 -1.622775,-0.768683 -3.843416,-4.355871 M 12.298933,7.2597864 C 10.41993,4.7829182 8.7971531,3.8434158 6.9181497,3.8434158 2.9893238,3.8434158 0,9.0533805 0,14.519572 c 0,3.416371 1.6227758,5.551602 4.3558718,5.551602 1.9644131,0 3.3309611,-0.939502 5.8932382,-5.380782 0,0 1.024912,-1.879004 1.793595,-3.160143 0.256228,0.427046 0.512455,0.854092 0.768683,1.366548 l 1.195729,2.049822 c 2.30605,3.928825 3.587189,5.209965 5.893238,5.209965 C 22.548043,20.156584 24,17.935943 24,14.434163 23.91459,8.6263341 20.839857,3.8434158 17.16726,3.8434158 c -1.964414,0 -3.501779,1.537367 -4.868327,3.4163697" id="path1" style="stroke-width:0.854092" fill="currentColor"/>
+</svg>
