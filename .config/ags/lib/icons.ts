@@ -14,6 +14,9 @@ const Verdant = `${GLib.get_home_dir()}/.config/ags/svg/verdant.svg`;
 const Zephyr = `${GLib.get_home_dir()}/.config/ags/svg/zephyr.svg`;
 const Frolic = `${GLib.get_home_dir()}/.config/ags/svg/frolic.svg`;
 const Glaciara = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
+const Llama = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
+const Gemma = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
+const Phi3 = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
 export const substitutions: substitutions = {
   icons: {
     "transmission-gtk": "transmission",
@@ -66,6 +69,11 @@ export default {
     summer: Zephyr,
     fall: Frolic,
     winter: Glaciara,
+  },
+  models: {
+    llama: Llama,
+    gemma: Gemma,
+    phi3: Phi3,
   },
   powerprofile: {
     0: "power-profile-balanced",

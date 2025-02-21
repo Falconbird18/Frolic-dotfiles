@@ -1814,8 +1814,7 @@ switch:checked slider {
 .model-button {
   font-size: 18px;
   font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
+  min-width: 42px;
   min-height: 42px;
   background: #433D42;
   color: #F5CCED;
@@ -1826,13 +1825,12 @@ switch:checked slider {
   margin-left: 5px;
   border: none;
   background-size: 8px 8px;
-  border-radius: 8px;
+  border-radius: 100%;
 }
 .model-button.active {
   font-size: 18px;
   font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
+  min-width: 42px;
   min-height: 42px;
   background: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
   color: #F5CCED;
@@ -1843,7 +1841,7 @@ switch:checked slider {
   margin-left: 5px;
   border: none;
   background-size: 8px 8px;
-  border-radius: 8px;
+  border-radius: 100%;
   text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
 

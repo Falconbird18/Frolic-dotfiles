@@ -1703,9 +1703,9 @@ switch:checked slider {
 }
 
 .model-button{
-    @include secondary-button;
+    @include secondary-circular-button;
 
     &.active{
-        @include primary-button;
+        @include primary-circular-button;
     }
 }

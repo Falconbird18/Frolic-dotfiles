@@ -25,6 +25,12 @@ const models = [
   // Add more models as needed
 ];
 
+const modelIcons = {
+  "llama3.2": icons.models.llama || "dialog-information-symbolic", // Fallback icon if not in icons
+  "gemma2:2b": icons.models.gemma || "dialog-question-symbolic",
+  phi3: icons.models.phi3 || "dialog-warning-symbolic",
+};
+
 // Variable to track the selected model
 const selectedModel = Variable(models[0]);
 
@@ -33,10 +39,15 @@ const ModelButtons = () => (
   <box horizontal spacing={spacing} className="model-buttons">
     {models.map((model) => (
       <button
-        label={model}
         className={`model-button ${bind(selectedModel).as((m) => (m === model ? "active" : ""))}`}
         onClicked={() => selectedModel.set(model)}
-      />
+        tooltip_text={model} // Add tooltip to show model name on hover
+      >
+        <Widget.Icon
+          icon={modelIcons[model]} // Use the mapped icon
+          size={24} // Adjust size as needed
+        />
+      </button>
     ))}
   </box>
 );

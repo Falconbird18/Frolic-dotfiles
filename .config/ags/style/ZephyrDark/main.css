@@ -240,7 +240,42 @@ switch:checked slider {
   text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
 }
 
+.primary-circular-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+}
+
 .primary-button-circular {
+  background: #477043;
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
+  border-radius: 100%;
+  padding: 0;
+  min-height: 42px;
+  min-width: 42px;
+}
+.primary-button-circular.active {
   font-size: 18px;
   font-weight: normal;
   padding-left: 16px;
@@ -486,6 +521,10 @@ switch:checked slider {
   min-height: 800px;
 }
 
+.control-center-label-container {
+  min-width: 120px;
+}
+
 .control-center__settings-container {
   background-color: #3d433d;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
@@ -494,6 +533,17 @@ switch:checked slider {
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.control-center__wide-settings-container {
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  min-width: 450px;
 }
 
 .control-center__page {
@@ -1732,6 +1782,69 @@ switch:checked slider {
   font-family: "Open sans";
   font-weight: normal;
   margin-bottom: 350px;
+}
+
+.user-message {
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  font-size: 14px;
+  font-family: "Open sans";
+  font-weight: 300;
+}
+
+.ollama-message {
+  background-color: #3d433d;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #477043;
+  font-size: 14px;
+  font-family: "Open sans";
+  font-weight: 300;
+}
+
+.model-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #3d433d;
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+}
+.model-button.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #f5decc;
+  box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: 2px 2px 0 #3d433d, 2px -2px 0 #3d433d, -2px 2px 0 #3d433d, -2px -2px 0 #3d433d, 2px 0px 0 #3d433d, 0px 2px 0 #3d433d, -2px 0px 0 #3d433d, 0px -2px 0 #3d433d;
 }
 
 /*# sourceMappingURL=main.css.map */
