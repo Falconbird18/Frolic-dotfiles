@@ -92,38 +92,38 @@
 
 /*Common*/
 .h1 {
-  color: #f5decc;
   font-family: "Monaspace Radon";
-  font-size: 24px;
   font-weight: normal;
+  font-size: 24px;
+  color: #f5decc;
 }
 
 .h2 {
-  color: #f5decc;
   font-family: "Monaspace Radon";
-  font-size: 18px;
   font-weight: normal;
+  font-size: 18px;
+  color: #f5decc;
 }
 
 .h3 {
-  color: #f5decc;
   font-family: "Monaspace Xenon";
-  font-size: 16px;
   font-weight: bold;
+  font-size: 16px;
+  color: #f5decc;
 }
 
 .paragraph {
-  color: #f5decc;
   font-family: "Monaspace Xenon";
-  font-size: 14px;
   font-weight: 300;
+  font-size: 14px;
+  color: #f5decc;
 }
 
 .subtext {
-  color: #bfaea1;
   font-family: "Monaspace Xenon";
-  font-size: 11px;
   font-weight: 100;
+  font-size: 11px;
+  color: #bfaea1;
 }
 
 * {
@@ -238,6 +238,12 @@ switch:checked slider {
   background-size: 8px 8px;
   border-radius: 30px;
   text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+}
+.primary-button:hover {
+  background-color: #202020;
+}
+.primary-button:active {
+  background-color: #e06f12;
 }
 
 .primary-circular-button {
@@ -1394,6 +1400,9 @@ switch:checked slider {
 .popup-menu.theme-settings {
   min-width: 400px;
 }
+.popup-menu.clipboard {
+  min-width: 400px;
+}
 
 .profiles {
   min-height: 270px;
@@ -1681,6 +1690,7 @@ switch:checked slider {
   margin-bottom: 2px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
+  background: #2c2621;
 }
 
 .temperature {
@@ -1740,6 +1750,10 @@ switch:checked slider {
   color: #f5decc;
 }
 
+.sidebar-prompt-container {
+  min-width: 300px;
+}
+
 .sidebar-prompt-example {
   background-color: #202020;
   box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
@@ -1750,20 +1764,6 @@ switch:checked slider {
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 10px;
   margin-bottom: 20px;
-}
-
-.label-paragraph {
-  font-size: 14px;
-  font-weight: 300;
-  font-family: "Monaspace Xenon";
-  color: #f5decc;
-}
-
-.label-subtext {
-  font-size: 11px;
-  font-weight: 100;
-  font-family: "Monaspace Xenon";
-  color: #bfaea1;
 }
 
 .gemini-header-container {
@@ -1811,11 +1811,16 @@ switch:checked slider {
   font-weight: 300;
 }
 
+.model-buttons {
+  background-color: #202020;
+  border-radius: 30px;
+  margin: 0;
+}
+
 .model-button {
   font-size: 18px;
   font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
+  min-width: 42px;
   min-height: 42px;
   background: #202020;
   color: #f5decc;
@@ -1826,13 +1831,25 @@ switch:checked slider {
   margin-left: 2px;
   border: 2px solid #e06f12;
   background-size: 8px 8px;
+  border-radius: 100%;
   border-radius: 30px;
+  margin: 0;
+}
+.model-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
+  text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.model-button:active {
+  background: #e06f12;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 .model-button.active {
   font-size: 18px;
   font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
+  min-width: 42px;
   min-height: 42px;
   background: linear-gradient(45deg, #e06f12 25%, #202020 25%, #202020 50%, #e06f12 50%, #e06f12 75%, #202020 75%, #202020);
   color: #f5decc;
@@ -1843,8 +1860,68 @@ switch:checked slider {
   margin-left: 2px;
   border: 2px solid #e06f12;
   background-size: 8px 8px;
-  border-radius: 30px;
+  border-radius: 100%;
   text-shadow: 2px 2px 0 #202020, 2px -2px 0 #202020, -2px 2px 0 #202020, -2px -2px 0 #202020, 2px 0px 0 #202020, 0px 2px 0 #202020, -2px 0px 0 #202020, 0px -2px 0 #202020;
+  border-radius: 30px;
+  margin: 0;
+}
+.model-button.active:hover {
+  background-color: #202020;
+}
+.model-button.active:active {
+  background-color: #e06f12;
+}
+
+.message-sender {
+  font-family: "Monaspace Xenon";
+  font-weight: bold;
+  font-size: 16px;
+  color: #f5decc;
+}
+
+.chat-container {
+  min-height: 200px;
+}
+
+.message-text {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #f5decc;
+}
+
+.message-time {
+  font-family: "Monaspace Xenon";
+  font-weight: 100;
+  font-size: 11px;
+  color: #bfaea1;
+}
+
+.message-input {
+  background-color: #202020;
+  border-radius: 30px;
+  border: 2px solid #e06f12;
+  padding: 5px;
+  color: #f5decc;
+  font-family: "Monaspace Xenon";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #f5decc;
+  min-width: 0; /* Allows proper shrinking if needed */
+  min-height: 32px; /* Minimum height */
+  padding: 8px; /* Comfortable padding */
+  transition: height 0.2s ease; /* Smooth height expansion */
+}
+
+.message-input.expanded {
+  /* No need to set explicit height here as it will grow naturally */
+}
+
+.message-input textview {
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

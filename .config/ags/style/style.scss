@@ -238,38 +238,23 @@
 /*Common*/
 
 .h1{
-    color: $text;
-    font-family: $h1_font;
-    font-size: $h1_size;
-    font-weight: $h1_weight;
+    @include h1;
 }
 
 .h2{
-    color: $text;
-    font-family: $h2_font;
-    font-size: $h2_size;
-    font-weight: $h2_weight;
+    @include h2;
 }
 
 .h3{
-    color: $text;
-    font-family: $h3_font;
-    font-size: $h3_size;
-    font-weight: $h3_weight;
+    @include h3;
 }
 
 .paragraph{
-    color: $text;
-    font-family: $paragraph_font;
-    font-size: $paragraph_size;
-    font-weight: $paragraph_weight;
+    @include paragraph;
 }
 
 .subtext{
-    color: $subtext;
-    font-family: $subtext_font;
-    font-size: $subtext_size;
-    font-weight: $subtext_weight;
+    @include subtext;
 }
 
 * {
@@ -1703,20 +1688,6 @@ switch:checked slider {
     @include card;
     padding: 10px;
     margin-bottom: 20px;
-}
-
-.label-paragraph {
-    font-size: $paragraph_size;
-    font-weight: $paragraph_weight;
-    font-family: $paragraph_font;
-    color: $text;
-}
-
-.label-subtext {
-    font-size: $subtext_size;
-    font-weight: $subtext_weight;
-    font-family: $subtext_font;
-    color: $subtext;
 }
 
 .gemini-header-container {

@@ -962,8 +962,8 @@ export default () => {
         }}
         >
         <box vertical className="sidebar-prompt-example">
-        <label class="label-paragraph" label="Tell me what" />
-        <label class="label-subtext" label="you can do" />
+        <label className="paragraph" label="Tell me what" />
+        <label className="subtext" label="you can do" />
         </box>
         </button>
         <button
@@ -974,8 +974,8 @@ export default () => {
         }}
         >
         <box vertical className="sidebar-prompt-example">
-        <label class="label-paragraph" label="Give me" />
-        <label class="label-subtext" label="study tips" />
+        <label className="paragraph" label="Give me" />
+        <label className="subtext" label="study tips" />
         </box>
         </button>
         <button
@@ -986,8 +986,8 @@ export default () => {
         }}
         >
         <box vertical className="sidebar-prompt-example">
-        <label class="label-paragraph" label="Save me" />
-        <label class="label-subtext" label="time" />
+        <label className="paragraph" label="Save me" />
+        <label className="subtext" label="time" />
         </box>
         </button>
         <button
@@ -998,8 +998,8 @@ export default () => {
         }}
         >
         <box vertical className="sidebar-prompt-example">
-        <label class="label-paragraph" label="Inspire" />
-        <label class="label-subtext" label="me" />
+        <label className="paragraph" label="Inspire" />
+        <label className="subtext" label="me" />
         </box>
         </button>
         </box>
