@@ -53,33 +53,141 @@ const ModelButtons = () => (
 );
 
 async function queryOllama(prompt) {
+  console.log("Starting queryOllama with prompt:", prompt);
   try {
-    const response = await exec([
-      "curl",
-      "-X",
-      "POST",
-      "http://localhost:11434/api/generate",
-      "-d",
-      JSON.stringify({
-        model: selectedModel.get(), // Use selected model
-        prompt: prompt,
-        stream: false,
-      }),
-    ]);
-
-    const result = JSON.parse(response);
     const timestamp = new Date().toLocaleTimeString();
-
+    console.log("Adding user message to chatHistory");
     chatHistory.set([
       ...chatHistory.get(),
       { sender: "user", text: prompt, timestamp },
-      {
-        sender: "ollama",
-        text: result.response || "No response received",
-        timestamp,
-      },
     ]);
-    // Hide greeting after first prompt
+
+    console.log("Launching curl subprocess");
+    const subprocess = new Gio.Subprocess({
+      argv: [
+        "curl",
+        "--silent",
+        "--no-buffer",
+        "-N",
+        "-X",
+        "POST",
+        "http://localhost:11434/api/generate",
+        "-d",
+        JSON.stringify({
+          model: selectedModel.get(),
+          prompt: prompt,
+          stream: true,
+        }),
+      ],
+      flags: Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_MERGE,
+    });
+
+    subprocess.init(null);
+    console.log("Subprocess initialized");
+
+    const stdout = new Gio.DataInputStream({
+      base_stream: subprocess.get_stdout_pipe(),
+    });
+
+    let ollamaResponse = "";
+    const ollamaTimestamp = new Date().toLocaleTimeString();
+
+    // Asynchronous stream reading
+    const readStream = () => {
+      return new Promise((resolve) => {
+        const readNextLine = () => {
+          stdout.read_line_async(
+            GLib.PRIORITY_DEFAULT,
+            null,
+            (source, result) => {
+              const [line, length] = stdout.read_line_finish_utf8(result);
+              if (line === null) {
+                console.log("Stream ended");
+                if (ollamaResponse) {
+                  console.log("Final response:", ollamaResponse);
+                  chatHistory.set([
+                    ...chatHistory
+                      .get()
+                      .filter(
+                        (msg) =>
+                          msg.sender !== "ollama" ||
+                          msg.timestamp !== ollamaTimestamp,
+                      ),
+                    {
+                      sender: "ollama",
+                      text: ollamaResponse,
+                      timestamp: ollamaTimestamp,
+                    },
+                  ]);
+                }
+                resolve();
+                return;
+              }
+
+              console.log("Raw line from stream:", line);
+              if (!line.trim() || !line.startsWith("{")) {
+                console.log("Skipping non-JSON line:", line);
+                readNextLine(); // Continue reading
+                return;
+              }
+
+              try {
+                const parsed = JSON.parse(line);
+                if (parsed.response) {
+                  ollamaResponse += parsed.response;
+                  console.log("Partial response:", ollamaResponse);
+                  chatHistory.set([
+                    ...chatHistory
+                      .get()
+                      .filter(
+                        (msg) =>
+                          msg.sender !== "ollama" ||
+                          msg.timestamp !== ollamaTimestamp,
+                      ),
+                    {
+                      sender: "ollama",
+                      text: ollamaResponse,
+                      timestamp: ollamaTimestamp,
+                    },
+                  ]);
+                }
+              } catch (e) {
+                console.error(
+                  "Error parsing stream line:",
+                  e.message,
+                  "Line:",
+                  line,
+                );
+              }
+
+              readNextLine(); // Continue reading the next line
+            },
+          );
+        };
+
+        console.log("Starting to read stream");
+        readNextLine();
+      });
+    };
+
+    const waitForSubprocess = () =>
+      new Promise((resolve, reject) => {
+        subprocess.wait_async(null, (proc, result) => {
+          try {
+            subprocess.wait_finish(result);
+            console.log("Subprocess completed");
+            resolve();
+          } catch (e) {
+            reject(e);
+          }
+        });
+      });
+
+    console.log("Starting stream reading and waiting for subprocess");
+    const readPromise = readStream();
+    await waitForSubprocess();
+    await readPromise;
+
     if (showGreeting.get()) {
       showGreeting.set(false);
     }
@@ -93,6 +201,7 @@ async function queryOllama(prompt) {
     if (showGreeting.get()) {
       showGreeting.set(false);
     }
+    console.error("Streaming error:", error);
   }
 }
 
@@ -210,12 +319,13 @@ export default () => {
           keyEvent &&
           keyCode === 65 &&
           !entryFocused &&
-          !Entry.has_focus()
+          !Entry.has_focus // Changed from has_focus() to has_focus
         ) {
           Entry.grab_focus();
           entryFocused = true;
           return true;
-        } else if (Entry.has_focus()) {
+        } else if (Entry.has_focus) {
+          // Changed from has_focus() to has_focus
           return false;
         }
         return false;
