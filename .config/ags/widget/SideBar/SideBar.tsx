@@ -236,8 +236,8 @@ function submitPrompt() {
 const Entry = new Widget.Entry({
   placeholder_text: "Ask Ollama",
   canFocus: true,
-  className: "location_input",
-  primary_icon_name: "system-search-symbolic",
+  className: "message-input",
+  hexpand: true, // Makes it take available horizontal space
   on_activate: () => submitPrompt(), // Enter key submits
   on_key_press_event: (self, event) => {
     return false; // Let entry handle all key events
@@ -245,12 +245,25 @@ const Entry = new Widget.Entry({
   on_changed: (self) => {
     const text = self.get_text();
     if (text.length > 0) {
-      self.className = "location_input expanded";
+      self.className = "message-input expanded";
     } else {
-      self.className = "location_input";
+      self.className = "message-input";
     }
   },
+  // New properties for wrapping and scrolling
+  wrap_mode: Gtk.WrapMode.WORD_CHAR, // Wrap at word boundaries or characters
+  max_height: 100, // Maximum height in pixels (adjust as needed)
+  vscrollbar_policy: Gtk.PolicyType.AUTOMATIC, // Show scrollbar when needed
+  max_length: 0, // Remove any character limit (0 means unlimited)
 });
+
+// Also update the containing box to ensure proper layout
+const InputBox = () => (
+  <box horizontal spacing={spacing} halign={Gtk.Align.FILL}>
+    {Entry}
+    {SubmitButton}
+  </box>
+);
 
 const SubmitButton = new Widget.Button({
   className: "primary-circular-button",
@@ -403,16 +416,7 @@ export default () => {
               <label class="label-subtext" label="me" />
             </box>
           </box>
-          <box horizontal spacing={spacing}>
-            <scrollable
-              vscroll={Gtk.PolicyType.AUTOMATIC}
-              hscroll={Gtk.PolicyType.NEVER}
-              className="entry-container"
-            >
-              {Entry}
-            </scrollable>
-            {SubmitButton}
-          </box>
+          <InputBox />
         </box>
       </box>
     </PopupWindow>

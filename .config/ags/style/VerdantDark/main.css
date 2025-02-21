@@ -1681,6 +1681,7 @@ switch:checked slider {
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
+  background: #50494F;
 }
 
 .temperature {
@@ -1864,6 +1865,33 @@ switch:checked slider {
   font-weight: 100;
   font-size: 11px;
   color: #BFA1B9;
+}
+
+.message-input {
+  background-color: #433D42;
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  color: #F5CCED;
+  font-family: "Open sans";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #F5CCED;
+  min-width: 0; /* Allows proper shrinking if needed */
+  min-height: 32px; /* Minimum height */
+  padding: 8px; /* Comfortable padding */
+  transition: height 0.2s ease; /* Smooth height expansion */
+}
+
+.message-input.expanded {
+  /* No need to set explicit height here as it will grow naturally */
+}
+
+.message-input textview {
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

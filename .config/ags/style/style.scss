@@ -1634,6 +1634,7 @@ switch:checked slider {
 .weather-window {
     @include card;
     padding: 20px;
+    background: $background;
 }
 
 .temperature {
@@ -1756,3 +1757,21 @@ switch:checked slider {
 .message-time{
     @include subtext;
 }
+
+.message-input{
+    @include textbox;
+        min-width: 0; /* Allows proper shrinking if needed */
+        min-height: 32px; /* Minimum height */
+        padding: 8px; /* Comfortable padding */
+        transition: height 0.2s ease; /* Smooth height expansion */
+}
+
+    .message-input.expanded {
+        /* No need to set explicit height here as it will grow naturally */
+    }
+
+    .message-input textview {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
