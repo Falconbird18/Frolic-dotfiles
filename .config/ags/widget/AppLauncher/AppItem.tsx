@@ -1,4 +1,4 @@
-import { App, Gtk, Widget } from "astal/gtk3";
+import { App, Gtk, Widget } from "astal/gtk3"; // Add Utils for clipboard
 import AstalApps from "gi://AstalApps?version=0.1";
 
 export default (app: AstalApps.Application) => {
@@ -59,7 +59,21 @@ export const MathResultItem = (expression: string, result: string) => {
   });
 
   const icon = new Widget.Icon({
-    icon: "accessories-calculator-symbolic", // A calculator icon (ensure this exists in your icon theme)
+    icon: "accessories-calculator-symbolic",
+  });
+
+  const copyButton = new Widget.Button({
+    className: "copy-button",
+    label: "Copy",
+    on_clicked: () => {
+      Utils.writeClipboard(result); // Copy the result to clipboard
+      console.log(`Copied "${result}" to clipboard`);
+    },
+  });
+
+  const contentBox = new Widget.Box({
+    spacing: 8,
+    children: [icon, title, copyButton],
   });
 
   const MathItem = new Widget.Button({
@@ -68,12 +82,7 @@ export const MathResultItem = (expression: string, result: string) => {
       App.toggle_window("app-launcher"); // Close the launcher
     },
     setup: (self) => {
-      self.add(
-        new Widget.Box({
-          spacing: 8,
-          children: [icon, title],
-        }),
-      );
+      self.add(contentBox);
     },
   });
 

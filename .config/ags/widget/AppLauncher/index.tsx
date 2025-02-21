@@ -9,32 +9,30 @@ const apps = new AstalApps.Apps();
 const query = Variable<string>("");
 
 const isMathExpression = (input: string): boolean => {
-  return /^[\d\s()+\-*/.^]+$/.test(input.trim());
+  // Trigger for $ prefix OR simple math (numbers and basic operators)
+  return (
+    input.startsWith("$") || // $ prefix for advanced math
+    /^[\d\s()+\-*/.^]+$/.test(input.trim()) // Simple math like 1+1, 2*3, etc.
+  );
 };
 
 const calculateWithQalc = (expression: string): string => {
   try {
-    // Log the command being executed
-    console.log(`Executing command: qalc -t "${expression}"`);
+    // Remove the $ prefix if present, otherwise use the expression as-is
+    const cleanExpression = expression.startsWith("$")
+      ? expression.slice(1)
+      : expression;
+    console.log(`Executing command: qalc -t "${cleanExpression}"`);
 
-    // Check if Astal.exec exists and works
-    if (typeof exec !== "function") {
-      console.error("exec is not a function!");
-      return "Astal.exec unavailable";
-    }
-
-    // Execute qalc
-    const result = exec(`qalc -t "${expression}"`);
+    const result = exec(`qalc -t "${cleanExpression}"`);
     console.log(`qalc output: "${result}"`);
 
-    // Check if result is valid
     if (result === undefined || result === null) {
       return "No result from qalc";
     }
 
     return result.trim();
   } catch (error) {
-    // Log the error for debugging
     console.error(`Error in calculateWithQalc: ${error}`);
     return `Error: ${error.message || "Unknown"}`;
   }
@@ -47,6 +45,7 @@ export default () => {
 
     if (trimmedQuery && isMathExpression(trimmedQuery)) {
       const result = calculateWithQalc(trimmedQuery);
+      // Show the original input (with or without $) in the result
       resultItems.push(MathResultItem(trimmedQuery, result));
     }
 
