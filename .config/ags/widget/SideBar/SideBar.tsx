@@ -870,6 +870,7 @@ const ChatMessages = () => (
     )}
   </box>
 );
+
 export default () => {
   return (
     <PopupWindow
@@ -904,10 +905,17 @@ export default () => {
       return false;
     }}
     >
-    <box vertical className="sidebar-window" spacing={spacing}>
+    <box
+    vertical
+    className="sidebar-window"
+    spacing={spacing}
+    css="min-width: 300px;"
+    >
     <box vertical halign={Gtk.Align.FILL} spacing={spacing}>
     {NewConversationButton}
-    <ModelButtons />
+    {bind(showGreeting).as((visible) =>
+      visible ? <ModelButtons /> : <box visible={false} />,
+    )}
     </box>
     {bind(showGreeting).as((visible) =>
       visible ? (
@@ -926,7 +934,7 @@ export default () => {
         </box>
         </box>
       ) : (
-        <box visible={false} /> // Placeholder to avoid null gap
+        <box visible={false} />
       ),
     )}
     <scrollable
@@ -943,24 +951,62 @@ export default () => {
     halign={Gtk.Align.FILL}
     valign={Gtk.Align.END}
     >
-    <box horizontal spacing={spacing}>
-    <box vertical className="sidebar-prompt-example">
-    <label class="label-paragraph" label="Tell me what" />
-    <label class="label-subtext" label="you can do" />
-    </box>
-    <box vertical className="sidebar-prompt-example">
-    <label class="label-paragraph" label="Give me" />
-    <label class="label-subtext" label="study tips" />
-    </box>
-    <box vertical className="sidebar-prompt-example">
-    <label class="label-paragraph" label="Save me" />
-    <label class="label-subtext" label="time" />
-    </box>
-    <box vertical className="sidebar-prompt-example">
-    <label class="label-paragraph" label="Inspire" />
-    <label class="label-subtext" label="me" />
-    </box>
-    </box>
+    {bind(showGreeting).as((visible) =>
+      visible ? (
+        <box horizontal spacing={spacing} className="sidebar-prompt-container">
+        <button
+        className="sidebar-prompt-button"
+        onClicked={() => {
+          Entry.set_text("Tell me what you can do");
+          submitPrompt();
+        }}
+        >
+        <box vertical className="sidebar-prompt-example">
+        <label class="label-paragraph" label="Tell me what" />
+        <label class="label-subtext" label="you can do" />
+        </box>
+        </button>
+        <button
+        className="sidebar-prompt-button"
+        onClicked={() => {
+          Entry.set_text("Give me study tips");
+          submitPrompt();
+        }}
+        >
+        <box vertical className="sidebar-prompt-example">
+        <label class="label-paragraph" label="Give me" />
+        <label class="label-subtext" label="study tips" />
+        </box>
+        </button>
+        <button
+        className="sidebar-prompt-button"
+        onClicked={() => {
+          Entry.set_text("Save me time");
+          submitPrompt();
+        }}
+        >
+        <box vertical className="sidebar-prompt-example">
+        <label class="label-paragraph" label="Save me" />
+        <label class="label-subtext" label="time" />
+        </box>
+        </button>
+        <button
+        className="sidebar-prompt-button"
+        onClicked={() => {
+          Entry.set_text("Inspire me");
+          submitPrompt();
+        }}
+        >
+        <box vertical className="sidebar-prompt-example">
+        <label class="label-paragraph" label="Inspire" />
+        <label class="label-subtext" label="me" />
+        </box>
+        </button>
+        </box>
+      ) : (
+        <box visible={false} />
+      ),
+    )}
     <InputBox />
     </box>
     </box>

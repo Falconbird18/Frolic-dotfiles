@@ -1750,6 +1750,10 @@ switch:checked slider {
   color: #F5CCED;
 }
 
+.sidebar-prompt-container {
+  min-width: 300px;
+}
+
 .sidebar-prompt-example {
   background-color: #433D42;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;

@@ -1695,6 +1695,10 @@ switch:checked slider {
     color: $text;
 }
 
+.sidebar-prompt-container{
+    min-width: 300px;
+}
+
 .sidebar-prompt-example {
     @include card;
     padding: 10px;
