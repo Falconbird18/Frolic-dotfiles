@@ -1,2 +1,38 @@
-<?xml version="1.0" ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" id="Camada_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M5,19.5c0-4.6,2.3-9.4,5-9.4c1.5,0,2.7,0.9,4.6,3.6c-1.8,2.8-2.9,4.5-2.9,4.5c-2.4,3.8-3.2,4.6-4.5,4.6  C5.9,22.9,5,21.7,5,19.5 M20.7,17.8L19,15c-0.4-0.7-0.9-1.4-1.3-2c1.5-2.3,2.7-3.5,4.2-3.5c3,0,5.4,4.5,5.4,10.1  c0,2.1-0.7,3.3-2.1,3.3S23.3,22,20.7,17.8 M16.4,11c-2.2-2.9-4.1-4-6.3-4C5.5,7,2,13.1,2,19.5c0,4,1.9,6.5,5.1,6.5  c2.3,0,3.9-1.1,6.9-6.3c0,0,1.2-2.2,2.1-3.7c0.3,0.5,0.6,1,0.9,1.6l1.4,2.4c2.7,4.6,4.2,6.1,6.9,6.1c3.1,0,4.8-2.6,4.8-6.7  C30,12.6,26.4,7,22.1,7C19.8,7,18,8.8,16.4,11"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   id="Camada_1"
+   version="1.1"
+   xml:space="preserve"
+   sodipodi:docname="llama.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="9.6769714"
+     inkscape:cx="15.397379"
+     inkscape:cy="36.891708"
+     inkscape:window-width="1910"
+     inkscape:window-height="996"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Camada_1" /><path
+     d="m 6.83274,38.718861 c 0,-10.476868 5.238434,-21.409252 11.387901,-21.409252 3.41637,0 6.149466,2.049822 10.476868,8.199288 -4.099644,6.377224 -6.604982,10.24911 -6.604982,10.24911 C 16.626335,44.412811 14.80427,46.234875 11.843416,46.234875 8.882562,46.462633 6.83274,43.729537 6.83274,38.718861 m 35.758007,-3.871886 -3.871886,-6.377224 c -0.911032,-1.594307 -2.049822,-3.188612 -2.960854,-4.55516 3.41637,-5.238434 6.149466,-7.971531 9.565836,-7.971531 6.832741,0 12.298933,10.249111 12.298933,23.003558 0,4.782919 -1.594306,7.516014 -4.782918,7.516014 -3.188612,0 -4.327402,-2.049822 -10.249111,-11.615657 M 32.797153,19.359431 C 27.786477,12.754449 23.459075,10.249111 18.448399,10.249111 7.97153,10.249111 0,24.142349 0,38.718861 c 0,9.11032 4.327402,14.804271 11.615658,14.804271 5.238435,0 8.882563,-2.505338 15.715303,-14.348755 0,0 2.733096,-5.010676 4.782918,-8.427046 0.683274,1.13879 1.366548,2.27758 2.049822,3.644128 l 3.188612,5.466192 C 43.501779,50.334519 46.918149,53.750889 53.067616,53.750889 60.128114,53.750889 64,47.82918 64,38.491102 63.772242,23.003558 55.572954,10.24911 45.779359,10.24911 c -5.238434,0 -9.338078,4.099644 -12.982206,9.11032"
+     id="path1"
+     style="stroke-width:2.27758" /></svg>

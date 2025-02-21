@@ -17,6 +17,7 @@ const Glaciara = `${GLib.get_home_dir()}/.config/ags/svg/glaciara.svg`;
 const Llama = `${GLib.get_home_dir()}/.config/ags/svg/llama.svg`;
 const Gemma = `${GLib.get_home_dir()}/.config/ags/svg/google.svg`;
 const Phi3 = `${GLib.get_home_dir()}/.config/ags/svg/microsoft.svg`;
+const Gemini = `${GLib.get_home_dir()}/.config/ags/svg/gemini.svg`;
 export const substitutions: substitutions = {
   icons: {
     "transmission-gtk": "transmission",
@@ -74,6 +75,7 @@ export default {
     llama: Llama,
     gemma: Gemma,
     phi3: Phi3,
+    gemini: Gemini,
   },
   powerprofile: {
     0: "power-profile-balanced",
