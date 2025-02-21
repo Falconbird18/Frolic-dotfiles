@@ -222,7 +222,7 @@ export default () => {
               onClick={() => setTheme("Verdant", currentMode.get())}
               className="theme-buttons"
             >
-              <icon icon={icons.seasons.spring} />
+              <icon icon={icons.seasons.spring} className="icon"/>
             </button>
             <label label="Verdant" className="label" />
           </box>
