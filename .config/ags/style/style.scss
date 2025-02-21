@@ -41,6 +41,24 @@
     text-shadow: $text-shadow;
 }
 
+@mixin primary-circular-button {
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    min-width: 42px;
+    min-height: 42px;
+    background: $background-image;
+    color: $text;
+    box-shadow: $outset, $border-shadow;
+    font-family: $h2_font;
+    transition: all $transition;
+    margin-right: $outset_margin;
+    margin-left: $outset_margin;
+    border: $primary-border;
+    background-size: $background-size;
+    border-radius: 100%;
+    text-shadow: $text-shadow;
+}
+
 
 @mixin primary-button-inactive {
     background: $background-3;
@@ -82,6 +100,22 @@
     border-radius: $primary-radius;
 }
 
+@mixin secondary-circular-button {
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    min-width: 42px;
+    min-height: 42px;
+    background: $background-2;
+    color: $text;
+    box-shadow: $outset, $border-shadow;
+    font-family: $h2_font;
+    transition: all $transition;
+    margin-right: $outset_margin;
+    margin-left: $outset_margin;
+    border: $secondary-border;
+    background-size: $background-size;
+    border-radius: 100%;
+}
 @mixin secondary-button-hover {
     background-size: $background-size;
     background-image: $background-image;
@@ -320,6 +354,10 @@ switch:checked slider {
 
 .primary-button {
     @include primary-button;
+}
+
+.primary-circular-button {
+    @include primary-circular-button;
 }
 .primary-button-circular {
     @include primary-button-inactive;
@@ -1662,4 +1700,12 @@ switch:checked slider {
     font-size: $paragraph_size;
     font-family: $paragraph_font;
     font-weight: $paragraph_weight;
+}
+
+.model-button{
+    @include secondary-button;
+
+    &.active{
+        @include primary-button;
+    }
 }

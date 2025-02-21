@@ -240,6 +240,24 @@ switch:checked slider {
   text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
 
+.primary-circular-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+}
+
 .primary-button-circular {
   background: #704367;
   color: #F5CCED;
@@ -1791,6 +1809,42 @@ switch:checked slider {
   font-size: 14px;
   font-family: "Open sans";
   font-weight: 300;
+}
+
+.model-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #433D42;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+}
+.model-button.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
 }
 
 /*# sourceMappingURL=main.css.map */
