@@ -56,9 +56,10 @@ async function queryOllama(prompt) {
   console.log("Starting queryOllama with prompt:", prompt);
   try {
     const timestamp = new Date().toLocaleTimeString([], {
-      hour12: true,
+      hour12: false,
       hour: "2-digit",
       minute: "2-digit",
+      second: "2-digit",
     });
     console.log("Adding user message to chatHistory");
     chatHistory.set([
@@ -95,9 +96,10 @@ async function queryOllama(prompt) {
 
     let ollamaResponse = "";
     const ollamaTimestamp = new Date().toLocaleTimeString([], {
-      hour12: true,
+      hour12: false,
       hour: "2-digit",
       minute: "2-digit",
+      second: "2-digit",
     });
 
     // Asynchronous stream reading
@@ -111,23 +113,7 @@ async function queryOllama(prompt) {
               const [line, length] = stdout.read_line_finish_utf8(result);
               if (line === null) {
                 console.log("Stream ended");
-                if (ollamaResponse) {
-                  console.log("Final response:", ollamaResponse);
-                  chatHistory.set([
-                    ...chatHistory
-                      .get()
-                      .filter(
-                        (msg) =>
-                          msg.sender !== "ollama" ||
-                          msg.timestamp !== ollamaTimestamp,
-                      ),
-                    {
-                      sender: "ollama",
-                      text: ollamaResponse,
-                      timestamp: ollamaTimestamp,
-                    },
-                  ]);
-                }
+                // Remove the duplicate addition here
                 resolve();
                 return;
               }
@@ -144,20 +130,33 @@ async function queryOllama(prompt) {
                 if (parsed.response) {
                   ollamaResponse += parsed.response;
                   console.log("Partial response:", ollamaResponse);
-                  chatHistory.set([
-                    ...chatHistory
-                      .get()
-                      .filter(
-                        (msg) =>
-                          msg.sender !== "ollama" ||
-                          msg.timestamp !== ollamaTimestamp,
-                      ),
-                    {
-                      sender: "ollama",
-                      text: ollamaResponse,
-                      timestamp: ollamaTimestamp,
-                    },
-                  ]);
+                  // Update only the latest Ollama message during streaming
+                  const currentHistory = chatHistory.get();
+                  const lastMessage = currentHistory[currentHistory.length - 1];
+                  if (
+                    lastMessage?.sender === "ollama" &&
+                    lastMessage?.timestamp === ollamaTimestamp
+                  ) {
+                    // Update existing message
+                    chatHistory.set([
+                      ...currentHistory.slice(0, -1),
+                      {
+                        sender: "ollama",
+                        text: ollamaResponse,
+                        timestamp: ollamaTimestamp,
+                      },
+                    ]);
+                  } else {
+                    // Add new message
+                    chatHistory.set([
+                      ...currentHistory,
+                      {
+                        sender: "ollama",
+                        text: ollamaResponse,
+                        timestamp: ollamaTimestamp,
+                      },
+                    ]);
+                  }
                 }
               } catch (e) {
                 console.error(
@@ -200,7 +199,12 @@ async function queryOllama(prompt) {
       showGreeting.set(false);
     }
   } catch (error) {
-    const timestamp = new Date().toLocaleTimeString();
+    const timestamp = new Date().toLocaleTimeString([], {
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
     chatHistory.set([
       ...chatHistory.get(),
       { sender: "user", text: prompt, timestamp },
@@ -285,7 +289,13 @@ const ChatMessages = () => (
   <box vertical spacing={spacing} halign={Gtk.Align.FILL} hexpand={true}>
     {bind(chatHistory).as((messages) =>
       messages.map((msg) => (
-        <box vertical className={`message ${msg.sender}-message`} spacing={2}>
+        <box
+          vertical
+          className={`message ${msg.sender}-message`}
+          spacing={2}
+          halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START} // Align entire box
+          hexpand={false} // Prevent box from expanding beyond content
+        >
           <label
             label={`${getSenderName(msg.sender)}`}
             className="message-sender"
@@ -294,8 +304,10 @@ const ChatMessages = () => (
           <label
             label={msg.text}
             className="message-text"
-            wrap={true}
+            wrap={true} // Enable wrapping for long messages
             halign={msg.sender === "user" ? Gtk.Align.END : Gtk.Align.START}
+            hexpand={false} // Natural width
+            max_width_chars={40} // Suggest a wrapping point (adjust as needed)
           />
           <label
             label={`${msg.timestamp}`}
@@ -307,7 +319,6 @@ const ChatMessages = () => (
     )}
   </box>
 );
-
 export default () => {
   return (
     <PopupWindow
