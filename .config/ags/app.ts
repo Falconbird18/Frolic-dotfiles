@@ -1,6 +1,5 @@
 import { App, Gdk, Gtk } from "astal/gtk3";
 import { exec } from "astal";
-import Theme from "./widget/Popups/menus/ThemeSettings";
 const { GLib } = imports.gi;
 // const style = require(`../ags/style/frolic${Theme}/main.scss`);
 import { currentTheme, currentMode } from "./widget/Popups/menus/ThemeSettings";
@@ -11,6 +10,7 @@ import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
 import SideBar from "./widget/SideBar/SideBar";
 import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
+import Keybinds from "./widget/Popups/menus/Keybinds";
 import Clipboard from "./widget/Popups/menus/Clipboard";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
@@ -54,6 +54,7 @@ function main() {
   Weather();
   SideBar();
   ThemeSettings();
+  Keybinds();
   Clipboard();
   ControlCenter();
   Scrim({ scrimType: "opaque", className: "scrim" });

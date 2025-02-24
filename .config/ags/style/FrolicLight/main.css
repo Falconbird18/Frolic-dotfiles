@@ -238,7 +238,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -248,9 +248,11 @@ switch:checked slider {
 }
 .primary-button:hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .primary-button:active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .primary-circular-button {
@@ -262,7 +264,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -298,7 +300,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -453,7 +455,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -592,7 +594,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -602,6 +604,7 @@ switch:checked slider {
 }
 .control-center__page_header_button:hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .control-center__page_item-header {
@@ -718,12 +721,15 @@ switch:checked slider {
 }
 .control-center__button-wide.active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button-wide.active:hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button-wide.active:active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button-wide:hover {
   background-size: 8px 8px;
@@ -783,12 +789,15 @@ switch:checked slider {
 }
 .control-center__button.active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button.active:hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button.active:active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button:hover {
   background-size: 8px 8px;
@@ -964,10 +973,13 @@ switch:checked slider {
 
 .calendar__weekdays {
   color: #562f10;
+  color: red;
+  font-size: 100px;
 }
 
 .calendar__days {
   color: #562f10;
+  font-size: 100px;
 }
 
 .calendar__button {
@@ -984,13 +996,14 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
   background-size: 8px 8px;
   border-radius: 30px;
   text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  font-size: 100px;
   padding: 10px;
   min-height: 0;
 }
@@ -1000,6 +1013,7 @@ switch:checked slider {
   font-family: "Monaspace Xenon";
   font-weight: 300;
   font-size: 14px;
+  font-size: 100px;
 }
 
 .calendar__button__other-month {
@@ -1007,6 +1021,7 @@ switch:checked slider {
   font-family: "Monaspace Xenon";
   font-size: 11px;
   font-weight: 100;
+  font-size: 100px;
 }
 
 .calendar__weekday {
@@ -1170,7 +1185,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1181,6 +1196,7 @@ switch:checked slider {
 
 .notifications-window__clear:hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .notifications-window__list revealer .notification {
@@ -1229,7 +1245,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1330,7 +1346,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1615,9 +1631,11 @@ switch:checked slider {
 }
 .mode-settings__button_left.hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .mode-settings__button_left.active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   background-color: red;
 }
 
@@ -1630,9 +1648,11 @@ switch:checked slider {
 }
 .mode-settings__button_right.hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .mode-settings__button_right.active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   background-color: red;
 }
 
@@ -1862,7 +1882,7 @@ switch:checked slider {
   color: #562f10;
   box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
   font-family: "Monaspace Radon";
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 2px;
   margin-left: 2px;
   border: 2px solid #de6e12;
@@ -1874,9 +1894,11 @@ switch:checked slider {
 }
 .model-button.active:hover {
   background-color: #f2f2f2;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .model-button.active:active {
   background-color: #de6e12;
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .message-sender {

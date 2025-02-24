@@ -8,60 +8,49 @@ import { Gtk } from "astal/gtk3";
 import Button from "../../common/Button";
 
 type PowermenuButtonProps = {
-	action: PowerMenuAction;
-	iconName: string;
+  action: PowerMenuAction;
+  iconName: string;
 } & ButtonProps;
 
 const PowermenuButton = ({ action, iconName }: PowermenuButtonProps) => (
-	<box
-		orientation={Gtk.Orientation.VERTICAL}
-	>
-		<button
-			className={`powermenu__button`}
-			onClicked={() => PowermenuService.action(action)}
-		>
-			<icon 
-				icon={iconName}
-				className={`powermenu__button_icon`}
-					/>
-		</button>
-		<label className="powermenu__label">{action}</label>
-	</box>
-
+  <box orientation={Gtk.Orientation.VERTICAL}>
+    <button
+      className={`powermenu__button`}
+      onClicked={() => PowermenuService.action(action)}
+    >
+      <icon icon={iconName} className={`powermenu__button_icon`} />
+    </button>
+    <label className="powermenu__label">{action}</label>
+  </box>
 );
 
 export default () => {
-	return (
-		<PopupWindow
-			application={App}
-			scrimType="opaque"
-			name="powermenu"
-			namespace="powermenu"
-			onKeyPressEvent={(self, event) => {
-				const [keyEvent, keyCode] = event.get_keycode();
-				if (keyEvent && keyCode == 9) {
-					toggleWindow(self.name);
-				}
-			}}
-		>
-			<box spacing={24} homogeneous className={"powermenu"}>
-				<PowermenuButton
-					action="shutdown"
-					iconName={icons.powermenu.shutdown}
-				/>
-				<PowermenuButton
-					action="reboot"
-					iconName={icons.powermenu.reboot}
-				/>
-				<PowermenuButton
-					action="sleep"
-					iconName={icons.powermenu.sleep}
-				/>
-				<PowermenuButton
-					action="logout"
-					iconName={icons.powermenu.logout}
-				/>
-			</box>
-		</PopupWindow>
-	);
+  return (
+    <PopupWindow
+      application={App}
+      scrimType="opaque"
+      name="powermenu"
+      namespace="powermenu"
+      onKeyPressEvent={(self, event) => {
+        const [keyEvent, keyCode] = event.get_keycode();
+        if (keyEvent && keyCode == 9) {
+          toggleWindow(self.name);
+        }
+      }}
+    >
+      <box vertical className={"powermenu"}>
+        <box horizantal spacing={24}>
+          <PowermenuButton
+            action="shutdown"
+            iconName={icons.powermenu.shutdown}
+          />
+          <PowermenuButton action="reboot" iconName={icons.powermenu.reboot} />
+        </box>
+        <box horizantal spacing={24}>
+          <PowermenuButton action="sleep" iconName={icons.powermenu.sleep} />
+          <PowermenuButton action="logout" iconName={icons.powermenu.logout} />
+        </box>
+      </box>
+    </PopupWindow>
+  );
 };
