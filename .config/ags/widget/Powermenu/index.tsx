@@ -1,55 +1,82 @@
 import PopupWindow from "../../common/PopupWindow";
 import { App } from "astal/gtk3";
-import PowermenuService, { PowerMenuAction } from "../../service/Powermenu";
-import { ButtonProps } from "astal/gtk3/widget";
-import icons from "../../lib/icons";
-import { toggleWindow } from "../../lib/utils";
 import { Gtk } from "astal/gtk3";
+import { spacing } from "../../lib/variables";
+import { exec } from "astal";
+import { toggleWindow } from "../../lib/utils";
+import { selectedAction } from "../ControlCenter/items/ShutDownMenu"; // import shared state
 
-type PowermenuButtonProps = {
-  action: PowerMenuAction;
-  iconName: string;
-} & ButtonProps;
+// Mapping action keys to system commands
+const actionCommands: Record<string, string> = {
+  normal: "reboot",
+  safeMode: "systemctl reboot --firmware-setup",
+  powerOff: "poweroff",
+  restartUI: "systemctl restart display-manager",
+};
 
-const PowermenuButton = ({ action, iconName }: PowermenuButtonProps) => (
-  <box orientation={Gtk.Orientation.VERTICAL}>
-    <button
-      className={`powermenu__button`}
-      onClicked={() => PowermenuService.action(action)}
-    >
-      <icon icon={iconName} className={`powermenu__button_icon`} />
-    </button>
-    <label className="powermenu__label">{action}</label>
-  </box>
-);
+// Mapping action keys to display labels
+const actionLabels: Record<string, string> = {
+  normal: "Reboot",
+  safeMode: "Reboot to Firmware",
+  powerOff: "Shutdown",
+  restartUI: "Restart UI",
+};
 
-export default () => {
+type ConfirmationPopupProps = {
+  // onConfirm will execute the selected command
+  onConfirm?: () => void;
+  // onCancel will simply hide the popup
+  onCancel?: () => void;
+};
+
+const ConfirmationPopup = (
+  { onConfirm, onCancel }: ConfirmationPopupProps = {}
+) => {
+  // Retrieve the currently selected action from shared state
+  const actionKey = selectedAction.value;
+  const labelText = actionKey ? actionLabels[actionKey] : "Confirm";
+
+  const confirmAction = () => {
+    if (actionKey) {
+      exec(actionCommands[actionKey]).catch((error) => {
+        console.error(`Error executing ${actionKey} command:`, error);
+      });
+    }
+    toggleWindow("confirmationPopup");
+    onConfirm && onConfirm();
+  };
+
+  const cancelAction = () => {
+    toggleWindow("confirmationPopup");
+    onCancel && onCancel();
+  };
+
   return (
     <PopupWindow
       application={App}
       scrimType="opaque"
-      name="powermenu"
-      namespace="powermenu"
+      name="confirmationPopup"
+      namespace="confirmation"
       onKeyPressEvent={(self, event) => {
         const [keyEvent, keyCode] = event.get_keycode();
-        if (keyEvent && keyCode == 9) {
-          toggleWindow(self.name);
+        if (keyEvent && keyCode === 9) {
+          // Optional: handle Tab key event for focus management
         }
       }}
     >
-      <box vertical className={"powermenu"}>
-        <box horizantal spacing={24}>
-          <PowermenuButton
-            action="shutdown"
-            iconName={icons.powermenu.shutdown}
-          />
-          <PowermenuButton action="reboot" iconName={icons.powermenu.reboot} />
-        </box>
-        <box horizantal spacing={24}>
-          <PowermenuButton action="sleep" iconName={icons.powermenu.sleep} />
-          <PowermenuButton action="logout" iconName={icons.powermenu.logout} />
+      <box vertical className={"confirmation-popup"} spacing={spacing}>
+        <label label={`Are you sure you want to ${labelText}?`} />
+        <box horizontal spacing={spacing}>
+          <button className="primary-button" onClicked={confirmAction}>
+            <label label={labelText} />
+          </button>
+          <button className="secondary-button" onClicked={cancelAction}>
+            <label label="Cancel" />
+          </button>
         </box>
       </box>
     </PopupWindow>
   );
 };
+
+export default ConfirmationPopup;
