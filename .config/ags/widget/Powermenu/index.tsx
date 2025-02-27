@@ -5,7 +5,6 @@ import { ButtonProps } from "astal/gtk3/widget";
 import icons from "../../lib/icons";
 import { toggleWindow } from "../../lib/utils";
 import { Gtk } from "astal/gtk3";
-import Button from "../../common/Button";
 
 type PowermenuButtonProps = {
   action: PowerMenuAction;

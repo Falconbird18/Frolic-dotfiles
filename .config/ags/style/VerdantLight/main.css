@@ -92,38 +92,38 @@
 
 /*Common*/
 .h1 {
-  color: #561049;
   font-family: "Open sans";
-  font-size: 24px;
   font-weight: normal;
+  font-size: 24px;
+  color: #561049;
 }
 
 .h2 {
-  color: #561049;
   font-family: "Open sans";
-  font-size: 18px;
   font-weight: normal;
+  font-size: 18px;
+  color: #561049;
 }
 
 .h3 {
-  color: #561049;
   font-family: "Open sans";
-  font-size: 16px;
   font-weight: bold;
+  font-size: 16px;
+  color: #561049;
 }
 
 .paragraph {
-  color: #561049;
   font-family: "Open sans";
-  font-size: 14px;
   font-weight: 300;
+  font-size: 14px;
+  color: #561049;
 }
 
 .subtext {
-  color: #76516F;
   font-family: "Open sans";
-  font-size: 11px;
   font-weight: 100;
+  font-size: 11px;
+  color: #76516F;
 }
 
 * {
@@ -131,12 +131,19 @@
   border: none;
   padding: 0;
   margin: 0;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 icon {
-  box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #F4ECF2, 1.5px -1.5px 0 #F4ECF2, -1.5px 1.5px 0 #F4ECF2, 1.5px 1.5px 0 #F4ECF2;
   color: #561049;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #F4ECF2, 1.5px -1.5px 0px #F4ECF2, -1.5px 1.5px 0px #F4ECF2, 1.5px 1.5px 0px #F4ECF2;
+}
+
+.icon {
+  text-shadow: -1.5px -1.5px 0 #F4ECF2, 1.5px -1.5px 0 #F4ECF2, -1.5px 1.5px 0 #F4ECF2, 1.5px 1.5px 0 #F4ECF2;
+  color: #FF0000;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #F4ECF2, 1.5px -1.5px 0px #F4ECF2, -1.5px 1.5px 0px #F4ECF2, 1.5px 1.5px 0px #F4ECF2;
 }
 
 slider {
@@ -221,6 +228,91 @@ switch:checked slider {
 }
 
 /*Components*/
+.primary-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+}
+.primary-button:hover {
+  background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.primary-button:active {
+  background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.primary-circular-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+}
+
+.primary-button-circular {
+  background: #F5F9F8;
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+  border-radius: 100%;
+  padding: 0;
+  min-height: 42px;
+  min-width: 42px;
+}
+.primary-button-circular.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+  border-radius: 100%;
+  padding: 0;
+  min-height: 42px;
+  min-width: 42px;
+}
+
 .material-button {
   border-radius: 8px;
   padding: 3px 15px;
@@ -363,7 +455,7 @@ switch:checked slider {
   color: #561049;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -444,6 +536,10 @@ switch:checked slider {
   min-height: 800px;
 }
 
+.control-center-label-container {
+  min-width: 120px;
+}
+
 .control-center__settings-container {
   background-color: #ECDFEA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
@@ -452,6 +548,17 @@ switch:checked slider {
   border-radius: 4px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.control-center__wide-settings-container {
+  background-color: #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  min-width: 450px;
 }
 
 .control-center__page {
@@ -487,7 +594,7 @@ switch:checked slider {
   color: #561049;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -497,6 +604,7 @@ switch:checked slider {
 }
 .control-center__page_header_button:hover {
   background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__page_item-header {
@@ -613,12 +721,15 @@ switch:checked slider {
 }
 .control-center__button-wide.active {
   background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide.active:hover {
   background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide.active:active {
   background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide:hover {
   background-size: 8px 8px;
@@ -678,12 +789,15 @@ switch:checked slider {
 }
 .control-center__button.active {
   background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button.active:hover {
   background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button.active:active {
   background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button:hover {
   background-size: 8px 8px;
@@ -859,10 +973,13 @@ switch:checked slider {
 
 .calendar__weekdays {
   color: #561049;
+  color: red;
+  font-size: 100px;
 }
 
 .calendar__days {
   color: #561049;
+  font-size: 100px;
 }
 
 .calendar__button {
@@ -879,13 +996,14 @@ switch:checked slider {
   color: #561049;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
   text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+  font-size: 100px;
   padding: 10px;
   min-height: 0;
 }
@@ -895,6 +1013,7 @@ switch:checked slider {
   font-family: "Open sans";
   font-weight: 300;
   font-size: 14px;
+  font-size: 100px;
 }
 
 .calendar__button__other-month {
@@ -902,6 +1021,7 @@ switch:checked slider {
   font-family: "Open sans";
   font-size: 11px;
   font-weight: 100;
+  font-size: 100px;
 }
 
 .calendar__weekday {
@@ -1065,7 +1185,7 @@ switch:checked slider {
   color: #561049;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1076,6 +1196,7 @@ switch:checked slider {
 
 .notifications-window__clear:hover {
   background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .notifications-window__list revealer .notification {
@@ -1124,7 +1245,7 @@ switch:checked slider {
   color: #561049;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1225,7 +1346,7 @@ switch:checked slider {
   color: #561049;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1300,6 +1421,9 @@ switch:checked slider {
   min-width: 500px;
 }
 .popup-menu.theme-settings {
+  min-width: 400px;
+}
+.popup-menu.clipboard {
   min-width: 400px;
 }
 
@@ -1507,9 +1631,11 @@ switch:checked slider {
 }
 .mode-settings__button_left.hover {
   background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .mode-settings__button_left.active {
   background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: red;
 }
 
@@ -1522,9 +1648,11 @@ switch:checked slider {
 }
 .mode-settings__button_right.hover {
   background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .mode-settings__button_right.active {
   background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: red;
 }
 
@@ -1589,6 +1717,7 @@ switch:checked slider {
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
+  background: #F4ECF2;
 }
 
 .temperature {
@@ -1648,6 +1777,10 @@ switch:checked slider {
   color: #561049;
 }
 
+.sidebar-prompt-container {
+  min-width: 300px;
+}
+
 .sidebar-prompt-example {
   background-color: #ECDFEA;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
@@ -1658,20 +1791,6 @@ switch:checked slider {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 10px;
   margin-bottom: 20px;
-}
-
-.label-paragraph {
-  font-size: 14px;
-  font-weight: 300;
-  font-family: "Open sans";
-  color: #561049;
-}
-
-.label-subtext {
-  font-size: 11px;
-  font-weight: 100;
-  font-family: "Open sans";
-  color: #76516F;
 }
 
 .gemini-header-container {
@@ -1690,6 +1809,148 @@ switch:checked slider {
   font-family: "Open sans";
   font-weight: normal;
   margin-bottom: 350px;
+}
+
+.user-message {
+  background-color: #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  font-size: 14px;
+  font-family: "Open sans";
+  font-weight: 300;
+}
+
+.ollama-message {
+  background-color: #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #F5F9F8;
+  font-size: 14px;
+  font-family: "Open sans";
+  font-weight: 300;
+}
+
+.model-buttons {
+  background-color: #ECDFEA;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.model-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: #ECDFEA;
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  border-radius: 8px;
+  margin: 0;
+}
+.model-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.model-button:active {
+  background: #d161bd;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
+}
+.model-button.active {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  text-shadow: 2px 2px 0 #d161bd, 2px -2px 0 #d161bd, -2px 2px 0 #d161bd, -2px -2px 0 #d161bd, 2px 0px 0 #d161bd, 0px 2px 0 #d161bd, -2px 0px 0 #d161bd, 0px -2px 0 #d161bd;
+  border-radius: 8px;
+  margin: 0;
+}
+.model-button.active:hover {
+  background-color: #ECDFEA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.model-button.active:active {
+  background-color: #d161bd;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.message-sender {
+  font-family: "Open sans";
+  font-weight: bold;
+  font-size: 16px;
+  color: #561049;
+}
+
+.chat-container {
+  min-height: 200px;
+}
+
+.message-text {
+  font-family: "Open sans";
+  font-weight: 300;
+  font-size: 14px;
+  color: #561049;
+}
+
+.message-time {
+  font-family: "Open sans";
+  font-weight: 100;
+  font-size: 11px;
+  color: #76516F;
+}
+
+.message-input {
+  background-color: #ECDFEA;
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  color: #561049;
+  font-family: "Open sans";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: 0 0 0 transparent;
+  caret-color: #561049;
+  min-width: 0; /* Allows proper shrinking if needed */
+  min-height: 32px; /* Minimum height */
+  padding: 8px; /* Comfortable padding */
+  transition: height 0.2s ease; /* Smooth height expansion */
+}
+
+.message-input.expanded {
+  /* No need to set explicit height here as it will grow naturally */
+}
+
+.message-input textview {
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

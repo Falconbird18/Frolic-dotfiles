@@ -10,6 +10,7 @@ import Brightness from "../items/Brightness";
 import FanProfileButton from "../items/FanProfile";
 import ScreenRecord from "../items/ScreenRecord";
 import ScreenRecordMenu from "../items/ScreenRecordMenu";
+import ShutDownMenu from "../items/ShutDownMenu";
 import ScreenRecordService from "../../../service/ScreenRecord";
 import BluetoothButton from "../items/Bluetooth";
 import ScreenSnip from "../items/ScreenSnip";
@@ -122,7 +123,17 @@ export default () => {
       <box spacing={16} className="control-center__footer">
         <button
           className="control-center__powermenu-button"
-          onClick={() => toggleWindow("powermenu")}
+          onClicked={() => {
+            if (ScreenRecordService.recording) {
+              ScreenRecordService.stop();
+            } else {
+              revealScreenRecord.set(!revealScreenRecord.get());
+            }
+          }}
+          connection={[
+            bind(ScreenRecordService, "recording"),
+            () => ScreenRecordService.recording,
+          ]}
         >
           <icon icon={icons.powermenu.shutdown} iconSize={16} />
         </button>
@@ -135,6 +146,10 @@ export default () => {
           <icon icon={icons.ui.settings} iconSize={16} />
         </button>
       </box>
+      <ShutDownMenu
+        revealMenu={bind(revealScreenRecord)}
+        closeMenu={() => revealScreenRecord.set(!revealScreenRecord.get())}
+      />
     </box>
   );
 };

@@ -70,12 +70,8 @@ const setTheme = (theme: string, mode: string) => {
   currentTheme.set(theme);
   currentMode.set(mode);
   exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf`);
-  exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprlock.conf`);
   exec(
     `cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`,
-  );
-  exec(
-    `cp "${GLib.get_home_dir()}/.config/hypr/hyprlock/${theme}${mode}/hyprlock.conf" "${GLib.get_home_dir()}/.config/hypr/hyprlock.conf"`,
   );
   saveSettings(
     theme,

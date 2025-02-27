@@ -259,6 +259,10 @@
     @include subtext;
 }
 
+.card{
+    @include card;
+}
+
 * {
     outline: none;
     border: none;
@@ -401,6 +405,17 @@ switch:checked slider {
     }
     &:active{
         @include primary-button-active;
+    }
+}
+
+.secondary-button {
+    @include secondary-button;
+
+    &:hover{
+        @include secondary-button-hover;
+    }
+    &:active{
+        @include secondary-button-active;
     }
 }
 
@@ -1512,6 +1527,10 @@ switch:checked slider {
 .powermenu {
     @include card;
     padding: 20px;
+}
+
+.powermenu-button{
+    @include secondary-button;
 }
 
 .powermenu__button_icon {
