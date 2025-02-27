@@ -64,16 +64,13 @@ const ConfirmationPopup = (
         }
       }}
     >
-      <box vertical className={"confirmation-popup"} spacing={spacing}>
-        <label label={`Are you sure you want to ${labelText}?`} />
-        <box horizontal spacing={spacing}>
+      <box className={"confirmation-popup"} spacing={spacing}>
           <button className="primary-button" onClicked={confirmAction}>
             <label label={labelText} />
           </button>
           <button className="secondary-button" onClicked={cancelAction}>
             <label label="Cancel" />
           </button>
-        </box>
       </box>
     </PopupWindow>
   );

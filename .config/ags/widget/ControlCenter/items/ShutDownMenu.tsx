@@ -16,18 +16,18 @@ export default ({
 }) => {
   // Mapping action keys to system commands (for use later upon confirmation)
   const actionCommands: Record<string, string> = {
-    normal: "reboot",
-    safeMode: "systemctl reboot --firmware-setup",
-    powerOff: "poweroff",
-    restartUI: "systemctl restart display-manager",
+    reboot: "systemctl reboot",
+    shutdown: "shutdown now",
+    sleep: "systemctl suspend",
+    logout: "hyprctl dispatch exit",
   };
 
   // Mapping action keys to display labels
   const actionLabels: Record<string, string> = {
-    normal: "Reboot",
-    safeMode: "Reboot to Firmware",
-    powerOff: "Shutdown",
-    restartUI: "Restart UI",
+    reboot: "Reboot",
+    shutdown: "Shutdown",
+    sleep: "Sleep",
+    logout: "Log out",
   };
 
   // When an option is clicked, record the action and toggle (show) the confirmation window.
@@ -46,27 +46,27 @@ export default ({
     >
       <button
         className="secondary-button"
-        onClicked={() => openConfirmation("normal")}
+        onClicked={() => openConfirmation("reboot")}
       >
         <label label="Reboot" />
       </button>
       <button
         className="secondary-button"
-        onClicked={() => openConfirmation("safeMode")}
-      >
-        <label label="Reboot to Firmware" />
-      </button>
-      <button
-        className="secondary-button"
-        onClicked={() => openConfirmation("powerOff")}
+        onClicked={() => openConfirmation("shutdown")}
       >
         <label label="Shutdown" />
       </button>
       <button
         className="secondary-button"
-        onClicked={() => openConfirmation("restartUI")}
+        onClicked={() => openConfirmation("sleep")}
       >
-        <label label="Restart UI" />
+        <label label="Sleep" />
+      </button>
+      <button
+        className="secondary-button"
+        onClicked={() => openConfirmation("logout")}
+      >
+        <label label="Log out" />
       </button>
       <button className="secondary-button" onClicked={closeMenu}>
         <label label="Cancel" />

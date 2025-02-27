@@ -37,6 +37,14 @@ function sudo
     end
 end
 
+function ags_noproxy
+    set -e http_proxy
+    set -e https_proxy
+    set -e HTTP_PROXY
+    set -e HTTPS_PROXY
+    ags $argv
+end
+
 
 
 # function fish_prompt
