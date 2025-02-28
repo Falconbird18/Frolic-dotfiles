@@ -15,7 +15,11 @@ import ScreenRecordService from "../../../service/ScreenRecord";
 import BluetoothButton from "../items/Bluetooth";
 import ScreenSnip from "../items/ScreenSnip";
 import ScreenShot from "../items/ScreenShot";
+import { controlCenterPage } from "../index";
 import { toggleWindow } from "../../../lib/utils";
+
+
+const menuName = "themes";
 
 class FlowBox extends astalify(Gtk.FlowBox) {
   static {
@@ -141,8 +145,13 @@ export default () => {
         <label className="control-center__time-to-empty" label={bind(uptime)} />
         <button
           className="control-center__settings-button"
-          onClick={() => toggleWindow("popup-theme-settings")}
-        >
+          // onClick={() => toggleWindow("popup-theme-settings")}
+        onClickRelease={(_, event: Astal.ClickEvent) => {
+          if (event.button == 1 && menuName) {
+            controlCenterPage.set(menuName);
+          }
+        }}
+      >
           <icon icon={icons.ui.settings} iconSize={16} />
         </button>
       </box>
