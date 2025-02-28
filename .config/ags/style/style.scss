@@ -153,6 +153,7 @@
     background-size: $background-size;
     border-radius: 100%;
 }
+
 @mixin secondary-button-hover {
     background-size: $background-size;
     background-image: $background-image;
@@ -239,27 +240,27 @@
 
 /*Common*/
 
-.h1{
+.h1 {
     @include h1;
 }
 
-.h2{
+.h2 {
     @include h2;
 }
 
-.h3{
+.h3 {
     @include h3;
 }
 
-.paragraph{
+.paragraph {
     @include paragraph;
 }
 
-.subtext{
+.subtext {
     @include subtext;
 }
 
-.card{
+.card {
     @include card;
 }
 
@@ -400,10 +401,11 @@ switch:checked slider {
 .primary-button {
     @include primary-button;
 
-    &:hover{
+    &:hover {
         @include primary-button-hover;
     }
-    &:active{
+
+    &:active {
         @include primary-button-active;
     }
 }
@@ -411,10 +413,11 @@ switch:checked slider {
 .secondary-button {
     @include secondary-button;
 
-    &:hover{
+    &:hover {
         @include secondary-button-hover;
     }
-    &:active{
+
+    &:active {
         @include secondary-button-active;
     }
 }
@@ -422,6 +425,7 @@ switch:checked slider {
 .primary-circular-button {
     @include primary-circular-button;
 }
+
 .primary-button-circular {
     @include primary-button-inactive;
     border-radius: 100%;
@@ -429,7 +433,7 @@ switch:checked slider {
     min-height: 42px;
     min-width: 42px;
 
-    &.active{
+    &.active {
         @include primary-button;
         border-radius: 100%;
         padding: 0;
@@ -672,7 +676,7 @@ switch:checked slider {
     min-height: 800px;
 }
 
-.control-center-label-container{
+.control-center-label-container {
     min-width: 120px;
 }
 
@@ -755,7 +759,7 @@ switch:checked slider {
     }
 }
 
-.control-center__button-icon{
+.control-center__button-icon {
     @include secondary-button;
     border-radius: $tertiary-radius $primary-radius $primary-radius $tertiary-radius;
     margin-left: 2px;
@@ -1400,6 +1404,7 @@ switch:checked slider {
     &.theme-settings {
         min-width: 400px;
     }
+
     &.clipboard {
         min-width: 400px;
     }
@@ -1529,7 +1534,7 @@ switch:checked slider {
     padding: 20px;
 }
 
-.powermenu-button{
+.powermenu-button {
     @include secondary-button;
 }
 
@@ -1598,38 +1603,42 @@ switch:checked slider {
 }
 
 .mode-settings__button_left {
-    //@include primary-button;
-    background-color: $background-2;
+    @include secondary-button;
     margin-right: 10px;
     min-width: 160px;
     padding-left: 0;
     padding-right: 0;
 
     &.hover {
-        @include primary-button-hover;
+        @include secondary-button-hover;
     }
 
     &.active {
-        @include primary-button-active;
-        background-color: red;
+        @include primary-button;
+        margin-right: 10px;
+        min-width: 160px;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
 .mode-settings__button_right {
-    //@include primary-button;
-    background-color: $background-2;
+    @include secondary-button;
     margin-left: 10px;
     min-width: 160px;
     padding-left: 0;
     padding-right: 0;
 
     &.hover {
-        @include primary-button-hover;
+        @include secondary-button-hover;
     }
 
     &.active {
-        @include primary-button-active;
-        background-color: red;
+        @include primary-button;
+        margin-left: 10px;
+        min-width: 160px;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -1726,7 +1735,7 @@ switch:checked slider {
     color: $text;
 }
 
-.sidebar-prompt-container{
+.sidebar-prompt-container {
     min-width: 300px;
 }
 
@@ -1754,14 +1763,14 @@ switch:checked slider {
     margin-bottom: 350px;
 }
 
-.user-message{
+.user-message {
     @include card;
     font-size: $paragraph_size;
     font-family: $paragraph_font;
     font-weight: $paragraph_weight;
 }
 
-.ollama-message{
+.ollama-message {
     @include card;
     background-color: $background-3;
     font-size: $paragraph_size;
@@ -1769,68 +1778,74 @@ switch:checked slider {
     font-weight: $paragraph_weight;
 }
 
-.model-buttons{
+.model-buttons {
     background-color: $background-2;
     border-radius: $primary-radius;
     margin: 0;
 }
-.model-button{
+
+.model-button {
     @include secondary-circular-button;
     border-radius: $primary-radius;
     margin: 0;
 
-    &:hover{
+    &:hover {
         @include secondary-button-hover;
     }
 
-    &:active{
+    &:active {
         @include secondary-button-active;
     }
 
-    &.active{
+    &.active {
         @include primary-circular-button;
         border-radius: $primary-radius;
         margin: 0;
 
-        &:hover{
+        &:hover {
             @include primary-button-hover;
         }
-        &:active{
+
+        &:active {
             @include primary-button-active;
         }
     }
 }
 
-.message-sender{
+.message-sender {
     @include h3;
 }
 
-.chat-container{
+.chat-container {
     min-height: 200px;
 }
 
-.message-text{
+.message-text {
     @include paragraph;
 }
 
-.message-time{
+.message-time {
     @include subtext;
 }
 
-.message-input{
+.message-input {
     @include textbox;
-        min-width: 0; /* Allows proper shrinking if needed */
-        min-height: 32px; /* Minimum height */
-        padding: 8px; /* Comfortable padding */
-        transition: height 0.2s ease; /* Smooth height expansion */
+    min-width: 0;
+    /* Allows proper shrinking if needed */
+    min-height: 32px;
+    /* Minimum height */
+    padding: 8px;
+    /* Comfortable padding */
+    transition: height 0.2s ease;
+    /* Smooth height expansion */
 }
 
-    .message-input.expanded {
-        /* No need to set explicit height here as it will grow naturally */
-    }
+.message-input.expanded {
+    /* No need to set explicit height here as it will grow naturally */
+}
 
-    .message-input textview {
-        background: transparent;
-        border: none;
-        padding: 0;
-    }
+.message-input textview {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
