@@ -1,5 +1,5 @@
 import { App, Gdk, Gtk } from "astal/gtk3";
-import { exec } from "astal";
+import { exec, execAsync } from "astal";
 const { GLib } = imports.gi;
 // const style = require(`../ags/style/frolic${Theme}/main.scss`);
 import { currentTheme, currentMode } from "./widget/Popups/menus/ThemeSettings";
@@ -10,7 +10,6 @@ import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
 import SideBar from "./widget/SideBar/SideBar";
 import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
-import Keybinds from "./widget/Popups/menus/Keybinds";
 import Clipboard from "./widget/Popups/menus/Clipboard";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
@@ -23,27 +22,69 @@ import Powermenu from "./widget/Powermenu";
 import ScreenRecordService from "./service/ScreenRecord";
 import Dashboard from "./widget/Dashboard";
 
-const applyTheme = () => {
+const applyTheme = async () => {
   const homeDir = GLib.get_home_dir();
   const theme = currentTheme.get();
   const mode = currentMode.get();
-  const themePathCss = `${homeDir}/.config/ags/style/${theme}${mode}/main.css`;
-  const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
   const spicetifyPathScss = `${homeDir}/.config/ags/style/${theme}${mode}/spicetify.scss`;
   const spicetifyPathCss = `${homeDir}/.config/spicetify/Themes/Frolic/user.css`;
-  exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf`);
-  exec(
-    `cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`,
-  );
-  exec(`sass ${themePathScss} ${themePathCss}`);
-  exec(`sass ${spicetifyPathScss} ${spicetifyPathCss}`);
-  console.log("Scss compiled");
-  App.reset_css();
-  App.apply_css(themePathCss);
-  exec("hyprctl reload");
-  exec("spicetify update");
-  console.log("Compiled css applied");
+
+  try {
+    const homeDir = GLib.get_home_dir();
+    const theme = currentTheme.get();
+    const mode = currentMode.get();
+    const themePathCss = `${homeDir}/.config/ags/style/${theme}${mode}/main.css`;
+    const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
+    const hyprThemeConfSource = `${homeDir}/.config/hypr/hyprland/${theme}${mode}/theme.conf`;
+    const hyprThemeConfDest = `${homeDir}/.config/hypr/hyprland/theme.conf`;
+    const hyprLockConfSource = `${homeDir}/.config/hypr/hyprlock/${theme}${mode}/hyprlock.conf`;
+    const hyprLockConfDest = `${homeDir}/.config/hypr/hyprlock.conf`;
+    const hyprctl = "hyprctl reload"
+    const spicetify = "spicetify update"
+
+
+    console.log("Theme Path CSS:", themePathCss);
+    console.log("Theme Path Scss:", themePathScss);
+    console.log("Hypr Theme Conf Source:", hyprThemeConfSource);
+    console.log("Hypr Theme Conf Destination:", hyprThemeConfDest);
+    console.log("Hyprlock Conf Source:", hyprLockConfSource);
+    console.log("Hyprlock Conf Destination:", hyprLockConfDest);
+
+
+    await execAsync(`rm -f ${hyprThemeConfDest}`); //Force remove if it exists
+    await execAsync(`rm -f ${hyprLockConfDest}`); //Force remove if it exists
+    await execAsync(`cp "${hyprThemeConfSource}" "${hyprThemeConfDest}"`);
+    await execAsync(`cp "${hyprLockConfSource}" "${hyprLockConfDest}"`);
+    await execAsync(`sass "${themePathScss}" "${themePathCss}"`);
+    await execAsync(`sass "${spicetifyPathScss}" "${spicetifyPathCss}"`);
+    console.log("Scss compiled");
+    App.reset_css();
+    App.apply_css(themePathCss);
+    console.log("Css applied");
+    await execAsync(hyprctl);
+    console.log("Hyprland reloaded");
+    await execAsync(spicetify);
+    console.log("Spicetify reloaded");
+  } catch (error) {
+    console.error("Error applying theme:", error);
+    if (error instanceof Gio.IOError) {
+      console.error("Gio.IOError:", error.message, error.code);
+    }
+  }
 };
+
+// const applyTheme = () => {
+//     const homeDir = GLib.get_home_dir();
+//     const theme = currentTheme.get();
+//     const mode = currentMode.get();
+//     const themePathCss = `${homeDir}/.config/ags/style/${theme}${mode}/main.css`;
+//     const themePathScss = `${homeDir}/.config/ags/style/${theme}${mode}/main.scss`;
+//     exec(`sass ${themePathScss} ${themePathCss}`);
+//     console.log("Scss compiled");
+// 	App.reset_css();
+//     App.apply_css(themePathCss);
+//     console.log("Compiled css applied");
+// };
 
 function main() {
   const bars = new Map<Gdk.Monitor, Gtk.Widget>();
@@ -54,7 +95,6 @@ function main() {
   Weather();
   SideBar();
   ThemeSettings();
-  Keybinds();
   Clipboard();
   ControlCenter();
   Scrim({ scrimType: "opaque", className: "scrim" });

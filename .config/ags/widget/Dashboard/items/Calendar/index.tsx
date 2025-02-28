@@ -62,7 +62,7 @@ export default () => {
 
   const addCalendarChildren = (box, calendarJson) => {
     const children = box.get_children();
-    console.log(calendarJson);
+    // console.log(calendarJson);
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
       child.destroy();

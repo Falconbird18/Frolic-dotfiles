@@ -92,38 +92,48 @@
 
 /*Common*/
 .h1 {
-  color: #F5CCED;
   font-family: "Open sans";
-  font-size: 24px;
   font-weight: normal;
+  font-size: 24px;
+  color: #F5CCED;
 }
 
 .h2 {
-  color: #F5CCED;
   font-family: "Open sans";
-  font-size: 18px;
   font-weight: normal;
+  font-size: 18px;
+  color: #F5CCED;
 }
 
 .h3 {
-  color: #F5CCED;
   font-family: "Open sans";
-  font-size: 16px;
   font-weight: bold;
+  font-size: 16px;
+  color: #F5CCED;
 }
 
 .paragraph {
-  color: #F5CCED;
   font-family: "Open sans";
-  font-size: 14px;
   font-weight: 300;
+  font-size: 14px;
+  color: #F5CCED;
 }
 
 .subtext {
-  color: #BFA1B9;
   font-family: "Open sans";
-  font-size: 11px;
   font-weight: 100;
+  font-size: 11px;
+  color: #BFA1B9;
+}
+
+.card {
+  background-color: #433D42;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 * {
@@ -131,12 +141,19 @@
   border: none;
   padding: 0;
   margin: 0;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 icon {
-  box-shadow: none;
   text-shadow: -1.5px -1.5px 0 #50494F, 1.5px -1.5px 0 #50494F, -1.5px 1.5px 0 #50494F, 1.5px 1.5px 0 #50494F;
   color: #F5CCED;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #50494F, 1.5px -1.5px 0px #50494F, -1.5px 1.5px 0px #50494F, 1.5px 1.5px 0px #50494F;
+}
+
+.icon {
+  text-shadow: -1.5px -1.5px 0 #50494F, 1.5px -1.5px 0 #50494F, -1.5px 1.5px 0 #50494F, 1.5px 1.5px 0 #50494F;
+  color: #FF0000;
+  -gtk-icon-shadow: -1.5px -1.5px 0px #50494F, 1.5px -1.5px 0px #50494F, -1.5px 1.5px 0px #50494F, 1.5px 1.5px 0px #50494F;
 }
 
 slider {
@@ -231,7 +248,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -241,9 +258,40 @@ switch:checked slider {
 }
 .primary-button:hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .primary-button:active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.secondary-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #433D42;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+}
+.secondary-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
+  text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.secondary-button:active {
+  background: #E012BA;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 
 .primary-circular-button {
@@ -255,7 +303,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -291,7 +339,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -446,7 +494,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -585,7 +633,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -595,6 +643,7 @@ switch:checked slider {
 }
 .control-center__page_header_button:hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .control-center__page_item-header {
@@ -711,12 +760,15 @@ switch:checked slider {
 }
 .control-center__button-wide.active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide.active:hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide.active:active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide:hover {
   background-size: 8px 8px;
@@ -776,12 +828,15 @@ switch:checked slider {
 }
 .control-center__button.active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button.active:hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button.active:active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button:hover {
   background-size: 8px 8px;
@@ -957,10 +1012,13 @@ switch:checked slider {
 
 .calendar__weekdays {
   color: #F5CCED;
+  color: red;
+  font-size: 100px;
 }
 
 .calendar__days {
   color: #F5CCED;
+  font-size: 100px;
 }
 
 .calendar__button {
@@ -977,13 +1035,14 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
   background-size: 8px 8px;
   border-radius: 8px;
   text-shadow: 2px 2px 0 #E012BA, 2px -2px 0 #E012BA, -2px 2px 0 #E012BA, -2px -2px 0 #E012BA, 2px 0px 0 #E012BA, 0px 2px 0 #E012BA, -2px 0px 0 #E012BA, 0px -2px 0 #E012BA;
+  font-size: 100px;
   padding: 10px;
   min-height: 0;
 }
@@ -993,6 +1052,7 @@ switch:checked slider {
   font-family: "Open sans";
   font-weight: 300;
   font-size: 14px;
+  font-size: 100px;
 }
 
 .calendar__button__other-month {
@@ -1000,6 +1060,7 @@ switch:checked slider {
   font-family: "Open sans";
   font-size: 11px;
   font-weight: 100;
+  font-size: 100px;
 }
 
 .calendar__weekday {
@@ -1163,7 +1224,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1174,6 +1235,7 @@ switch:checked slider {
 
 .notifications-window__clear:hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .notifications-window__list revealer .notification {
@@ -1222,7 +1284,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1323,7 +1385,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1515,6 +1577,24 @@ switch:checked slider {
   padding: 20px;
 }
 
+.powermenu-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #433D42;
+  color: #F5CCED;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+}
+
 .powermenu__button_icon {
   font-size: 35px;
 }
@@ -1608,9 +1688,11 @@ switch:checked slider {
 }
 .mode-settings__button_left.hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .mode-settings__button_left.active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: red;
 }
 
@@ -1623,9 +1705,11 @@ switch:checked slider {
 }
 .mode-settings__button_right.hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .mode-settings__button_right.active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   background-color: red;
 }
 
@@ -1766,20 +1850,6 @@ switch:checked slider {
   margin-bottom: 20px;
 }
 
-.label-paragraph {
-  font-size: 14px;
-  font-weight: 300;
-  font-family: "Open sans";
-  color: #F5CCED;
-}
-
-.label-subtext {
-  font-size: 11px;
-  font-weight: 100;
-  font-family: "Open sans";
-  color: #BFA1B9;
-}
-
 .gemini-header-container {
   min-width: 300px;
 }
@@ -1869,7 +1939,7 @@ switch:checked slider {
   color: #F5CCED;
   box-shadow: 0 0 0 transparent, 0 0 0 transparent;
   font-family: "Open sans";
-  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   margin-right: 5px;
   margin-left: 5px;
   border: none;
@@ -1881,9 +1951,11 @@ switch:checked slider {
 }
 .model-button.active:hover {
   background-color: #433D42;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .model-button.active:active {
   background-color: #E012BA;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .message-sender {

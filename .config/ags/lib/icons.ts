@@ -109,7 +109,7 @@ export default {
     search: "system-search",
     settings: "emblem-system-symbolic",
     themes: "preferences-desktop-theme",
-    tick: "object-select",
+    tick: "security-high",
     time: "hourglass",
     toolbars: "toolbars",
     warning: "dialog-warning",
@@ -184,6 +184,6 @@ export default {
     thunderstorm: "weather-severe-alert",
     snow: "weather-snow",
     freezingRain: "weather-freezing-rain",
-    unknown: "window-none-availible",
+    unknown: "dialog-warning",
   },
 };

@@ -69,14 +69,6 @@ export const wallpaperFolder = Variable(settings.wallpaperDirectory);
 const setTheme = (theme: string, mode: string) => {
   currentTheme.set(theme);
   currentMode.set(mode);
-  exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf`);
-  exec(`rm ${GLib.get_home_dir()}/.config/hypr/hyprlock.conf`);
-  exec(
-    `cp "${GLib.get_home_dir()}/.config/hypr/hyprland/${theme}${mode}/theme.conf" "${GLib.get_home_dir()}/.config/hypr/hyprland/theme.conf"`,
-  );
-  exec(
-    `cp "${GLib.get_home_dir()}/.config/hypr/hyprlock/${theme}${mode}/hyprlock.conf" "${GLib.get_home_dir()}/.config/hypr/hyprlock.conf"`,
-  );
   saveSettings(
     theme,
     mode,
@@ -112,10 +104,10 @@ const setWallpaper = (wallpaper: string) => {
   const destinationPath = `/usr/share/sddm/themes/frolic/Backgrounds/wallpaper.jpg`;
 
   // Ensure the destination directory exists
-  exec(`sudo mkdir -p /usr/share/sddm/themes/frolic/Backgrounds`);
+  // exec(`sudo mkdir -p /usr/share/sddm/themes/frolic/Backgrounds`);
 
   // Copy and rename the wallpaper
-  exec(`sudo cp "${wallpaperImagePath}" "${destinationPath}"`);
+  // exec(`sudo cp "${wallpaperImagePath}" "${destinationPath}"`);
 
   // Set the wallpaper using swww
   exec(

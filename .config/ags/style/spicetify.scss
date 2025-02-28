@@ -336,8 +336,12 @@
     color: $primary !important;
 }
 
-.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader, .main-home-filterChipsContainer {
     background: $background-2 !important;
+}
+
+.main-home-filterChipsSection {
+    background: transparent;
 }
 
 .MGZ4oJmGVPrWsx5cT5hN {
@@ -352,6 +356,10 @@
 /*Copyright*/
 .TypeElement-type-finale {
     color: $primary;
+}
+
+a:not([data-encore-id]){
+    color: $text;
 }
 
 .Root__main-view {
@@ -379,8 +387,6 @@
 .main-entityHeader-image {
     border-radius: $primary-radius;
 }
-
-;
 
 .x-entityImage-image,
 .GSgVaqJa8VEp5mKoIN0b {
@@ -417,7 +423,7 @@
     margin-bottom: 10px;
 }
 
-.main-trackcreditsmodal-closebtn svg{
+.main-trackcreditsmodal-closebtn svg {
     transform: translateY(calc(-1 * ($outset_margin + $outset_margin)));
 }
 
@@ -451,4 +457,13 @@
     margin-left: 1.5rem;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.Q36ugVAb7krhThyRTmJ_ {
+    border-radius: $primary-radius;
+    border: $primary-border;
+}
+
+.YSflHyCWx4tGL7LrqtLE span{
+    @include h1;
 }
