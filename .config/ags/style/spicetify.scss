@@ -1,4 +1,38 @@
 /*Components*/
+@mixin h1 {
+    font-family: $h1_font;
+    font-weight: $h1_weight;
+    font-size: $h1_size;
+    color: $text !important;
+}
+
+@mixin h2 {
+    font-family: $h2_font;
+    font-weight: $h2_weight;
+    font-size: $h2_size;
+    color: $text;
+}
+
+@mixin h3 {
+    font-family: $h3_font;
+    font-weight: $h3_weight;
+    font-size: $h3_size;
+    color: $text;
+}
+
+@mixin paragraph {
+    font-family: $paragraph_font;
+    font-weight: $paragraph_weight;
+    font-size: $paragraph_size;
+    color: $text !important;
+}
+
+@mixin subtext {
+    font-family: $subtext_font;
+    font-weight: $subtext_weight;
+    font-size: $subtext_size;
+    color: $subtext;
+}
 @mixin textbox {
     background-color: $background-2;
     border-radius: $secondary-radius;
@@ -38,6 +72,24 @@
     border: $primary-border;
     background-size: $background-size;
     border-radius: $primary-radius;
+    text-shadow: $text-shadow;
+}
+
+@mixin primary-circular-button {
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    min-width: 42px;
+    min-height: 42px;
+    background: $background-image;
+    color: $text;
+    box-shadow: $outset, $border-shadow;
+    font-family: $h2_font;
+    transition: all $transition;
+    margin-right: $outset_margin;
+    margin-left: $outset_margin;
+    border: $primary-border;
+    background-size: $background-size;
+    border-radius: 100%;
     text-shadow: $text-shadow;
 }
 
@@ -99,10 +151,14 @@
 .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar{
     @include textbox;
 }
+
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:hover{
+    background-color: $background-3;
+}
 /*What do you want to play?*/
 .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar{
     color: $text !important;
-    padding-right: var(--encore-layout-margin-looser);
+    padding-left: calc(var(--encore-layout-margin-looser) / 1.5);
 }
 /*Profile background*/
 .main-userWidget-box{
@@ -157,3 +213,100 @@
 .ChipInnerComponent-sm-selected-isUsingKeyboard{
     @include secondary-button-active;
 }
+.encore-internal-color-text-base{
+    color: $text;
+}
+.encore-internal-color-text-bright-accent{
+    color: $primary;
+}
+.encore-text-body-medium-bold{
+    @include h2;
+}
+/*Now Playing*/
+.AAdBM1nhG73supMfnYX7{
+    @include card;
+    background-color: $background-3 !important;
+}
+.main-nowPlayingView-section{
+    @include card;
+}
+
+.encore-text-body-small-bold{
+    @include paragraph;
+}
+
+.encore-text-body-small, .encore-internal-color-text-subdued{
+    @include subtext;
+}
+
+.encore-text-headline-large, .main-entityHeader-topbarTitle{
+    @include h1;
+}
+
+.XVz4BMGP5zAEE5p90mYK, .main-actionBar-ActionBar{
+    background-color: $background-2;
+}
+/*Play buttons*/
+.ButtonInner-large, .ButtonInner-medium{
+    @include primary-circular-button;
+}
+
+.Svg-img-icon-large{
+    fill: $text;
+}
+/*Add to playlist svgs*/
+.Svg-img-icon-large-textBrightAccent, .Svg-img-icon-small-textBrightAccent{
+    fill: $secondary;
+}
+
+.contentSpacing, .main-topBar-background{
+    background-color: $background-2;
+}
+
+.hV9v6y_uYwdAsoiOHpzk{
+    background: transparent;
+}
+
+.main-trackList-trackListHeader{
+    border-bottom: $secondary-border !important;
+}
+
+.main-trackList-rowSectionIndex, .main-trackList-rowMarker{
+    @include paragraph;
+    color: $primary !important;
+}
+
+.UudGCx16EmBkuFPllvss a{
+    color: $primary !important;
+}
+
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader{
+    background: $background-2 !important;
+}
+
+.MGZ4oJmGVPrWsx5cT5hN{
+    @include card;
+    background-color: $background;
+}
+
+.CardTitle__LineClamp-sc-1h38un4-0 .LineClamp {
+    @include paragraph;
+}
+/*Copyright*/
+.TypeElement-type-finale{
+    color: $primary;
+}
+
+.Root__main-view{
+    @include card;
+    padding: 0;
+}
+/*Spicetify update button*/
+.Button-buttonTertiary-medium-medium-iconOnly-disabled-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed{
+    color: $primary;
+}
+
+// .HUjfVPQnC1P8Q8dJlxVl.cRHuuh0O2EuJZbQ5oaEF, .artist-artistDiscography-topBar.artist-artistDiscography-topBarScrolled, .artist-artistDiscography-headerContainer, .XtGI24gayCCOR69pcBao, .EmeHQXR87mUskYK6xEde, .XxJxjdIexR1RXajhHYyv, .artist-artistOnTour-date.artist-artistOnTour-elevated, .zpjpg954p7ZWJiTjKWEL, .pT8jWX5PbLB2Z91Ngl7n, .pdkMNbSQl8Yi5tl0iOF9, .KM8BFaw7LbvBIcLnf2BX, .KM8BFaw7LbvBIcLnf2BX .RPo65cLEoLdTEkTummvb, .tAdvjJEctimN9bSKFEEs{
+//     background-color: $background-2 !important;
+//     background: $background-2 !important;
+// }
