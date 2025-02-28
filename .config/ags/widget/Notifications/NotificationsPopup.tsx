@@ -42,11 +42,20 @@ class PopupNotificationsMap implements Subscribable {
 		this.notifiy();
 	}
 
-	private delete(key: number) {
-		this.map.get(key)?.destroy();
-		this.map.delete(key);
-		this.notifiy();
-	}
+	// private delete(key: number) {
+	// 	this.map.get(key)?.destroy();
+	// 	this.map.delete(key);
+	// 	this.notifiy();
+	// }
+
+	    private delete(key: number) {
+        const widget = this.map.get(key);
+        if (widget) {
+            widget.destroy(); // Destroy FIRST
+            this.map.delete(key);
+        }
+        this.notifiy();
+    }
 
 	get() {
 		return this.var.get();

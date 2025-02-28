@@ -273,31 +273,19 @@
 }
 
 icon {
-    text-shadow:
-        -1.5px -1.5px 0 $background,
-        1.5px -1.5px 0 $background,
-        -1.5px 1.5px 0 $background,
-        1.5px 1.5px 0 $background;
+    text-shadow: $text-shadow;
     color: $text;
-    -gtk-icon-shadow:
-        -1.5px -1.5px 0px $background,
-        1.5px -1.5px 0px $background,
-        -1.5px 1.5px 0px $background,
-        1.5px 1.5px 0px $background;
+    -gtk-icon-shadow: $text-shadow;
+}
+
+image{
+    color: red;
 }
 
 .icon {
-    text-shadow:
-        -1.5px -1.5px 0 $background,
-        1.5px -1.5px 0 $background,
-        -1.5px 1.5px 0 $background,
-        1.5px 1.5px 0 $background;
-    color: #FF0000;
-    -gtk-icon-shadow:
-        -1.5px -1.5px 0px $background,
-        1.5px -1.5px 0px $background,
-        -1.5px 1.5px 0px $background,
-        1.5px 1.5px 0px $background;
+    text-shadow: $text-shadow;
+    color: $text;
+    -gtk-icon-shadow: $text-shadow;
 }
 
 slider {

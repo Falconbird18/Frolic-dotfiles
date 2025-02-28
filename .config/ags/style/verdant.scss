@@ -21,15 +21,7 @@ $primary-radius: 8px;
 $secondary-radius: 4px;
 $tertiary-radius: 4px;
 $background_gradient: linear-gradient(145deg, $background, $background);
-$text-shadow:
-    2px 2px 0 $primary,
-    2px -2px 0 $primary,
-    -2px 2px 0 $primary,
-    -2px -2px 0 $primary,
-    2px 0px 0 $primary,
-    0px 2px 0 $primary,
-    -2px 0px 0 $primary,
-    0px -2px 0 $primary;
+$text-shadow: none;
 $background-image: linear-gradient(
     45deg,
     $primary 25%,

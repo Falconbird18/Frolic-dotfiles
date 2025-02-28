@@ -11,7 +11,7 @@ export default () => (
         toggleWindow("SideBar");
       }}
     >
-      <icon icon={icons.ai} Size={20} />
+      <icon icon={icons.ai} className="icon" />
     </button>
     <box />
   </box>

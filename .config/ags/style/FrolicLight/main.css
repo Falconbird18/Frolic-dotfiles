@@ -145,15 +145,19 @@
 }
 
 icon {
-  text-shadow: -1.5px -1.5px 0 #f0edea, 1.5px -1.5px 0 #f0edea, -1.5px 1.5px 0 #f0edea, 1.5px 1.5px 0 #f0edea;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
   color: #562f10;
-  -gtk-icon-shadow: -1.5px -1.5px 0px #f0edea, 1.5px -1.5px 0px #f0edea, -1.5px 1.5px 0px #f0edea, 1.5px 1.5px 0px #f0edea;
+  -gtk-icon-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+}
+
+image {
+  color: red;
 }
 
 .icon {
-  text-shadow: -1.5px -1.5px 0 #f0edea, 1.5px -1.5px 0 #f0edea, -1.5px 1.5px 0 #f0edea, 1.5px 1.5px 0 #f0edea;
-  color: #FF0000;
-  -gtk-icon-shadow: -1.5px -1.5px 0px #f0edea, 1.5px -1.5px 0px #f0edea, -1.5px 1.5px 0px #f0edea, 1.5px 1.5px 0px #f0edea;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  color: #562f10;
+  -gtk-icon-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
 }
 
 slider {

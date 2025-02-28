@@ -180,13 +180,61 @@
 }
 
 .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:hover {
+    @include card;
     background-color: $background-3;
 }
 
 /*What do you want to play?*/
-.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar {
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar, .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar::placeholder, .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:placeholder-shown {
     color: $text !important;
-    padding-left: calc(var(--encore-layout-margin-looser) / 1.5);
+    padding-left: calc(var(--encore-layout-margin-looser) / 3);
+}
+
+.IYex0sXu8fnCz1FqFbRe{
+    background: transparent;
+    margin: none;
+}
+
+.IYex0sXu8fnCz1FqFbRe kbd{
+    border-radius: $secondary-radius;
+    border: $primary-border;
+    background-color: $background-2;
+    outline: none;
+    box-shadow: none;
+}
+
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:focus{
+    background: $background-3;
+    box-shadow: none
+}
+
+.Vn9yz8P5MjIvDT8c0U6w{
+    border-radius: $primary-radius;
+}
+
+.MtV402NmdUF5mceSD0Dy{
+    @include h1;
+}
+
+.IEDOUN3mwwZhHVziC03a, .IEDOUN3mwwZhHVziC03a, .SjhDNg4bQRQmIJAba47Z{
+    @include card;
+    background-color: $background !important;
+}
+
+.IEDOUN3mwwZhHVziC03a:hover, .IEDOUN3mwwZhHVziC03a:hover, .SjhDNg4bQRQmIJAba47Z:hover{
+    background-color: $background-3;
+}
+
+.encore-text-title-medium{
+    @include h1;
+}
+
+.Button-buttonSecondary-small-useBrowserDefaultFocusStyle{
+    @include primary-button;
+}
+
+.GimJ6fo6WOYPyWNVpSr1{
+    @include card;
 }
 
 /*Profile background*/
@@ -297,6 +345,11 @@
     background-color: $background-2;
 }
 
+.eWZOJQ:hover, .search-searchCategory-categoryGrid.eRKQSDqbcx0NSAApALFA .bdT2hWuSLE4HMyJ1ziC8>*:hover{
+    background-color: $background;
+    border-radius: $primary-border
+}
+
 /*Play buttons*/
 .ButtonInner-large,
 .ButtonInner-medium {
@@ -385,13 +438,40 @@ a:not([data-encore-id]){
 .GOcsybnoHYyJGQGDRuwj,
 .yMQTWVwLJ5bV8VGiaqU3,
 .main-entityHeader-image {
-    border-radius: $primary-radius;
+    border-radius: $secondary-radius;
+    box-shadow: none;
 }
 
 .x-entityImage-image,
 .GSgVaqJa8VEp5mKoIN0b {
     border-radius: $secondary-radius;
     background: transparent;
+    box-shadow: none;
+}
+
+.a2NTH51fJWzWsds0OYv_:after{
+        background: linear-gradient(-90deg, $background-2, transparent);
+}
+
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-draggable{
+    @include card;
+    background-color: $background;
+    padding: 0;
+}
+
+.view-homeShortcutsGrid-shortcut{
+    margin-bottom: 4px;
+    overflow: visible;
+}
+
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-PlayButtonContainer .view-homeShortcutsGrid-playButton{
+    @include primary-circular-button;
+}
+
+
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-image, .view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-imageWrapper{
+    border-radius: $secondary-radius;
+    box-shadow: none;
 }
 
 /*Spicetify update stuff*/
@@ -466,4 +546,74 @@ a:not([data-encore-id]){
 
 .YSflHyCWx4tGL7LrqtLE span{
     @include h1;
+}
+/*Erorr page*/
+.main-pageErrorTemplate-errorBody h1{
+    @include h1;
+}
+
+.main-pageErrorTemplate-errorBody p{
+    @include paragraph();
+}
+
+.main-pageErrorTemplate-errorBody button span{
+    @include primary-button;
+}
+
+.main-pageErrorTemplate-errorBody button span:hover{
+    @include primary-button-hover;
+}
+/*Spicetify marketplace*/
+.marketplace-header-icon-button{
+    color: $primary;
+}
+
+.marketplace-header{
+    background-color: $background-2;
+}
+.main-card-card{
+    @include card;
+    background-color: $background;
+}
+.main-card-card:hover{
+    background-color: $background-3;
+}
+.marketplace-card-desc{
+    @include paragraph;
+}
+
+.marketplace-cardSubHeader{
+    @include paragraph;
+    color: $primary !important;
+
+}
+
+.main-cardHeader-text{
+    @include h2;
+    margin-top: 10px;
+}
+
+.marketplace-card__authors{
+    @include h3;
+}
+
+.main-cardImage-imageWrapper, .main-cardImage-image, .main-card-imagePlaceholder{
+    border-radius: $primary-radius;
+    background-color: $background-2;
+    box-shadow: none;
+}
+
+.button-module__circle___EZ88P_marketplace{
+    @include primary-circular-button;
+}
+
+.marketplace-card__bottom-meta{
+    @include paragraph;
+    color: $primary !important;
+}
+
+.marketplace-grid .main-card-draggable .main-card-cardMetadata li.marketplace-card__tag{
+    @include card;
+    background-color: $background;
+    padding: 2px;
 }
