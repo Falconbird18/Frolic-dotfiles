@@ -126,6 +126,16 @@
   color: #766251;
 }
 
+.card {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
 * {
   outline: none;
   border: none;
@@ -253,6 +263,35 @@ switch:checked slider {
 .primary-button:active {
   background-color: #de6e12;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.secondary-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+}
+.secondary-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.secondary-button:active {
+  background: #de6e12;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 
 .primary-circular-button {
@@ -1536,6 +1575,24 @@ switch:checked slider {
   margin-bottom: 2px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
+}
+
+.powermenu-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
 }
 
 .powermenu__button_icon {
