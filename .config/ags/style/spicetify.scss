@@ -33,6 +33,7 @@
     font-size: $subtext_size;
     color: $subtext;
 }
+
 @mixin textbox {
     background-color: $background-2;
     border-radius: $secondary-radius;
@@ -93,6 +94,23 @@
     text-shadow: $text-shadow;
 }
 
+@mixin secondary-circular-button {
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    min-width: 42px;
+    min-height: 42px;
+    background: $background-2;
+    color: $text;
+    box-shadow: $outset, $border-shadow;
+    font-family: $h2_font;
+    transition: all $transition;
+    margin-right: $outset_margin;
+    margin-left: $outset_margin;
+    border: $secondary-border;
+    background-size: $background-size;
+    border-radius: 100%;
+}
+
 @mixin primary-button-hover {
     background-color: $background-2 !important;
 }
@@ -131,44 +149,57 @@
     box-shadow: $inset_primary;
     background-size: $background-size;
 }
+
 /*Navbar and other background*/
-#global-nav-bar, .Root__top-container, .main-navBar-mainNav {
+#global-nav-bar,
+.Root__top-container,
+.main-navBar-mainNav {
     background-color: $background;
 }
+
 /*svgs*/
-.Svg-img-icon-medium, .Svg-img-icon-small, .Svg-img-icon-xlarge{
+.Svg-img-icon-medium,
+.Svg-img-icon-small,
+.Svg-img-icon-xlarge {
     fill: $text !important;
 }
+
 /*Navbar home button*/
-.Root__globalNav .main-globalNav-navLink{
+.Root__globalNav .main-globalNav-navLink {
     @include secondary-button;
 }
-.Root__globalNav .main-globalNav-navLink:hover{
+
+.Root__globalNav .main-globalNav-navLink:hover {
     @include secondary-button-hover;
     transform: none;
 }
+
 /*Navbar search*/
-.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar{
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar {
     @include textbox;
 }
 
-.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:hover{
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:hover {
     background-color: $background-3;
 }
+
 /*What do you want to play?*/
-.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar{
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar {
     color: $text !important;
     padding-left: calc(var(--encore-layout-margin-looser) / 1.5);
 }
+
 /*Profile background*/
-.main-userWidget-box{
+.main-userWidget-box {
     background-color: $background !important;
 }
-.main-userWidget-box:hover{
+
+.main-userWidget-box:hover {
     transform: none;
 }
+
 /*Profile*/
-.main-avatar-avatar{
+.main-avatar-avatar {
     @include primary-button;
     padding-left: calc(16px - $outset_margin);
     padding-right: 14px;
@@ -176,115 +207,140 @@
     margin: 0 !important;
     border-radius: 100%;
 }
-.main-avatar-avatar:hover{
+
+.main-avatar-avatar:hover {
     @include primary-button-hover;
 }
+
 /*Library*/
-.main-yourLibraryX-entryPoints{
+.main-yourLibraryX-entryPoints {
     @include card;
     padding: 0;
 }
-.main-useDropTarget-base .main-useDropTarget-track .main-useDropTarget-local .main-useDropTarget-album .main-useDropTarget-artist .CU0fvofmxUbTupSDNOQ3 .main-useDropTarget-playlist .main-useDropTarget-show .main-useDropTarget-folder .main-useDropTarget-pseudoPlaylist .main-yourLibraryX-listItem{
+
+.main-useDropTarget-base .main-useDropTarget-track .main-useDropTarget-local .main-useDropTarget-album .main-useDropTarget-artist .CU0fvofmxUbTupSDNOQ3 .main-useDropTarget-playlist .main-useDropTarget-show .main-useDropTarget-folder .main-useDropTarget-pseudoPlaylist .main-yourLibraryX-listItem {
     background-color: $background-2 !important;
 }
-.rowbutton-sc-xxkq4e-0 .fvljwa{
+
+.rowbutton-sc-xxkq4e-0 .fvljwa {
     background-color: $background-2 !important;
 }
-.rowbutton-sc-xxkq4e-0 .fvljwa:hover{
+
+.rowbutton-sc-xxkq4e-0 .fvljwa:hover {
     background-color: $background-3 !important;
 }
+
 /*Library playlist button*/
-.Button-buttonTertiary-small-small-iconOnly-isUsingKeyboard-useBrowserDefaultFocusStyle{
+.Button-buttonTertiary-small-small-iconOnly-isUsingKeyboard-useBrowserDefaultFocusStyle {
     @include secondary-button;
 }
-.Button-buttonTertiary-small-small-iconOnly-isUsingKeyboard-useBrowserDefaultFocusStyle:hover{
+
+.Button-buttonTertiary-small-small-iconOnly-isUsingKeyboard-useBrowserDefaultFocusStyle:hover {
     @include secondary-button-hover;
 }
-.Button-buttonTertiary-medium-medium-iconLeading-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed{
+
+.Button-buttonTertiary-medium-medium-iconLeading-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed {
     @include primary-button;
 }
+
 /*Filter buttons*/
-.ChipInnerComponent-sm-isUsingKeyboard{
+.ChipInnerComponent-sm-isUsingKeyboard {
     @include secondary-button;
 }
-.ChipInnerComponent-sm-isUsingKeyboard:hover{
+
+.ChipInnerComponent-sm-isUsingKeyboard:hover {
     @include secondary-button-hover;
 }
-.ChipInnerComponent-sm-selected-isUsingKeyboard{
+
+.ChipInnerComponent-sm-selected-isUsingKeyboard {
     @include secondary-button-active;
 }
-.encore-internal-color-text-base{
+
+.encore-internal-color-text-base {
     color: $text;
 }
-.encore-internal-color-text-bright-accent{
+
+.encore-internal-color-text-bright-accent {
     color: $primary;
 }
-.encore-text-body-medium-bold{
+
+.encore-text-body-medium-bold {
     @include h2;
 }
+
 /*Now Playing*/
-.AAdBM1nhG73supMfnYX7{
+.AAdBM1nhG73supMfnYX7 {
     @include card;
     background-color: $background-3 !important;
 }
-.main-nowPlayingView-section{
+
+.main-nowPlayingView-section {
     @include card;
 }
 
-.encore-text-body-small-bold{
+.encore-text-body-small-bold {
     @include paragraph;
 }
 
-.encore-text-body-small, .encore-internal-color-text-subdued{
+.encore-text-body-small,
+.encore-internal-color-text-subdued {
     @include subtext;
 }
 
-.encore-text-headline-large, .main-entityHeader-topbarTitle{
+.encore-text-headline-large,
+.main-entityHeader-topbarTitle {
     @include h1;
 }
 
-.XVz4BMGP5zAEE5p90mYK, .main-actionBar-ActionBar{
+.XVz4BMGP5zAEE5p90mYK,
+.main-actionBar-ActionBar {
     background-color: $background-2;
 }
+
 /*Play buttons*/
-.ButtonInner-large, .ButtonInner-medium{
+.ButtonInner-large,
+.ButtonInner-medium {
     @include primary-circular-button;
 }
 
-.Svg-img-icon-large{
+.Svg-img-icon-large {
     fill: $text;
 }
+
 /*Add to playlist svgs*/
-.Svg-img-icon-large-textBrightAccent, .Svg-img-icon-small-textBrightAccent{
+.Svg-img-icon-large-textBrightAccent,
+.Svg-img-icon-small-textBrightAccent {
     fill: $secondary;
 }
 
-.contentSpacing, .main-topBar-background{
+.contentSpacing,
+.main-topBar-background {
     background-color: $background-2;
 }
 
-.hV9v6y_uYwdAsoiOHpzk{
+.hV9v6y_uYwdAsoiOHpzk {
     background: transparent;
 }
 
-.main-trackList-trackListHeader{
+.main-trackList-trackListHeader {
     border-bottom: $secondary-border !important;
 }
 
-.main-trackList-rowSectionIndex, .main-trackList-rowMarker{
+.main-trackList-rowSectionIndex,
+.main-trackList-rowMarker {
     @include paragraph;
     color: $primary !important;
 }
 
-.UudGCx16EmBkuFPllvss a{
+.UudGCx16EmBkuFPllvss a {
     color: $primary !important;
 }
 
-.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader{
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader {
     background: $background-2 !important;
 }
 
-.MGZ4oJmGVPrWsx5cT5hN{
+.MGZ4oJmGVPrWsx5cT5hN {
     @include card;
     background-color: $background;
 }
@@ -292,21 +348,107 @@
 .CardTitle__LineClamp-sc-1h38un4-0 .LineClamp {
     @include paragraph;
 }
+
 /*Copyright*/
-.TypeElement-type-finale{
+.TypeElement-type-finale {
     color: $primary;
 }
 
-.Root__main-view{
+.Root__main-view {
     @include card;
     padding: 0;
 }
+
 /*Spicetify update button*/
-.Button-buttonTertiary-medium-medium-iconOnly-disabled-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed{
+.Button-buttonTertiary-medium-medium-iconOnly-disabled-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed {
     color: $primary;
 }
 
-// .HUjfVPQnC1P8Q8dJlxVl.cRHuuh0O2EuJZbQ5oaEF, .artist-artistDiscography-topBar.artist-artistDiscography-topBarScrolled, .artist-artistDiscography-headerContainer, .XtGI24gayCCOR69pcBao, .EmeHQXR87mUskYK6xEde, .XxJxjdIexR1RXajhHYyv, .artist-artistOnTour-date.artist-artistOnTour-elevated, .zpjpg954p7ZWJiTjKWEL, .pT8jWX5PbLB2Z91Ngl7n, .pdkMNbSQl8Yi5tl0iOF9, .KM8BFaw7LbvBIcLnf2BX, .KM8BFaw7LbvBIcLnf2BX .RPo65cLEoLdTEkTummvb, .tAdvjJEctimN9bSKFEEs{
-//     background-color: $background-2 !important;
-//     background: $background-2 !important;
-// }
+.ListRowTitle__LineClamp-sc-1xe2if1-0 {
+    @include h1;
+}
+
+.encore-text-body-medium,
+.encore-text-body-medium-bold {
+    @include paragraph;
+}
+
+/*Album art*/
+.GOcsybnoHYyJGQGDRuwj,
+.yMQTWVwLJ5bV8VGiaqU3,
+.main-entityHeader-image {
+    border-radius: $primary-radius;
+}
+
+;
+
+.x-entityImage-image,
+.GSgVaqJa8VEp5mKoIN0b {
+    border-radius: $secondary-radius;
+    background: transparent;
+}
+
+/*Spicetify update stuff*/
+.GenericModal__overlay {
+    background-color: rgba($background, .7)
+}
+
+.main-embedWidgetGenerator-container {
+    @include card;
+}
+
+.main-type-alto {
+    @include h1;
+}
+
+#spicetify-update p,
+#spicetify-update p a #spicetify-update ol>li {
+    @include paragraph;
+}
+
+#spicetify-update h3 {
+    @include h2;
+}
+
+#spicetify-update ol pre {
+    @include card;
+    color: $text;
+    background-color: $background;
+    margin-bottom: 10px;
+}
+
+.main-trackcreditsmodal-closebtn svg{
+    transform: translateY(calc(-1 * ($outset_margin + $outset_margin)));
+}
+
+.main-trackCreditsModal-closeBtn {
+    @include secondary-circular-button;
+    color: $text;
+}
+
+#spicetify-update a {
+    @include paragraph;
+    color: $primary !important;
+    text-decoration: underline;
+}
+
+#spicetify-update hr {
+    border-color: var(--spice-subtext);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#spicetify-update li {
+    @include paragraph;
+}
+
+#spicetify-update ol>li {
+    @include h3;
+}
+
+#spicetify-update details summary {
+    @include paragraph;
+    margin-left: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

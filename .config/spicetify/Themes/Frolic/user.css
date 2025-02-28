@@ -13,12 +13,16 @@
 /* General */
 /*Components*/
 /*Navbar and other background*/
-#global-nav-bar, .Root__top-container, .main-navBar-mainNav {
+#global-nav-bar,
+.Root__top-container,
+.main-navBar-mainNav {
   background-color: #f0edea;
 }
 
 /*svgs*/
-.Svg-img-icon-medium, .Svg-img-icon-small, .Svg-img-icon-xlarge {
+.Svg-img-icon-medium,
+.Svg-img-icon-small,
+.Svg-img-icon-xlarge {
   fill: #562f10 !important;
 }
 
@@ -256,26 +260,30 @@
   color: #562f10 !important;
 }
 
-.encore-text-body-small, .encore-internal-color-text-subdued {
+.encore-text-body-small,
+.encore-internal-color-text-subdued {
   font-family: "Monaspace Xenon";
   font-weight: 100;
   font-size: 11px;
   color: #766251;
 }
 
-.encore-text-headline-large, .main-entityHeader-topbarTitle {
+.encore-text-headline-large,
+.main-entityHeader-topbarTitle {
   font-family: "Monaspace Radon";
   font-weight: normal;
   font-size: 24px;
   color: #562f10 !important;
 }
 
-.XVz4BMGP5zAEE5p90mYK, .main-actionBar-ActionBar {
+.XVz4BMGP5zAEE5p90mYK,
+.main-actionBar-ActionBar {
   background-color: #f2f2f2;
 }
 
 /*Play buttons*/
-.ButtonInner-large, .ButtonInner-medium {
+.ButtonInner-large,
+.ButtonInner-medium {
   font-size: 18px;
   font-weight: normal;
   min-width: 42px;
@@ -298,11 +306,13 @@
 }
 
 /*Add to playlist svgs*/
-.Svg-img-icon-large-textBrightAccent, .Svg-img-icon-small-textBrightAccent {
+.Svg-img-icon-large-textBrightAccent,
+.Svg-img-icon-small-textBrightAccent {
   fill: #12de52;
 }
 
-.contentSpacing, .main-topBar-background {
+.contentSpacing,
+.main-topBar-background {
   background-color: #f2f2f2;
 }
 
@@ -314,7 +324,8 @@
   border-bottom: 2px solid #de6e12 !important;
 }
 
-.main-trackList-rowSectionIndex, .main-trackList-rowMarker {
+.main-trackList-rowSectionIndex,
+.main-trackList-rowMarker {
   font-family: "Monaspace Xenon";
   font-weight: 300;
   font-size: 14px;
@@ -367,6 +378,145 @@
 /*Spicetify update button*/
 .Button-buttonTertiary-medium-medium-iconOnly-disabled-isUsingKeyboard-useBrowserDefaultFocusStyle-condensed {
   color: #de6e12;
+}
+
+.ListRowTitle__LineClamp-sc-1xe2if1-0 {
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  font-size: 24px;
+  color: #562f10 !important;
+}
+
+.encore-text-body-medium,
+.encore-text-body-medium-bold {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #562f10 !important;
+}
+
+/*Album art*/
+.GOcsybnoHYyJGQGDRuwj,
+.yMQTWVwLJ5bV8VGiaqU3,
+.main-entityHeader-image {
+  border-radius: 30px;
+}
+
+.x-entityImage-image,
+.GSgVaqJa8VEp5mKoIN0b {
+  border-radius: 30px;
+  background: transparent;
+}
+
+/*Spicetify update stuff*/
+.GenericModal__overlay {
+  background-color: rgba(240, 237, 234, 0.7);
+}
+
+.main-embedWidgetGenerator-container {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.main-type-alto {
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  font-size: 24px;
+  color: #562f10 !important;
+}
+
+#spicetify-update p,
+#spicetify-update p a #spicetify-update ol > li {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #562f10 !important;
+}
+
+#spicetify-update h3 {
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  font-size: 18px;
+  color: #562f10;
+}
+
+#spicetify-update ol pre {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  color: #562f10;
+  background-color: #f0edea;
+  margin-bottom: 10px;
+}
+
+.main-trackcreditsmodal-closebtn svg {
+  transform: translateY(-4px);
+}
+
+.main-trackCreditsModal-closeBtn {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: #f2f2f2;
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 100%;
+  color: #562f10;
+}
+
+#spicetify-update a {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #562f10 !important;
+  color: #de6e12 !important;
+  text-decoration: underline;
+}
+
+#spicetify-update hr {
+  border-color: var(--spice-subtext);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#spicetify-update li {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #562f10 !important;
+}
+
+#spicetify-update ol > li {
+  font-family: "Monaspace Xenon";
+  font-weight: bold;
+  font-size: 16px;
+  color: #562f10;
+}
+
+#spicetify-update details summary {
+  font-family: "Monaspace Xenon";
+  font-weight: 300;
+  font-size: 14px;
+  color: #562f10 !important;
+  margin-left: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=user.css.map */
