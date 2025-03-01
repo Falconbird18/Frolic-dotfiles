@@ -1,7 +1,7 @@
 @use "sass:color";
 
 /* Colors */
-$background: #21252c4f;
+$background: #21252C4f;
 /* background: hsl(218, 15%, 15%)*/
 $background-2: #2020204f;
 /* card: hsl(0, 0%, 13%)*/
@@ -28,4 +28,5 @@ $shadow_primary: #0e974a;
 
 
 @import "../glaciara.scss";
-@import "../style.scss";
+@import "../spicetify.scss";
+

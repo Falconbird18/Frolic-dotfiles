@@ -278,7 +278,7 @@ icon {
     -gtk-icon-shadow: $text-shadow;
 }
 
-image{
+image {
     color: red;
 }
 
@@ -879,50 +879,44 @@ switch:checked slider {
 
 .control-center__brightness-slider,
 .control-center__volume-slider {
-    * {
-        padding: 0;
-        margin: 0;
-        border: none;
-    }
+  * {
+      padding: 0;
+      margin: 0;
+      border: none;
+  }
 
-    .control-center__slider-icon {
-        color: $text;
-        margin-left: 0;
-        font-size: 20px;
-    }
+  .control-center__slider-icon {
+      color: $text;
+      margin-left: 0;
+      font-size: 20px;
+  }
 
-    trough {
-        transition:
-            background-color $transition,
-            color $transition;
-        border-radius: 100px;
-        background-color: $background-3;
-        box-shadow: $inset;
-        min-height: 15px;
+  slider {
+      min-width: 30px;
+      border-radius: 100px;
+      background-color: transparent;
+      box-shadow: none;
+      transition: background-color $transition, color $transition;
 
-        highlight {
-            background: $background-image;
-            background-size: $background-size;
-            min-width: 15px;
-            transition: all $transition;
-            border-radius: $primary-radius;
-            border: $primary-border;
-            box-shadow: $outset_primary;
-            padding: 2px 0px;
-            margin: -2px 0px;
-        }
+      trough {
+          border-radius: $primary-radius;
+          background-color: $background-3;
+          box-shadow: $inset;
+          min-height: 15px;
+      }
 
-        slider {
-            min-width: 30px;
-            border-radius: 100px;
-            background-color: transparent;
-            box-shadow: none;
-
-            transition:
-                background-color $transition,
-                color $transition;
-        }
-    }
+      highlight {
+          background: $background-image;
+          background-size: $background-size;
+          min-width: 15px;
+          transition: all $transition;
+          border-radius: $primary-radius;
+          border: $primary-border;
+          box-shadow: $outset_primary;
+          padding: 2px 0px;
+          margin: -2px 0px;
+      }
+  }
 }
 
 .muted {
@@ -1160,6 +1154,7 @@ switch:checked slider {
 
 .notifications-window {
     @include card;
+    background: $background;
     min-width: 400px;
     min-height: 550px;
     margin-right: $outset_margin;
@@ -1208,6 +1203,7 @@ switch:checked slider {
 
 .container {
     @include card;
+    background: $background;
     margin-bottom: 20px;
 }
 
@@ -1305,9 +1301,7 @@ switch:checked slider {
 
 .player__position-slider {
     trough {
-        transition:
-            background $transition,
-            color $transition;
+        transition: all $transition;
         border-radius: $secondary-radius;
         background-color: $background-3;
         box-shadow: $inset;
@@ -1325,10 +1319,6 @@ switch:checked slider {
             border-radius: 100px;
             background-color: transparent;
             box-shadow: none;
-
-            transition:
-                background-color $transition,
-                color $transition;
         }
     }
 }

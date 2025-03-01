@@ -10,7 +10,7 @@ export default () => {
 			<box
 				orientation={Gtk.Orientation.HORIZONTAL}
 				spacing={10}
-				className={"control-center__brightness-slider"}
+				classname={"control-center__brightness-slider"}
 			>
 				<icon
 					className={"control-center__slider-icon"}

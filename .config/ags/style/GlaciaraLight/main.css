@@ -1,11 +1,11 @@
 /* Colors */
-/* background: hsl(218, 15%, 15%)*/
-/* card: hsl(0, 0%, 13%)*/
-/* background-light: hsl(218, 15%, 25%)*/
-/* primary: hsl(218, 82%, 57%)*/
-/* secondary: hsl(330, 82%, 55%)*/
-/* text: hsl(227, 68%, 88%)*/
-/* subtext: hsl(227, 19%, 69%)*/
+/* background: hsl(218, 15%, 90%)*/
+/* card: hsl(0, 5%, 93%)*/
+/* background-light: hsl(218, 50%, 97%)*/
+/* primary: hsl(218, 72%, 67%)*/
+/* secondary: hsl(330, 72%, 67%)*/
+/* text: hsl(227, 58%, 33%)*/
+/* subtext: hsl(227, 20%, 50%)*/
 /* highlight_primary: hsl(114, 85%, 57%)*/
 /* shadow_primary: hsl(114, 85%, 13%)*/
 /*Difference between hue of Primary and Secondary is 112*/
@@ -15,25 +15,25 @@
 /* AppLauncher */
 .app-launcher {
   min-width: 650px;
-  background-image: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background-image: linear-gradient(145deg, rgba(226, 228, 233, 0.3098039216), rgba(226, 228, 233, 0.3098039216));
   border-radius: 30px;
   padding: 0px;
   min-height: 700px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB;
 }
 
 .app-launcher__input {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 5px;
-  color: #cad3f5;
+  color: #233885;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 300;
   box-shadow: 0 0 0 transparent;
-  caret-color: #cad3f5;
+  caret-color: #233885;
   margin: 20px;
   padding: 12px 22px;
 }
@@ -48,9 +48,9 @@
 }
 
 .app-launcher__item {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -63,14 +63,14 @@
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 300;
-  color: #cad3f5;
+  color: #233885;
   margin-bottom: 10px;
 }
 .app-launcher__item label.description {
   font-family: "Roboto";
   font-size: 11px;
   font-weight: 100;
-  color: #a0a7be;
+  color: #667199;
 }
 .app-launcher__item icon {
   font-size: 24px;
@@ -78,14 +78,14 @@
 }
 .app-launcher__item:hover {
   box-shadow: 0 0 0 transparent;
-  background-color: rgba(54, 61, 73, 0.3098039216);
+  background-color: #FF0000;
 }
 .app-launcher__item:focus {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   box-shadow: 0 0 0 transparent;
 }
 .app-launcher__item:active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   box-shadow: 0 0 0 transparent;
   border-radius: 100px;
 }
@@ -95,41 +95,41 @@
   font-family: "Roboto";
   font-weight: 300;
   font-size: 24px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .h2 {
   font-family: "Roboto";
   font-weight: 300;
   font-size: 18px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .h3 {
   font-family: "Roboto";
   font-weight: bold;
   font-size: 16px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .paragraph {
   font-family: "Roboto";
   font-weight: 300;
   font-size: 14px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .subtext {
   font-family: "Roboto";
   font-weight: 100;
   font-size: 11px;
-  color: #a0a7be;
+  color: #667199;
 }
 
 .card {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -146,7 +146,7 @@
 
 icon {
   text-shadow: none;
-  color: #cad3f5;
+  color: #233885;
   -gtk-icon-shadow: none;
 }
 
@@ -156,14 +156,14 @@ image {
 
 .icon {
   text-shadow: none;
-  color: #cad3f5;
+  color: #233885;
   -gtk-icon-shadow: none;
 }
 
 slider {
   border: none;
   outline: none;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
 }
 
 separator {
@@ -191,18 +191,18 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(226, 228, 233, 0.3098039216);
   padding: 10px;
 }
 window.popup menu menuitem {
   min-width: 140px;
   padding: 12px 6px;
-  color: #cad3f5;
+  color: #233885;
   border-radius: 100px;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 window.popup menu menuitem:hover {
-  background: rgba(32, 32, 32, 0.3098039216);
+  background: rgba(236, 237, 238, 0.3098039216);
 }
 window.popup menu menuitem:first-child {
   margin-top: 0;
@@ -212,33 +212,33 @@ window.popup menu menuitem:last-child {
 }
 
 switch {
-  border: 2px solid #a0a7be;
+  border: 2px solid #667199;
   border-radius: 100px;
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
 }
 
 switch slider {
   box-shadow: none;
   border-radius: 100px;
-  background-color: #a0a7be;
+  background-color: #667199;
 }
 
 switch:hover slider,
 switch:active slider {
-  background-color: #a0a7be;
+  background-color: #667199;
 }
 
 switch:active {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
 }
 
 switch:checked {
-  background-color: #3979eb;
-  border: 2px solid #3979eb;
+  background-color: #6E9BE7;
+  border: 2px solid #6E9BE7;
 }
 
 switch:checked slider {
-  background-color: #eb308f;
+  background-color: #E76EAB;
 }
 
 /*Components*/
@@ -248,24 +248,24 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
 }
 .primary-button:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .primary-button:active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
@@ -275,25 +275,25 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
 .secondary-button:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .secondary-button:active {
-  background: #3979eb;
+  background: #6E9BE7;
   box-shadow: 0 0 0 transparent;
   background-size: unset;
 }
@@ -303,28 +303,28 @@ switch:checked slider {
   font-weight: 300;
   min-width: 42px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 100%;
   text-shadow: none;
 }
 
 .primary-button-circular {
-  background: rgba(54, 61, 73, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: #FF0000;
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -339,14 +339,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -361,53 +361,53 @@ switch:checked slider {
   padding: 3px 15px;
 }
 .material-button:focus {
-  box-shadow: 0 0 0 1px #cad3f5;
+  box-shadow: 0 0 0 1px #233885;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #3979eb 25%, rgba(32, 32, 32, 0.3098039216) 25%, rgba(32, 32, 32, 0.3098039216) 50%, #3979eb 50%, #3979eb 75%, rgba(32, 32, 32, 0.3098039216) 75%, rgba(32, 32, 32, 0.3098039216));
+  background-image: linear-gradient(45deg, #6E9BE7 25%, rgba(236, 237, 238, 0.3098039216) 25%, rgba(236, 237, 238, 0.3098039216) 50%, #6E9BE7 50%, #6E9BE7 75%, rgba(236, 237, 238, 0.3098039216) 75%, rgba(236, 237, 238, 0.3098039216));
   background-size: 8px 8px;
-  border: 2px solid #3979eb;
-  box-shadow: 0px 2px 0px 0px #eb308f;
-  color: #cad3f5;
-  text-shadow: -1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), -1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216);
+  border: 2px solid #6E9BE7;
+  box-shadow: 0px 2px 0px 0px #E76EAB;
+  color: #233885;
+  text-shadow: -1.5px -1.5px 0 rgba(226, 228, 233, 0.3098039216), 1.5px -1.5px 0 rgba(226, 228, 233, 0.3098039216), -1.5px 1.5px 0 rgba(226, 228, 233, 0.3098039216), 1.5px 1.5px 0 rgba(226, 228, 233, 0.3098039216);
 }
 .material-button.filled:hover, .material-button.filled:focus {
-  background: #3979eb;
+  background: #6E9BE7;
   background-size: 8px 8px;
-  color: rgba(33, 37, 44, 0.3098039216);
+  color: rgba(226, 228, 233, 0.3098039216);
 }
 .material-button.filled:active {
-  background: #3979eb;
+  background: #6E9BE7;
   background-size: 8px 8px;
-  color: rgba(33, 37, 44, 0.3098039216);
+  color: rgba(226, 228, 233, 0.3098039216);
 }
 .material-button.outlined {
   background: none;
-  color: #cad3f5;
-  border: 2px solid #3979eb;
+  color: #233885;
+  border: 2px solid #6E9BE7;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #3979eb 25%, rgba(32, 32, 32, 0.3098039216) 25%, rgba(32, 32, 32, 0.3098039216) 50%, #3979eb 50%, #3979eb 75%, rgba(32, 32, 32, 0.3098039216) 75%, rgba(32, 32, 32, 0.3098039216));
+  background-image: linear-gradient(45deg, #6E9BE7 25%, rgba(236, 237, 238, 0.3098039216) 25%, rgba(236, 237, 238, 0.3098039216) 50%, #6E9BE7 50%, #6E9BE7 75%, rgba(236, 237, 238, 0.3098039216) 75%, rgba(236, 237, 238, 0.3098039216));
   background-size: 8px 8px;
-  border: 2px solid #3979eb;
-  box-shadow: 0px 2px 0px 0px #eb308f;
-  text-shadow: -1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), -1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216);
+  border: 2px solid #6E9BE7;
+  box-shadow: 0px 2px 0px 0px #E76EAB;
+  text-shadow: -1.5px -1.5px 0 rgba(226, 228, 233, 0.3098039216), 1.5px -1.5px 0 rgba(226, 228, 233, 0.3098039216), -1.5px 1.5px 0 rgba(226, 228, 233, 0.3098039216), 1.5px 1.5px 0 rgba(226, 228, 233, 0.3098039216);
 }
 .material-button.outlined:focus {
-  background: #3979eb;
+  background: #6E9BE7;
 }
 .material-button.outlined:active {
-  background: #3979eb;
+  background: #6E9BE7;
 }
 
 /*Bar*/
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background-image: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background-image: linear-gradient(145deg, rgba(226, 228, 233, 0.3098039216), rgba(226, 228, 233, 0.3098039216));
   margin: 7px 7px 7px 7px;
   border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
 }
 
 .arch-container {
@@ -420,25 +420,25 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
 .bar__item.bar__button:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .bar__item.bar__button:active {
-  background: #3979eb;
+  background: #6E9BE7;
   box-shadow: 0 0 0 transparent;
   background-size: unset;
 }
@@ -447,11 +447,11 @@ switch:checked slider {
   min-height: 42px;
   min-width: 42px;
   background: #e99898;
-  color: #cad3f5;
+  color: #233885;
 }
 .bar__item.bar__button.bar__recording-indicator:hover {
   color: #e99898;
-  background: #cad3f5;
+  background: #233885;
 }
 .bar__item.bar__button.bar__recording-indicator.spacing {
   padding-left: 16px;
@@ -464,12 +464,12 @@ switch:checked slider {
 
 .bar__item.transparent {
   background: transparent;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .bar__item.primary_container {
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
 }
 
 .bar__workspaces-indicator {
@@ -478,13 +478,13 @@ switch:checked slider {
   min-height: 8px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
-  background-color: rgba(54, 61, 73, 0.3098039216);
+  background-color: #FF0000;
   box-shadow: 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
 }
 .bar__workspaces-indicator:hover {
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
   min-height: 12px;
@@ -494,14 +494,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -543,8 +543,8 @@ switch:checked slider {
   border-radius: 9px;
   min-width: 18px;
   min-height: 18px;
-  background: #cad3f5;
-  color: rgba(32, 32, 32, 0.3098039216);
+  background: #233885;
+  color: rgba(236, 237, 238, 0.3098039216);
 }
 
 .bar__tray {
@@ -559,7 +559,7 @@ switch:checked slider {
   background: none;
 }
 .bar__tray-item:hover {
-  background-color: rgba(57, 121, 235, 0.6);
+  background-color: rgba(110, 155, 231, 0.6);
 }
 .bar__tray-item icon {
   font-size: 18px;
@@ -567,14 +567,14 @@ switch:checked slider {
 
 /*Control Center*/
 .control-center__container {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(226, 228, 233, 0.3098039216);
   min-width: 450px;
   min-height: 800px;
 }
@@ -584,9 +584,9 @@ switch:checked slider {
 }
 
 .control-center__settings-container {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -594,9 +594,9 @@ switch:checked slider {
 }
 
 .control-center__wide-settings-container {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -617,7 +617,7 @@ switch:checked slider {
 }
 
 .control-center__page_header {
-  color: #cad3f5;
+  color: #233885;
   margin-top: 8px;
   margin-bottom: 24px;
 }
@@ -633,32 +633,32 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
 }
 .control-center__page_header_button:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
 .control-center__page_item-header {
-  color: #cad3f5;
+  color: #233885;
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 300;
   min-height: 80px;
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -673,14 +673,14 @@ switch:checked slider {
 }
 
 .control-center__page_item {
-  color: #cad3f5;
+  color: #233885;
   font-weight: 300;
   font-size: 14px;
   font-family: "Roboto";
   min-height: 40px;
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -690,7 +690,7 @@ switch:checked slider {
   font-size: 14px;
   font-weight: 300;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
   margin-left: 16px;
 }
 .control-center__page_item:hover {
@@ -703,14 +703,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   border-radius: 15px 30px 30px 15px;
@@ -718,12 +718,12 @@ switch:checked slider {
 }
 .control-center__button-icon:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .control-center__button-icon.active {
-  background: #3979eb;
+  background: #6E9BE7;
   box-shadow: 0 0 0 transparent;
   background-size: unset;
 }
@@ -734,14 +734,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
@@ -751,44 +751,44 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
 .control-center__button-wide.active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button-wide.active:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button-wide.active:active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button-wide:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .control-center__button-wide.no-label {
   padding: 0;
 }
 .control-center__button-wide.recorder-indicator.active {
   background: #e99898;
-  color: #cad3f5;
+  color: #233885;
 }
 .control-center__button-wide.recorder-indicator.active:hover {
-  background: rgba(32, 32, 32, 0.3098039216);
+  background: rgba(236, 237, 238, 0.3098039216);
 }
 .control-center__button-wide.recorder-indicator.active:active {
   background: #e99898;
@@ -800,14 +800,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   border-radius: 30px 15px 15px 30px;
@@ -819,58 +819,58 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
 .control-center__button.active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button.active:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button.active:active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .control-center__button:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .control-center__button.no-label {
   padding: 0;
 }
 .control-center__button.recorder-indicator.active {
   background: #e99898;
-  color: #cad3f5;
+  color: #233885;
 }
 .control-center__button.recorder-indicator.active:hover {
-  background: rgba(32, 32, 32, 0.3098039216);
+  background: rgba(236, 237, 238, 0.3098039216);
 }
 .control-center__button.recorder-indicator.active:active {
   background: #e99898;
 }
 
 .control-center__dropdown-menu {
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
   border-radius: 30px;
   padding: 24px;
 }
 
 .control-center__dropdown-menu_icon {
   font-size: 20px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .control-center__dropdown-menu_title {
@@ -893,48 +893,47 @@ switch:checked slider {
 }
 .control-center__brightness-slider .control-center__slider-icon,
 .control-center__volume-slider .control-center__slider-icon {
-  color: #cad3f5;
+  color: #233885;
   margin-left: 0;
   font-size: 20px;
 }
-.control-center__brightness-slider trough,
-.control-center__volume-slider trough {
-  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  border-radius: 100px;
-  background-color: rgba(54, 61, 73, 0.3098039216);
-  box-shadow: 0 0 0 transparent;
-  min-height: 15px;
-}
-.control-center__brightness-slider trough highlight,
-.control-center__volume-slider trough highlight {
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  background-size: unset;
-  min-width: 15px;
-  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0 0 0 transparent;
-  padding: 2px 0px;
-  margin: -2px 0px;
-}
-.control-center__brightness-slider trough slider,
-.control-center__volume-slider trough slider {
+.control-center__brightness-slider slider,
+.control-center__volume-slider slider {
   min-width: 30px;
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
   transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
+.control-center__brightness-slider slider trough,
+.control-center__volume-slider slider trough {
+  border-radius: 30px;
+  background-color: #FF0000;
+  box-shadow: 0 0 0 transparent;
+  min-height: 15px;
+}
+.control-center__brightness-slider slider highlight,
+.control-center__volume-slider slider highlight {
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  background-size: unset;
+  min-width: 15px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  border-radius: 30px;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0 0 0 transparent;
+  padding: 2px 0px;
+  margin: -2px 0px;
+}
 
 .muted .control-center__volume-slider highlight {
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(226, 228, 233, 0.3098039216);
 }
 .muted .control-center__slider-icon {
-  color: #cad3f5;
+  color: #233885;
 }
 
 .control-center__time-to-empty {
-  color: #cad3f5;
+  color: #233885;
   font-size: 14px;
   font-weight: 300;
   font-family: "Roboto";
@@ -947,14 +946,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   padding: 10px;
@@ -964,9 +963,9 @@ switch:checked slider {
 .control-center__settings-button:hover,
 .control-center__powermenu-button:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 
 .control-center__footer {
@@ -975,9 +974,9 @@ switch:checked slider {
 
 /*Dashboard*/
 .dashboard {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -1011,17 +1010,17 @@ switch:checked slider {
   font-size: 24px;
   font-weight: 300;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
 }
 
 .calendar__weekdays {
-  color: #cad3f5;
+  color: #233885;
   color: red;
   font-size: 100px;
 }
 
 .calendar__days {
-  color: #cad3f5;
+  color: #233885;
   font-size: 100px;
 }
 
@@ -1035,14 +1034,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -1052,7 +1051,7 @@ switch:checked slider {
 }
 
 .calendar__button {
-  color: #cad3f5;
+  color: #233885;
   font-family: "Roboto";
   font-weight: 300;
   font-size: 14px;
@@ -1060,7 +1059,7 @@ switch:checked slider {
 }
 
 .calendar__button__other-month {
-  color: #a0a7be;
+  color: #667199;
   font-family: "Roboto";
   font-size: 11px;
   font-weight: 100;
@@ -1078,17 +1077,17 @@ switch:checked slider {
   min-width: 40px;
 }
 .calendar__day.active {
-  background: #3979eb;
+  background: #6E9BE7;
 }
 .calendar__day.inactive {
-  color: rgba(33, 37, 44, 0.3098039216);
+  color: rgba(226, 228, 233, 0.3098039216);
 }
 
 /*Notification*/
 .notification {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -1102,9 +1101,9 @@ switch:checked slider {
   min-width: 24px;
   margin-right: 14px;
   border-radius: 30px;
-  background: rgba(32, 32, 32, 0.3098039216);
+  background: rgba(236, 237, 238, 0.3098039216);
   box-shadow: 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
 }
 
 .notification__icon.telegram {
@@ -1115,7 +1114,7 @@ switch:checked slider {
   font-size: 24px;
   font-weight: 300;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
 }
 
 .notification__header {
@@ -1124,13 +1123,13 @@ switch:checked slider {
   font-family: "Roboto";
   font-weight: 300;
   font-size: 18px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .notification__app-name,
 .notification__dot,
 .notification__time {
-  color: #a0a7be;
+  color: #667199;
   font-size: 11px;
   font-weight: 100;
   font-family: "Roboto";
@@ -1138,7 +1137,7 @@ switch:checked slider {
 
 .notification__description {
   margin-bottom: 8px;
-  color: #a0a7be;
+  color: #667199;
   font-size: 11px;
   font-weight: 100;
   font-family: "Roboto";
@@ -1151,11 +1150,11 @@ switch:checked slider {
 .notification__action {
   background: none;
   transition: color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  color: #3979eb;
+  color: #6E9BE7;
   border-radius: 100px;
 }
 .notification__action:hover {
-  color: #cad3f5;
+  color: #233885;
   transition: color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .notification__action:first-child {
@@ -1171,22 +1170,22 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
 .notification__close-button:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 
 /*NotificationsPopup*/
@@ -1200,14 +1199,14 @@ switch:checked slider {
 
 /*NotificationsWindow*/
 .notifications-window {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
   min-width: 400px;
   min-height: 550px;
   margin-right: 1px;
@@ -1215,8 +1214,8 @@ switch:checked slider {
 .notifications-window .notification {
   border-radius: 4px;
   transition: border-radius 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 2px 0px 0px #eb308f;
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 2px 0px 0px #E76EAB;
 }
 
 .notifications-window__clear {
@@ -1225,21 +1224,21 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
 }
 
 .notifications-window__clear:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
@@ -1262,20 +1261,20 @@ switch:checked slider {
 }
 
 .container {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
   margin-bottom: 20px;
 }
 
 .indicator .progress {
   border-radius: 30px;
-  background-color: rgba(54, 61, 73, 0.3098039216);
+  background-color: #FF0000;
   box-shadow: 0 0 0 transparent;
   margin: 25px;
   padding: 0px;
@@ -1286,14 +1285,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -1302,15 +1301,15 @@ switch:checked slider {
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: rgba(33, 37, 44, 0.3098039216);
-  color: #cad3f5;
+  background-color: rgba(226, 228, 233, 0.3098039216);
+  color: #233885;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: rgba(33, 37, 44, 0.3098039216);
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 20px 10px;
   border-radius: 30px;
   background-size: cover;
@@ -1326,14 +1325,14 @@ switch:checked slider {
   background-color: transparent;
   padding: 0;
   border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
 }
 
 .player__title {
   font-weight: 300;
   font-size: 24px;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
   padding-right: 18px;
 }
 
@@ -1342,7 +1341,7 @@ switch:checked slider {
   font-weight: 300;
   font-size: 14px;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
   padding-top: 10px;
 }
 
@@ -1350,11 +1349,11 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background-color: #3979eb;
-  color: #cad3f5;
+  background-color: #6E9BE7;
+  color: #233885;
   font-size: 24px;
   border-radius: 0px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
   box-shadow: 0 0 0 transparent;
@@ -1378,7 +1377,7 @@ switch:checked slider {
 .player__position-slider trough {
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   border-radius: 30px;
-  background-color: rgba(54, 61, 73, 0.3098039216);
+  background-color: #FF0000;
   box-shadow: 0 0 0 transparent;
 }
 .player__position-slider trough highlight {
@@ -1387,14 +1386,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -1413,13 +1412,13 @@ switch:checked slider {
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .player__indicator.selected {
-  background: #cad3f5;
+  background: #233885;
 }
 
 @keyframes slide {
@@ -1448,14 +1447,14 @@ switch:checked slider {
 }
 
 .popup-menu {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background: linear-gradient(145deg, rgba(226, 228, 233, 0.3098039216), rgba(226, 228, 233, 0.3098039216));
   min-height: 400px;
 }
 .popup-menu.sink {
@@ -1480,7 +1479,7 @@ switch:checked slider {
   font-size: 24px;
   font-weight: 300;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
 }
 
 .popup-menu__content > * > * {
@@ -1490,7 +1489,7 @@ switch:checked slider {
 .popup-menu__item {
   background: none;
   padding: 18px;
-  color: #cad3f5;
+  color: #233885;
   border-radius: 100px;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
@@ -1502,7 +1501,7 @@ switch:checked slider {
   margin-right: 16px;
 }
 .popup-menu__item:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
 }
 .popup-menu__item:last-child {
   margin-bottom: 20px;
@@ -1526,13 +1525,13 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(226, 228, 233, 0.3098039216);
   min-height: 14px;
 }
 .mixer__slider trough highlight,
 .mixer__slider trough progress {
   border-radius: 100px;
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   border-radius: 100px;
 }
 .mixer__slider trough slider {
@@ -1544,18 +1543,18 @@ switch:checked slider {
 }
 
 .mixer__value {
-  background: rgba(32, 32, 32, 0.3098039216);
+  background: rgba(236, 237, 238, 0.3098039216);
   border-radius: 100px;
   min-width: 56px;
 }
 
 .bluetooth__percentage {
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
   border-radius: 100px;
   padding: 0px 12px;
   margin-left: 12px;
-  border: 2px solid #3979eb;
+  border: 2px solid #6E9BE7;
 }
 
 .mixer-placeholder {
@@ -1569,9 +1568,9 @@ switch:checked slider {
 
 /*PowerMenu*/
 .powermenu {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -1585,14 +1584,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
 }
@@ -1607,14 +1606,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   min-width: 100px;
@@ -1622,12 +1621,12 @@ switch:checked slider {
 }
 .powermenu__button:hover, .powermenu__button:focus {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .powermenu__button:active {
-  background: #3979eb;
+  background: #6E9BE7;
   box-shadow: 0 0 0 transparent;
   background-size: unset;
 }
@@ -1637,13 +1636,13 @@ switch:checked slider {
   font-weight: 300;
   font-family: "Roboto";
   margin-top: 25px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .verification {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -1656,14 +1655,14 @@ switch:checked slider {
   font-size: 18px;
   font-weight: 300;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
 }
 
 .verification__description {
   font-size: 14px;
   font-weight: 300;
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
 }
 
 /*Scrim*/
@@ -1687,14 +1686,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   margin-right: 10px;
@@ -1704,9 +1703,9 @@ switch:checked slider {
 }
 .mode-settings__button_left.hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .mode-settings__button_left.active {
   font-size: 18px;
@@ -1714,14 +1713,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -1737,14 +1736,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   margin-left: 10px;
@@ -1754,9 +1753,9 @@ switch:checked slider {
 }
 .mode-settings__button_right.hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .mode-settings__button_right.active {
   font-size: 18px;
@@ -1764,14 +1763,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   text-shadow: none;
@@ -1785,7 +1784,7 @@ switch:checked slider {
   font-family: "Roboto";
   font-size: 24px;
   font-weight: 300;
-  color: #cad3f5;
+  color: #233885;
   padding: 7px;
 }
 
@@ -1795,14 +1794,14 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 30px;
   min-width: 75px;
@@ -1811,7 +1810,7 @@ switch:checked slider {
 
 .label {
   font-family: "Roboto";
-  color: #cad3f5;
+  color: #233885;
   font-size: 14px;
   font-weight: 300;
   padding-top: 15px;
@@ -1834,42 +1833,42 @@ switch:checked slider {
 
 /*Weather*/
 .weather-window {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(226, 228, 233, 0.3098039216);
 }
 
 .temperature {
   font-size: 40px;
   font-family: "Roboto";
   font-weight: 300;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .location_input {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 5px;
-  color: #cad3f5;
+  color: #233885;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 300;
   box-shadow: 0 0 0 transparent;
-  caret-color: #cad3f5;
+  caret-color: #233885;
 }
 
 .location {
   font-family: "Roboto";
   font-weight: 300;
   font-size: 24px;
-  color: #cad3f5;
+  color: #233885;
   margin-bottom: 15px;
 }
 
@@ -1878,14 +1877,14 @@ switch:checked slider {
 }
 
 .weather-info-title {
-  color: #cad3f5;
+  color: #233885;
   font-family: "Roboto";
   font-weight: 300;
   font-size: 14px;
 }
 
 .weather-info {
-  color: #a0a7be;
+  color: #667199;
   font-family: "Roboto";
   font-size: 11px;
   font-weight: 100;
@@ -1893,13 +1892,13 @@ switch:checked slider {
 
 /*SideBar*/
 .sidebar-window {
-  background: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background: linear-gradient(145deg, rgba(226, 228, 233, 0.3098039216), rgba(226, 228, 233, 0.3098039216));
   min-height: 900px;
   min-width: 300px;
   border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 20px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .sidebar-prompt-container {
@@ -1907,9 +1906,9 @@ switch:checked slider {
 }
 
 .sidebar-prompt-example {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -1937,9 +1936,9 @@ switch:checked slider {
 }
 
 .user-message {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -1950,21 +1949,21 @@ switch:checked slider {
 }
 
 .ollama-message {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background-color: rgba(54, 61, 73, 0.3098039216);
+  background-color: #FF0000;
   font-size: 14px;
   font-family: "Roboto";
   font-weight: 300;
 }
 
 .model-buttons {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   border-radius: 30px;
   margin: 0;
 }
@@ -1974,14 +1973,14 @@ switch:checked slider {
   font-weight: 300;
   min-width: 42px;
   min-height: 42px;
-  background: rgba(32, 32, 32, 0.3098039216);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: rgba(236, 237, 238, 0.3098039216);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 100%;
   border-radius: 30px;
@@ -1989,12 +1988,12 @@ switch:checked slider {
 }
 .model-button:hover {
   background-size: unset;
-  background-image: linear-gradient(-45deg, #3979eb, #eb308f);
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
 }
 .model-button:active {
-  background: #3979eb;
+  background: #6E9BE7;
   box-shadow: 0 0 0 transparent;
   background-size: unset;
 }
@@ -2003,14 +2002,14 @@ switch:checked slider {
   font-weight: 300;
   min-width: 42px;
   min-height: 42px;
-  background: linear-gradient(-45deg, #3979eb, #eb308f);
-  color: #cad3f5;
-  box-shadow: 0 0 0 transparent, 0px 0px 0px #eb308f;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
   font-family: "Roboto";
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   margin-right: 1px;
   margin-left: 1px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   background-size: unset;
   border-radius: 100%;
   text-shadow: none;
@@ -2018,11 +2017,11 @@ switch:checked slider {
   margin: 0;
 }
 .model-button.active:hover {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 .model-button.active:active {
-  background-color: #3979eb;
+  background-color: #6E9BE7;
   transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
 }
 
@@ -2030,7 +2029,7 @@ switch:checked slider {
   font-family: "Roboto";
   font-weight: bold;
   font-size: 16px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .chat-container {
@@ -2041,27 +2040,27 @@ switch:checked slider {
   font-family: "Roboto";
   font-weight: 300;
   font-size: 14px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .message-time {
   font-family: "Roboto";
   font-weight: 100;
   font-size: 11px;
-  color: #a0a7be;
+  color: #667199;
 }
 
 .message-input {
-  background-color: rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
   border-radius: 30px;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 5px;
-  color: #cad3f5;
+  color: #233885;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 300;
   box-shadow: 0 0 0 transparent;
-  caret-color: #cad3f5;
+  caret-color: #233885;
   min-width: 0;
   /* Allows proper shrinking if needed */
   min-height: 32px;
@@ -2083,20 +2082,20 @@ switch:checked slider {
 }
 
 .keybinds-cheatsheet {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(226, 228, 233, 0.3098039216);
 }
 
 .shortcut-box {
-  background-color: rgba(32, 32, 32, 0.3098039216);
-  box-shadow: 0px 0px 0px #eb308f, 0 0 0 transparent;
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   padding: 10px;
   border-radius: 30px;
   margin-bottom: 1px;
@@ -2105,11 +2104,11 @@ switch:checked slider {
 }
 
 .key-icon {
-  background-color: rgba(54, 61, 73, 0.3098039216);
-  border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
+  background-color: #FF0000;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
   border-radius: 30px;
   padding: 5px 7px;
-  color: #cad3f5;
+  color: #233885;
 }
 
 .key-text {
