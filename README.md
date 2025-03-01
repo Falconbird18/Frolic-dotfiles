@@ -4,6 +4,7 @@ This is my in-progress hyprland settup. This includes an ags bar, a spotify them
 ## Features
 - Custom icon theme based on [Microsoft Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
 - Unique control panel
+- AI assistant using either locally run models or google gemini
 - 4 beautiful themes with light and dark mode
 - (Mostly) Complete spotify theme
 - Wallpaper switching
