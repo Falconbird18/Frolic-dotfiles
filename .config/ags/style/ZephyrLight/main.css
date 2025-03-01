@@ -1463,11 +1463,8 @@ switch:checked slider {
 .popup-menu.mixer {
   min-width: 500px;
 }
-.popup-menu.theme-settings {
-  min-width: 400px;
-}
-.popup-menu.clipboard {
-  min-width: 400px;
+.popup-menu.keybinds {
+  min-width: 600px;
 }
 
 .profiles {

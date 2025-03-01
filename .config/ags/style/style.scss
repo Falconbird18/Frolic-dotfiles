@@ -1389,12 +1389,8 @@ switch:checked slider {
         min-width: 500px;
     }
 
-    &.theme-settings {
-        min-width: 400px;
-    }
-
-    &.clipboard {
-        min-width: 400px;
+    &.keybinds {
+        min-width: 600px;
     }
 }
 
@@ -1836,4 +1832,39 @@ switch:checked slider {
     background: transparent;
     border: none;
     padding: 0;
+}
+
+.keybinds-cheatsheet {
+    @include card;
+    background-color: $background;
+}
+
+.shortcut-box {
+    @include card;
+    margin-bottom: 10px;
+}
+
+// .keys-container {
+//     justify-content: center;
+// }
+
+.key-icon {
+    background-color: $background-3;
+    border: $secondary-border;
+    border-radius: $secondary-radius;
+    padding: 2px 5px;
+    min-width: 24px;
+    min-height: 24px;
+    color: $text;
+}
+
+.key-text {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.description {
+    font-size: 11px;
+    color: #666;
+    // text-align: center;
 }

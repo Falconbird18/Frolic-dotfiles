@@ -1463,11 +1463,8 @@ switch:checked slider {
 .popup-menu.mixer {
   min-width: 500px;
 }
-.popup-menu.theme-settings {
-  min-width: 400px;
-}
-.popup-menu.clipboard {
-  min-width: 400px;
+.popup-menu.keybinds {
+  min-width: 600px;
 }
 
 .profiles {
@@ -2082,6 +2079,48 @@ switch:checked slider {
   background: transparent;
   border: none;
   padding: 0;
+}
+
+.keybinds-cheatsheet {
+  background-color: #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #F4ECF2;
+}
+
+.shortcut-box {
+  background-color: #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-bottom: 10px;
+}
+
+.key-icon {
+  background-color: #F5F9F8;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 5px;
+  min-width: 24px;
+  min-height: 24px;
+  color: #561049;
+}
+
+.key-text {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.description {
+  font-size: 11px;
+  color: #666;
 }
 
 /*# sourceMappingURL=main.css.map */

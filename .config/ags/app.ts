@@ -10,7 +10,7 @@ import AppLauncher from "./widget/AppLauncher";
 import NotificationsPopup from "./widget/Notifications/NotificationsPopup";
 import Weather from "./widget/Weather/Weather";
 import SideBar from "./widget/SideBar/SideBar";
-import ThemeSettings from "./widget/Popups/menus/ThemeSettings";
+import Keybinds from "./widget/Popups/menus/Keybinds";
 import Clipboard from "./widget/Popups/menus/Clipboard";
 import Notifications from "./widget/Notifications";
 import OSD from "./widget/OSD";
@@ -95,7 +95,7 @@ function main() {
   Notifications();
   Weather();
   SideBar();
-  ThemeSettings();
+  Keybinds();
   Clipboard();
   ControlCenter();
   Scrim({ scrimType: "opaque", className: "scrim" });

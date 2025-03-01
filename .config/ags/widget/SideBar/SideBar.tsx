@@ -727,7 +727,7 @@ async function queryOllama(prompt: string) {
                   const parsed = JSON.parse(line);
                   if (parsed.response) {
                     ollamaResponse += parsed.response;
-                    console.log("Partial response:", ollamaResponse);
+                    // console.log("Partial response:", ollamaResponse);
                     const currentHistory = chatHistory.get();
                     const lastMessage = currentHistory[currentHistory.length - 1];
                     if (

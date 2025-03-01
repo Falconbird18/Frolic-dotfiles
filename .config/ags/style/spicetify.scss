@@ -185,17 +185,19 @@
 }
 
 /*What do you want to play?*/
-.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar, .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar::placeholder, .b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:placeholder-shown {
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar,
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar::placeholder,
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:placeholder-shown {
     color: $text !important;
     padding-left: calc(var(--encore-layout-margin-looser) / 3);
 }
 
-.IYex0sXu8fnCz1FqFbRe{
+.IYex0sXu8fnCz1FqFbRe {
     background: transparent;
     margin: none;
 }
 
-.IYex0sXu8fnCz1FqFbRe kbd{
+.IYex0sXu8fnCz1FqFbRe kbd {
     border-radius: $secondary-radius;
     border: $primary-border;
     background-color: $background-2;
@@ -203,37 +205,41 @@
     box-shadow: none;
 }
 
-.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:focus{
+.b7r2WRiu5f9Q99qmyreh .main-topBar-searchBar:focus {
     background: $background-3;
     box-shadow: none
 }
 
-.Vn9yz8P5MjIvDT8c0U6w{
+.Vn9yz8P5MjIvDT8c0U6w {
     border-radius: $primary-radius;
 }
 
-.MtV402NmdUF5mceSD0Dy{
+.MtV402NmdUF5mceSD0Dy {
     @include h1;
 }
 
-.IEDOUN3mwwZhHVziC03a, .IEDOUN3mwwZhHVziC03a, .SjhDNg4bQRQmIJAba47Z{
+.IEDOUN3mwwZhHVziC03a,
+.IEDOUN3mwwZhHVziC03a,
+.SjhDNg4bQRQmIJAba47Z {
     @include card;
     background-color: $background !important;
 }
 
-.IEDOUN3mwwZhHVziC03a:hover, .IEDOUN3mwwZhHVziC03a:hover, .SjhDNg4bQRQmIJAba47Z:hover{
+.IEDOUN3mwwZhHVziC03a:hover,
+.IEDOUN3mwwZhHVziC03a:hover,
+.SjhDNg4bQRQmIJAba47Z:hover {
     background-color: $background-3;
 }
 
-.encore-text-title-medium{
+.encore-text-title-medium {
     @include h1;
 }
 
-.Button-buttonSecondary-small-useBrowserDefaultFocusStyle{
+.Button-buttonSecondary-small-useBrowserDefaultFocusStyle {
     @include primary-button;
 }
 
-.GimJ6fo6WOYPyWNVpSr1{
+.GimJ6fo6WOYPyWNVpSr1 {
     @include card;
 }
 
@@ -345,7 +351,8 @@
     background-color: $background-2;
 }
 
-.eWZOJQ:hover, .search-searchCategory-categoryGrid.eRKQSDqbcx0NSAApALFA .bdT2hWuSLE4HMyJ1ziC8>*:hover{
+.eWZOJQ:hover,
+.search-searchCategory-categoryGrid.eRKQSDqbcx0NSAApALFA .bdT2hWuSLE4HMyJ1ziC8>*:hover {
     background-color: $background;
     border-radius: $primary-border
 }
@@ -389,7 +396,8 @@
     color: $primary !important;
 }
 
-.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader, .main-home-filterChipsContainer {
+.main-trackList-trackListHeaderStuck.main-trackList-trackListHeader,
+.main-home-filterChipsContainer {
     background: $background-2 !important;
 }
 
@@ -411,7 +419,7 @@
     color: $primary;
 }
 
-a:not([data-encore-id]){
+a:not([data-encore-id]) {
     color: $text;
 }
 
@@ -449,27 +457,28 @@ a:not([data-encore-id]){
     box-shadow: none;
 }
 
-.a2NTH51fJWzWsds0OYv_:after{
-        background: linear-gradient(-90deg, $background-2, transparent);
+.a2NTH51fJWzWsds0OYv_:after {
+    background: linear-gradient(-90deg, $background-2, transparent);
 }
 
-.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-draggable{
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-draggable {
     @include card;
     background-color: $background;
     padding: 0;
 }
 
-.view-homeShortcutsGrid-shortcut{
+.view-homeShortcutsGrid-shortcut {
     margin-bottom: 4px;
     overflow: visible;
 }
 
-.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-PlayButtonContainer .view-homeShortcutsGrid-playButton{
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-PlayButtonContainer .view-homeShortcutsGrid-playButton {
     @include primary-circular-button;
 }
 
 
-.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-image, .view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-imageWrapper{
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-image,
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-imageWrapper {
     border-radius: $secondary-radius;
     box-shadow: none;
 }
@@ -544,75 +553,82 @@ a:not([data-encore-id]){
     border: $primary-border;
 }
 
-.YSflHyCWx4tGL7LrqtLE span{
-    @include h1;
-}
-/*Erorr page*/
-.main-pageErrorTemplate-errorBody h1{
+.YSflHyCWx4tGL7LrqtLE span {
     @include h1;
 }
 
-.main-pageErrorTemplate-errorBody p{
+/*Erorr page*/
+.main-pageErrorTemplate-errorBody h1 {
+    @include h1;
+}
+
+.main-pageErrorTemplate-errorBody p {
     @include paragraph();
 }
 
-.main-pageErrorTemplate-errorBody button span{
+.main-pageErrorTemplate-errorBody button span {
     @include primary-button;
 }
 
-.main-pageErrorTemplate-errorBody button span:hover{
+.main-pageErrorTemplate-errorBody button span:hover {
     @include primary-button-hover;
 }
+
 /*Spicetify marketplace*/
-.marketplace-header-icon-button{
+.marketplace-header-icon-button {
     color: $primary;
 }
 
-.marketplace-header{
+.marketplace-header {
     background-color: $background-2;
 }
-.main-card-card{
+
+.main-card-card {
     @include card;
     background-color: $background;
 }
-.main-card-card:hover{
+
+.main-card-card:hover {
     background-color: $background-3;
 }
-.marketplace-card-desc{
+
+.marketplace-card-desc {
     @include paragraph;
 }
 
-.marketplace-cardSubHeader{
+.marketplace-cardSubHeader {
     @include paragraph;
     color: $primary !important;
 
 }
 
-.main-cardHeader-text{
+.main-cardHeader-text {
     @include h2;
     margin-top: 10px;
 }
 
-.marketplace-card__authors{
+.marketplace-card__authors {
     @include h3;
 }
 
-.main-cardImage-imageWrapper, .main-cardImage-image, .main-card-imagePlaceholder{
+.main-cardImage-imageWrapper,
+.main-cardImage-image,
+.main-card-imagePlaceholder {
     border-radius: $primary-radius;
     background-color: $background-2;
     box-shadow: none;
 }
 
-.button-module__circle___EZ88P_marketplace{
+.button-module__circle___EZ88P_marketplace {
     @include primary-circular-button;
 }
 
-.marketplace-card__bottom-meta{
+.marketplace-card__bottom-meta {
     @include paragraph;
     color: $primary !important;
 }
 
-.marketplace-grid .main-card-draggable .main-card-cardMetadata li.marketplace-card__tag{
+.marketplace-grid .main-card-draggable .main-card-cardMetadata li.marketplace-card__tag {
     @include card;
     background-color: $background;
     padding: 2px;
