@@ -2,32 +2,26 @@ import { App, Gtk, Gdk, Widget } from "astal/gtk3";
 import { bind, exec, Variable } from "astal";
 import PopupMenu from "../PopupMenu";
 import { spacing } from "../../../lib/variables";
+import icons from "../../../lib/icons";
+
 
 const { GLib, Gio } = imports.gi;
-
-// Define key icon mappings (update your icon names/paths accordingly)
-const keyIcons = {
-  "Super": "dialog-error",    // Replace with your Windows-like icon name/path
-  "Shift": "dialog-error",    // Replace with your Shift icon
-  "Ctrl": "dialog-error",     // Replace with your Ctrl icon
-  "Alt": "dialog-error",      // Replace with your Alt icon
-  "XF86MonBrightnessUp": "audio-volume-high",
-  "XF86MonBrightnessDown": "audio-volume-low",
-  // Add more keys as needed
-};
 
 // Map keycodes to actual keys (expand if needed)
 const keycodeMap = {
   "code:61": "/"
 };
 
-// --------------------------------------------------------------------
-// Improved config parser:
-//   • Ignores empty lines and hidden ones (lines containing "# [hidden]").
-//   • Uses lines starting with "#!" for section headings.
-//   • Sets description when a line starts with "#[description]"
-//   • Splits the bind line by commas and then processes the key combination
-// --------------------------------------------------------------------
+/*
+  Improved config parser:
+  - Skips empty lines and any line containing "# [hidden]".
+  - Uses "#!" for section headings.
+  - Uses lines starting with "#[description]" to save a description.
+  - For bind lines the keys are extracted from two parts:
+      • The part after "=" (which may have modifiers separated by "+")
+      • The next comma-separated field.
+    These parts are split on "+" and concatenated to form an array of separate keys.
+*/
 function parseConfig(filePath) {
   const file = Gio.File.new_for_path(filePath);
   const [, contents] = file.load_contents(null);
@@ -52,7 +46,6 @@ function parseConfig(filePath) {
       continue;
     }
 
-    // Parse lines that start with any form of bind
     if (
       line.startsWith("bind") ||
       line.startsWith("bindl") ||
@@ -60,15 +53,30 @@ function parseConfig(filePath) {
       line.startsWith("bindr") ||
       line.startsWith("binde")
     ) {
-      // Split by commas and clean up whitespace
-      let parts = line.split(",").map(p => p.trim());
-      if (parts.length < 2) continue; // Malformed bind line?
+      const parts = line.split(",").map(p => p.trim());
+      if (parts.length < 2) continue;
 
-      // The second part is the key combination. It may contain a +-separated list.
-      let keyCombo = parts[1];
-      let keys = keyCombo
-        ? keyCombo.split("+").map(key => keycodeMap[key.trim()] || key.trim())
-        : [];
+      // Extract keys from the first part (after "=")
+      let bindingField = parts[0];
+      let bindingKeys = "";
+      if (bindingField.includes("=")) {
+        bindingKeys = bindingField.split("=").pop().trim();
+      } else {
+        bindingKeys = bindingField;
+      }
+
+      // Helper: split keys by '+' and trim.
+      const processKeys = keyStr =>
+        keyStr.split("+").map(s => s.trim()).filter(Boolean);
+
+      let keys = bindingKeys ? processKeys(bindingKeys) : [];
+      // Also add keys from the next comma-separated field.
+      if (parts.length > 1) {
+        keys = keys.concat(processKeys(parts[1]));
+      }
+
+      // Remap keys if needed.
+      keys = keys.map(key => keycodeMap[key] || key);
 
       shortcuts.push({
         section: currentSection,
@@ -81,27 +89,26 @@ function parseConfig(filePath) {
   return shortcuts;
 }
 
-// --------------------------------------------------------------------
-// Component for rendering a single key, either as an icon (if mapped)
-// or as text
-// --------------------------------------------------------------------
-const KeyIcon = ({ keyName }) =>
-  keyIcons[keyName] ? (
-    <box className="key-icon">
-      <icon icon={keyIcons[keyName]} className="icon" />
-    </box>
-  ) : (
-    <box className="key-icon">
-      <label label={keyName} className="key-text" />
+/*
+  KeyIcon component.
+  If the key is "Super", it renders an icon using your custom configuration (icons.ui.super).
+  All other keys render as plain text.
+*/
+const KeyIcon = ({ keyName }) => {
+  return (
+    <box 
+      className="key-icon" 
+    >
+      {keyName === "Super" ? (
+        <icon icon={icons.ui.super} className="icon" />
+      ) : (
+        <label label={keyName} className="key-text" />
+      )}
     </box>
   );
+};
 
-// --------------------------------------------------------------------
-// Helper component to arrange items in a grid with 4 columns
-// This works by splitting our list of children into rows of 4
-// and putting each row in a horizontal box inside a vertical box
-// --------------------------------------------------------------------
-const FourColumnGrid = ({ children, columns = 4, spacing: gridSpacing }) => {
+const ColumnGrid = ({ children, columns = 3, spacing: gridSpacing }) => {
   const rows = [];
   let currentRow = [];
 
@@ -113,15 +120,32 @@ const FourColumnGrid = ({ children, columns = 4, spacing: gridSpacing }) => {
     }
   });
   if (currentRow.length > 0) {
+    while (currentRow.length < columns) {
+      currentRow.push(null);
+    }
     rows.push(currentRow);
   }
-  
+
   return (
     <box vertical spacing={gridSpacing}>
       {rows.map((row, rowIndex) => (
-        <box horizontal spacing={gridSpacing} key={rowIndex}>
+        <box
+          key={rowIndex}
+          horizontal
+          spacing={gridSpacing}
+          halign="Gtk.Align.START"
+        >
           {row.map((cell, cellIndex) => (
-            <box key={cellIndex} expand>{cell}</box>
+            <box
+              key={cellIndex}
+              halign="Gtk.Align.START"
+              valign="Gtk.Align.START"
+              css={`
+                min-width: 200px;
+              `}
+            >
+              {cell}
+            </box>
           ))}
         </box>
       ))}
@@ -129,20 +153,13 @@ const FourColumnGrid = ({ children, columns = 4, spacing: gridSpacing }) => {
   );
 };
 
-// --------------------------------------------------------------------
-// Main component – the keybinds popup
-// It groups the shortcuts by section and then lays out each section’s
-// shortcuts in a four-column grid using our FourColumnGrid helper.
-// --------------------------------------------------------------------
 export default () => {
-  // Read and parse the configuration file
   const shortcuts = parseConfig(
     GLib.get_home_dir() + "/.config/hypr/hyprland/keybinds.conf"
   );
 
-  // Group shortcuts by section heading
   const sections = {};
-  shortcuts.forEach((shortcut) => {
+  shortcuts.forEach(shortcut => {
     if (!sections[shortcut.section]) {
       sections[shortcut.section] = [];
     }
@@ -151,36 +168,67 @@ export default () => {
 
   return (
     <PopupMenu label="Keybinds">
-      <box vertical spacing={spacing}>
-        {Object.keys(sections).map((sectionName) => (
-          <box key={sectionName} vertical spacing={spacing}>
-            <label label={sectionName} className="section-header" />
-            <FourColumnGrid spacing={spacing} columns={4}>
+      <box 
+        vertical 
+        spacing={spacing}
+      >
+        {Object.keys(sections).map(sectionName => (
+          <box 
+            key={sectionName} 
+            vertical 
+            spacing={spacing}
+          >
+            <label 
+              label={sectionName} 
+              className="h2"
+              halign="Gtk.Align.CENTER"
+            />
+            <ColumnGrid spacing={spacing} columns={3}>
               {sections[sectionName].map((shortcut, idx) => {
-                // Build an array of key widgets interleaved with plus signs
                 const keyNodes = shortcut.keys.reduce((nodes, key, i) => {
-                  if (i > 0)
+                  if (i > 0) {
                     nodes.push(
-                      <label label="+" className="plus-sign" key={`plus-${i}`} />
+                      <label 
+                        label="+" 
+                        className="plus-sign" 
+                        key={`plus-${i}`}
+                      />
                     );
-                  nodes.push(<KeyIcon keyName={key} key={`key-${i}`} />);
+                  }
+                  nodes.push(
+                    <KeyIcon keyName={key} key={`key-${i}`} />
+                  );
                   return nodes;
                 }, []);
 
                 return (
-                  <box key={`${sectionName}-${idx}`} vertical spacing={spacing / 2}>
-                    <box horizontal spacing={2}>
+                  <box 
+                    key={`${sectionName}-${idx}`} 
+                    vertical
+                    spacing={4}
+                    css={`
+                      min-width: 200px;
+                    `}
+                  >
+                    <box 
+                      horizontal
+                      spacing={2}
+                      halign="Gtk.Align.CENTER"
+                    >
                       {keyNodes}
                     </box>
+                    <box halign={Gtk.Align.FILL}>
                     <label
                       label={shortcut.description}
-                      className="description"
-                      wrap
+                      className="paragraph"
+                      wrap={true}
+                      halign="Gtk.Align.CENTER"
                     />
+                    </box>
                   </box>
                 );
               })}
-            </FourColumnGrid>
+            </ColumnGrid>
           </box>
         ))}
       </box>

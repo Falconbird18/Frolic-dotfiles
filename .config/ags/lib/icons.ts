@@ -114,6 +114,7 @@ export default {
     toolbars: "toolbars",
     warning: "dialog-warning",
     avatar: "avatar-default",
+    super: Phi3,
     arrow: {
       right: "pan-end",
       left: "pan-start",
