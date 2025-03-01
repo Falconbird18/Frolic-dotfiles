@@ -15,7 +15,7 @@
 /* AppLauncher */
 .app-launcher {
   min-width: 650px;
-  background-image: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background-image: linear-gradient(145deg, rgba(33, 37, 44, 0.1568627451), rgba(33, 37, 44, 0.1568627451));
   border-radius: 30px;
   padding: 0px;
   min-height: 700px;
@@ -163,7 +163,7 @@ image {
 slider {
   border: none;
   outline: none;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
 }
 
 separator {
@@ -191,7 +191,7 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(33, 37, 44, 0.1568627451);
   padding: 10px;
 }
 window.popup menu menuitem {
@@ -369,17 +369,17 @@ switch:checked slider {
   border: 2px solid #3979eb;
   box-shadow: 0px 2px 0px 0px #eb308f;
   color: #cad3f5;
-  text-shadow: -1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), -1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216);
+  text-shadow: -1.5px -1.5px 0 rgba(33, 37, 44, 0.1568627451), 1.5px -1.5px 0 rgba(33, 37, 44, 0.1568627451), -1.5px 1.5px 0 rgba(33, 37, 44, 0.1568627451), 1.5px 1.5px 0 rgba(33, 37, 44, 0.1568627451);
 }
 .material-button.filled:hover, .material-button.filled:focus {
   background: #3979eb;
   background-size: 8px 8px;
-  color: rgba(33, 37, 44, 0.3098039216);
+  color: rgba(33, 37, 44, 0.1568627451);
 }
 .material-button.filled:active {
   background: #3979eb;
   background-size: 8px 8px;
-  color: rgba(33, 37, 44, 0.3098039216);
+  color: rgba(33, 37, 44, 0.1568627451);
 }
 .material-button.outlined {
   background: none;
@@ -391,7 +391,7 @@ switch:checked slider {
   background-size: 8px 8px;
   border: 2px solid #3979eb;
   box-shadow: 0px 2px 0px 0px #eb308f;
-  text-shadow: -1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px -1.5px 0 rgba(33, 37, 44, 0.3098039216), -1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216), 1.5px 1.5px 0 rgba(33, 37, 44, 0.3098039216);
+  text-shadow: -1.5px -1.5px 0 rgba(33, 37, 44, 0.1568627451), 1.5px -1.5px 0 rgba(33, 37, 44, 0.1568627451), -1.5px 1.5px 0 rgba(33, 37, 44, 0.1568627451), 1.5px 1.5px 0 rgba(33, 37, 44, 0.1568627451);
 }
 .material-button.outlined:focus {
   background: #3979eb;
@@ -404,7 +404,7 @@ switch:checked slider {
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background-image: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background-image: linear-gradient(145deg, rgba(33, 37, 44, 0.1568627451), rgba(33, 37, 44, 0.1568627451));
   margin: 7px 7px 7px 7px;
   border-radius: 30px;
   border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
@@ -574,7 +574,7 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(33, 37, 44, 0.1568627451);
   min-width: 450px;
   min-height: 800px;
 }
@@ -863,7 +863,7 @@ switch:checked slider {
 }
 
 .control-center__dropdown-menu {
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
   border-radius: 30px;
   padding: 24px;
 }
@@ -897,16 +897,23 @@ switch:checked slider {
   margin-left: 0;
   font-size: 20px;
 }
-.control-center__brightness-slider trough,
-.control-center__volume-slider trough {
-  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+.control-center__brightness-slider slider,
+.control-center__volume-slider slider {
+  min-width: 30px;
   border-radius: 100px;
+  background-color: transparent;
+  box-shadow: none;
+  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+.control-center__brightness-slider slider trough,
+.control-center__volume-slider slider trough {
+  border-radius: 30px;
   background-color: rgba(54, 61, 73, 0.3098039216);
   box-shadow: 0 0 0 transparent;
   min-height: 15px;
 }
-.control-center__brightness-slider trough highlight,
-.control-center__volume-slider trough highlight {
+.control-center__brightness-slider slider highlight,
+.control-center__volume-slider slider highlight {
   background: linear-gradient(-45deg, #3979eb, #eb308f);
   background-size: unset;
   min-width: 15px;
@@ -917,17 +924,9 @@ switch:checked slider {
   padding: 2px 0px;
   margin: -2px 0px;
 }
-.control-center__brightness-slider trough slider,
-.control-center__volume-slider trough slider {
-  min-width: 30px;
-  border-radius: 100px;
-  background-color: transparent;
-  box-shadow: none;
-  transition: background-color 300ms cubic-bezier(0.05, 0.7, 0.1, 1), color 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-}
 
 .muted .control-center__volume-slider highlight {
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(33, 37, 44, 0.1568627451);
 }
 .muted .control-center__slider-icon {
   color: #cad3f5;
@@ -1081,7 +1080,7 @@ switch:checked slider {
   background: #3979eb;
 }
 .calendar__day.inactive {
-  color: rgba(33, 37, 44, 0.3098039216);
+  color: rgba(33, 37, 44, 0.1568627451);
 }
 
 /*Notification*/
@@ -1207,7 +1206,7 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
   min-width: 400px;
   min-height: 550px;
   margin-right: 1px;
@@ -1269,7 +1268,7 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
   margin-bottom: 20px;
 }
 
@@ -1302,14 +1301,14 @@ switch:checked slider {
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(33, 37, 44, 0.1568627451);
   color: #cad3f5;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
   border: 0.25px solid rgba(32, 32, 32, 0.3098039216);
   padding: 20px 10px;
   border-radius: 30px;
@@ -1413,7 +1412,7 @@ switch:checked slider {
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
@@ -1455,7 +1454,7 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background: linear-gradient(145deg, rgba(33, 37, 44, 0.1568627451), rgba(33, 37, 44, 0.1568627451));
   min-height: 400px;
 }
 .popup-menu.sink {
@@ -1526,7 +1525,7 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(33, 37, 44, 0.1568627451);
   min-height: 14px;
 }
 .mixer__slider trough highlight,
@@ -1842,7 +1841,7 @@ switch:checked slider {
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
   padding: 20px;
-  background: rgba(33, 37, 44, 0.3098039216);
+  background: rgba(33, 37, 44, 0.1568627451);
 }
 
 .temperature {
@@ -1893,7 +1892,7 @@ switch:checked slider {
 
 /*SideBar*/
 .sidebar-window {
-  background: linear-gradient(145deg, rgba(33, 37, 44, 0.3098039216), rgba(33, 37, 44, 0.3098039216));
+  background: linear-gradient(145deg, rgba(33, 37, 44, 0.1568627451), rgba(33, 37, 44, 0.1568627451));
   min-height: 900px;
   min-width: 300px;
   border-radius: 30px;
@@ -2090,7 +2089,7 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  background-color: rgba(33, 37, 44, 0.3098039216);
+  background-color: rgba(33, 37, 44, 0.1568627451);
 }
 
 .shortcut-box {

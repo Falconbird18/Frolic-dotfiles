@@ -897,16 +897,23 @@ switch:checked slider {
   margin-left: 0;
   font-size: 20px;
 }
-.control-center__brightness-slider trough,
-.control-center__volume-slider trough {
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+.control-center__brightness-slider slider,
+.control-center__volume-slider slider {
+  min-width: 30px;
   border-radius: 100px;
+  background-color: transparent;
+  box-shadow: none;
+  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.control-center__brightness-slider slider trough,
+.control-center__volume-slider slider trough {
+  border-radius: 8px;
   background-color: #F5F9F8;
   box-shadow: 0 0 0 transparent;
   min-height: 15px;
 }
-.control-center__brightness-slider trough highlight,
-.control-center__volume-slider trough highlight {
+.control-center__brightness-slider slider highlight,
+.control-center__volume-slider slider highlight {
   background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
   background-size: 8px 8px;
   min-width: 15px;
@@ -916,14 +923,6 @@ switch:checked slider {
   box-shadow: 0 0 0 transparent;
   padding: 2px 0px;
   margin: -2px 0px;
-}
-.control-center__brightness-slider trough slider,
-.control-center__volume-slider trough slider {
-  min-width: 30px;
-  border-radius: 100px;
-  background-color: transparent;
-  box-shadow: none;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .muted .control-center__volume-slider highlight {
@@ -1207,6 +1206,7 @@ switch:checked slider {
   border-radius: 4px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background: #F4ECF2;
   min-width: 400px;
   min-height: 550px;
   margin-right: 5px;
@@ -1268,6 +1268,7 @@ switch:checked slider {
   border-radius: 4px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background: #F4ECF2;
   margin-bottom: 20px;
 }
 
@@ -1374,7 +1375,7 @@ switch:checked slider {
 }
 
 .player__position-slider trough {
-  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 4px;
   background-color: #F5F9F8;
   box-shadow: 0 0 0 transparent;
@@ -1406,7 +1407,6 @@ switch:checked slider {
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
-  transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 .player__indicator {
