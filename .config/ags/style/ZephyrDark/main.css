@@ -1,9 +1,9 @@
 /* Colors */
-/* background: hsl(114, 5%, 30%)*/
-/* background-2: hsl(114, 5%, 25%)*/
+/* background: hsl(54, 5%, 30%)*/
+/* background-2: hsl(54, 5%, 25%)*/
 /* background-3: hsl(115, 25%, 35%)*/
-/* primary: hsl(114, 85%, 47%)*/
-/* secondary: hsl(226, 85%, 47%)*/
+/* primary: hsl(54, 85%, 47%)*/
+/* secondary: hsl(302, 85%, 47%)*/
 /* text: hsl(27, 68%, 88%)*/
 /* subtext: hsl(27, 19%, 69%)*/
 /* highlight_primary: hsl(114, 85%, 57%)*/
@@ -15,7 +15,7 @@
 /* AppLauncher */
 .app-launcher {
   min-width: 650px;
-  background-image: linear-gradient(145deg, #3d433d, #495049);
+  background-image: linear-gradient(145deg, #43423D, #505049);
   border-radius: 10px;
   padding: 0px;
   min-height: 700px;
@@ -24,7 +24,7 @@
 }
 
 .app-launcher__input {
-  background-color: #3d433d;
+  background-color: #43423D;
   border-radius: 10px;
   border: none;
   padding: 5px;
@@ -48,7 +48,7 @@
 }
 
 .app-launcher__item {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -78,14 +78,14 @@
 }
 .app-launcher__item:hover {
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
-  background-color: #477043;
+  background-color: #706B43;
 }
 .app-launcher__item:focus {
-  background-color: #26e012;
+  background-color: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
 }
 .app-launcher__item:active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   border-radius: 100px;
 }
@@ -127,7 +127,7 @@
 }
 
 .card {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -163,7 +163,7 @@ image {
 slider {
   border: none;
   outline: none;
-  background: #495049;
+  background: #505049;
 }
 
 separator {
@@ -191,7 +191,7 @@ window.popup > * {
 window.popup menu {
   margin-top: 12px;
   border-radius: 26px;
-  background-color: #495049;
+  background-color: #505049;
   padding: 10px;
 }
 window.popup menu menuitem {
@@ -202,7 +202,7 @@ window.popup menu menuitem {
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 window.popup menu menuitem:hover {
-  background: #3d433d;
+  background: #43423D;
 }
 window.popup menu menuitem:first-child {
   margin-top: 0;
@@ -214,7 +214,7 @@ window.popup menu menuitem:last-child {
 switch {
   border: 2px solid #bfaea1;
   border-radius: 100px;
-  background-color: #3d433d;
+  background-color: #43423D;
 }
 
 switch slider {
@@ -229,16 +229,16 @@ switch:active slider {
 }
 
 switch:active {
-  background-color: #3d433d;
+  background-color: #43423D;
 }
 
 switch:checked {
-  background-color: #26e012;
-  border: 2px solid #26e012;
+  background-color: #E0CB12;
+  border: 2px solid #E0CB12;
 }
 
 switch:checked slider {
-  background-color: #1242de;
+  background-color: #DE12D7;
 }
 
 /*Components*/
@@ -248,7 +248,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -261,11 +261,11 @@ switch:checked slider {
   text-shadow: none;
 }
 .primary-button:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .primary-button:active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
@@ -275,7 +275,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -288,12 +288,12 @@ switch:checked slider {
 }
 .secondary-button:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .secondary-button:active {
-  background: #26e012;
+  background: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   background-size: 8px 8px;
 }
@@ -303,7 +303,7 @@ switch:checked slider {
   font-weight: normal;
   min-width: 42px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -317,7 +317,7 @@ switch:checked slider {
 }
 
 .primary-button-circular {
-  background: #477043;
+  background: #706B43;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -339,7 +339,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -364,47 +364,47 @@ switch:checked slider {
   box-shadow: 0 0 0 1px #f5decc;
 }
 .material-button.filled {
-  background-image: linear-gradient(45deg, #26e012 25%, #3d433d 25%, #3d433d 50%, #26e012 50%, #26e012 75%, #3d433d 75%, #3d433d);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #43423D 25%, #43423D 50%, #E0CB12 50%, #E0CB12 75%, #43423D 75%, #43423D);
   background-size: 8px 8px;
-  border: 2px solid #26e012;
-  box-shadow: 0px 2px 0px 0px #1242de;
+  border: 2px solid #E0CB12;
+  box-shadow: 0px 2px 0px 0px #DE12D7;
   color: #f5decc;
-  text-shadow: -1.5px -1.5px 0 #495049, 1.5px -1.5px 0 #495049, -1.5px 1.5px 0 #495049, 1.5px 1.5px 0 #495049;
+  text-shadow: -1.5px -1.5px 0 #505049, 1.5px -1.5px 0 #505049, -1.5px 1.5px 0 #505049, 1.5px 1.5px 0 #505049;
 }
 .material-button.filled:hover, .material-button.filled:focus {
-  background: #26e012;
+  background: #E0CB12;
   background-size: 8px 8px;
-  color: #495049;
+  color: #505049;
 }
 .material-button.filled:active {
-  background: #26e012;
+  background: #E0CB12;
   background-size: 8px 8px;
-  color: #495049;
+  color: #505049;
 }
 .material-button.outlined {
   background: none;
   color: #f5decc;
-  border: 2px solid #26e012;
+  border: 2px solid #E0CB12;
 }
 .material-button.outlined:hover {
-  background-image: linear-gradient(45deg, #26e012 25%, #3d433d 25%, #3d433d 50%, #26e012 50%, #26e012 75%, #3d433d 75%, #3d433d);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #43423D 25%, #43423D 50%, #E0CB12 50%, #E0CB12 75%, #43423D 75%, #43423D);
   background-size: 8px 8px;
-  border: 2px solid #26e012;
-  box-shadow: 0px 2px 0px 0px #1242de;
-  text-shadow: -1.5px -1.5px 0 #495049, 1.5px -1.5px 0 #495049, -1.5px 1.5px 0 #495049, 1.5px 1.5px 0 #495049;
+  border: 2px solid #E0CB12;
+  box-shadow: 0px 2px 0px 0px #DE12D7;
+  text-shadow: -1.5px -1.5px 0 #505049, 1.5px -1.5px 0 #505049, -1.5px 1.5px 0 #505049, 1.5px 1.5px 0 #505049;
 }
 .material-button.outlined:focus {
-  background: #26e012;
+  background: #E0CB12;
 }
 .material-button.outlined:active {
-  background: #26e012;
+  background: #E0CB12;
 }
 
 /*Bar*/
 .bar {
   min-height: 60px;
   padding: 0 12px;
-  background-image: linear-gradient(145deg, #3d433d, #495049);
+  background-image: linear-gradient(145deg, #43423D, #505049);
   margin: 7px 7px 7px 7px;
   border-radius: 10px;
   border: none;
@@ -420,7 +420,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -433,12 +433,12 @@ switch:checked slider {
 }
 .bar__item.bar__button:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .bar__item.bar__button:active {
-  background: #26e012;
+  background: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   background-size: 8px 8px;
 }
@@ -468,7 +468,7 @@ switch:checked slider {
 }
 
 .bar__item.primary_container {
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
 }
 
@@ -478,7 +478,7 @@ switch:checked slider {
   min-height: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 20px;
-  background-color: #477043;
+  background-color: #706B43;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   background-size: 8px 8px;
@@ -494,7 +494,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -544,7 +544,7 @@ switch:checked slider {
   min-width: 18px;
   min-height: 18px;
   background: #f5decc;
-  color: #3d433d;
+  color: #43423D;
 }
 
 .bar__tray {
@@ -559,7 +559,7 @@ switch:checked slider {
   background: none;
 }
 .bar__tray-item:hover {
-  background-color: rgba(38, 224, 18, 0.6);
+  background-color: rgba(224, 203, 18, 0.6);
 }
 .bar__tray-item icon {
   font-size: 18px;
@@ -567,14 +567,14 @@ switch:checked slider {
 
 /*Control Center*/
 .control-center__container {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background-color: #495049;
+  background-color: #505049;
   min-width: 450px;
   min-height: 800px;
 }
@@ -584,7 +584,7 @@ switch:checked slider {
 }
 
 .control-center__settings-container {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -594,7 +594,7 @@ switch:checked slider {
 }
 
 .control-center__wide-settings-container {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -633,7 +633,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -646,7 +646,7 @@ switch:checked slider {
   text-shadow: none;
 }
 .control-center__page_header_button:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
@@ -656,7 +656,7 @@ switch:checked slider {
   font-size: 18px;
   font-weight: normal;
   min-height: 80px;
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -678,7 +678,7 @@ switch:checked slider {
   font-size: 14px;
   font-family: "Open sans";
   min-height: 40px;
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -703,7 +703,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -718,12 +718,12 @@ switch:checked slider {
 }
 .control-center__button-icon:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .control-center__button-icon.active {
-  background: #26e012;
+  background: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   background-size: 8px 8px;
 }
@@ -734,7 +734,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -751,7 +751,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -763,20 +763,20 @@ switch:checked slider {
   border-radius: 20px;
 }
 .control-center__button-wide.active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide.active:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide.active:active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button-wide:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
@@ -788,7 +788,7 @@ switch:checked slider {
   color: #f5decc;
 }
 .control-center__button-wide.recorder-indicator.active:hover {
-  background: #3d433d;
+  background: #43423D;
 }
 .control-center__button-wide.recorder-indicator.active:active {
   background: #e99898;
@@ -800,7 +800,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -819,7 +819,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -831,20 +831,20 @@ switch:checked slider {
   border-radius: 20px;
 }
 .control-center__button.active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button.active:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button.active:active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .control-center__button:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
@@ -856,14 +856,14 @@ switch:checked slider {
   color: #f5decc;
 }
 .control-center__button.recorder-indicator.active:hover {
-  background: #3d433d;
+  background: #43423D;
 }
 .control-center__button.recorder-indicator.active:active {
   background: #e99898;
 }
 
 .control-center__dropdown-menu {
-  background: #495049;
+  background: #505049;
   border-radius: 10px;
   padding: 24px;
 }
@@ -908,13 +908,13 @@ switch:checked slider {
 .control-center__brightness-slider slider trough,
 .control-center__volume-slider slider trough {
   border-radius: 20px;
-  background-color: #477043;
+  background-color: #706B43;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
   min-height: 15px;
 }
 .control-center__brightness-slider slider highlight,
 .control-center__volume-slider slider highlight {
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   background-size: 8px 8px;
   min-width: 15px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
@@ -926,7 +926,7 @@ switch:checked slider {
 }
 
 .muted .control-center__volume-slider highlight {
-  background-color: #495049;
+  background-color: #505049;
 }
 .muted .control-center__slider-icon {
   color: #f5decc;
@@ -946,7 +946,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -963,7 +963,7 @@ switch:checked slider {
 .control-center__settings-button:hover,
 .control-center__powermenu-button:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
@@ -974,7 +974,7 @@ switch:checked slider {
 
 /*Dashboard*/
 .dashboard {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1034,7 +1034,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1077,15 +1077,15 @@ switch:checked slider {
   min-width: 40px;
 }
 .calendar__day.active {
-  background: #26e012;
+  background: #E0CB12;
 }
 .calendar__day.inactive {
-  color: #495049;
+  color: #505049;
 }
 
 /*Notification*/
 .notification {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1101,7 +1101,7 @@ switch:checked slider {
   min-width: 24px;
   margin-right: 14px;
   border-radius: 20px;
-  background: #3d433d;
+  background: #43423D;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
   border: none;
 }
@@ -1150,7 +1150,7 @@ switch:checked slider {
 .notification__action {
   background: none;
   transition: color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  color: #26e012;
+  color: #E0CB12;
   border-radius: 100px;
 }
 .notification__action:hover {
@@ -1170,7 +1170,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1183,7 +1183,7 @@ switch:checked slider {
 }
 .notification__close-button:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
@@ -1199,14 +1199,14 @@ switch:checked slider {
 
 /*NotificationsWindow*/
 .notifications-window {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background: #495049;
+  background: #505049;
   min-width: 400px;
   min-height: 550px;
   margin-right: 5px;
@@ -1214,8 +1214,8 @@ switch:checked slider {
 .notifications-window .notification {
   border-radius: 4px;
   transition: border-radius 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background-color: #3d433d;
-  box-shadow: 0px 2px 0px 0px #1242de;
+  background-color: #43423D;
+  box-shadow: 0px 2px 0px 0px #DE12D7;
 }
 
 .notifications-window__clear {
@@ -1224,7 +1224,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1238,7 +1238,7 @@ switch:checked slider {
 }
 
 .notifications-window__clear:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
@@ -1261,20 +1261,20 @@ switch:checked slider {
 }
 
 .container {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background: #495049;
+  background: #505049;
   margin-bottom: 20px;
 }
 
 .indicator .progress {
   border-radius: 20px;
-  background-color: #477043;
+  background-color: #706B43;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
   margin: 25px;
   padding: 0px;
@@ -1285,7 +1285,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1301,14 +1301,14 @@ switch:checked slider {
   margin: -2px 0px;
 }
 .indicator .progress .fill.muted {
-  background-color: #495049;
+  background-color: #505049;
   color: #f5decc;
 }
 
 /*Player*/
 .player {
   min-height: 155px;
-  background: #495049;
+  background: #505049;
   border: none;
   padding: 20px 10px;
   border-radius: 10px;
@@ -1349,7 +1349,7 @@ switch:checked slider {
   min-width: 60px;
   min-height: 60px;
   padding: 0;
-  background-color: #26e012;
+  background-color: #E0CB12;
   color: #f5decc;
   font-size: 24px;
   border-radius: 0px;
@@ -1377,7 +1377,7 @@ switch:checked slider {
 .player__position-slider trough {
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   border-radius: 10px;
-  background-color: #477043;
+  background-color: #706B43;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471);
 }
 .player__position-slider trough highlight {
@@ -1386,7 +1386,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1412,7 +1412,7 @@ switch:checked slider {
 .player__indicator {
   min-width: 8px;
   min-height: 8px;
-  background: #495049;
+  background: #505049;
   border-radius: 100px;
   margin-bottom: 8px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
@@ -1447,14 +1447,14 @@ switch:checked slider {
 }
 
 .popup-menu {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background: linear-gradient(145deg, #3d433d, #495049);
+  background: linear-gradient(145deg, #43423D, #505049);
   min-height: 400px;
 }
 .popup-menu.sink {
@@ -1501,7 +1501,7 @@ switch:checked slider {
   margin-right: 16px;
 }
 .popup-menu__item:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
 }
 .popup-menu__item:last-child {
   margin-bottom: 20px;
@@ -1525,13 +1525,13 @@ switch:checked slider {
 .mixer__slider trough {
   margin-top: 6px;
   border-radius: 100px;
-  background-color: #495049;
+  background-color: #505049;
   min-height: 14px;
 }
 .mixer__slider trough highlight,
 .mixer__slider trough progress {
   border-radius: 100px;
-  background-color: #26e012;
+  background-color: #E0CB12;
   border-radius: 100px;
 }
 .mixer__slider trough slider {
@@ -1543,18 +1543,18 @@ switch:checked slider {
 }
 
 .mixer__value {
-  background: #3d433d;
+  background: #43423D;
   border-radius: 100px;
   min-width: 56px;
 }
 
 .bluetooth__percentage {
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   border-radius: 100px;
   padding: 0px 12px;
   margin-left: 12px;
-  border: 2px solid #26e012;
+  border: 2px solid #E0CB12;
 }
 
 .mixer-placeholder {
@@ -1568,7 +1568,7 @@ switch:checked slider {
 
 /*PowerMenu*/
 .powermenu {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1584,7 +1584,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1606,7 +1606,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1621,12 +1621,12 @@ switch:checked slider {
 }
 .powermenu__button:hover, .powermenu__button:focus {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .powermenu__button:active {
-  background: #26e012;
+  background: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   background-size: 8px 8px;
 }
@@ -1640,7 +1640,7 @@ switch:checked slider {
 }
 
 .verification {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1686,7 +1686,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1703,7 +1703,7 @@ switch:checked slider {
 }
 .mode-settings__button_left.hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
@@ -1713,7 +1713,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1736,7 +1736,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1753,7 +1753,7 @@ switch:checked slider {
 }
 .mode-settings__button_right.hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
@@ -1763,7 +1763,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1794,7 +1794,7 @@ switch:checked slider {
   padding-left: 16px;
   padding-right: 16px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1833,7 +1833,7 @@ switch:checked slider {
 
 /*Weather*/
 .weather-window {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1841,7 +1841,7 @@ switch:checked slider {
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
   padding: 20px;
-  background: #495049;
+  background: #505049;
 }
 
 .temperature {
@@ -1852,7 +1852,7 @@ switch:checked slider {
 }
 
 .location_input {
-  background-color: #3d433d;
+  background-color: #43423D;
   border-radius: 10px;
   border: none;
   padding: 5px;
@@ -1892,7 +1892,7 @@ switch:checked slider {
 
 /*SideBar*/
 .sidebar-window {
-  background: linear-gradient(145deg, #3d433d, #495049);
+  background: linear-gradient(145deg, #43423D, #505049);
   min-height: 900px;
   min-width: 300px;
   border-radius: 10px;
@@ -1906,7 +1906,7 @@ switch:checked slider {
 }
 
 .sidebar-prompt-example {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1936,7 +1936,7 @@ switch:checked slider {
 }
 
 .user-message {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -1949,21 +1949,21 @@ switch:checked slider {
 }
 
 .ollama-message {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background-color: #477043;
+  background-color: #706B43;
   font-size: 14px;
   font-family: "Open sans";
   font-weight: 300;
 }
 
 .model-buttons {
-  background-color: #3d433d;
+  background-color: #43423D;
   border-radius: 20px;
   margin: 0;
 }
@@ -1973,7 +1973,7 @@ switch:checked slider {
   font-weight: normal;
   min-width: 42px;
   min-height: 42px;
-  background: #3d433d;
+  background: #43423D;
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -1988,12 +1988,12 @@ switch:checked slider {
 }
 .model-button:hover {
   background-size: 8px 8px;
-  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background-image: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #000000, inset 0px -5px 3px rgba(255, 255, 255, 0.4941176471), 0 0 0 transparent;
 }
 .model-button:active {
-  background: #26e012;
+  background: #E0CB12;
   box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
   background-size: 8px 8px;
 }
@@ -2002,7 +2002,7 @@ switch:checked slider {
   font-weight: normal;
   min-width: 42px;
   min-height: 42px;
-  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  background: linear-gradient(45deg, #E0CB12 25%, #E0CB12 25%, #E0CB12 50%, #E0CB12 50%, #E0CB12 75%, #E0CB12 75%, #E0CB12);
   color: #f5decc;
   box-shadow: 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000, 0 0 0 transparent;
   font-family: "Open sans";
@@ -2017,11 +2017,11 @@ switch:checked slider {
   margin: 0;
 }
 .model-button.active:hover {
-  background-color: #3d433d;
+  background-color: #43423D;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 .model-button.active:active {
-  background-color: #26e012;
+  background-color: #E0CB12;
   transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
@@ -2051,7 +2051,7 @@ switch:checked slider {
 }
 
 .message-input {
-  background-color: #3d433d;
+  background-color: #43423D;
   border-radius: 10px;
   border: none;
   padding: 5px;
@@ -2082,18 +2082,18 @@ switch:checked slider {
 }
 
 .keybinds-cheatsheet {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  background-color: #495049;
+  background-color: #505049;
 }
 
 .shortcut-box {
-  background-color: #3d433d;
+  background-color: #43423D;
   box-shadow: 0 0 0 transparent, 0px -3px 5px rgba(255, 255, 255, 0.4941176471), 0px 3px 5px #000000;
   border: none;
   padding: 10px;
@@ -2104,7 +2104,7 @@ switch:checked slider {
 }
 
 .key-icon {
-  background-color: #477043;
+  background-color: #706B43;
   border: none;
   border-radius: 10px;
   padding: 5px 7px;
