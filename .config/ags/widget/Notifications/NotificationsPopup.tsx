@@ -7,63 +7,121 @@ import { bind, timeout, Variable } from "astal";
 const TIMEOUT_DELAY = 5000;
 
 class PopupNotificationsMap implements Subscribable {
-	private map: Map<number, Gtk.Widget> = new Map();
-	private var: Variable<Array<Gtk.Widget>> = Variable([]);
+    private map: Map<number, Gtk.Widget> = new Map();
+    private var: Variable<Array<Gtk.Widget>> = Variable([]);
 
-	private notifiy() {
-		this.var.set([...this.map.values()].reverse());
-	}
-
-	constructor() {
-		const notifd = Notifd.get_default();
-
-		notifd.connect("notified", (_, id) => {
-			this.set(
-				id,
-				Notification({
-					notification: notifd.get_notification(id)!,
-					onHoverLost: () => this.map.get(id)?.close(() => this.delete(id)),
-					setup: (self) => {
-						timeout(TIMEOUT_DELAY, () => {
-							this.map.get(id)?.close(() => this.delete(id));
-						});
-					},
-				}),
-			);
-		});
-		notifd.connect("resolved", (_, id) => {
-			this.map.get(id)?.close(() => this.delete(id));
-		});
-	}
-
-	private set(key: number, value: Gtk.Widget) {
-		this.map.get(key)?.destroy();
-		this.map.set(key, value);
-		this.notifiy();
-	}
-
-	// private delete(key: number) {
-	// 	this.map.get(key)?.destroy();
-	// 	this.map.delete(key);
-	// 	this.notifiy();
-	// }
-
-	    private delete(key: number) {
-        const widget = this.map.get(key);
-        if (widget) {
-            widget.destroy(); // Destroy FIRST
-            this.map.delete(key);
-        }
-        this.notifiy();
+    private notify() {
+        this.var.set([...this.map.values()].reverse());
     }
 
-	get() {
-		return this.var.get();
-	}
+    constructor() {
+        const notifd = Notifd.get_default();
 
-	subscribe(callback: (list: Array<Gtk.Widget>) => void) {
-		return this.var.subscribe(callback);
-	}
+        notifd.connect("notified", (_, id) => {
+            let timeoutId: number | null = null;
+            const widget = Notification({
+                notification: notifd.get_notification(id)!,
+                onHoverLost: () => this.map.get(id)?.close(() => this.delete(id)),
+                setup: (self) => {
+                    timeoutId = timeout(TIMEOUT_DELAY, () => {
+                        this.map.get(id)?.close(() => this.delete(id));
+                    });
+                },
+            });
+            widget.onDestroy = () => {
+                if (timeoutId !== null) {
+                    GLib.source_remove(timeoutId);
+                    timeoutId = null;
+                }
+            };
+            this.set(id, widget);
+        });
+
+        notifd.connect("resolved", (_, id) => {
+            this.map.get(id)?.close(() => this.delete(id));
+        });
+    }
+
+    private set(key: number, value: Gtk.Widget) {
+        const oldWidget = this.map.get(key);
+        if (oldWidget && typeof oldWidget.destroy === "function") {
+            oldWidget.destroy();
+        }
+        this.map.set(key, value);
+        this.notify();
+    }
+
+    private delete(key: number) {
+        const widget = this.map.get(key);
+        if (widget && typeof widget.destroy === "function") {
+            widget.destroy();
+            this.map.delete(key);
+        }
+        this.notify();
+    }
+
+    get() {
+        return this.var.get();
+    }
+
+    subscribe(callback: (list: Array<Gtk.Widget>) => void) {
+        return this.var.subscribe(callback);
+    }
+}
+
+
+class NotificationsMap implements Subscribable {
+    private map: Map<number, Gtk.Widget> = new Map();
+    private var: Variable<Array<Gtk.Widget>> = Variable([]);
+
+    private notify() { // Fixed typo: notifiy -> notify
+        this.var.set([...this.map.values()].reverse());
+    }
+
+    constructor() {
+        const notifd = Notifd.get_default();
+        notifd.set_ignore_timeout(true);
+
+        notifd.connect("notified", (_, id) => {
+            this.set(
+                id,
+                Notification({
+                    notification: notifd.get_notification(id)!,
+                    onHoverLost: () => {},
+                    setup: (self) => {},
+                }),
+            );
+        });
+        notifd.connect("resolved", (_, id) => {
+            this.map.get(id)?.close(() => this.delete(id));
+        });
+    }
+
+    private set(key: number, value: Gtk.Widget) {
+        const oldWidget = this.map.get(key);
+        if (oldWidget) {
+            if (typeof oldWidget.destroy === "function") oldWidget.destroy();
+        }
+        this.map.set(key, value);
+        this.notify();
+    }
+
+    private delete(key: number) {
+        const widget = this.map.get(key);
+        if (widget) {
+            if (typeof widget.destroy === "function") widget.destroy();
+            this.map.delete(key);
+        }
+        this.notify();
+    }
+
+    get() {
+        return this.var.get();
+    }
+
+    subscribe(callback: (list: Array<Gtk.Widget>) => void) {
+        return this.var.subscribe(callback);
+    }
 }
 
 export default (monitor: Gdk.Monitor) => {

@@ -164,43 +164,54 @@ export default function Notification(props: NotificationsProps) {
 			</box>
 		);
 
-	const Eventbox = () => (
-		<eventbox vexpand={false} on_hover_lost={onHoverLost} setup={setup}>
-			<box vertical={true}>
-				<Content />
-				<ActionsBox />
-			</box>
-		</eventbox>
-	);
+    const Eventbox = () => (
+        <eventbox vexpand={false} on_hover_lost={onHoverLost} setup={setup}>
+            <box vertical={true}>
+                <Content />
+                <ActionsBox />
+            </box>
+        </eventbox>
+    );
 
-	const box = new Widget.Revealer({
-		transitionType: Gtk.RevealerTransitionType.SLIDE_DOWN,
-		transitionDuration: 300,
-		setup: (self) => {
-			idle(() => {
-				self.revealChild = true;
-			});
-		},
-		child: (
-			<box
-				valign={Gtk.Align.START}
-				className={`notification ${notification.urgency}`}
-			>
-				<Eventbox />
-			</box>
-		),
-	});
-
-	let isClosing = false;
-
-	return Object.assign(box, {
-		close(remove: () => void) {
-			if (isClosing) return;
-			isClosing = true;
-            box.revealChild = false;
-            timeout(transitionDuration, () => {
-                remove();
+    const revealer = new Widget.Revealer({
+        transitionType: Gtk.RevealerTransitionType.SLIDE_DOWN,
+        transitionDuration: 300,
+        setup: (self) => {
+            idle(() => {
+                self.revealChild = true;
             });
-		},
-	});
+        },
+        child: (
+            <box
+                valign={Gtk.Align.START}
+                className={`notification ${notification.urgency}`}
+            >
+                <Eventbox />
+            </box>
+        ),
+    });
+
+    let isClosing = false;
+    let timeoutId: number | null = null;
+
+    return Object.assign(revealer, {
+        close(remove: () => void) {
+            if (isClosing || !revealer || revealer.isDestroyed?.()) return;
+            isClosing = true;
+            revealer.revealChild = false;
+            timeoutId = timeout(transitionDuration, () => {
+                timeoutId = null;
+                remove();
+                // Optional: Add a visual cue for resolved state
+                revealer.child.className += " resolved"; // Assumes CSS handles this
+            });
+        },
+        onDestroy: () => {
+            if (timeoutId !== null) {
+                GLib.source_remove(timeoutId);
+                timeoutId = null;
+            }
+            isClosing = true;
+        },
+    });
 }
