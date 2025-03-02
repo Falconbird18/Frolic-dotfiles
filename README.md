@@ -1,9 +1,13 @@
-# Frolic 
-This is my in-progress hyprland settup. They include an ags bar, a spotify theme using spicetify, and a starship config using kitty. This setup is still in development, and while in a usable state, is not perfect.
+# Tempora Desktop
+This is my in-progress hyprland settup. This includes an ags bar, a spotify theme using spicetify, and a starship config. This setup is still in development, and while in a usable state, is not perfect. Expect bugs!
+- The name comes from the latin word "tempora", meaning "seasons" or "times."
 ## Features
-- Custom icons based on [Microsoft Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
-- Control panel similar to gnome
-- Sleek animations
+- Custom icon theme based on [Microsoft Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
+- Unique control panel
+- AI assistant using either locally run models or google gemini
+- 4 beautiful themes with light and dark mode
+- (Mostly) Complete spotify theme
+- Wallpaper switching
 - Various useful tools such as screenshots, screensnips, and a color picker.
 
 This is the state as of December 9th, 2024
