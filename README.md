@@ -27,6 +27,7 @@ Before you install, check that you have the following dependencies installed (an
 - `sddm` - Simple Desktop Display Manager (Login screen)
 - `brightnessctl` - A CLI for controling screen brightness
 - `cliphist` - Wayland clipboard manager
+- `webkit` - Specifically `webkit2gtk-4.1` for arch
 ## Installation
 
 To install, run the install script, or the following commands.
