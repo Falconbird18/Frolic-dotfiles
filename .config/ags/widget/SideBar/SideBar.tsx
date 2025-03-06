@@ -170,6 +170,8 @@ const WebViewWidget = ({ url }: { url: Variable<string> }) => {
   return scrolledWindow;
 };
 
+
+
 const webUrl = Variable("");
 const WebContent = () => {
   const currentModel = bind(selectedModel).as((name) => models.find((m) => m.name === name));

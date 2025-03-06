@@ -173,47 +173,58 @@ export default function Notification(props: NotificationsProps) {
         </eventbox>
     );
 
-    const revealer = new Widget.Revealer({
-        transitionType: Gtk.RevealerTransitionType.SLIDE_DOWN,
-        transitionDuration: 300,
-        setup: (self) => {
-            idle(() => {
-                self.revealChild = true;
-            });
-        },
-        child: (
-            <box
-                valign={Gtk.Align.START}
-                className={`notification ${notification.urgency}`}
-            >
-                <Eventbox />
-            </box>
-        ),
-    });
-
-    let isClosing = false;
-    let timeoutId: number | null = null;
-
-    return Object.assign(revealer, {
-        close(remove: () => void) {
-            if (isClosing || !revealer || revealer.isDestroyed?.()) return;
-            isClosing = true;
-            revealer.revealChild = false;
-            timeoutId = timeout(transitionDuration, () => {
-                if (revealer && !revealer.isDestroyed?.()) {
-                    timeoutId = null;
-                    remove();
-                    // Optional: Add a visual cue for resolved state
-                    revealer.child.className += " resolved"; // Assumes CSS handles this
-                }
-            });
-        },
-        onDestroy: () => {
-            if (timeoutId !== null) {
-                GLib.source_remove(timeoutId);
-                timeoutId = null;
-            }
-            isClosing = true;
-        },
-    });
+	const revealer = new Widget.Revealer({
+		transitionType: Gtk.RevealerTransitionType.SLIDE_DOWN,
+		transitionDuration: 300,
+		setup: (self) => {
+			idle(() => {
+				self.revealChild = true;
+			});
+		},
+		child: (
+			<box
+				valign={Gtk.Align.START}
+				className={`notification ${notification.urgency}`}
+			>
+				<Eventbox />
+			</box>
+		),
+	});
+	
+	let isClosing = false;
+	let timeoutId: number | null = null;
+	
+	return Object.assign(revealer, {
+		close(remove: () => void) {
+			if (isClosing || !revealer) return; // Early exit if already closing or revealer is null
+			isClosing = true;
+			revealer.revealChild = false; // Start the hide animation
+	
+			timeoutId = timeout(transitionDuration, () => {
+				timeoutId = null;
+				// Check if revealer still exists and is in the widget tree
+				if (!revealer || !revealer.get_parent()) {
+					// Widget is already disposed; skip further action
+					return;
+				}
+	
+				// Safely update the child’s class before removal
+				const child = revealer.get_child(); // Use modern GTK method
+				if (child) {
+					const currentClass = child.className || "";
+					child.className = `${currentClass} resolved`.trim();
+				}
+	
+				// Now remove the widget
+				remove();
+			});
+		},
+		onDestroy: () => {
+			if (timeoutId !== null) {
+				GLib.source_remove(timeoutId);
+				timeoutId = null;
+			}
+			isClosing = true;
+		},
+	});
 }

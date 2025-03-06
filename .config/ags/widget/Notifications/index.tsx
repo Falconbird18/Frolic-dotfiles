@@ -35,7 +35,7 @@ class NotificationsMap implements Subscribable {
             if (entry) {
                 entry.resolved = true; // Mark as resolved but keep in history
                 this.activeWidgets.delete(id); // Remove from active widgets
-                entry.widget.close(() => {}); // Close animation, no removal from allNotifications
+                entry.widget.close(() => this.delete(id)); // Close animation, no removal from allNotifications
                 this.notify();
             }
         });
@@ -54,11 +54,11 @@ class NotificationsMap implements Subscribable {
     private delete(key: number) {
         const widget = this.activeWidgets.get(key);
         if (widget && typeof widget.destroy === "function") {
-            widget.destroy();
             this.activeWidgets.delete(key);
         }
-        this.allNotifications.delete(key); // Remove from history too
-        this.notify();
+        if (this.allNotifications.get(key)?.resolved) {
+            this.allNotifications.delete(key); // Remove from history too
+        }
     }
 
     // Method to clear all notifications from history
