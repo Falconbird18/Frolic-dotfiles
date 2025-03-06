@@ -1,10 +1,11 @@
 import { App, Gtk, Gdk, Widget, Astal } from "astal/gtk3";
-import { bind, execAsync, timeout, Variable, GLib } from "astal";
+import { bind, timeout, Variable, GLib } from "astal";
 import Notifd from "gi://AstalNotifd?version=0.1";
 import Notification from "./Notification";
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 import { Subscribable } from "astal/binding";
+
 class NotificationsMap implements Subscribable {
     private activeWidgets: Map<number, Gtk.Widget> = new Map();
     private allNotifications: Map<number, { widget: Gtk.Widget; resolved: boolean; notification: Notifd.Notification }> = new Map();
@@ -111,7 +112,7 @@ export default () => {
         >
             <box vertical className="notifications-window" spacing={spacing}>
                 <box halign={Gtk.Align.END} spacing={6}>
-                    <label label={`Notifications (${notifs.get().length})`} />
+                    <label label={bind(notifs).as(n => `Notifications (${n.length})`)} />
                     <button
                         className="notifications-button"
                         onClicked={() => notifs.clearAll()}
@@ -127,20 +128,36 @@ export default () => {
                         spacing={6}
                         vexpand={true}
                         hexpand={true}
-                        children={bind(notifs).as((notifsList) => {
-                            const children = notifsList.map((widget, index) => {
-                                const entry = [...notifs.allNotifications.values()][
-                                    notifsList.length - 1 - index
-                                ];
-                                console.log(`Widget ID ${entry.notification.id}: Resolved=${entry.resolved}, Alive=${!!widget.get_parent()}`);
-                                if (entry.resolved && widget.get_child() && widget.get_parent()) {
-                                    widget.className = `${widget.className || ""} resolved`.trim();
-                                }
-                                return widget;
+                        setup={(self) => {
+                            const widgetMap = new Map<number, Gtk.Widget>();
+                            notifs.subscribe((notifsList) => {
+                                // Add new widgets
+                                notifsList.forEach((widget, index) => {
+                                    const entry = [...notifs.allNotifications.values()][
+                                        notifsList.length - 1 - index
+                                    ];
+                                    const id = entry.notification.id;
+                                    if (!widgetMap.has(id)) {
+                                        console.log(`Adding widget ID ${id}: Resolved=${entry.resolved}`);
+                                        widgetMap.set(id, widget);
+                                        self.add(widget);
+                                        widget.show(); // Ensure visibility
+                                    }
+                                    if (entry.resolved && widget.get_child() && widget.get_parent()) {
+                                        widget.className = `${widget.className || ""} resolved`.trim();
+                                    }
+                                });
+                                // Remove cleared widgets
+                                widgetMap.forEach((widget, id) => {
+                                    if (!notifs.allNotifications.has(id)) {
+                                        console.log(`Removing widget ID ${id}`);
+                                        self.remove(widget);
+                                        widgetMap.delete(id);
+                                    }
+                                });
+                                console.log(`Updated list: ${widgetMap.size} notifications, Children: ${self.get_children().length}`);
                             });
-                            console.log(`Binding updated: ${children.length} notifications`);
-                            return children;
-                        })}
+                        }}
                     />
                 </scrollable>
             </box>
