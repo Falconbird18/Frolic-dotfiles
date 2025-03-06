@@ -27,7 +27,7 @@ export default () => {
         >
             <label
                 valign={Gtk.Align.CENTER}
-                className="bar__notifications_label"
+                // className="bar__notifications_label"
                 label={bind(notificationsStore, "notifications").as((n) =>
                     n.length.toString(),
                 )}

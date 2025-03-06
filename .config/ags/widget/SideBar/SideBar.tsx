@@ -112,10 +112,10 @@ const WebViewWidget = ({ url }: { url: Variable<string> }) => {
   console.log("WebViewWidget: WebView created");
   const settings = webView.get_settings();
   settings.set_enable_javascript(true);
-  
+
   settings.set_user_agent(
     "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 " +
-      "(KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
+    "(KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
   );
 
   settings.set_enable_developer_extras(true);
@@ -263,14 +263,17 @@ checkOllamaStatus();
 
 const StartOllamaButton = bind(ollamaRunningStatus).as((isRunning) =>
   isRunning ? null : (
-    <Widget.Box className="card" halign={Gtk.Align.FILL}>
-      <Widget.Label label="Ollama is not started." className="subtext" />
-      <Widget.Box halign={Gtk.Align.END} hexpand={false}>
-        <Widget.Button label="Start Ollama" className="primary-button" onClicked={async () => await startOllama()} />
-      </Widget.Box>
-    </Widget.Box>
+    <box className="card" halign={Gtk.Align.FILL} hexpand={true}>
+      <box halign={Gtk.Align.START} hexpand={true}>
+        <label label="Ollama is not started." className="subtext" />
+      </box>
+      <box halign={Gtk.Align.END} hexpand={true}>
+        <button halign={Gtk.Align.END} label="Start Ollama" className="primary-button" onClicked={async () => await startOllama()} />
+      </box>
+    </box>
   )
 );
+
 
 function splitMessageParts(text: string): { type: "text" | "code" | "math" | "display_math"; content: string }[] {
   const parts: { type: "text" | "code" | "math" | "display_math"; content: string }[] = [];
