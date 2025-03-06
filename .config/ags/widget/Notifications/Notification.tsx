@@ -200,10 +200,12 @@ export default function Notification(props: NotificationsProps) {
             isClosing = true;
             revealer.revealChild = false;
             timeoutId = timeout(transitionDuration, () => {
-                timeoutId = null;
-                remove();
-                // Optional: Add a visual cue for resolved state
-                revealer.child.className += " resolved"; // Assumes CSS handles this
+                if (revealer && !revealer.isDestroyed?.()) {
+                    timeoutId = null;
+                    remove();
+                    // Optional: Add a visual cue for resolved state
+                    revealer.child.className += " resolved"; // Assumes CSS handles this
+                }
             });
         },
         onDestroy: () => {

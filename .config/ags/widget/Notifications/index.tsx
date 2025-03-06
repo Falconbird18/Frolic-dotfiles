@@ -6,7 +6,6 @@ import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 import { Subscribable } from "astal/binding";
 
-// index.tsx
 class NotificationsMap implements Subscribable {
     private activeWidgets: Map<number, Gtk.Widget> = new Map(); // Active notification widgets
     private allNotifications: Map<number, { widget: Gtk.Widget; resolved: boolean }> = new Map(); // All notifications with state
@@ -14,6 +13,7 @@ class NotificationsMap implements Subscribable {
 
     private notify() {
         // Show all notifications, resolved or not
+        // this.var.set([...this.allNotifications.values()].map(entry => entry.widget).reverse());
         this.var.set([...this.allNotifications.values()].map(entry => entry.widget).reverse());
     }
 
@@ -106,13 +106,7 @@ export default () => {
             }}
             setup={(self) => {
                 self.hook(notifications, "notify::notifications", () => {
-                    if (notifications.get_notifications().length == 0) {
-                        timeout(500, () => {
-                            self.visible = false;
-                        });
-                    } else {
-                        self.visible = true; // Show window if there are active notifications
-                    }
+                    // Do nothing here
                 });
             }}
         >
@@ -120,17 +114,14 @@ export default () => {
                 <button
                     halign={Gtk.Align.END}
                     hexpand={false}
-                    className="notifications-window__clear"
+                    className="notifications-button"
                     onClicked={() => {
-                        notifs.clearAll(); // Clear all notifications from history
-                        notifications.get_notifications().forEach((n) => {
-                            timeout(150, () => n.dismiss()); // Dismiss active ones
-                        });
+                        self.visible = true; // Show window when button is clicked
                     }}
                 >
                     <label
-                        className="notifications-window__clear-label"
-                        label={"Clear all"}
+                        className="notifications-button__label"
+                        label={"Notifications"}
                     />
                 </button>
                 <scrollable vexpand>

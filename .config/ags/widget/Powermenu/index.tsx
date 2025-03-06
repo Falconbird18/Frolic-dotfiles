@@ -1,6 +1,5 @@
 import PopupWindow from "../../common/PopupWindow";
 import { App } from "astal/gtk3";
-import { Gtk } from "astal/gtk3";
 import { spacing } from "../../lib/variables";
 import { exec } from "astal";
 import { toggleWindow } from "../../lib/utils";
@@ -8,18 +7,18 @@ import { selectedAction } from "../ControlCenter/items/ShutDownMenu"; // import 
 
 // Mapping action keys to system commands
 const actionCommands: Record<string, string> = {
-  normal: "reboot",
-  safeMode: "systemctl reboot --firmware-setup",
-  powerOff: "poweroff",
-  restartUI: "systemctl restart display-manager",
+  reboot: "systemctl reboot",
+  shutdown: "shutdown now",
+  sleep: "systemctl suspend",
+  logout: "hyprctl dispatch exit",
 };
 
 // Mapping action keys to display labels
 const actionLabels: Record<string, string> = {
-  normal: "Reboot",
-  safeMode: "Reboot to Firmware",
-  powerOff: "Shutdown",
-  restartUI: "Restart UI",
+  reboot: "Reboot",
+  shutdown: "Shutdown",
+  sleep: "Sleep",
+  logout: "Log out",
 };
 
 type ConfirmationPopupProps = {
@@ -65,12 +64,12 @@ const ConfirmationPopup = (
       }}
     >
       <box className={"confirmation-popup"} spacing={spacing}>
-          <button className="primary-button" onClicked={confirmAction}>
-            <label label={labelText} />
-          </button>
-          <button className="secondary-button" onClicked={cancelAction}>
-            <label label="Cancel" />
-          </button>
+        <button className="primary-button" onClicked={confirmAction}>
+          <label label={labelText} />
+        </button>
+        <button className="secondary-button" onClicked={cancelAction}>
+          <label label="Cancel" />
+        </button>
       </box>
     </PopupWindow>
   );
