@@ -8,7 +8,6 @@ import Tray from "./items/Tray";
 import SystemIndicators from "./items/SystemIndicators";
 import Notifications from "./items/Notifications";
 import Arch from "./items/Arch";
-import KeyboardLayout from "./items/KeyboardLayout";
 import Weather from "./items/Weather";
 import RecordingIndicator from "./items/RecordingIndicator";
 import SideBar from "./items/SideBar";
@@ -25,7 +24,7 @@ const Start = () => {
 
 const Center = () => {
   return (
-    <box spacing={spacing}>
+    <box halign={Gtk.Align.CENTER} spacing={spacing}>
       <Clock />
     </box>
   );
@@ -36,13 +35,10 @@ const End = () => {
     <box halign={Gtk.Align.END} spacing={spacing}>
       <RecordingIndicator />
       <Weather />
-      <KeyboardLayout />
-      <box className="bar__rounded-box" spacing={spacing / 2}>
-        <Notifications />
-        <Tray />
-        <SystemIndicators />
-      </box>
+      <Notifications />
+      <SystemIndicators />
       <Battery />
+      <Tray />
       <Arch />
     </box>
   );

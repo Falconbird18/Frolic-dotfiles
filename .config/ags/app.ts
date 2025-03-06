@@ -40,6 +40,8 @@ const applyTheme = async () => {
     const hyprThemeConfDest = `${homeDir}/.config/hypr/hyprland/theme.conf`;
     const hyprLockConfSource = `${homeDir}/.config/hypr/hyprlock/${theme}${mode}/hyprlock.conf`;
     const hyprLockConfDest = `${homeDir}/.config/hypr/hyprlock.conf`;
+    const ghosttySource = `${homeDir}/.config/ghostty/${theme}${mode}/config`;
+    const ghosttyDest = `${homeDir}/.config/ghostty/config`;
     const hyprctl = "hyprctl reload"
     const spicetify = "spicetify update"
 
@@ -50,12 +52,17 @@ const applyTheme = async () => {
     console.log("Hypr Theme Conf Destination:", hyprThemeConfDest);
     console.log("Hyprlock Conf Source:", hyprLockConfSource);
     console.log("Hyprlock Conf Destination:", hyprLockConfDest);
+    console.log("Ghostty Source:", ghosttySource);
+    console.log("Ghostty Destination:", ghosttyDest);
 
 
-    await execAsync(`rm -f ${hyprThemeConfDest}`); //Force remove if it exists
-    await execAsync(`rm -f ${hyprLockConfDest}`); //Force remove if it exists
+    await execAsync(`rm -f ${hyprThemeConfDest}`);
+    await execAsync(`rm -f ${hyprLockConfDest}`);
+    await execAsync(`rm -f ${ghosttyDest}`);
     await execAsync(`cp "${hyprThemeConfSource}" "${hyprThemeConfDest}"`);
     await execAsync(`cp "${hyprLockConfSource}" "${hyprLockConfDest}"`);
+    await execAsync(`cp -r "${ghosttySource}" "${ghosttyDest}"`);
+    console.log("Config files copied");
     await execAsync(`sass "${themePathScss}" "${themePathCss}"`);
     await execAsync(`sass "${spicetifyPathScss}" "${spicetifyPathCss}"`);
     console.log("Scss compiled");
