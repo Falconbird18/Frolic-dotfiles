@@ -105,50 +105,53 @@ const ModelButtons = () => (
 );
 
 const WebViewWidget = ({ url }: { url: Variable<string> }) => {
+  console.log("WebViewWidget: Start");
+
+  // Create and configure the WebKit2 WebView
   const webView = new WebKit2.WebView();
+  console.log("WebViewWidget: WebView created");
   const settings = webView.get_settings();
   settings.set_enable_javascript(true);
+  
   settings.set_user_agent(
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 " +
+      "(KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1"
   );
 
+  settings.set_enable_developer_extras(true);
+  settings.set_javascript_can_access_clipboard(true);
+
+  // Create a Gtk.ScrolledWindow to host the WebView
   const scrolledWindow = new Gtk.ScrolledWindow({
     hscrollbar_policy: Gtk.PolicyType.AUTOMATIC,
     vscrollbar_policy: Gtk.PolicyType.AUTOMATIC,
   });
+  scrolledWindow.set_size_request(400, 400); // Explicit size to ensure it’s visible
+  console.log("WebViewWidget: ScrolledWindow created");
   scrolledWindow.add(webView);
-  scrolledWindow.set_size_request(400, 400);
 
+  // Explicitly show the WebView and ScrolledWindow
   webView.show();
   scrolledWindow.show_all();
+  console.log("WebViewWidget: ScrolledWindow shown");
 
-  // Load test HTML unconditionally for now
-  const testHtml = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; color: #333; }
-        h1 { color: #007bff; }
-      </style>
-    </head>
-    <body>
-      <h1>Hello from WebKit!</h1>
-      <p>This is a test page rendered in WebKit.WebView.</p>
-    </body>
-    </html>
-  `;
-  console.log("Loading test HTML");
-  webView.load_html(testHtml, null);
+  // Subscribe to URL changes and load with delay
+  url.subscribe((newUrl) => {
+    if (newUrl) {
+      console.log(`WebViewWidget: Subscribed URL changed to ${newUrl}`);
+      GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+        try {
+          console.log(`WebViewWidget: Loading ${newUrl}`);
+          webView.load_uri(newUrl);
+        } catch (error) {
+          console.error("Error during load_uri:", error);
+        }
+        return GLib.SOURCE_REMOVE;
+      });
+    }
+  });
 
-  // Comment out URL subscription temporarily
-  // url.subscribe((newUrl) => {
-  //   if (newUrl) {
-  //     console.log(`Loading new URL: ${newUrl}`);
-  //     webView.load_uri(newUrl);
-  //   }
-  // });
-
+  // Connect event handlers for load progress and errors
   webView.connect("load-changed", (self, loadEvent) => {
     console.log(`WebView load event: ${loadEvent}`);
     if (loadEvent === WebKit2.LoadEvent.FINISHED) {
@@ -162,22 +165,19 @@ const WebViewWidget = ({ url }: { url: Variable<string> }) => {
     console.error(`Failed to load ${failingUri}: ${error.message}`);
   });
 
-  return (
-    <scrollable
-      gobject={scrolledWindow}
-      vexpand={true}
-      hexpand={true}
-      css="min-width: 400px; min-height: 400px;"
-    />
-  );
+  console.log("WebViewWidget: Event handlers connected");
+
+  return scrolledWindow;
 };
 
 const webUrl = Variable("");
 const WebContent = () => {
   const currentModel = bind(selectedModel).as((name) => models.find((m) => m.name === name));
 
+  // Update webUrl when the model changes
   currentModel.subscribe((m) => {
     if (m?.type === "web") {
+      console.log(`WebContent: Setting webUrl to ${m.url}`);
       webUrl.set(m.url);
     } else {
       webUrl.set("");
@@ -189,6 +189,7 @@ const WebContent = () => {
       visible={bind(currentModel).as((m) => m?.type === "web")}
       vexpand={true}
       hexpand={true}
+      css="min-width: 400px; min-height: 400px; border-radius: 30px;"
     >
       <WebViewWidget url={webUrl} />
     </box>
