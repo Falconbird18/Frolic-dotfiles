@@ -160,10 +160,10 @@ export default () => {
       }}
     >
       <box vertical className="notifications-window" spacing={spacing}>
-        <box halign={Gtk.Align.END} spacing={6}>
-          <label label={bind(notifs).as(n => `Notifications (${n.length})`)} />
+        <box halign={Gtk.Align.FILL} spacing={6}>
+          <label label={bind(notifs).as(n => `Notifications (${n.length})`)} className="h1" />
           <button
-            className="notifications-button"
+            className="primary-button"
             onClicked={(self) => {
               // Determine the container holding the notification widgets.
               const widgetContainer = self.get_parent()?.get_parent()?.get_parent() as Widget.Box;
