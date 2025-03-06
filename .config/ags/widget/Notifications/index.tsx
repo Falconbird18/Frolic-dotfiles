@@ -5,16 +5,15 @@ import Notification from "./Notification";
 import { spacing } from "../../lib/variables";
 import PopupWindow from "../../common/PopupWindow";
 import { Subscribable } from "astal/binding";
-
 class NotificationsMap implements Subscribable {
-    private activeWidgets: Map<number, Gtk.Widget> = new Map(); // Active notification widgets
-    private allNotifications: Map<number, { widget: Gtk.Widget; resolved: boolean }> = new Map(); // All notifications with state
+    private activeWidgets: Map<number, Gtk.Widget> = new Map();
+    private allNotifications: Map<number, { widget: Gtk.Widget; resolved: boolean; notification: Notifd.Notification }> = new Map();
     private var: Variable<Array<Gtk.Widget>> = Variable([]);
 
     private notify() {
-        // Show all notifications, resolved or not
-        // this.var.set([...this.allNotifications.values()].map(entry => entry.widget).reverse());
-        this.var.set([...this.allNotifications.values()].map(entry => entry.widget).reverse());
+        const widgets = [...this.allNotifications.values()].map(entry => entry.widget).reverse();
+        console.log(`Notify called. Total: ${this.allNotifications.size}, Widgets: ${widgets.length}`);
+        this.var.set(widgets);
     }
 
     constructor() {
@@ -22,32 +21,36 @@ class NotificationsMap implements Subscribable {
         notifd.set_ignore_timeout(true);
 
         notifd.connect("notified", (_, id) => {
+            console.log(`New notification: ID ${id}, Summary: ${notifd.get_notification(id)?.summary}`);
+            const notification = notifd.get_notification(id)!;
             const widget = Notification({
-                notification: notifd.get_notification(id)!,
+                notification,
                 onHoverLost: () => {},
                 setup: (self) => {},
             });
-            this.set(id, widget);
+            this.set(id, widget, notification);
         });
 
         notifd.connect("resolved", (_, id) => {
             const entry = this.allNotifications.get(id);
             if (entry) {
-                entry.resolved = true; // Mark as resolved but keep in history
-                this.activeWidgets.delete(id); // Remove from active widgets
-                entry.widget.close(() => this.delete(id)); // Close animation, no removal from allNotifications
+                console.log(`Resolved: ID ${id}`);
+                entry.resolved = true;
+                this.activeWidgets.delete(id);
+                entry.widget.close(() => {});
                 this.notify();
             }
         });
     }
 
-    private set(key: number, value: Gtk.Widget) {
+    private set(key: number, value: Gtk.Widget, notification: Notifd.Notification) {
         const oldWidget = this.activeWidgets.get(key);
         if (oldWidget && typeof oldWidget.destroy === "function") {
             oldWidget.destroy();
         }
         this.activeWidgets.set(key, value);
-        this.allNotifications.set(key, { widget: value, resolved: false });
+        this.allNotifications.set(key, { widget: value, resolved: false, notification });
+        console.log(`Set ID ${key}. Active: ${this.activeWidgets.size}, All: ${this.allNotifications.size}`);
         this.notify();
     }
 
@@ -56,16 +59,16 @@ class NotificationsMap implements Subscribable {
         if (widget && typeof widget.destroy === "function") {
             this.activeWidgets.delete(key);
         }
-        if (this.allNotifications.get(key)?.resolved) {
-            this.allNotifications.delete(key); // Remove from history too
-        }
     }
 
-    // Method to clear all notifications from history
     clearAll() {
-        this.activeWidgets.forEach((widget, id) => {
+        console.log("Clearing all notifications");
+        this.activeWidgets.forEach((widget) => {
             if (typeof widget.destroy === "function") widget.destroy();
-            this.activeWidgets.delete(id);
+        });
+        this.activeWidgets.clear();
+        this.allNotifications.forEach((entry) => {
+            if (typeof entry.widget.destroy === "function") entry.widget.destroy();
         });
         this.allNotifications.clear();
         this.notify();
@@ -101,29 +104,21 @@ export default () => {
             onKeyPressEvent={(self, event) => {
                 const [keyEvent, keyCode] = event.get_keycode();
                 if (keyEvent && keyCode == 9) {
+                    console.log("Toggling notifications window");
                     App.toggle_window(self.name);
                 }
             }}
-            setup={(self) => {
-                self.hook(notifications, "notify::notifications", () => {
-                    // Do nothing here
-                });
-            }}
         >
             <box vertical className="notifications-window" spacing={spacing}>
-                <button
-                    halign={Gtk.Align.END}
-                    hexpand={false}
-                    className="notifications-button"
-                    onClicked={() => {
-                        self.visible = true; // Show window when button is clicked
-                    }}
-                >
-                    <label
-                        className="notifications-button__label"
-                        label={"Notifications"}
-                    />
-                </button>
+                <box halign={Gtk.Align.END} spacing={6}>
+                    <label label={`Notifications (${notifs.get().length})`} />
+                    <button
+                        className="notifications-button"
+                        onClicked={() => notifs.clearAll()}
+                    >
+                        <label label="Clear All" />
+                    </button>
+                </box>
                 <scrollable vexpand>
                     <box
                         className="notifications-window__list"
@@ -132,11 +127,20 @@ export default () => {
                         spacing={6}
                         vexpand={true}
                         hexpand={true}
-                        setup={(self) => {
-                            self.hook(notifs, "notify", () => {
-                                self.children = notifs.get();
+                        children={bind(notifs).as((notifsList) => {
+                            const children = notifsList.map((widget, index) => {
+                                const entry = [...notifs.allNotifications.values()][
+                                    notifsList.length - 1 - index
+                                ];
+                                console.log(`Widget ID ${entry.notification.id}: Resolved=${entry.resolved}, Alive=${!!widget.get_parent()}`);
+                                if (entry.resolved && widget.get_child() && widget.get_parent()) {
+                                    widget.className = `${widget.className || ""} resolved`.trim();
+                                }
+                                return widget;
                             });
-                        }}
+                            console.log(`Binding updated: ${children.length} notifications`);
+                            return children;
+                        })}
                     />
                 </scrollable>
             </box>
