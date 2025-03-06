@@ -10,7 +10,7 @@ export default () => {
         <BarButton
             className={"bar__notifications"}
             onClicked={() => {
-                toggleWindow("notifications");
+                toggleWindow("Notifications");
             }}
             setup={(self) => {
                 const notificationsWindow = App.get_window("notifications");
