@@ -624,6 +624,59 @@ switch:checked slider {
     background-color: $background;
 }
 
+.bar__workspaces-indicator {
+    padding: 0;
+    transition: all $transition;
+
+    &.dot {
+        min-width: $subtext_size;
+        min-height: $subtext_size;
+        border-radius: $primary-radius;
+        background-color: $background-3;
+        box-shadow: $outset;
+        border: $primary-border;
+        background-size: $background-size;
+    }
+
+    &:hover {
+        box-shadow: $outset, $border-shadow;
+    }
+
+    &.active,
+    &:active {
+        @include primary-button;
+        padding: 0;
+        min-height: $paragraph_size;
+        min-width: calc($paragraph_size * 2);
+    }
+}
+
+/* Number mode */
+.bar__workspaces-indicator-number {
+    min-width: $paragraph_size;
+    min-height: $paragraph_size;
+    background-color: transparent;
+    @include h2;
+    transition: all $transition;
+}
+
+.bar__workspaces-indicator-number.active {
+    @include primary-button;
+    min-width: calc($paragraph_size * 1.5);
+    min-height: $paragraph_size;
+    padding: 0;
+    margin: 0;
+}
+
+/* Box around workspaces with windows */
+.bar__workspaces-active {
+    @include card;
+    min-height: calc($paragraph_size * 1.5);
+    min-width: calc($paragraph_size * 1.5);
+    padding: 0;
+    background-color: $background;
+}
+
 .bar__active-app {
     padding-left: 12px;
     padding-right: 16px;

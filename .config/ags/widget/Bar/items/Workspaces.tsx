@@ -5,7 +5,7 @@ import BarItem from "../BarItem";
 
 // Configuration
 const TOTAL_WORKSPACES = 10;
-const SHOW_NUMBERS = true; // Toggle this to true for numbers, false for dots
+const SHOW_NUMBERS = false;
 
 export default () => {
 	const hypr = Hyprland.get_default();
@@ -25,13 +25,10 @@ export default () => {
 					);
 					const hasWindows = bind(workspace).as((ws) => {
 						const result = (ws?.clients?.length ?? ws?.windows?.length ?? 0) > 0;
-						// Uncomment for debugging:
-						// console.log(`Workspace ${id}: hasWindows = ${result}, clients = ${ws?.clients?.length}, windows = ${ws?.windows?.length}`);
 						return result;
 					});
 
 					return bind(hasWindows).as((active) => {
-						// Button class based on focus state and mode
 						const buttonClass = bind(isFocused).as((focused) =>
 							focused
 								? SHOW_NUMBERS
@@ -42,7 +39,6 @@ export default () => {
 									: "bar__workspaces-indicator dot"
 						);
 
-						// Button content: numbers or nothing (dot styled via CSS)
 						const buttonContent = SHOW_NUMBERS ? (
 							<label label={id.toString()} />
 						) : null;
@@ -59,10 +55,13 @@ export default () => {
 						);
 
 						return active ? (
-							<box className="bar__workspaces-active"
+							<box
+								className="bar__workspaces-active"
+								halign={Gtk.Align.CENTER} // Center the box horizontally
 								valign={Gtk.Align.CENTER}
-								halign={Gtk.Align.CENTER}
-							>{button}</box>
+							>
+								{button}
+							</box>
 						) : (
 							button
 						);

@@ -543,6 +543,7 @@ switch:checked slider {
   min-width: 21px;
   min-height: 14px;
   padding: 0;
+  margin: 0;
 }
 
 /* Box around workspaces with windows */
@@ -554,10 +555,98 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 1px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  min-height: 15px;
-  min-width: 18px;
+  min-height: 21px;
+  min-width: 21px;
   padding: 0;
   margin: 0;
+  background-color: rgba(226, 228, 233, 0.3098039216);
+}
+
+.bar__workspaces-indicator {
+  padding: 0;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+.bar__workspaces-indicator.dot {
+  min-width: 11px;
+  min-height: 11px;
+  border-radius: 30px;
+  background-color: rgba(244, 246, 251, 0.3098039216);
+  box-shadow: 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
+  background-size: unset;
+}
+.bar__workspaces-indicator:hover {
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
+}
+.bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
+  font-size: 18px;
+  font-weight: 300;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
+  font-family: "Roboto";
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 1px;
+  margin-left: 1px;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
+  background-size: unset;
+  border-radius: 30px;
+  text-shadow: none;
+  padding: 0;
+  min-height: 14px;
+  min-width: 28px;
+}
+
+/* Number mode */
+.bar__workspaces-indicator-number {
+  min-width: 14px;
+  min-height: 14px;
+  background-color: transparent;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 18px;
+  color: #233885;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.bar__workspaces-indicator-number.active {
+  font-size: 18px;
+  font-weight: 300;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  color: #233885;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
+  font-family: "Roboto";
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 1px;
+  margin-left: 1px;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
+  background-size: unset;
+  border-radius: 30px;
+  text-shadow: none;
+  min-width: 21px;
+  min-height: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Box around workspaces with windows */
+.bar__workspaces-active {
+  background-color: rgba(236, 237, 238, 0.3098039216);
+  box-shadow: 0px 0px 0px #E76EAB, 0 0 0 transparent;
+  border: 0.25px solid rgba(236, 237, 238, 0.3098039216);
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 1px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  min-height: 21px;
+  min-width: 21px;
+  padding: 0;
   background-color: rgba(226, 228, 233, 0.3098039216);
 }
 
