@@ -594,6 +594,42 @@ switch:checked slider {
     }
 }
 
+/* Base indicator styles */
+.bar__workspaces-indicator {
+    min-width: 10px;
+    min-height: 10px;
+    background-color: #666;
+}
+
+/* Dot mode */
+.bar__workspaces-indicator.dot {
+    border-radius: 50%; /* Circular dot */
+}
+
+/* Number mode */
+.bar__workspaces-indicator-number {
+    min-width: 20px; /* Wider for numbers */
+    min-height: 20px;
+    background-color: #444; /* Darker base color for contrast */
+    border-radius: 4px; /* Rectangular with slight rounding */
+    color: #fff; /* White text */
+    font-size: 12px;
+}
+
+/* Active state (applies to both modes) */
+.bar__workspaces-indicator.active,
+.bar__workspaces-indicator-number.active {
+    background-color: #00ff00; /* Green for active */
+}
+
+/* Box around workspaces with windows */
+.bar__workspaces-active {
+    border: 2px solid #ffffff; /* Bright white border */
+    padding: 2px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly stronger background */
+}
+
 .bar__active-app {
     padding-left: 12px;
     padding-right: 16px;
