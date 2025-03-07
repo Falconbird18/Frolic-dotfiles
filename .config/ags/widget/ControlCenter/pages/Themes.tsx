@@ -25,13 +25,15 @@ const loadSettings = () => {
         slideshow: false,
         wallpaper: "747.jpg",
         wallpaperDirectory: "/home/austin/Pictures/wallpapers",
+        workspaces: 10,
+        numbers: false
     };
 };
 
-const saveSettings = (theme: string, mode: string, slideshow: boolean, wallpaper: string, wallpaperDirectory: string) => {
+const saveSettings = (theme: string, mode: string, slideshow: boolean, wallpaper: string, wallpaperDirectory: string, workspaces: number, numbers: boolean) => {
     try {
         const file = Gio.File.new_for_path(settingsFile);
-        const contents = JSON.stringify({ theme, mode, slideshow, wallpaper, wallpaperDirectory });
+        const contents = JSON.stringify({ theme, mode, slideshow, wallpaper, wallpaperDirectory, workspaces, numbers });
         file.replace_contents(contents, null, false, Gio.FileCreateFlags.NONE, null);
     } catch (e) {
         console.error("Failed to save settings:", e);
@@ -41,25 +43,31 @@ const saveSettings = (theme: string, mode: string, slideshow: boolean, wallpaper
 const settings = loadSettings();
 
 export const currentTheme = Variable(settings.theme);
+console.log(currentTheme);
 export const currentMode = Variable(settings.mode);
+console.log(currentMode);
 export const slideshow = Variable(settings.slideshow);
 export const wallpaperImage = Variable(settings.wallpaper);
 export const wallpaperFolder = Variable(settings.wallpaperDirectory);
+export const totalWorkspaces = Variable(settings.workspaces);
+console.log(totalWorkspaces);
+export const showNumbers = Variable(settings.numbers);
+console.log(showNumbers);
 
 const setTheme = (theme: string, mode: string) => {
     currentTheme.set(theme);
     currentMode.set(mode);
-    saveSettings(theme, mode, slideshow.get(), wallpaperImage.get(), wallpaperFolder.get());
+    saveSettings(theme, mode, slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get());
 };
 
 const setSlideshow = (isSlideshow: boolean) => {
     slideshow.set(isSlideshow);
-    saveSettings(currentTheme.get(), currentMode.get(), isSlideshow, wallpaperImage.get(), wallpaperFolder.get());
+    saveSettings(currentTheme.get(), currentMode.get(), isSlideshow, wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get());
 };
 
 const setWallpaper = (wallpaper: string) => {
     wallpaperImage.set(wallpaper);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperFolder.get());
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get());
     console.log(`New Wallpaper: ${wallpaper}`);
 
     const wallpaperImagePath = `${wallpaperFolder.get()}/${wallpaper}`;
@@ -83,7 +91,7 @@ const setWallpaper = (wallpaper: string) => {
 
 const setWallpaperDirectory = (wallpaperDirectory: string) => {
     wallpaperFolder.set(wallpaperDirectory);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperDirectory);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperDirectory, totalWorkspaces.get(), showNumbers.get());
 };
 
 const chooseWallpaperDirectory = () => {
