@@ -5,7 +5,7 @@ import BarItem from "../BarItem";
 
 // Configuration
 const TOTAL_WORKSPACES = 10;
-const SHOW_NUMBERS = false; // Toggle this to true for numbers, false for dots
+const SHOW_NUMBERS = true; // Toggle this to true for numbers, false for dots
 
 export default () => {
 	const hypr = Hyprland.get_default();
@@ -38,8 +38,8 @@ export default () => {
 									? "bar__workspaces-indicator-number active"
 									: "bar__workspaces-indicator dot active"
 								: SHOW_NUMBERS
-								? "bar__workspaces-indicator-number"
-								: "bar__workspaces-indicator dot"
+									? "bar__workspaces-indicator-number"
+									: "bar__workspaces-indicator dot"
 						);
 
 						// Button content: numbers or nothing (dot styled via CSS)
@@ -49,6 +49,7 @@ export default () => {
 
 						const button = (
 							<button
+								halign={Gtk.Align.CENTER}
 								valign={Gtk.Align.CENTER}
 								className={buttonClass}
 								onClicked={() => focusWorkspace(id)}
@@ -58,7 +59,10 @@ export default () => {
 						);
 
 						return active ? (
-							<box className="bar__workspaces-active">{button}</box>
+							<box className="bar__workspaces-active"
+								valign={Gtk.Align.CENTER}
+								halign={Gtk.Align.CENTER}
+							>{button}</box>
 						) : (
 							button
 						);
