@@ -286,6 +286,7 @@ image {
     text-shadow: $text-shadow;
     color: $text;
     -gtk-icon-shadow: $text-shadow;
+    font-size: $h1_size;
 }
 
 slider {
@@ -884,23 +885,26 @@ switch:checked slider {
         border: none;
     }
 
-    .control-center-slider-icon {
-        color: $text;
-        margin-left: 0;
-        font-size: $h2_size;
-    }
+}
+
+.control-center-slider-icon {
+    color: $text;
+    margin-left: 0;
+    font-size: $h1_size;
 }
 
 .control-center-slider {
-    min-width: 30px;
-    border-radius: 100px;
-    background-color: transparent;
-    box-shadow: none;
-    transition: background-color $transition, color $transition;
+    slider {
+        min-width: 30px;
+        border-radius: 100px;
+        background-color: transparent;
+        box-shadow: none;
+        transition: background-color $transition, color $transition;
+    }
 
     trough {
         border-radius: $primary-radius;
-        background-color: $background-3;
+        background-color: red;
         box-shadow: $inset;
         min-height: 15px;
     }
@@ -916,6 +920,14 @@ switch:checked slider {
         padding: 2px 0px;
         margin: -2px 0px;
     }
+}
+
+.control-center-slider trough {
+    border-radius: $primary-radius;
+    background-color: $background-3;
+
+    box-shadow: $inset;
+    min-height: 15px;
 }
 
 .muted {

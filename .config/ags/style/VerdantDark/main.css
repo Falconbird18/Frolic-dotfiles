@@ -890,13 +890,14 @@ switch:checked slider {
   margin: 0;
   border: none;
 }
-.control-center-slider-container .control-center-slider-icon {
+
+.control-center-slider-icon {
   color: #F5CCED;
   margin-left: 0;
-  font-size: 18px;
+  font-size: 24px;
 }
 
-.control-center-slider {
+.control-center-slider slider {
   min-width: 30px;
   border-radius: 100px;
   background-color: transparent;

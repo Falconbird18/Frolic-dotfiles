@@ -17,7 +17,7 @@ export default () => {
 				spacing={10}
 				className={"control-center-slider-container"}>
 				<icon
-					className={"control-center-slider-icon"}
+					className={"icon"}
 					icon={bind(speaker, "volumeIcon")}
 					hexpand={false}
 					halign={Gtk.Align.START}

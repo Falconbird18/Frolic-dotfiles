@@ -13,7 +13,7 @@ export default () => {
 				classname={"control-center-slider-container"}
 			>
 				<icon
-					className={"control-center-slider-icon"}
+					className={"icon"}
 					icon={icons.brightness.screen}
 					hexpand={false}
 					halign={Gtk.Align.START}

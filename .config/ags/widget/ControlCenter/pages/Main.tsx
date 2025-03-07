@@ -77,6 +77,18 @@ export default () => {
     children: [DND(), FanProfile].filter(Boolean),
   });
 
+  const Display = new Widget.Box({
+    spacing,
+    className: "control-center__settings-container",
+    vertical: true,
+    children: [
+      new Widget.Label({ label: "Display & Audio", className: "h1" }),
+      Volume(),
+      Brightness(),
+      new Widget.Box({ vertical: false, children: [Microphone()] })
+    ].filter(Boolean),
+  });
+
   const recordingContainer = new Widget.Box({
     spacing,
     className: "control-center__wide-settings-container",
@@ -86,7 +98,6 @@ export default () => {
       new Widget.Box({
         vertical: false,
         children: [
-          Microphone(),
           ScreenShot(),
           ScreenSnip(),
           ScreenRecord({
@@ -105,6 +116,8 @@ export default () => {
 
   fb.add(connectivityContainer);
   fb.add(Container);
+  fb.add(Display);
+  fb.add(Container);
 
   return (
     <box
@@ -121,7 +134,7 @@ export default () => {
         closeMenu={() => revealScreenRecord.set(!revealScreenRecord.get())}
       />
       <box horizontal spacing={spacing}>
-        <Volume />
+        {Volume()}
         {Brightness()}
       </box>
       <box spacing={16} className="control-center__footer">
@@ -146,12 +159,12 @@ export default () => {
         <button
           className="control-center__settings-button"
           // onClick={() => toggleWindow("popup-theme-settings")}
-        onClickRelease={(_, event: Astal.ClickEvent) => {
-          if (event.button == 1 && menuName) {
-            controlCenterPage.set(menuName);
-          }
-        }}
-      >
+          onClickRelease={(_, event: Astal.ClickEvent) => {
+            if (event.button == 1 && menuName) {
+              controlCenterPage.set(menuName);
+            }
+          }}
+        >
           <icon icon={icons.ui.settings} iconSize={16} />
         </button>
       </box>

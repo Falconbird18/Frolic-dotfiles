@@ -13,7 +13,7 @@ export default () => {
                 toggleWindow("Notifications");
             }}
             setup={(self) => {
-                const notificationsWindow = App.get_window("notifications");
+                const notificationsWindow = App.get_window("Notifications");
                 if (notificationsWindow) {
                     self.hook(
                         notificationsWindow,
@@ -28,7 +28,7 @@ export default () => {
             <label
                 valign={Gtk.Align.CENTER}
                 // className="bar__notifications_label"
-                label={bind(notificationsStore, "notifications").as((n) =>
+                label={bind(notificationsStore, "Notifications").as((n) =>
                     n.length.toString(),
                 )}
             />

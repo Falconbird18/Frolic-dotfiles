@@ -33,7 +33,7 @@ export function toggleWindow(windowName: string) {
 	} else {
 		if (isTransparent) {
 			if (
-				windowName === "notifications" &&
+				windowName === "Notifications" &&
 				AstalNotifd.get_default().get_notifications().length === 0
 			)
 				return;
