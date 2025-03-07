@@ -10,10 +10,10 @@ export default () => {
 			<box
 				orientation={Gtk.Orientation.HORIZONTAL}
 				spacing={10}
-				classname={"control-center__brightness-slider"}
+				classname={"control-center-slider-container"}
 			>
 				<icon
-					className={"control-center__slider-icon"}
+					className={"control-center-slider-icon"}
 					icon={icons.brightness.screen}
 					hexpand={false}
 					halign={Gtk.Align.START}
@@ -21,6 +21,7 @@ export default () => {
 				<slider
 					draw_value={false}
 					hexpand={true}
+					className="control-center-slider"
 					onDragged={({ value }) =>
 						(BrightnessService!.screen = value)
 					}

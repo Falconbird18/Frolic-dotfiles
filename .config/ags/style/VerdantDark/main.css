@@ -885,35 +885,31 @@ switch:checked slider {
   font-size: 16px;
 }
 
-.control-center__brightness-slider *,
-.control-center__volume-slider * {
+.control-center-slider-container * {
   padding: 0;
   margin: 0;
   border: none;
 }
-.control-center__brightness-slider .control-center__slider-icon,
-.control-center__volume-slider .control-center__slider-icon {
+.control-center-slider-container .control-center-slider-icon {
   color: #F5CCED;
   margin-left: 0;
-  font-size: 20px;
+  font-size: 18px;
 }
-.control-center__brightness-slider slider,
-.control-center__volume-slider slider {
+
+.control-center-slider {
   min-width: 30px;
   border-radius: 100px;
   background-color: transparent;
   box-shadow: none;
   transition: background-color 0.2s cubic-bezier(0.85, 0, 0.15, 1), color 0.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
-.control-center__brightness-slider slider trough,
-.control-center__volume-slider slider trough {
+.control-center-slider trough {
   border-radius: 8px;
   background-color: #704367;
   box-shadow: 0 0 0 transparent;
   min-height: 15px;
 }
-.control-center__brightness-slider slider highlight,
-.control-center__volume-slider slider highlight {
+.control-center-slider highlight {
   background: linear-gradient(45deg, #E012BA 25%, #E012BA 25%, #E012BA 50%, #E012BA 50%, #E012BA 75%, #E012BA 75%, #E012BA);
   background-size: 8px 8px;
   min-width: 15px;

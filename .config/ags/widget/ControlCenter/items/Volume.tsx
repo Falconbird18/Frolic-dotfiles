@@ -15,9 +15,9 @@ export default () => {
 			<box 
 				orientation={Gtk.Orientation.HORIZONTAL} 
 				spacing={10}
-				className={"control-center__volume-slider"}>
+				className={"control-center-slider-container"}>
 				<icon
-					className={"control-center__slider-icon"}
+					className={"control-center-slider-icon"}
 					icon={bind(speaker, "volumeIcon")}
 					hexpand={false}
 					halign={Gtk.Align.START}
@@ -25,6 +25,7 @@ export default () => {
 				<slider
 					draw_value={false}
 					hexpand={true}
+					className="control-center-slider"
 					onDragged={({ value }) => {
 						speaker.volume = value;
 						speaker.mute = false;
