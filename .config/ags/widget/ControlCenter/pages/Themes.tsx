@@ -74,13 +74,8 @@ const setWallpaper = (wallpaper: string) => {
     const destinationPath = `/usr/share/sddm/themes/frolic/Backgrounds/wallpaper.jpg`;
 
     try {
-        // Ensure the destination directory exists
         exec(`mkdir -p /usr/share/sddm/themes/frolic/Backgrounds`);
-
-        // Copy and rename the wallpaper (requires sudo if destination is a system directory)
         exec(`cp "${wallpaperImagePath}" "${destinationPath}"`);
-
-        // Set the wallpaper using swww
         exec(
             `swww img "${destinationPath}" --transition-step 100 --transition-fps 120 --transition-type grow --transition-angle 30 --transition-duration 1`
         );
@@ -114,6 +109,18 @@ const chooseWallpaperDirectory = () => {
         chooser.destroy();
     });
     chooser.show_all();
+};
+
+const setWorkspaces = (workspaces: number) => {
+    // Enforce minimum of 1 and maximum of 20
+    const newValue = Math.max(1, Math.min(20, workspaces));
+    totalWorkspaces.set(newValue);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), newValue, showNumbers.get());
+};
+
+const setShowNumbers = (numbers: boolean) => {
+    showNumbers.set(numbers);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), numbers);
 };
 
 const getWallpaperImages = () => {
@@ -153,6 +160,7 @@ export default () => {
                 spacing={8}
                 className={"control-center__page_scrollable-content"}
             >
+                {/* Mode Selection */}
                 <box className="buttons-container" halign={Gtk.Align.CENTER}>
                     <button
                         onClick={() => setTheme(currentTheme.get(), "Light")}
@@ -171,52 +179,88 @@ export default () => {
                         <label label="Dark" />
                     </button>
                 </box>
+
+                {/* Theme Selection */}
                 <label label="Theme" className="theme" halign={Gtk.Align.CENTER} />
                 <box horizontal className="buttons-container" spacing={spacing} halign={Gtk.Align.CENTER}>
                     <box vertical>
-                        <button onClick={() => setTheme("Verdant", currentMode.get())} className="theme-buttons">
+                        <button
+                            onClick={() => setTheme("Verdant", currentMode.get())}
+                            className={bind(currentTheme).as(theme =>
+                                `theme-buttons ${theme === "Verdant" ? "active" : ""}`
+                            )}
+                        >
                             <icon icon={icons.seasons.spring} className="icon" />
                         </button>
                         <label label="Verdant" className="label" />
                     </box>
                     <box vertical>
-                        <button onClick={() => setTheme("Zephyr", currentMode.get())} className="theme-buttons">
+                        <button
+                            onClick={() => setTheme("Zephyr", currentMode.get())}
+                            className={bind(currentTheme).as(theme =>
+                                `theme-buttons ${theme === "Zephyr" ? "active" : ""}`
+                            )}
+                        >
                             <icon icon={icons.seasons.summer} />
                         </button>
                         <label label="Zephyr" className="label" />
                     </box>
                     <box vertical>
-                        <button onClick={() => setTheme("Frolic", currentMode.get())} className="theme-buttons">
+                        <button
+                            onClick={() => setTheme("Frolic", currentMode.get())}
+                            className={bind(currentTheme).as(theme =>
+                                `theme-buttons ${theme === "Frolic" ? "active" : ""}`
+                            )}
+                        >
                             <icon icon={icons.seasons.fall} />
                         </button>
                         <label label="Frolic" className="label" />
                     </box>
                     <box vertical>
-                        <button onClick={() => setTheme("Glaciara", currentMode.get())} className="theme-buttons">
+                        <button
+                            onClick={() => setTheme("Glaciara", currentMode.get())}
+                            className={bind(currentTheme).as(theme =>
+                                `theme-buttons ${theme === "Glaciara" ? "active" : ""}`
+                            )}
+                        >
                             <icon icon={icons.seasons.winter} />
                         </button>
                         <label label="Glaciara" className="label" />
                     </box>
                 </box>
+
+                {/* Workspace Control */}
+                <label label="Workspaces" className="theme" halign={Gtk.Align.CENTER} />
+                <box horizontal spacing={spacing} halign={Gtk.Align.CENTER}>
+                    <button
+                        onClick={() => setWorkspaces(totalWorkspaces.get() - 1)}
+                        className="workspace-button"
+                    >
+                        <label label="-" />
+                    </button>
+                    <label
+                        label={bind(totalWorkspaces).as(ws => ws.toString())}
+                        className="workspace-count"
+                    />
+                    <button
+                        onClick={() => setWorkspaces(totalWorkspaces.get() + 1)}
+                        className="workspace-button"
+                    >
+                        <label label="+" />
+                    </button>
+                </box>
+
+                {/* Show Numbers Switch */}
+                <label label="Show Workspace Numbers" className="theme" halign={Gtk.Align.CENTER} />
+                <box horizontal halign={Gtk.Align.CENTER}>
+                    <switch
+                        active={showNumbers.get()}
+                        onActivate={() => setShowNumbers(!showNumbers.get())}
+                    />
+                </box>
+
+                {/* Wallpaper Section */}
                 <label label="Wallpaper" className="theme" halign={Gtk.Align.CENTER} />
-                {/* <box horizontal className="switches-container">
-          <box vertical valign={Gtk.Align.CENTER}>
-            <switch
-              active={slideshow.get()}
-              onActivate={() => setSlideshow(!slideshow.get())}
-            />
-            <label label="Slideshow" className="label" />
-          </box>
-          <box vertical valign={Gtk.Align.CENTER}>
-            <switch
-              active={wallpaperImage.get() !== ""}
-              onActivate={() =>
-                setWallpaper(wallpaperImage.get() === "" ? "default" : wallpaperImage.get())
-              }
-            />
-            <label label="Set Wallpaper" className="label" />
-          </box>
-        </box> */}
                 <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
                     <label label="Choose Wallpaper Directory" />
                 </button>
@@ -230,12 +274,12 @@ export default () => {
                                         key={image}
                                         className="thumbnail-box"
                                         css={`
-                      background-image: url("${imagePath}");
-                      min-width: 160px;
-                      min-height: 160px;
-                      background-size: cover;
-                      background-position: center;
-                    `}
+                                            background-image: url("${imagePath}");
+                                            min-width: 160px;
+                                            min-height: 160px;
+                                            background-size: cover;
+                                            background-position: center;
+                                        `}
                                         onClick={() => setWallpaper(image)}
                                     />
                                 );

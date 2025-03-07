@@ -562,6 +562,94 @@ switch:checked slider {
   background-color: #F4ECF2;
 }
 
+.bar__workspaces-indicator {
+  padding: 0;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.bar__workspaces-indicator.dot {
+  min-width: 11px;
+  min-height: 11px;
+  border-radius: 8px;
+  background-color: #F5F9F8;
+  box-shadow: 0 0 0 transparent;
+  border: none;
+  background-size: 8px 8px;
+}
+.bar__workspaces-indicator:hover {
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: none;
+  padding: 0;
+  min-height: 14px;
+  min-width: 28px;
+}
+
+/* Number mode */
+.bar__workspaces-indicator-number {
+  min-width: 14px;
+  min-height: 14px;
+  background-color: transparent;
+  font-family: "Open sans";
+  font-weight: normal;
+  font-size: 18px;
+  color: #561049;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.bar__workspaces-indicator-number.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  color: #561049;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 8px;
+  text-shadow: none;
+  min-width: 21px;
+  min-height: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Box around workspaces with windows */
+.bar__workspaces-active {
+  background-color: #ECDFEA;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  min-height: 21px;
+  min-width: 21px;
+  padding: 0;
+  background-color: #F4ECF2;
+}
+
 .bar__active-app {
   padding-left: 12px;
   padding-right: 16px;
@@ -1808,7 +1896,7 @@ switch:checked slider {
   padding-left: 0;
   padding-right: 0;
 }
-.mode-settings__button_right.hover {
+.mode-settings__button_right:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
   text-shadow: none;
@@ -1863,6 +1951,17 @@ switch:checked slider {
   border-radius: 8px;
   min-width: 75px;
   padding: 0;
+}
+.theme-buttons:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #d161bd 25%, #d161bd 25%, #d161bd 50%, #d161bd 50%, #d161bd 75%, #d161bd 75%, #d161bd);
+  text-shadow: none;
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+}
+.theme-buttons.active {
+  background: #d161bd;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 
 .label {

@@ -543,6 +543,7 @@ switch:checked slider {
   min-width: 21px;
   min-height: 14px;
   padding: 0;
+  margin: 0;
 }
 
 /* Box around workspaces with windows */
@@ -554,10 +555,98 @@ switch:checked slider {
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
-  min-height: 15px;
-  min-width: 18px;
+  min-height: 21px;
+  min-width: 21px;
   padding: 0;
   margin: 0;
+  background-color: #edf4ec;
+}
+
+.bar__workspaces-indicator {
+  padding: 0;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.bar__workspaces-indicator.dot {
+  min-width: 11px;
+  min-height: 11px;
+  border-radius: 20px;
+  background-color: #f5f6f9;
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999;
+  border: none;
+  background-size: 8px 8px;
+}
+.bar__workspaces-indicator:hover {
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999, 0 0 0 transparent;
+}
+.bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #562f10;
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: none;
+  padding: 0;
+  min-height: 14px;
+  min-width: 28px;
+}
+
+/* Number mode */
+.bar__workspaces-indicator-number {
+  min-width: 14px;
+  min-height: 14px;
+  background-color: transparent;
+  font-family: "Open sans";
+  font-weight: normal;
+  font-size: 18px;
+  color: #562f10;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.bar__workspaces-indicator-number.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #562f10;
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: none;
+  min-width: 21px;
+  min-height: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Box around workspaces with windows */
+.bar__workspaces-active {
+  background-color: #e0ecdf;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px #ffffff, 0px 3px 5px #999999;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  min-height: 21px;
+  min-width: 21px;
+  padding: 0;
   background-color: #edf4ec;
 }
 
@@ -1807,7 +1896,7 @@ switch:checked slider {
   padding-left: 0;
   padding-right: 0;
 }
-.mode-settings__button_right.hover {
+.mode-settings__button_right:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
   text-shadow: none;
@@ -1862,6 +1951,17 @@ switch:checked slider {
   border-radius: 20px;
   min-width: 75px;
   padding: 0;
+}
+.theme-buttons:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: none;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #ffffff, 0 0 0 transparent;
+}
+.theme-buttons.active {
+  background: #26e012;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-size: 8px 8px;
 }
 
 .label {

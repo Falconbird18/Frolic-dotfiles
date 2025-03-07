@@ -1896,7 +1896,7 @@ switch:checked slider {
   padding-left: 0;
   padding-right: 0;
 }
-.mode-settings__button_right.hover {
+.mode-settings__button_right:hover {
   background-size: unset;
   background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
   text-shadow: none;
@@ -1951,6 +1951,17 @@ switch:checked slider {
   border-radius: 30px;
   min-width: 75px;
   padding: 0;
+}
+.theme-buttons:hover {
+  background-size: unset;
+  background-image: linear-gradient(-45deg, #6E9BE7, #E76EAB);
+  text-shadow: none;
+  box-shadow: 0 0 0 transparent, 0px 0px 0px #E76EAB;
+}
+.theme-buttons.active {
+  background: #6E9BE7;
+  box-shadow: 0 0 0 transparent;
+  background-size: unset;
 }
 
 .label {

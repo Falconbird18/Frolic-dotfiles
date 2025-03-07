@@ -543,6 +543,7 @@ switch:checked slider {
   min-width: 21px;
   min-height: 14px;
   padding: 0;
+  margin: 0;
 }
 
 /* Box around workspaces with windows */
@@ -554,10 +555,98 @@ switch:checked slider {
   border-radius: 30px;
   margin-bottom: 2px;
   transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
-  min-height: 15px;
-  min-width: 18px;
+  min-height: 21px;
+  min-width: 21px;
   padding: 0;
   margin: 0;
+  background-color: #f0edea;
+}
+
+.bar__workspaces-indicator {
+  padding: 0;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+.bar__workspaces-indicator.dot {
+  min-width: 11px;
+  min-height: 11px;
+  border-radius: 30px;
+  background-color: #dad3cd;
+  box-shadow: 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+}
+.bar__workspaces-indicator:hover {
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.bar__workspaces-indicator.active, .bar__workspaces-indicator:active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  padding: 0;
+  min-height: 14px;
+  min-width: 28px;
+}
+
+/* Number mode */
+.bar__workspaces-indicator-number {
+  min-width: 14px;
+  min-height: 14px;
+  background-color: transparent;
+  font-family: "Monaspace Radon";
+  font-weight: normal;
+  font-size: 18px;
+  color: #562f10;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+.bar__workspaces-indicator-number.active {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  color: #562f10;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+  font-family: "Monaspace Radon";
+  transition: background 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  margin-right: 2px;
+  margin-left: 2px;
+  border: 2px solid #de6e12;
+  background-size: 8px 8px;
+  border-radius: 30px;
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  min-width: 21px;
+  min-height: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Box around workspaces with windows */
+.bar__workspaces-active {
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 0px #12de52, 0 0 0 transparent;
+  border: 2px solid #de6e12;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  transition: all 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  min-height: 21px;
+  min-width: 21px;
+  padding: 0;
   background-color: #f0edea;
 }
 
@@ -1807,7 +1896,7 @@ switch:checked slider {
   padding-left: 0;
   padding-right: 0;
 }
-.mode-settings__button_right.hover {
+.mode-settings__button_right:hover {
   background-size: 8px 8px;
   background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
   text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
@@ -1862,6 +1951,17 @@ switch:checked slider {
   border-radius: 30px;
   min-width: 75px;
   padding: 0;
+}
+.theme-buttons:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #de6e12 25%, #f2f2f2 25%, #f2f2f2 50%, #de6e12 50%, #de6e12 75%, #f2f2f2 75%, #f2f2f2);
+  text-shadow: 2px 2px 0 #f2f2f2, 2px -2px 0 #f2f2f2, -2px 2px 0 #f2f2f2, -2px -2px 0 #f2f2f2, 2px 0px 0 #f2f2f2, 0px 2px 0 #f2f2f2, -2px 0px 0 #f2f2f2, 0px -2px 0 #f2f2f2;
+  box-shadow: 0 0 0 transparent, 0px 2px 0px #12de52;
+}
+.theme-buttons.active {
+  background: #de6e12;
+  box-shadow: 0 0 0 transparent;
+  background-size: 8px 8px;
 }
 
 .label {

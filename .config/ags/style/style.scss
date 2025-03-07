@@ -1697,7 +1697,7 @@ switch:checked slider {
     padding-left: 0;
     padding-right: 0;
 
-    &.hover {
+    &:hover {
         @include secondary-button-hover;
     }
 
@@ -1722,6 +1722,14 @@ switch:checked slider {
     @include secondary-button;
     min-width: 75px;
     padding: 0;
+
+    &:hover{
+        @include secondary-button-hover;
+    }
+
+    &.active{
+        @include secondary-button-active;
+    }
 }
 
 .label {
