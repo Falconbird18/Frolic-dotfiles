@@ -50,6 +50,7 @@ export const slideshow = Variable(settings.slideshow);
 export const wallpaperImage = Variable(settings.wallpaper);
 export const wallpaperFolder = Variable(settings.wallpaperDirectory);
 export const totalWorkspaces = Variable(settings.workspaces);
+export const settingsChanged = Variable(0); // Signal to trigger workspace updates
 console.log(totalWorkspaces);
 export const showNumbers = Variable(settings.numbers);
 console.log(showNumbers);
@@ -112,15 +113,16 @@ const chooseWallpaperDirectory = () => {
 };
 
 const setWorkspaces = (workspaces: number) => {
-    // Enforce minimum of 1 and maximum of 20
     const newValue = Math.max(1, Math.min(20, workspaces));
     totalWorkspaces.set(newValue);
     saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), newValue, showNumbers.get());
+    settingsChanged.set(settingsChanged.get() + 1); // Notify subscribers
 };
 
 const setShowNumbers = (numbers: boolean) => {
     showNumbers.set(numbers);
     saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), numbers);
+    settingsChanged.set(settingsChanged.get() + 1); // Notify subscribers
 };
 
 const getWallpaperImages = () => {
@@ -230,37 +232,48 @@ export default () => {
                 </box>
 
                 {/* Workspace Control */}
-                <label label="Workspaces" className="theme" halign={Gtk.Align.CENTER} />
-                <box horizontal spacing={spacing} halign={Gtk.Align.CENTER}>
+                <label label="Workspaces" className="h2" halign={Gtk.Align.CENTER} />
+                <box horizontal spacing={spacing} halign={Gtk.Align.CENTER} className="workspace-container">
                     <button
                         onClick={() => setWorkspaces(totalWorkspaces.get() - 1)}
                         className="workspace-button"
                     >
-                        <label label="-" />
+                        <label label="-" className="paragraph" />
                     </button>
                     <label
                         label={bind(totalWorkspaces).as(ws => ws.toString())}
-                        className="workspace-count"
+                        className="h3"
                     />
                     <button
                         onClick={() => setWorkspaces(totalWorkspaces.get() + 1)}
                         className="workspace-button"
                     >
-                        <label label="+" />
+                        <label label="+" className="paragraph" />
                     </button>
                 </box>
 
                 {/* Show Numbers Switch */}
-                <label label="Show Workspace Numbers" className="theme" halign={Gtk.Align.CENTER} />
+                {/* <label label="Show Workspace Numbers" className="h2" halign={Gtk.Align.CENTER} />
                 <box horizontal halign={Gtk.Align.CENTER}>
                     <switch
                         active={showNumbers.get()}
                         onActivate={() => setShowNumbers(!showNumbers.get())}
                     />
+                </box> */}
+                <label label="Show Workspace Numbers" className="h2" halign={Gtk.Align.CENTER} />
+                <box horizontal halign={Gtk.Align.CENTER}>
+                    <switch
+                        active={bind(showNumbers).as((numbers) => numbers)}
+                        // onActivate={() => setShowNumbers(!showNumbers.get())}
+                        onNotifyActive={() => {
+                            console.log("Toggling showNumbers from", showNumbers.get(), "to", !showNumbers.get());
+                            setShowNumbers(!showNumbers.get());
+                        }}
+                    />
                 </box>
 
                 {/* Wallpaper Section */}
-                <label label="Wallpaper" className="theme" halign={Gtk.Align.CENTER} />
+                <label label="Wallpaper" className="h2" halign={Gtk.Align.CENTER} />
                 <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
                     <label label="Choose Wallpaper Directory" />
                 </button>

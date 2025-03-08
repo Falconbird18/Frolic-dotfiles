@@ -154,6 +154,13 @@
     border-radius: 100%;
 }
 
+@mixin secondary-circular-button-hover {
+    background-size: $background-size;
+    background-image: $background-image;
+    text-shadow: $text-shadow;
+    box-shadow: $inset, $border-shadow;
+}
+
 @mixin secondary-button-hover {
     background-size: $background-size;
     background-image: $background-image;
@@ -1755,6 +1762,19 @@ switch:checked slider {
     margin: 10px;
 }
 
+.workspace-container{
+    @include card;
+}
+
+.workspace-button{
+    @include secondary-circular-button;
+    min-width: calc($paragraph_size * 1.5);
+    min-height: calc($paragraph_size * 1.5);
+
+    &:hover{
+        @include secondary-circular-button-hover;
+    }
+}
 /*Weather*/
 
 .weather-window {

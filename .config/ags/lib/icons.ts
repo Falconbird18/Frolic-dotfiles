@@ -116,8 +116,8 @@ export default {
     avatar: "avatar-default",
     super: Phi3,
     arrow: {
-      right: "pan-end",
-      left: "pan-start",
+      right: "go-next",
+      left: "go-previous",
       down: "pan-down",
       up: "pan-up",
     },
@@ -173,7 +173,7 @@ export default {
   brightness: {
     indicator: "display-brightness-symbolic",
     keyboard: "keyboard-brightness-symbolic",
-    screen: "display-brightness",
+    screen: "display-brightness-symbolic",
   },
   weather: {
     clear: "weather-clear",
