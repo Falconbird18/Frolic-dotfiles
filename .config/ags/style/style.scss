@@ -621,8 +621,15 @@ switch:checked slider {
     margin: 0;
 }
 
+.bar-workspaces{
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
 /* Box around workspaces with windows */
-.bar__workspaces-active {
+.bar-workspaces-active {
     @include card;
     min-height: calc($paragraph_size * 1.5);
     min-width: calc($paragraph_size * 1.5);

@@ -176,9 +176,9 @@ export default function Workspaces() {
           }
           // When all workspaces are shown, add a border if this one has windows.
           if (!HIDE_EMPTY && hasWindows) {
-            container.className = "workspace-container with-border";
+            container.className = "bar-workspaces-active";
           } else {
-            container.className = "workspace-container";
+            container.className = "bar-workspaces";
           }
         }
       });
