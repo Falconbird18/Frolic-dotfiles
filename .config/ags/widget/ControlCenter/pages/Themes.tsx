@@ -26,11 +26,12 @@ const loadSettings = () => {
         wallpaper: "747.jpg",
         wallpaperDirectory: "/home/austin/Pictures/wallpapers",
         workspaces: 10,
-        numbers: false
+        numbers: false,
+        hideEmptyWorkspaces: false
     };
 };
 
-const saveSettings = (theme: string, mode: string, slideshow: boolean, wallpaper: string, wallpaperDirectory: string, workspaces: number, numbers: boolean) => {
+const saveSettings = (theme: string, mode: string, slideshow: boolean, wallpaper: string, wallpaperDirectory: string, workspaces: number, numbers: boolean, hideEmptyWorkspaces: boolean) => {
     try {
         const file = Gio.File.new_for_path(settingsFile);
         const contents = JSON.stringify({ theme, mode, slideshow, wallpaper, wallpaperDirectory, workspaces, numbers });
@@ -50,6 +51,7 @@ export const slideshow = Variable(settings.slideshow);
 export const wallpaperImage = Variable(settings.wallpaper);
 export const wallpaperFolder = Variable(settings.wallpaperDirectory);
 export const totalWorkspaces = Variable(settings.workspaces);
+export const hideEmptyWorkspaces = Variable(settings.hideEmptyWorkspaces);
 export const settingsChanged = Variable(0); // Signal to trigger workspace updates
 console.log(totalWorkspaces);
 export const showNumbers = Variable(settings.numbers);
@@ -58,17 +60,17 @@ console.log(showNumbers);
 const setTheme = (theme: string, mode: string) => {
     currentTheme.set(theme);
     currentMode.set(mode);
-    saveSettings(theme, mode, slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get());
+    saveSettings(theme, mode, slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get(), hideEmptyWorkspaces.get());
 };
 
 const setSlideshow = (isSlideshow: boolean) => {
     slideshow.set(isSlideshow);
-    saveSettings(currentTheme.get(), currentMode.get(), isSlideshow, wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get());
+    saveSettings(currentTheme.get(), currentMode.get(), isSlideshow, wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get(), hideEmptyWorkspaces.get());
 };
 
 const setWallpaper = (wallpaper: string) => {
     wallpaperImage.set(wallpaper);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get());
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaper, wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get(), hideEmptyWorkspaces.get());
     console.log(`New Wallpaper: ${wallpaper}`);
 
     const wallpaperImagePath = `${wallpaperFolder.get()}/${wallpaper}`;
@@ -87,7 +89,7 @@ const setWallpaper = (wallpaper: string) => {
 
 const setWallpaperDirectory = (wallpaperDirectory: string) => {
     wallpaperFolder.set(wallpaperDirectory);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperDirectory, totalWorkspaces.get(), showNumbers.get());
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperDirectory, totalWorkspaces.get(), showNumbers.get(), hideEmptyWorkspaces.get());
 };
 
 const chooseWallpaperDirectory = () => {
@@ -115,14 +117,20 @@ const chooseWallpaperDirectory = () => {
 const setWorkspaces = (workspaces: number) => {
     const newValue = Math.max(1, Math.min(20, workspaces));
     totalWorkspaces.set(newValue);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), newValue, showNumbers.get());
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), newValue, showNumbers.get(), hideEmptyWorkspaces.get());
     settingsChanged.set(settingsChanged.get() + 1); // Notify subscribers
 };
 
 const setShowNumbers = (numbers: boolean) => {
     showNumbers.set(numbers);
-    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), numbers);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), numbers, hideEmptyWorkspaces.get());
     settingsChanged.set(settingsChanged.get() + 1); // Notify subscribers
+};
+
+const setHideEmptyWorkspaces = (hide: boolean) => {
+    hideEmptyWorkspaces.set(hide);
+    saveSettings(currentTheme.get(), currentMode.get(), slideshow.get(), wallpaperImage.get(), wallpaperFolder.get(), totalWorkspaces.get(), showNumbers.get(), hide);
+    settingsChanged.set(settingsChanged.get() + 1); // Trigger workspace update
 };
 
 const getWallpaperImages = () => {
@@ -251,24 +259,25 @@ export default () => {
                         <label label="+" className="paragraph" />
                     </button>
                 </box>
-
-                {/* Show Numbers Switch */}
-                {/* <label label="Show Workspace Numbers" className="h2" halign={Gtk.Align.CENTER} />
-                <box horizontal halign={Gtk.Align.CENTER}>
-                    <switch
-                        active={showNumbers.get()}
-                        onActivate={() => setShowNumbers(!showNumbers.get())}
-                    />
-                </box> */}
+                
+                {/*Show workspace numbers */}
                 <label label="Show Workspace Numbers" className="h2" halign={Gtk.Align.CENTER} />
                 <box horizontal halign={Gtk.Align.CENTER}>
                     <switch
                         active={bind(showNumbers).as((numbers) => numbers)}
-                        // onActivate={() => setShowNumbers(!showNumbers.get())}
                         onNotifyActive={() => {
                             console.log("Toggling showNumbers from", showNumbers.get(), "to", !showNumbers.get());
                             setShowNumbers(!showNumbers.get());
                         }}
+                    />
+                </box>
+
+                {/* Hide Empty Workspaces Switch */}
+                <label label="Hide Empty Workspaces" className="h2" halign={Gtk.Align.CENTER} />
+                <box horizontal halign={Gtk.Align.CENTER}>
+                    <switch
+                        active={bind(hideEmptyWorkspaces).as((hide) => hide)}
+                        onNotifyActive={() => setHideEmptyWorkspaces(!hideEmptyWorkspaces.get())}
                     />
                 </box>
 
