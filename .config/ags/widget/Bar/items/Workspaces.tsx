@@ -1,255 +1,3 @@
-// import { bind } from "astal";
-// import { Gtk } from "astal/gtk3";
-// import Hyprland from "gi://AstalHyprland";
-// import BarItem from "../BarItem";
-// import { totalWorkspaces, showNumbers, settingsChanged } from "../../ControlCenter/pages/Themes";
-
-// export default () => {
-//   const hypr = Hyprland.get_default();
-
-//   const focusWorkspace = (workspaceId: number) =>
-//     hypr.dispatch("workspace", workspaceId.toString());
-
-//   return bind(settingsChanged).as(() => {
-//     const TOTAL_WORKSPACES = totalWorkspaces.get();
-//     const SHOW_NUMBERS = showNumbers.get();
-
-//     return (
-//       <BarItem>
-//         <box spacing={8} className="bar__workspaces">
-//           {Array.from({ length: TOTAL_WORKSPACES }, (_, i) => i + 1).map((id) => {
-//             // Create bindings for the workspace data.
-//             const workspace = bind(hypr, "workspaces").as((ws) =>
-//               ws.find((w) => w.id === id)
-//             );
-//             const isFocused = bind(hypr, "focusedWorkspace").as(
-//               (fw) => fw.id === id
-//             );
-//             // const hasWindows = bind(workspace).as((ws) => {
-//             //   return (ws?.clients?.length ?? ws?.windows?.length ?? 0) > 0;
-//             // });
-//             const hasWindows = bind(workspace).as((ws) => {
-//               const result = (ws?.clients?.length ?? ws?.windows?.length ?? 0) > 0;
-//               return result;
-//             });
-
-//             // We'll store a reference to the button so we can update it imperatively.
-//             let buttonRef = null;
-//             const setButtonRef = (btn) => {
-//               buttonRef = btn;
-//             };
-
-//             // Always render a container and button for each workspace.
-//             // Instead of conditionally mounting/unmounting the button,
-//             // we update its visual state to simulate presence/absence.
-//             return (
-//               <box
-//                 key={`workspace-box-${id}`}
-//                 halign={Gtk.Align.CENTER}
-//                 valign={Gtk.Align.CENTER}
-//               >
-//                 <button
-//                   key={`workspace-btn-${id}`}
-//                   ref={setButtonRef}
-//                   halign={Gtk.Align.CENTER}
-//                   valign={Gtk.Align.CENTER}
-//                   onClicked={() => focusWorkspace(id)}
-//                   className={bind(isFocused).as((focused) =>
-//                     focused
-//                       ? SHOW_NUMBERS
-//                         ? "bar__workspaces-indicator-number active"
-//                         : "bar__workspaces-indicator dot active"
-//                       : SHOW_NUMBERS
-//                         ? "bar__workspaces-indicator-number"
-//                         : "bar__workspaces-indicator dot"
-//                   )}
-//                 >
-//                   {SHOW_NUMBERS ? <label label={id.toString()} /> : null}
-//                 </button>
-//                 {
-//                   bind(hasWindows).as((active) => {
-//                     if (buttonRef && buttonRef.get_parent()) {
-//                       buttonRef.visible = true; // keep mounted
-//                       buttonRef.opacity = active ? 1.0 : 0.0;
-//                     }
-//                     return null;
-//                   })
-//                 }
-//               </box>
-//             );
-//           })}
-//         </box>
-//       </BarItem>
-//     );
-//   });
-// };
-
-// import { bind } from "astal";
-// import { Gtk } from "astal/gtk3";
-// import Hyprland from "gi://AstalHyprland";
-// import BarItem from "../BarItem";
-// import { totalWorkspaces, showNumbers, hideEmptyWorkspaces, settingsChanged } from "../../ControlCenter/pages/Themes";
-
-// export default () => {
-//   const hypr = Hyprland.get_default();
-
-//   const focusWorkspace = (workspaceId: number) =>
-//     hypr.dispatch("workspace", workspaceId.toString());
-
-//   return bind(settingsChanged).as(() => {
-//     const TOTAL_WORKSPACES = totalWorkspaces.get();
-//     const SHOW_NUMBERS = showNumbers.get();
-
-//     return (
-//       <BarItem>
-//         <box spacing={8} className="bar__workspaces">
-//           {Array.from({ length: TOTAL_WORKSPACES }, (_, i) => i + 1).map((id) => {
-//             const workspace = bind(hypr, "workspaces").as((ws) =>
-//               ws.find((w) => w.id === id)
-//             );
-//             const isFocused = bind(hypr, "focusedWorkspace").as(
-//               (fw) => fw.id === id
-//             );
-//             const hasWindows = bind(workspace).as((ws) => {
-//               return ((ws?.clients?.length ?? ws?.windows?.length ?? 0) > 0);
-//             });
-
-//             let buttonRef = null;
-//             const setButtonRef = (btn) => {
-//               buttonRef = btn;
-//             };
-
-//             return (
-//               <box
-//                 key={`workspace-box-${id}`}
-//                 halign={Gtk.Align.CENTER}
-//                 valign={Gtk.Align.CENTER}
-//               >
-//                 <button
-//                   key={`workspace-btn-${id}`}
-//                   ref={setButtonRef}
-//                   halign={Gtk.Align.CENTER}
-//                   valign={Gtk.Align.CENTER}
-//                   onClicked={() => focusWorkspace(id)}
-//                   className={bind(isFocused).as((focused) =>
-//                     focused
-//                       ? SHOW_NUMBERS
-//                         ? "bar__workspaces-indicator-number active"
-//                         : "bar__workspaces-indicator dot active"
-//                       : SHOW_NUMBERS
-//                         ? "bar__workspaces-indicator-number"
-//                         : "bar__workspaces-indicator dot"
-//                   )}
-//                 >
-//                   {SHOW_NUMBERS && <label label={id.toString()} />}
-//                 </button>
-//                 {
-//                   // Instead of returning null, we return an empty fragment.
-//                   bind(hasWindows).as((active) => {
-//                     if (buttonRef && buttonRef.get_parent()) {
-//                       buttonRef.visible = true; // keep mounted
-//                       buttonRef.opacity = active ? 1.0 : 0.0;
-//                     }
-//                     return (<></>);
-//                   })
-//                 }
-//               </box>
-//             );
-//           })}
-//         </box>
-//       </BarItem>
-//     );
-//   });
-// };
-
-// import { bind } from "astal";
-// import { Gtk } from "astal/gtk3";
-// import Hyprland from "gi://AstalHyprland";
-// import BarItem from "../BarItem";
-// import {
-//   totalWorkspaces,
-//   showNumbers,
-//   hideEmptyWorkspaces,
-//   settingsChanged
-// } from "../../ControlCenter/pages/Themes";
-
-// export default () => {
-//   const hypr = Hyprland.get_default();
-
-//   const focusWorkspace = (workspaceId: number) =>
-//     hypr.dispatch("workspace", workspaceId.toString());
-
-//   return bind(settingsChanged).as(() => {
-//     const TOTAL_WORKSPACES = totalWorkspaces.get();
-//     const SHOW_NUMBERS = showNumbers.get();
-//     const HIDE_EMPTY = hideEmptyWorkspaces.get();
-
-//     return (
-//       <BarItem>
-//         <box spacing={8} className="bar__workspaces">
-//           {Array.from({ length: TOTAL_WORKSPACES }, (_, i) => i + 1).map((id) =>
-//             bind(hypr, "workspaces").as((ws) => {
-//               // Find the workspace matching this id
-//               const currentWorkspace = ws.find((w) => w.id === id);
-//               // Determine if the workspace has any windows/clients
-//               const hasWindows =
-//                 (currentWorkspace?.clients?.length ?? currentWorkspace?.windows?.length ?? 0) > 0;
-
-//               let buttonRef = null;
-//               const setButtonRef = (btn) => {
-//                 buttonRef = btn;
-//               };
-
-//               // If we’re hiding empty workspaces and this one is empty, render nothing.
-//               if (HIDE_EMPTY && !hasWindows) return buttonRef.opacity = 0;
-
-//               // Create a binding to check if this workspace is focused.
-//               const isFocused = bind(hypr, "focusedWorkspace").as((fw) => fw.id === id);
-
-//               return (
-//                 <box
-//                   key={`workspace-box-${id}`}
-//                   halign={Gtk.Align.CENTER}
-//                   valign={Gtk.Align.CENTER}
-//                 >
-//                   <button
-//                     key={`workspace-btn-${id}`}
-//                     ref={setButtonRef}
-//                     halign={Gtk.Align.CENTER}
-//                     valign={Gtk.Align.CENTER}
-//                     onClicked={() => focusWorkspace(id)}
-//                     className={bind(isFocused).as((focused) =>
-//                       focused
-//                         ? SHOW_NUMBERS
-//                           ? "bar__workspaces-indicator-number active"
-//                           : "bar__workspaces-indicator dot active"
-//                         : SHOW_NUMBERS
-//                           ? "bar__workspaces-indicator-number"
-//                           : "bar__workspaces-indicator dot"
-//                     )}
-//                   >
-//                     {SHOW_NUMBERS && <label label={id.toString()} />}
-//                   </button>
-//                   {(() => {
-//                     // Instead of binding to a constant value,
-//                     // we simply update the button’s opacity right here.
-//                     // This IIFE re-runs whenever the full binding re-renders.
-//                     if (buttonRef && buttonRef.get_parent()) {
-//                       buttonRef.visible = true; // Keep the button mounted.
-//                       buttonRef.opacity = hasWindows ? 1.0 : 0.0;
-//                     }
-//                     return <></>;
-//                   })()}
-//                 </box>
-//               );
-//             })
-//           )}
-//         </box>
-//       </BarItem>
-//     );
-//   });
-// };
-
 import { bind } from "astal";
 import { Gtk } from "astal/gtk3";
 import Hyprland from "gi://AstalHyprland";
@@ -264,30 +12,40 @@ import {
 export default function Workspaces() {
   const hypr = Hyprland.get_default();
 
+  // Focus the given workspace.
   const focusWorkspace = (workspaceId: number) =>
     hypr.dispatch("workspace", workspaceId.toString());
 
-  // Initialize buttons for all workspaces
-  const TOTAL_WORKSPACES = totalWorkspaces.get();
-  const buttons = new Map<number, any>();
+  // We'll store our button elements in a Map.
+  // (This map will be re-created whenever the totalWorkspaces setting changes.)
+  let buttons = new Map<number, any>();
 
-  for (let id = 1; id <= TOTAL_WORKSPACES; id++) {
-    const button = (
-      <button
-        key={`workspace-btn-${id}`}
-        halign={Gtk.Align.CENTER}
-        valign={Gtk.Align.CENTER}
-        onClicked={() => focusWorkspace(id)}
-      >
-        {showNumbers.get() && <label label={id.toString()} />}
-      </button>
-    );
-    buttons.set(id, button);
-  }
+  // Helper: create one workspace button.
+  const createWorkspaceButton = (id: number) => (
+    <button
+      key={`workspace-btn-${id}`}
+      halign={Gtk.Align.CENTER}
+      valign={Gtk.Align.CENTER}
+      onClicked={() => focusWorkspace(id)}
+    >
+      {showNumbers.get() && <label label={id.toString()} />}
+    </button>
+  );
 
-  // Function to update button appearance
+  // Rebuild the buttons map from scratch.
+  const rebuildButtons = () => {
+    const newButtons = new Map<number, any>();
+    const TOTAL_WORKSPACES = totalWorkspaces.get();
+    for (let id = 1; id <= TOTAL_WORKSPACES; id++) {
+      newButtons.set(id, createWorkspaceButton(id));
+    }
+    buttons = newButtons;
+  };
+
+  // Update a button's appearance & label child based on current settings.
   const updateButton = (
     button: any,
+    id: number,
     isFocused: boolean,
     hasWindows: boolean,
     SHOW_NUMBERS: boolean,
@@ -300,15 +58,58 @@ export default function Workspaces() {
     button.className = className;
     button.opacity = HIDE_EMPTY && !hasWindows ? 0 : 1;
 
+    // Update the visible label based on SHOW_NUMBERS.
     if (SHOW_NUMBERS && !button.child) {
-      button.child = <label label={button.key.split("-")[2]} />; // Extract ID from key
+      button.child = <label label={id.toString()} />;
     } else if (!SHOW_NUMBERS && button.child) {
       button.child = null;
     }
   };
 
-  // Setup reactive updates
+  // Helper to completely clear the container's children.
+  const clearBox = (box: any) => {
+    if (box.remove_all_children) {
+      // If your framework provides this functionality:
+      box.remove_all_children();
+    } else if (box.get_children) {
+      // Otherwise manually remove children one by one.
+      const children = box.get_children();
+      for (let child of children) {
+        box.remove(child);
+      }
+    } else {
+      // Fallback if neither is available.
+      while (box.firstChild) {
+        box.remove(box.firstChild);
+      }
+    }
+  };
+
+  // This function is run when the container is set up.
+  // It is responsible for both initially rendering and later updating the UI.
   const setupUpdates = (box: any) => {
+    // Refresh the entire list of workspace buttons.
+    const refreshAllButtons = () => {
+      rebuildButtons();
+      // Clear out every child from the container.
+      clearBox(box);
+      // Add (re-add) each workspace button.
+      buttons.forEach((button, id) => {
+        box.add(
+          <box
+            key={`workspace-box-${id}`}
+            halign={Gtk.Align.CENTER}
+            valign={Gtk.Align.CENTER}
+          >
+            {button}
+          </box>,
+        );
+      });
+
+      if (box.queue_relayout) box.queue_relayout();
+    };
+
+    // Update appearance of each button (active style, show label, opacity, etc.).
     const updateAllButtons = () => {
       const SHOW_NUMBERS = showNumbers.get();
       const HIDE_EMPTY = hideEmptyWorkspaces.get();
@@ -322,19 +123,35 @@ export default function Workspaces() {
             currentWorkspace?.windows?.length ||
             0) > 0;
         const isFocused = fw?.id === id;
-        updateButton(button, isFocused, hasWindows, SHOW_NUMBERS, HIDE_EMPTY);
+        updateButton(
+          button,
+          id,
+          isFocused,
+          hasWindows,
+          SHOW_NUMBERS,
+          HIDE_EMPTY,
+        );
       });
     };
 
-    // Initial update
+    // Initially refresh the list and update button appearances.
+    refreshAllButtons();
     updateAllButtons();
 
-    // Subscribe to changes
-    settingsChanged.subscribe(updateAllButtons);
+    // Listen to settings changes. Your settingsChanged variable
+    // should fire whenever ANY setting (totalWorkspaces, showNumbers, etc.) changes.
+    settingsChanged.subscribe(() => {
+      refreshAllButtons();
+      updateAllButtons();
+    });
+
+    // Listen for workspace and focus changes.
     hypr.connect("notify::workspaces", updateAllButtons);
     hypr.connect("notify::focused-workspace", updateAllButtons);
   };
 
+  // The final JSX below is created once.
+  // The setup function is in charge of removing/adding children as needed.
   return (
     <BarItem>
       <box spacing={8} className="bar__workspaces" setup={setupUpdates}>
