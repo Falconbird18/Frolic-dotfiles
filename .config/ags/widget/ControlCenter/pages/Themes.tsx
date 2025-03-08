@@ -376,14 +376,17 @@ export default () => {
         <box horizontal halign={Gtk.Align.CENTER}>
           <switch
             active={bind(showNumbers).as((numbers) => numbers)}
-            onNotifyActive={() => {
-              console.log(
-                "Toggling showNumbers from",
-                showNumbers.get(),
-                "to",
-                !showNumbers.get(),
-              );
-              setShowNumbers(!showNumbers.get());
+            onNotifyActive={(self) => {
+              const newValue = self.active;
+              if (newValue !== showNumbers.get()) {
+                console.log(
+                  "Toggling showNumbers from",
+                  showNumbers.get(),
+                  "to",
+                  newValue,
+                );
+                setShowNumbers(newValue);
+              }
             }}
           />
         </box>
@@ -397,14 +400,18 @@ export default () => {
         <box horizontal halign={Gtk.Align.CENTER}>
           <switch
             active={bind(hideEmptyWorkspaces).as((hide) => hide)}
-            onNotifyActive={() => {
-              console.log(
-                "Toggling hiden empty workspaces from",
-                hideEmptyWorkspaces.get(),
-                "to",
-                !hideEmptyWorkspaces.get(),
-              );
-              setHideEmptyWorkspaces(!hideEmptyWorkspaces.get());
+            onNotifyActive={(self) => {
+              const newValue = self.active; // Get the switch's new state
+              if (newValue !== hideEmptyWorkspaces.get()) {
+                // Only update if different
+                console.log(
+                  "Toggling hidden empty workspaces from",
+                  hideEmptyWorkspaces.get(),
+                  "to",
+                  newValue,
+                );
+                setHideEmptyWorkspaces(newValue);
+              }
             }}
           />
         </box>
