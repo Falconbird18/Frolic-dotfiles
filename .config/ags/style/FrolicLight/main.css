@@ -2332,7 +2332,8 @@ switch:checked slider {
   background-color: #f9f9f9;
 }
 
-.workspace-number-entry, .icon-entry {
+.workspace-number-entry,
+.icon-entry {
   padding: 4px;
   margin: 2px 0;
 }
@@ -2340,6 +2341,13 @@ switch:checked slider {
 .submit-button {
   padding: 4px 8px;
   background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+
+.cancel-button {
+  padding: 4px 8px;
+  background-color: #f44336;
   color: white;
   border-radius: 4px;
 }
@@ -2352,12 +2360,39 @@ switch:checked slider {
   margin: 4px 0;
 }
 
-.delete-button {
+.icon-card button {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.icon-card:hover button {
+  opacity: 1;
+}
+
+.delete-button-hidden {
   padding: 2px 6px;
   background-color: #ff4444;
   color: white;
   border-radius: 50%;
   margin-left: 8px;
+  min-width: 20px;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  /* Optional: adds a smooth fade effect */
+}
+
+.delete-button-visible {
+  padding: 2px 6px;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  margin-left: 8px;
+  min-width: 20px;
+  min-height: 20px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  /* Optional: adds a smooth fade effect */
 }
 
 /*# sourceMappingURL=main.css.map */

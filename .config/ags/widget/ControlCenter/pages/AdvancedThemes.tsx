@@ -169,7 +169,6 @@ const removeWorkspaceIcon = (workspaceId: number) => {
   settingsChanged.set(settingsChanged.get() + 1);
 };
 
-// Variable to control visibility of the add-icon form
 const showAddIconForm = Variable(false);
 
 export default () => {
@@ -269,90 +268,114 @@ export default () => {
             <label label="+" className="paragraph" />
           </button>
 
-          {/* Add Icon Form (shown when showAddIconForm is true) */}
-          {bind(showAddIconForm).as((visible) =>
-            visible ? (
-              <box vertical spacing={4} className="add-icon-form">
-                <entry
-                  placeholderText="Workspace Number (1-20)"
-                  onActivate={(self) => {
-                    self.text = self.text; // Keep text for submission
-                  }}
-                  className="workspace-number-entry"
-                />
-                <entry
-                  placeholderText="Icon (e.g., 🌟)"
-                  onActivate={(self) => {
-                    self.text = self.text; // Keep text for submission
-                  }}
-                  className="icon-entry"
-                />
-                <button
-                  onClick={(self) => {
-                    const numberEntry = self
-                      .get_parent()
-                      .get_children()
-                      .find((child) =>
-                        child.className.includes("workspace-number-entry"),
-                      );
-                    const iconEntry = self
-                      .get_parent()
-                      .get_children()
-                      .find((child) => child.className.includes("icon-entry"));
-                    const workspaceId = parseInt(numberEntry.text.trim());
-                    const icon = iconEntry.text.trim();
+          {/* Add Icon Form */}
+          <box
+            vertical
+            spacing={4}
+            className="add-icon-form"
+            visible={bind(showAddIconForm).as((v) => v)}
+          >
+            <entry
+              placeholderText="Workspace Number (1-20)"
+              className="workspace-number-entry"
+            />
+            <entry
+              placeholderText="Icon (e.g., 🌟)"
+              className="icon-entry"
+            />
+            <box horizontal spacing={8} halign={Gtk.Align.CENTER}>
+              <button
+                onClick={(self) => {
+                  const form = self.get_parent().get_parent();
+                  const numberEntry = form.get_children()[0]; // First child
+                  const iconEntry = form.get_children()[1];   // Second child
+                  const workspaceId = parseInt(numberEntry.text.trim());
+                  const icon = iconEntry.text.trim();
 
-                    if (
-                      !isNaN(workspaceId) &&
-                      workspaceId >= 1 &&
-                      workspaceId <= totalWorkspaces.get() &&
-                      icon
-                    ) {
-                      setWorkspaceIcon(workspaceId, icon);
-                      numberEntry.text = ""; // Clear entries
-                      iconEntry.text = "";
-                      showAddIconForm.set(false); // Hide form
-                    } else {
-                      console.error("Invalid workspace number or icon");
-                    }
-                  }}
-                  className="submit-button"
-                >
-                  <label label="Save" className="paragraph" />
-                </button>
-              </box>
-            ) : null,
-          )}
-
+                  if (
+                    !isNaN(workspaceId) &&
+                    workspaceId >= 1 &&
+                    workspaceId <= totalWorkspaces.get() &&
+                    icon
+                  ) {
+                    setWorkspaceIcon(workspaceId, icon);
+                    numberEntry.text = "";
+                    iconEntry.text = "";
+                    showAddIconForm.set(false);
+                  } else {
+                    console.error("Invalid workspace number or icon");
+                  }
+                }}
+                className="submit-button"
+              >
+                <label label="Save" className="paragraph" />
+              </button>
+              <button
+                onClick={(self) => {
+                  const form = self.get_parent().get_parent();
+                  const numberEntry = form.get_children()[0];
+                  const iconEntry = form.get_children()[1];
+                  numberEntry.text = "";
+                  iconEntry.text = "";
+                  showAddIconForm.set(false);
+                }}
+                className="cancel-button"
+              >
+                <label label="Cancel" className="paragraph" />
+              </button>
+            </box>
+          </box>
           {/* Icon Cards */}
           {bind(workspaceIcons).as((icons) =>
-            Object.entries(icons).map(([id, icon]) => (
-              <box
-                key={`icon-card-${id}`}
-                horizontal
-                spacing={8}
-                className="icon-card"
-                halign={Gtk.Align.CENTER}
-              >
-                <label
-                  label={`Workspace ${id}: ${icon}`}
-                  className="paragraph"
-                />
-                <button
-                  className="delete-button"
-                  visible={false}
-                  onClick={() => removeWorkspaceIcon(parseInt(id))}
+            Object.entries(icons).map(([id, icon]) => {
+              let deleteButton = null; // Variable to store the deleteButton reference
+              const deleteButtonTest = (
+                  <button
+                    className="delete-button delete-button-hidden" // Initially hidden
+                    onClick={() => removeWorkspaceIcon(parseInt(id))}
+                    setup={(self) => {
+                      // Store the reference to the deleteButton
+                      deleteButton = self;
+                    }}
+                  >
+                    <label label="x" className="paragraph" />
+                  </button>
+              );
+
+              return (
+                <eventbox
+                  key={`icon-card-${id}`}
+                  horizontal
+                  spacing={8}
+                  className="icon-card"
+                  halign={Gtk.Align.CENTER}
                   onEnterNotifyEvent={(self) => {
-                    self.visible = true;
+                    if (deleteButton) {
+                      console.log("Hover enter:", id);
+                      // Remove the hidden class to show the button
+                      deleteButton.className = "delete-button-visible"
+                      console.log("Current className:", deleteButton.className)
+                    }
                   }}
                   onLeaveNotifyEvent={(self) => {
-                    self.visible = false;
+                    if (deleteButton) {
+                      console.log("Hover leave:", id);
+                      // Add the hidden class to hide the button
+                      deleteButton.className = "delete-button-hidden";
+                      console.log("Current className:", deleteButton.className)
+                    }
                   }}
                 >
-                  <label label="x" className="paragraph" />
-                </button>
-              </box>
-            )),
+                  <box>
+                  <label
+                    label={`Workspace ${id}: ${icon}`}
+                    className="paragraph"
+                  />
+                  {deleteButtonTest}
+                  </box>
+                </eventbox>
+              );
+            }),
           )}
         </box>
       </box>

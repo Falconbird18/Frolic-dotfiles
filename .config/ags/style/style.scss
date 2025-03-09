@@ -580,14 +580,14 @@ switch:checked slider {
     padding: 0;
     transition: all $transition;
 
-    &.dot{
-    min-width: $subtext_size;
-    min-height: $subtext_size;
-    border-radius: $primary-radius;
-    background-color: $background-3;
-    box-shadow: $outset;
-    border: $primary-border;
-    background-size: $background-size;
+    &.dot {
+        min-width: $subtext_size;
+        min-height: $subtext_size;
+        border-radius: $primary-radius;
+        background-color: $background-3;
+        box-shadow: $outset;
+        border: $primary-border;
+        background-size: $background-size;
     }
 
     &:hover {
@@ -621,13 +621,14 @@ switch:checked slider {
     margin: 0;
 }
 
-.bar-workspaces{
+.bar-workspaces {
     min-height: 0;
     min-width: 0;
     padding: 0;
     margin: 0;
     background: transparent;
 }
+
 /* Box around workspaces with windows */
 .bar-workspaces-active {
     @include card;
@@ -1737,11 +1738,11 @@ switch:checked slider {
     min-width: 75px;
     padding: 0;
 
-    &:hover{
+    &:hover {
         @include secondary-button-hover;
     }
 
-    &.active{
+    &.active {
         @include secondary-button-active;
     }
 }
@@ -1769,19 +1770,20 @@ switch:checked slider {
     margin: 10px;
 }
 
-.workspace-container{
+.workspace-container {
     @include card;
 }
 
-.workspace-button{
+.workspace-button {
     @include secondary-circular-button;
     min-width: calc($paragraph_size * 1.5);
     min-height: calc($paragraph_size * 1.5);
 
-    &:hover{
+    &:hover {
         @include secondary-circular-button-hover;
     }
 }
+
 /*Weather*/
 
 .weather-window {
@@ -1989,41 +1991,86 @@ switch:checked slider {
 
 
 .add-icon-button {
-  padding: 4px 8px;
-  font-size: 16px;
+    padding: 4px 8px;
+    font-size: 16px;
 }
 
 .add-icon-form {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
 }
 
-.workspace-number-entry, .icon-entry {
-  padding: 4px;
-  margin: 2px 0;
+.workspace-number-entry,
+.icon-entry {
+    padding: 4px;
+    margin: 2px 0;
 }
 
 .submit-button {
-  padding: 4px 8px;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 4px;
+    padding: 4px 8px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+}
+
+.cancel-button {
+    padding: 4px 8px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 4px;
 }
 
 .icon-card {
-  padding: 6px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
-  margin: 4px 0;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    margin: 4px 0;
 }
 
-.delete-button {
-  padding: 2px 6px;
-  background-color: #ff4444;
-  color: white;
-  border-radius: 50%;
-  margin-left: 8px;
+.icon-card button {
+    opacity: 0;
+    transition: opacity 0.2s;
 }
+
+.icon-card:hover button {
+    opacity: 1;
+}
+
+.delete-button-hidden {
+    padding: 2px 6px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    margin-left: 8px;
+    min-width: 20px;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    /* Optional: adds a smooth fade effect */
+}
+
+.delete-button-visible {
+    padding: 2px 6px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    margin-left: 8px;
+    min-width: 20px;
+    min-height: 20px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    /* Optional: adds a smooth fade effect */
+}
+
+// .delete-button {
+//   padding: 2px 6px;
+//   background-color: #ff4444;
+//   color: white;
+//   border-radius: 50%;
+//   margin-left: 8px;
+//   min-width: 20px;
+//   min-height: 20px;
+// }
