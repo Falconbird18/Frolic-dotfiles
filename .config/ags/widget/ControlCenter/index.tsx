@@ -9,6 +9,7 @@ import PopupWindow from "../../common/PopupWindow";
 import { toggleWindow } from "../../lib/utils";
 import FanProfiles from "./pages/FanProfiles";
 import Themes from "./pages/Themes";
+import AdvancedThemes from "./pages/AdvancedThemes";
 
 export const controlCenterPage = Variable("main");
 
@@ -76,6 +77,7 @@ export default () => {
 						{FanProfiles()}
 						{Bluetooth()}
 						{Themes()}
+						{AdvancedThemes()}
 					</stack>
 				</box>
 				<Media />

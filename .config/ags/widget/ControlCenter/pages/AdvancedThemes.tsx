@@ -257,7 +257,7 @@ export default () => {
   const rows = chunkArray(images, 2);
 
   return (
-    <Page label={"Themes"}>
+    <Page label={"AdvancedThemes"}>
       <box
         vertical
         spacing={8}
