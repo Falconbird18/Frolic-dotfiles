@@ -1985,3 +1985,45 @@ switch:checked slider {
     color: #666;
     // text-align: center;
 }
+
+
+
+.add-icon-button {
+  padding: 4px 8px;
+  font-size: 16px;
+}
+
+.add-icon-form {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.workspace-number-entry, .icon-entry {
+  padding: 4px;
+  margin: 2px 0;
+}
+
+.submit-button {
+  padding: 4px 8px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+
+.icon-card {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+.delete-button {
+  padding: 2px 6px;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  margin-left: 8px;
+}

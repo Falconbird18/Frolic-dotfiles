@@ -27,7 +27,7 @@ const loadSettings = () => {
     workspaces: 10,
     numbers: false,
     hideEmptyWorkspaces: false,
-    workspaceIcons: {}, // Object to store icons for any workspace
+    workspaceIcons: {},
   };
 };
 
@@ -132,7 +132,7 @@ const setHideEmptyWorkspaces = (hide: boolean) => {
 const setWorkspaceIcon = (workspaceId: number, icon: string) => {
   const currentIcons = workspaceIcons.get();
   if (icon.trim() === "") {
-    delete currentIcons[workspaceId]; // Remove icon if empty
+    delete currentIcons[workspaceId];
   } else {
     currentIcons[workspaceId] = icon;
   }
@@ -150,6 +150,27 @@ const setWorkspaceIcon = (workspaceId: number, icon: string) => {
   );
   settingsChanged.set(settingsChanged.get() + 1);
 };
+
+const removeWorkspaceIcon = (workspaceId: number) => {
+  const currentIcons = workspaceIcons.get();
+  delete currentIcons[workspaceId];
+  workspaceIcons.set({ ...currentIcons });
+  saveSettings(
+    currentTheme.get(),
+    currentMode.get(),
+    slideshow.get(),
+    wallpaperImage.get(),
+    wallpaperFolder.get(),
+    totalWorkspaces.get(),
+    showNumbers.get(),
+    hideEmptyWorkspaces.get(),
+    workspaceIcons.get(),
+  );
+  settingsChanged.set(settingsChanged.get() + 1);
+};
+
+// Variable to control visibility of the add-icon form
+const showAddIconForm = Variable(false);
 
 export default () => {
   return (
@@ -233,25 +254,103 @@ export default () => {
           />
         </box>
 
-        {/* Workspace Icons */}
+        {/* Workspace Icons Section */}
         <label
           label="Workspace Icons"
           className="h2"
           halign={Gtk.Align.CENTER}
         />
-        <box vertical spacing={4} halign={Gtk.Align.CENTER}>
-          {bind(totalWorkspaces).as((ws) =>
-            Array.from({ length: ws }, (_, i) => i + 1).map((id) => (
-              <box horizontal spacing={8} key={`workspace-icon-${id}`}>
-                <label label={`Workspace ${id}:`} className="paragraph" />
+        <box vertical spacing={8} halign={Gtk.Align.CENTER}>
+          {/* Add Icon Button */}
+          <button
+            onClick={() => showAddIconForm.set(true)}
+            className="add-icon-button"
+          >
+            <label label="+" className="paragraph" />
+          </button>
+
+          {/* Add Icon Form (shown when showAddIconForm is true) */}
+          {bind(showAddIconForm).as((visible) =>
+            visible ? (
+              <box vertical spacing={4} className="add-icon-form">
                 <entry
-                  text={bind(workspaceIcons).as((icons) => icons[id] || "")}
-                  placeholderText="Enter emoji (e.g., 🌟)"
+                  placeholderText="Workspace Number (1-20)"
                   onActivate={(self) => {
-                    const newIcon = self.text.trim();
-                    setWorkspaceIcon(id, newIcon);
+                    self.text = self.text; // Keep text for submission
                   }}
+                  className="workspace-number-entry"
                 />
+                <entry
+                  placeholderText="Icon (e.g., 🌟)"
+                  onActivate={(self) => {
+                    self.text = self.text; // Keep text for submission
+                  }}
+                  className="icon-entry"
+                />
+                <button
+                  onClick={(self) => {
+                    const numberEntry = self
+                      .get_parent()
+                      .get_children()
+                      .find((child) =>
+                        child.className.includes("workspace-number-entry"),
+                      );
+                    const iconEntry = self
+                      .get_parent()
+                      .get_children()
+                      .find((child) => child.className.includes("icon-entry"));
+                    const workspaceId = parseInt(numberEntry.text.trim());
+                    const icon = iconEntry.text.trim();
+
+                    if (
+                      !isNaN(workspaceId) &&
+                      workspaceId >= 1 &&
+                      workspaceId <= totalWorkspaces.get() &&
+                      icon
+                    ) {
+                      setWorkspaceIcon(workspaceId, icon);
+                      numberEntry.text = ""; // Clear entries
+                      iconEntry.text = "";
+                      showAddIconForm.set(false); // Hide form
+                    } else {
+                      console.error("Invalid workspace number or icon");
+                    }
+                  }}
+                  className="submit-button"
+                >
+                  <label label="Save" className="paragraph" />
+                </button>
+              </box>
+            ) : null,
+          )}
+
+          {/* Icon Cards */}
+          {bind(workspaceIcons).as((icons) =>
+            Object.entries(icons).map(([id, icon]) => (
+              <box
+                key={`icon-card-${id}`}
+                horizontal
+                spacing={8}
+                className="icon-card"
+                halign={Gtk.Align.CENTER}
+              >
+                <label
+                  label={`Workspace ${id}: ${icon}`}
+                  className="paragraph"
+                />
+                <button
+                  className="delete-button"
+                  visible={false}
+                  onClick={() => removeWorkspaceIcon(parseInt(id))}
+                  onEnterNotifyEvent={(self) => {
+                    self.visible = true;
+                  }}
+                  onLeaveNotifyEvent={(self) => {
+                    self.visible = false;
+                  }}
+                >
+                  <label label="x" className="paragraph" />
+                </button>
               </box>
             )),
           )}
