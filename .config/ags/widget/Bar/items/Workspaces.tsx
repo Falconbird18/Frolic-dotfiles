@@ -33,7 +33,7 @@ export default function Workspaces() {
     </button>
   );
 
-  // Rebuild the buttons and their container boxes from scratch
+  // Rebuild the buttons and their container boxes from scratch.
   const rebuildButtons = () => {
     const newButtons = new Map<number, any>();
     const newContainers = new Map<number, any>();
@@ -76,7 +76,7 @@ export default function Workspaces() {
     // (We update the border on the container rather than the button.)
     button.className = baseClass;
 
-    // Instead of setting an opacity of 0, we hide or show the button.
+    // Instead of setting an opacity of 0, hide or show the button.
     if (HIDE_EMPTY && !hasWindows) {
       if (button.hide) button.hide();
       if (typeof button.visible !== "undefined") button.visible = false;
@@ -85,7 +85,7 @@ export default function Workspaces() {
       if (typeof button.visible !== "undefined") button.visible = true;
     }
 
-    // Safely update the label:
+    // Safely update the label.
     if (SHOW_NUMBERS) {
       if (button.child) {
         // Instead of adding a new label, update the existing label’s text.
@@ -145,16 +145,20 @@ export default function Workspaces() {
 
       buttons.forEach((button, id) => {
         const currentWorkspace = ws.find((w) => w.id === id);
-        const hasWindows =
+        const actualHasWindows =
           (currentWorkspace?.clients?.length ||
             currentWorkspace?.windows?.length ||
             0) > 0;
         const isFocused = fw?.id === id;
+        // Even if the workspace is empty, force it to display as long as it is focused.
+        const displayWorkspace = actualHasWindows || isFocused;
+
+        // Update the button using displayWorkspace as our "hasWindows" flag.
         updateButton(
           button,
           id,
           isFocused,
-          hasWindows,
+          displayWorkspace,
           SHOW_NUMBERS,
           HIDE_EMPTY,
         );
@@ -163,7 +167,7 @@ export default function Workspaces() {
         const container = containers.get(id);
         if (container) {
           // Hide or show the container so empty workspaces don’t take up space.
-          if (HIDE_EMPTY && !hasWindows) {
+          if (HIDE_EMPTY && !displayWorkspace) {
             if (container.hide) container.hide();
             if (typeof container.visible !== "undefined") {
               container.visible = false;
@@ -174,12 +178,11 @@ export default function Workspaces() {
               container.visible = true;
             }
           }
-          // When all workspaces are shown, add a border if this one has windows.
-          if (!HIDE_EMPTY && hasWindows) {
-            container.className = "bar-workspaces-active";
-          } else {
-            container.className = "bar-workspaces";
-          }
+          // Update the container style:
+          // Only workspaces that actually have windows will show the active border.
+          container.className = actualHasWindows
+            ? "bar-workspaces-active"
+            : "bar-workspaces";
         }
       });
     };
