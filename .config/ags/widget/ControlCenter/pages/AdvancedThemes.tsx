@@ -27,6 +27,7 @@ const loadSettings = () => {
     workspaces: 10,
     numbers: false,
     hideEmptyWorkspaces: false,
+    workspaceIcons: {}, // Object to store icons for any workspace
   };
 };
 
@@ -39,6 +40,7 @@ const saveSettings = (
   workspaces: number,
   numbers: boolean,
   hideEmptyWorkspaces: boolean,
+  workspaceIcons: { [key: number]: string },
 ) => {
   try {
     const file = Gio.File.new_for_path(settingsFile);
@@ -51,6 +53,7 @@ const saveSettings = (
       workspaces,
       numbers,
       hideEmptyWorkspaces,
+      workspaceIcons,
     });
     file.replace_contents(
       contents,
@@ -67,18 +70,15 @@ const saveSettings = (
 const settings = loadSettings();
 
 export const currentTheme = Variable(settings.theme);
-console.log(currentTheme);
 export const currentMode = Variable(settings.mode);
-console.log(currentMode);
 export const slideshow = Variable(settings.slideshow);
 export const wallpaperImage = Variable(settings.wallpaper);
 export const wallpaperFolder = Variable(settings.wallpaperDirectory);
 export const totalWorkspaces = Variable(settings.workspaces);
 export const hideEmptyWorkspaces = Variable(settings.hideEmptyWorkspaces);
-export const settingsChanged = Variable(0); // Signal to trigger workspace updates
-console.log(totalWorkspaces);
+export const settingsChanged = Variable(0);
 export const showNumbers = Variable(settings.numbers);
-console.log(showNumbers);
+export const workspaceIcons = Variable(settings.workspaceIcons || {});
 
 const setWorkspaces = (workspaces: number) => {
   const newValue = Math.max(1, Math.min(20, workspaces));
@@ -92,8 +92,9 @@ const setWorkspaces = (workspaces: number) => {
     newValue,
     showNumbers.get(),
     hideEmptyWorkspaces.get(),
+    workspaceIcons.get(),
   );
-  settingsChanged.set(settingsChanged.get() + 1); // Notify subscribers
+  settingsChanged.set(settingsChanged.get() + 1);
 };
 
 const setShowNumbers = (numbers: boolean) => {
@@ -107,8 +108,9 @@ const setShowNumbers = (numbers: boolean) => {
     totalWorkspaces.get(),
     numbers,
     hideEmptyWorkspaces.get(),
+    workspaceIcons.get(),
   );
-  settingsChanged.set(settingsChanged.get() + 1); // Notify subscribers
+  settingsChanged.set(settingsChanged.get() + 1);
 };
 
 const setHideEmptyWorkspaces = (hide: boolean) => {
@@ -122,8 +124,31 @@ const setHideEmptyWorkspaces = (hide: boolean) => {
     totalWorkspaces.get(),
     showNumbers.get(),
     hide,
+    workspaceIcons.get(),
   );
-  settingsChanged.set(settingsChanged.get() + 1); // Trigger workspace update
+  settingsChanged.set(settingsChanged.get() + 1);
+};
+
+const setWorkspaceIcon = (workspaceId: number, icon: string) => {
+  const currentIcons = workspaceIcons.get();
+  if (icon.trim() === "") {
+    delete currentIcons[workspaceId]; // Remove icon if empty
+  } else {
+    currentIcons[workspaceId] = icon;
+  }
+  workspaceIcons.set({ ...currentIcons });
+  saveSettings(
+    currentTheme.get(),
+    currentMode.get(),
+    slideshow.get(),
+    wallpaperImage.get(),
+    wallpaperFolder.get(),
+    totalWorkspaces.get(),
+    showNumbers.get(),
+    hideEmptyWorkspaces.get(),
+    workspaceIcons.get(),
+  );
+  settingsChanged.set(settingsChanged.get() + 1);
 };
 
 export default () => {
@@ -160,7 +185,7 @@ export default () => {
           </button>
         </box>
 
-        {/*Show workspace numbers */}
+        {/* Show workspace numbers */}
         <label
           label="Show Workspace Numbers"
           className="h2"
@@ -194,9 +219,8 @@ export default () => {
           <switch
             active={bind(hideEmptyWorkspaces).as((hide) => hide)}
             onNotifyActive={(self) => {
-              const newValue = self.active; // Get the switch's new state
+              const newValue = self.active;
               if (newValue !== hideEmptyWorkspaces.get()) {
-                // Only update if different
                 console.log(
                   "Toggling hidden empty workspaces from",
                   hideEmptyWorkspaces.get(),
@@ -209,6 +233,29 @@ export default () => {
           />
         </box>
 
+        {/* Workspace Icons */}
+        <label
+          label="Workspace Icons"
+          className="h2"
+          halign={Gtk.Align.CENTER}
+        />
+        <box vertical spacing={4} halign={Gtk.Align.CENTER}>
+          {bind(totalWorkspaces).as((ws) =>
+            Array.from({ length: ws }, (_, i) => i + 1).map((id) => (
+              <box horizontal spacing={8} key={`workspace-icon-${id}`}>
+                <label label={`Workspace ${id}:`} className="paragraph" />
+                <entry
+                  text={bind(workspaceIcons).as((icons) => icons[id] || "")}
+                  placeholderText="Enter emoji (e.g., 🌟)"
+                  onActivate={(self) => {
+                    const newIcon = self.text.trim();
+                    setWorkspaceIcon(id, newIcon);
+                  }}
+                />
+              </box>
+            )),
+          )}
+        </box>
       </box>
     </Page>
   );

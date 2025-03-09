@@ -7,33 +7,38 @@ import {
   showNumbers,
   hideEmptyWorkspaces,
   settingsChanged,
+  workspaceIcons,
 } from "../../ControlCenter/pages/AdvancedThemes";
 
 export default function Workspaces() {
   const hypr = Hyprland.get_default();
 
-  // Focus the given workspace.
   const focusWorkspace = (workspaceId: number) =>
     hypr.dispatch("workspace", workspaceId.toString());
 
-  // Maps to keep track of workspace buttons and their outer containers.
   let buttons = new Map<number, any>();
   let containers = new Map<number, any>();
 
-  // Create a workspace button.
-  const createWorkspaceButton = (id: number) => (
-    <button
-      key={`workspace-btn-${id}`}
-      halign={Gtk.Align.CENTER}
-      valign={Gtk.Align.CENTER}
-      onClicked={() => focusWorkspace(id)}
-    >
-      {/* On initial render add a label only if showNumbers is true */}
-      {showNumbers.get() ? <label label={id.toString()} /> : null}
-    </button>
-  );
+  const createWorkspaceButton = (id: number) => {
+    const icons = workspaceIcons.get();
+    const icon = icons[id];
 
-  // Rebuild the buttons and their container boxes from scratch.
+    return (
+      <button
+        key={`workspace-btn-${id}`}
+        halign={Gtk.Align.CENTER}
+        valign={Gtk.Align.CENTER}
+        onClicked={() => focusWorkspace(id)}
+      >
+        {icon ? (
+          <label label={icon} />
+        ) : showNumbers.get() ? (
+          <label label={id.toString()} />
+        ) : null}
+      </button>
+    );
+  };
+
   const rebuildButtons = () => {
     const newButtons = new Map<number, any>();
     const newContainers = new Map<number, any>();
@@ -41,8 +46,6 @@ export default function Workspaces() {
     for (let id = 1; id <= TOTAL_WORKSPACES; id++) {
       const button = createWorkspaceButton(id);
       newButtons.set(id, button);
-      // Create a container box wrapping our button.
-      // We’ll update this container’s styles (and visibility) later.
       newContainers.set(
         id,
         <box
@@ -59,7 +62,6 @@ export default function Workspaces() {
     containers = newContainers;
   };
 
-  // Update a button’s appearance and its label safely.
   const updateButton = (
     button: any,
     id: number,
@@ -68,15 +70,15 @@ export default function Workspaces() {
     SHOW_NUMBERS: boolean,
     HIDE_EMPTY: boolean,
   ) => {
-    // Build the base CSS classes for the button.
-    let baseClass = SHOW_NUMBERS
+    const icons = workspaceIcons.get();
+    const icon = icons[id];
+
+    let baseClass = icon || SHOW_NUMBERS
       ? "bar__workspaces-indicator-number"
       : "bar__workspaces-indicator dot";
     if (isFocused) baseClass += " active";
-    // (We update the border on the container rather than the button.)
     button.className = baseClass;
 
-    // Instead of setting an opacity of 0, hide or show the button.
     if (HIDE_EMPTY && !hasWindows) {
       if (button.hide) button.hide();
       if (typeof button.visible !== "undefined") button.visible = false;
@@ -85,19 +87,23 @@ export default function Workspaces() {
       if (typeof button.visible !== "undefined") button.visible = true;
     }
 
-    // Safely update the label.
-    if (SHOW_NUMBERS) {
+    if (icon) {
       if (button.child) {
-        // Instead of adding a new label, update the existing label’s text.
+        if (button.child.label !== undefined) {
+          button.child.label = icon;
+        }
+      } else {
+        button.child = <label label={icon} />;
+      }
+    } else if (SHOW_NUMBERS) {
+      if (button.child) {
         if (button.child.label !== undefined) {
           button.child.label = id.toString();
         }
       } else {
-        // No label exists yet, so add one.
         button.child = <label label={id.toString()} />;
       }
     } else {
-      // Remove the label. If the button provides a remove function, use it.
       if (button.child) {
         if (button.remove) {
           button.remove(button.child);
@@ -107,7 +113,6 @@ export default function Workspaces() {
     }
   };
 
-  // Helper to completely clear the container’s children.
   const clearBox = (box: any) => {
     if (box.remove_all_children) {
       box.remove_all_children();
@@ -123,20 +128,16 @@ export default function Workspaces() {
     }
   };
 
-  // Setup the reactive updates.
   const setupUpdates = (box: any) => {
-    // Helper to rebuild the entire list of workspace containers.
     const refreshAllButtons = () => {
       rebuildButtons();
       clearBox(box);
-      // Add each container (which wraps a workspace button) to the main box.
       containers.forEach((container, id) => {
         box.add(container);
       });
       if (box.queue_relayout) box.queue_relayout();
     };
 
-    // Update every workspace’s appearance.
     const updateAllButtons = () => {
       const SHOW_NUMBERS = showNumbers.get();
       const HIDE_EMPTY = hideEmptyWorkspaces.get();
@@ -150,10 +151,8 @@ export default function Workspaces() {
             currentWorkspace?.windows?.length ||
             0) > 0;
         const isFocused = fw?.id === id;
-        // Even if the workspace is empty, force it to display as long as it is focused.
         const displayWorkspace = actualHasWindows || isFocused;
 
-        // Update the button using displayWorkspace as our "hasWindows" flag.
         updateButton(
           button,
           id,
@@ -163,10 +162,8 @@ export default function Workspaces() {
           HIDE_EMPTY,
         );
 
-        // Update the container that wraps the button.
         const container = containers.get(id);
         if (container) {
-          // Hide or show the container so empty workspaces don’t take up space.
           if (HIDE_EMPTY && !displayWorkspace) {
             if (container.hide) container.hide();
             if (typeof container.visible !== "undefined") {
@@ -178,8 +175,6 @@ export default function Workspaces() {
               container.visible = true;
             }
           }
-          // Update the container style:
-          // Only workspaces that actually have windows will show the active border.
           container.className = actualHasWindows
             ? "bar-workspaces-active"
             : "bar-workspaces";
@@ -187,11 +182,9 @@ export default function Workspaces() {
       });
     };
 
-    // Initial rendering and update.
     refreshAllButtons();
     updateAllButtons();
 
-    // Subscribe to all settings changes.
     settingsChanged.subscribe(() => {
       refreshAllButtons();
       updateAllButtons();
