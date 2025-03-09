@@ -3,11 +3,8 @@ import { App, Gtk, Gdk, Widget } from "astal/gtk3";
 import { bind, execAsync, timeout, Variable, exec } from "astal";
 const { GLib, Gio } = imports.gi;
 import { spacing } from "../../../lib/variables";
-import icons from "../../../lib/icons";
-import { controlCenterPage } from "../index";
 
 const settingsFile = `${GLib.get_home_dir()}/.config/ags/theme-settings.json`;
-const menuName = "advancedthemes";
 
 const loadSettings = () => {
   try {
@@ -83,99 +80,6 @@ console.log(totalWorkspaces);
 export const showNumbers = Variable(settings.numbers);
 console.log(showNumbers);
 
-const setTheme = (theme: string, mode: string) => {
-  currentTheme.set(theme);
-  currentMode.set(mode);
-  saveSettings(
-    theme,
-    mode,
-    slideshow.get(),
-    wallpaperImage.get(),
-    wallpaperFolder.get(),
-    totalWorkspaces.get(),
-    showNumbers.get(),
-    hideEmptyWorkspaces.get(),
-  );
-};
-
-const setSlideshow = (isSlideshow: boolean) => {
-  slideshow.set(isSlideshow);
-  saveSettings(
-    currentTheme.get(),
-    currentMode.get(),
-    isSlideshow,
-    wallpaperImage.get(),
-    wallpaperFolder.get(),
-    totalWorkspaces.get(),
-    showNumbers.get(),
-    hideEmptyWorkspaces.get(),
-  );
-};
-
-const setWallpaper = (wallpaper: string) => {
-  wallpaperImage.set(wallpaper);
-  saveSettings(
-    currentTheme.get(),
-    currentMode.get(),
-    slideshow.get(),
-    wallpaper,
-    wallpaperFolder.get(),
-    totalWorkspaces.get(),
-    showNumbers.get(),
-    hideEmptyWorkspaces.get(),
-  );
-  console.log(`New Wallpaper: ${wallpaper}`);
-
-  const wallpaperImagePath = `${wallpaperFolder.get()}/${wallpaper}`;
-  const destinationPath = `/usr/share/sddm/themes/frolic/Backgrounds/wallpaper.jpg`;
-
-  try {
-    exec(`mkdir -p /usr/share/sddm/themes/frolic/Backgrounds`);
-    exec(`cp "${wallpaperImagePath}" "${destinationPath}"`);
-    exec(
-      `swww img "${destinationPath}" --transition-step 100 --transition-fps 120 --transition-type grow --transition-angle 30 --transition-duration 1`,
-    );
-  } catch (e) {
-    console.error("Failed to set wallpaper:", e);
-  }
-};
-
-const setWallpaperDirectory = (wallpaperDirectory: string) => {
-  wallpaperFolder.set(wallpaperDirectory);
-  saveSettings(
-    currentTheme.get(),
-    currentMode.get(),
-    slideshow.get(),
-    wallpaperImage.get(),
-    wallpaperDirectory,
-    totalWorkspaces.get(),
-    showNumbers.get(),
-    hideEmptyWorkspaces.get(),
-  );
-};
-
-const chooseWallpaperDirectory = () => {
-  const chooser = Gtk.FileChooserDialog.new(
-    "Choose Wallpaper Directory",
-    null,
-    Gtk.FileChooserAction.SELECT_FOLDER,
-    "Select",
-    "Cancel",
-  );
-  chooser.set_modal(false);
-  chooser.set_transient_for(null);
-  chooser.set_skip_taskbar_hint(true);
-  chooser.set_skip_pager_hint(true);
-  chooser.connect("response", (chooser, response) => {
-    if (response === Gtk.ResponseType.ACCEPT) {
-      const file = chooser.get_filename();
-      setWallpaperDirectory(file);
-    }
-    chooser.destroy();
-  });
-  chooser.show_all();
-};
-
 const setWorkspaces = (workspaces: number) => {
   const newValue = Math.max(1, Math.min(20, workspaces));
   totalWorkspaces.set(newValue);
@@ -222,40 +126,7 @@ const setHideEmptyWorkspaces = (hide: boolean) => {
   settingsChanged.set(settingsChanged.get() + 1); // Trigger workspace update
 };
 
-const getWallpaperImages = () => {
-  const images = [];
-  if (wallpaperFolder.get()) {
-    const directory = Gio.File.new_for_path(wallpaperFolder.get());
-    const enumerator = directory.enumerate_children(
-      "standard::*",
-      Gio.FileQueryInfoFlags.NONE,
-      null,
-    );
-    while (true) {
-      const info = enumerator.next_file(null);
-      if (!info) break;
-      if (info.get_file_type() === Gio.FileType.REGULAR) {
-        const mimeType = info.get_content_type();
-        if (mimeType.startsWith("image/")) {
-          images.push(info.get_name());
-        }
-      }
-    }
-  }
-  return images;
-};
-
-const chunkArray = (arr, size) => {
-  return arr.reduce((acc, _, i) => {
-    if (i % size === 0) acc.push(arr.slice(i, i + size));
-    return acc;
-  }, []);
-};
-
 export default () => {
-  const images = getWallpaperImages();
-  const rows = chunkArray(images, 2);
-
   return (
     <Page label={"AdvancedThemes"}>
       <box
