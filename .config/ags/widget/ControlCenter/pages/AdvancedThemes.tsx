@@ -263,98 +263,6 @@ export default () => {
         spacing={8}
         className={"control-center__page_scrollable-content"}
       >
-        {/* Mode Selection */}
-        <box className="buttons-container" halign={Gtk.Align.CENTER}>
-          <button
-            onClick={() => setTheme(currentTheme.get(), "Light")}
-            className={bind(currentMode).as(
-              (mode) =>
-                `mode-settings__button_left ${mode === "Light" ? "active" : ""}`,
-            )}
-          >
-            <label label="Light" />
-          </button>
-          <button
-            onClick={() => setTheme(currentTheme.get(), "Dark")}
-            className={bind(currentMode).as(
-              (mode) =>
-                `mode-settings__button_right ${mode === "Dark" ? "active" : ""}`,
-            )}
-          >
-            <label label="Dark" />
-          </button>
-        </box>
-
-        {/* Theme Selection */}
-        <label label="Theme" className="theme" halign={Gtk.Align.CENTER} />
-        <box
-          horizontal
-          className="buttons-container"
-          spacing={spacing}
-          halign={Gtk.Align.CENTER}
-        >
-          <box vertical>
-            <button
-              onClick={() => setTheme("Verdant", currentMode.get())}
-              className={bind(currentTheme).as(
-                (theme) =>
-                  `theme-buttons ${theme === "Verdant" ? "active" : ""}`,
-              )}
-            >
-              <icon icon={icons.seasons.spring} className="icon" />
-            </button>
-            <label label="Verdant" className="label" />
-          </box>
-          <box vertical>
-            <button
-              onClick={() => setTheme("Zephyr", currentMode.get())}
-              className={bind(currentTheme).as(
-                (theme) =>
-                  `theme-buttons ${theme === "Zephyr" ? "active" : ""}`,
-              )}
-            >
-              <icon icon={icons.seasons.summer} />
-            </button>
-            <label label="Zephyr" className="label" />
-          </box>
-          <box vertical>
-            <button
-              onClick={() => setTheme("Frolic", currentMode.get())}
-              className={bind(currentTheme).as(
-                (theme) =>
-                  `theme-buttons ${theme === "Frolic" ? "active" : ""}`,
-              )}
-            >
-              <icon icon={icons.seasons.fall} />
-            </button>
-            <label label="Frolic" className="label" />
-          </box>
-          <box vertical>
-            <button
-              onClick={() => setTheme("Glaciara", currentMode.get())}
-              className={bind(currentTheme).as(
-                (theme) =>
-                  `theme-buttons ${theme === "Glaciara" ? "active" : ""}`,
-              )}
-            >
-              <icon icon={icons.seasons.winter} />
-            </button>
-            <label label="Glaciara" className="label" />
-          </box>
-        </box>
-
-        <button
-          className="control-center__settings-button"
-          // onClick={() => toggleWindow("popup-theme-settings")}
-          onClickRelease={(_, event: Astal.ClickEvent) => {
-            if (event.button == 1 && menuName) {
-              controlCenterPage.set(menuName);
-            }
-          }}
-        >
-          <icon icon={icons.ui.settings} iconSize={16} />
-        </button>
-
         {/* Workspace Control */}
         <label label="Workspaces" className="h2" halign={Gtk.Align.CENTER} />
         <box
@@ -430,38 +338,6 @@ export default () => {
           />
         </box>
 
-        {/* Wallpaper Section */}
-        <label label="Wallpaper" className="h2" halign={Gtk.Align.CENTER} />
-        <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
-          <label label="Choose Wallpaper Directory" />
-        </button>
-        <box
-          vertical
-          className="wallpaper-thumbnails-container"
-          halign={Gtk.Align.CENTER}
-        >
-          {rows.map((row, rowIndex) => (
-            <box key={rowIndex} horizontal>
-              {row.map((image) => {
-                const imagePath = `${wallpaperFolder.get()}/${image}`;
-                return (
-                  <button
-                    key={image}
-                    className="thumbnail-box"
-                    css={`
-                      background-image: url("${imagePath}");
-                      min-width: 160px;
-                      min-height: 160px;
-                      background-size: cover;
-                      background-position: center;
-                    `}
-                    onClick={() => setWallpaper(image)}
-                  />
-                );
-              })}
-            </box>
-          ))}
-        </box>
       </box>
     </Page>
   );

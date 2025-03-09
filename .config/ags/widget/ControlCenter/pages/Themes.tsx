@@ -343,126 +343,53 @@ export default () => {
           </box>
         </box>
 
+
+        <box className="buttons-container" halign={Gtk.Align.CENTER}>
         <button
-          className="control-center__settings-button"
-          // onClick={() => toggleWindow("popup-theme-settings")}
+          className="primary-button"
           onClickRelease={(_, event: Astal.ClickEvent) => {
             if (event.button == 1 && menuName) {
               controlCenterPage.set(menuName);
             }
           }}
         >
-          <icon icon={icons.ui.settings} iconSize={16} />
+          <label label="Advanced settings" />
         </button>
+      </box>
 
-        {/* Workspace Control */}
-        <label label="Workspaces" className="h2" halign={Gtk.Align.CENTER} />
-        <box
-          horizontal
-          spacing={spacing}
-          halign={Gtk.Align.CENTER}
-          className="workspace-container"
-        >
-          <button
-            onClick={() => setWorkspaces(totalWorkspaces.get() - 1)}
-            className="workspace-button"
-          >
-            <label label="-" className="paragraph" />
-          </button>
-          <label
-            label={bind(totalWorkspaces).as((ws) => ws.toString())}
-            className="h3"
-          />
-          <button
-            onClick={() => setWorkspaces(totalWorkspaces.get() + 1)}
-            className="workspace-button"
-          >
-            <label label="+" className="paragraph" />
-          </button>
-        </box>
-
-        {/*Show workspace numbers */}
-        <label
-          label="Show Workspace Numbers"
-          className="h2"
-          halign={Gtk.Align.CENTER}
-        />
-        <box horizontal halign={Gtk.Align.CENTER}>
-          <switch
-            active={bind(showNumbers).as((numbers) => numbers)}
-            onNotifyActive={(self) => {
-              const newValue = self.active;
-              if (newValue !== showNumbers.get()) {
-                console.log(
-                  "Toggling showNumbers from",
-                  showNumbers.get(),
-                  "to",
-                  newValue,
-                );
-                setShowNumbers(newValue);
-              }
-            }}
-          />
-        </box>
-
-        {/* Hide Empty Workspaces Switch */}
-        <label
-          label="Hide Empty Workspaces"
-          className="h2"
-          halign={Gtk.Align.CENTER}
-        />
-        <box horizontal halign={Gtk.Align.CENTER}>
-          <switch
-            active={bind(hideEmptyWorkspaces).as((hide) => hide)}
-            onNotifyActive={(self) => {
-              const newValue = self.active; // Get the switch's new state
-              if (newValue !== hideEmptyWorkspaces.get()) {
-                // Only update if different
-                console.log(
-                  "Toggling hidden empty workspaces from",
-                  hideEmptyWorkspaces.get(),
-                  "to",
-                  newValue,
-                );
-                setHideEmptyWorkspaces(newValue);
-              }
-            }}
-          />
-        </box>
-
-        {/* Wallpaper Section */}
-        <label label="Wallpaper" className="h2" halign={Gtk.Align.CENTER} />
-        <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
-          <label label="Choose Wallpaper Directory" />
-        </button>
-        <box
-          vertical
-          className="wallpaper-thumbnails-container"
-          halign={Gtk.Align.CENTER}
-        >
-          {rows.map((row, rowIndex) => (
-            <box key={rowIndex} horizontal>
-              {row.map((image) => {
-                const imagePath = `${wallpaperFolder.get()}/${image}`;
-                return (
-                  <button
-                    key={image}
-                    className="thumbnail-box"
-                    css={`
+      {/* Wallpaper Section */}
+      <label label="Wallpaper" className="h2" halign={Gtk.Align.CENTER} />
+      <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
+        <label label="Choose Wallpaper Directory" />
+      </button>
+      <box
+        vertical
+        className="wallpaper-thumbnails-container"
+        halign={Gtk.Align.CENTER}
+      >
+        {rows.map((row, rowIndex) => (
+          <box key={rowIndex} horizontal>
+            {row.map((image) => {
+              const imagePath = `${wallpaperFolder.get()}/${image}`;
+              return (
+                <button
+                  key={image}
+                  className="thumbnail-box"
+                  css={`
                       background-image: url("${imagePath}");
                       min-width: 160px;
                       min-height: 160px;
                       background-size: cover;
                       background-position: center;
                     `}
-                    onClick={() => setWallpaper(image)}
-                  />
-                );
-              })}
-            </box>
-          ))}
-        </box>
+                  onClick={() => setWallpaper(image)}
+                />
+              );
+            })}
+          </box>
+        ))}
       </box>
-    </Page>
+    </box>
+    </Page >
   );
 };
