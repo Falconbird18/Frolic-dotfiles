@@ -7,7 +7,7 @@ import {
   showNumbers,
   hideEmptyWorkspaces,
   settingsChanged,
-} from "../../ControlCenter/pages/Themes";
+} from "../../ControlCenter/pages/AdvancedThemes";
 
 export default function Workspaces() {
   const hypr = Hyprland.get_default();
