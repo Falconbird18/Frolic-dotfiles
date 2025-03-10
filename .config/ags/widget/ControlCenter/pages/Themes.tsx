@@ -345,51 +345,53 @@ export default () => {
 
 
         <box className="buttons-container" halign={Gtk.Align.CENTER}>
-        <button
-          className="primary-button"
-          onClickRelease={(_, event: Astal.ClickEvent) => {
-            if (event.button == 1 && menuName) {
-              controlCenterPage.set(menuName);
-            }
-          }}
-        >
-          <label label="Advanced settings" />
-        </button>
-      </box>
+          <button
+            className="primary-button"
+            onClickRelease={(_, event: Astal.ClickEvent) => {
+              if (event.button == 1 && menuName) {
+                controlCenterPage.set(menuName);
+              }
+            }}
+            hexpand={true}
+            halign={Gtk.Align.FILL}
+          >
+            <label label="Advanced settings" />
+          </button>
+        </box>
 
-      {/* Wallpaper Section */}
-      <label label="Wallpaper" className="h2" halign={Gtk.Align.CENTER} />
-      <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
-        <label label="Choose Wallpaper Directory" />
-      </button>
-      <box
-        vertical
-        className="wallpaper-thumbnails-container"
-        halign={Gtk.Align.CENTER}
-      >
-        {rows.map((row, rowIndex) => (
-          <box key={rowIndex} horizontal>
-            {row.map((image) => {
-              const imagePath = `${wallpaperFolder.get()}/${image}`;
-              return (
-                <button
-                  key={image}
-                  className="thumbnail-box"
-                  css={`
+        {/* Wallpaper Section */}
+        <label label="Wallpaper" className="h2" halign={Gtk.Align.CENTER} />
+        <button onClick={chooseWallpaperDirectory} className="wallpaper-button">
+          <label label="Choose Wallpaper Directory" />
+        </button>
+        <box
+          vertical
+          className="wallpaper-thumbnails-container"
+          halign={Gtk.Align.CENTER}
+        >
+          {rows.map((row, rowIndex) => (
+            <box key={rowIndex} horizontal>
+              {row.map((image) => {
+                const imagePath = `${wallpaperFolder.get()}/${image}`;
+                return (
+                  <button
+                    key={image}
+                    className="thumbnail-box"
+                    css={`
                       background-image: url("${imagePath}");
                       min-width: 160px;
                       min-height: 160px;
                       background-size: cover;
                       background-position: center;
                     `}
-                  onClick={() => setWallpaper(image)}
-                />
-              );
-            })}
-          </box>
-        ))}
+                    onClick={() => setWallpaper(image)}
+                  />
+                );
+              })}
+            </box>
+          ))}
+        </box>
       </box>
-    </box>
     </Page >
   );
 };

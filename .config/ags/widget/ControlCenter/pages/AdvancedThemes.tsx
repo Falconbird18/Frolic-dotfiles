@@ -180,93 +180,113 @@ export default () => {
         className={"control-center__page_scrollable-content"}
       >
         {/* Workspace Control */}
-        <label label="Workspaces" className="h2" halign={Gtk.Align.CENTER} />
-        <box
-          horizontal
-          spacing={spacing}
-          halign={Gtk.Align.CENTER}
-          className="workspace-container"
-        >
-          <button
-            onClick={() => setWorkspaces(totalWorkspaces.get() - 1)}
-            className="workspace-button"
-          >
-            <label label="-" className="paragraph" />
-          </button>
-          <label
-            label={bind(totalWorkspaces).as((ws) => ws.toString())}
-            className="h3"
-          />
-          <button
-            onClick={() => setWorkspaces(totalWorkspaces.get() + 1)}
-            className="workspace-button"
-          >
-            <label label="+" className="paragraph" />
-          </button>
-        </box>
+        <box vertical className="advanced-container" halign={Gtk.Align.CENTER}>
+          <box horizontal halign={Gtk.Align.FILL} className="setting-box">
+            <label
+              label="Workspaces"
+              className="h3"
+              halign={Gtk.Align.START}
+              hexpand={false}
+              valign={Gtk.Align.CENTER}
+            />
+            <box
+              horizontal
+              spacing={spacing}
+              halign={Gtk.Align.END}
+              className="workspace-container"
+              hexpand={true}
+            >
+              <button
+                onClick={() => setWorkspaces(totalWorkspaces.get() - 1)}
+                className="workspace-button"
+              >
+                <label label="-" className="paragraph" />
+              </button>
+              <label
+                label={bind(totalWorkspaces).as((ws) => ws.toString())}
+                className="h3"
+              />
+              <button
+                onClick={() => setWorkspaces(totalWorkspaces.get() + 1)}
+                className="workspace-button"
+              >
+                <label label="+" className="paragraph" />
+              </button>
+            </box>
+          </box>
 
-        {/* Show workspace numbers */}
-        <label
-          label="Show Workspace Numbers"
-          className="h2"
-          halign={Gtk.Align.CENTER}
-        />
-        <box horizontal halign={Gtk.Align.CENTER}>
-          <switch
-            active={bind(showNumbers).as((numbers) => numbers)}
-            onNotifyActive={(self) => {
-              const newValue = self.active;
-              if (newValue !== showNumbers.get()) {
-                console.log(
-                  "Toggling showNumbers from",
-                  showNumbers.get(),
-                  "to",
-                  newValue,
-                );
-                setShowNumbers(newValue);
-              }
-            }}
-          />
-        </box>
+          {/* Show workspace numbers */}
+          <box horizontal halign={Gtk.Align.FILL} className="setting-box">
+            <label
+              label="Show workspace numbers"
+              className="h3"
+              halign={Gtk.Align.START}
+              hexpand={false}
+              valign={Gtk.Align.CENTER}
+            />
+            <box horizontal halign={Gtk.Align.END} hexpand={true} valign={Gtk.Align.CENTER}>
+              <switch
+                active={bind(showNumbers).as((numbers) => numbers)}
+                onNotifyActive={(self) => {
+                  const newValue = self.active;
+                  if (newValue !== showNumbers.get()) {
+                    console.log(
+                      "Toggling showNumbers from",
+                      showNumbers.get(),
+                      "to",
+                      newValue,
+                    );
+                    setShowNumbers(newValue);
+                  }
+                }}
+              />
+            </box>
+          </box>
 
-        {/* Hide Empty Workspaces Switch */}
-        <label
-          label="Hide Empty Workspaces"
-          className="h2"
-          halign={Gtk.Align.CENTER}
-        />
-        <box horizontal halign={Gtk.Align.CENTER}>
-          <switch
-            active={bind(hideEmptyWorkspaces).as((hide) => hide)}
-            onNotifyActive={(self) => {
-              const newValue = self.active;
-              if (newValue !== hideEmptyWorkspaces.get()) {
-                console.log(
-                  "Toggling hidden empty workspaces from",
-                  hideEmptyWorkspaces.get(),
-                  "to",
-                  newValue,
-                );
-                setHideEmptyWorkspaces(newValue);
-              }
-            }}
-          />
-        </box>
+          {/* Hide Empty Workspaces Switch */}
+          <box horizontal halign={Gtk.Align.FILL} className="setting-box">
+            <label
+              label="Hide empty workspaces"
+              className="h3"
+              halign={Gtk.Align.START}
+              hexpand={false}
+              valign={Gtk.Align.CENTER}
+            />
+            <box horizontal halign={Gtk.Align.END} hexpand={true} valign={Gtk.Align.CENTER}>
+              <switch
+                active={bind(hideEmptyWorkspaces).as((hide) => hide)}
+                onNotifyActive={(self) => {
+                  const newValue = self.active;
+                  if (newValue !== hideEmptyWorkspaces.get()) {
+                    console.log(
+                      "Toggling hidden empty workspaces from",
+                      hideEmptyWorkspaces.get(),
+                      "to",
+                      newValue,
+                    );
+                    setHideEmptyWorkspaces(newValue);
+                  }
+                }}
+              />
+            </box>
+          </box>
 
-        {/* Workspace Icons Section */}
-        <label
-          label="Workspace Icons"
-          className="h2"
-          halign={Gtk.Align.CENTER}
-        />
-        <box vertical spacing={8} halign={Gtk.Align.CENTER}>
-          {/* Add Icon Button */}
-          <button
-            onClick={() => showAddIconForm.set(true)}
-            className="add-icon-button"
-          >
-            <label label="+" className="paragraph" />
-          </button>
+          {/* Workspace Icons Section */}
+          <box horizontal halign={Gtk.Align.FILL} className="setting-box">
+            <label
+              label="Workspace Icons"
+              className="h3"
+              halign={Gtk.Align.START}
+            />
+            {/* Add Icon Button */}
+            <button
+              onClick={() => showAddIconForm.set(true)}
+              className="add-icon-button"
+              hexpand="false"
+            >
+              <label label="+"/>
+            </button>
+          </box>
 
           {/* Add Icon Form */}
           <box
@@ -274,13 +294,14 @@ export default () => {
             spacing={4}
             className="add-icon-form"
             visible={bind(showAddIconForm).as((v) => v)}
+            hexpand="true"
           >
             <entry
-              placeholderText="Workspace Number (1-20)"
+              placeholderText="Workspace number"
               className="workspace-number-entry"
             />
             <entry
-              placeholderText="Icon (e.g., 🌟)"
+              placeholderText="Icon"
               className="icon-entry"
             />
             <box horizontal spacing={8} halign={Gtk.Align.CENTER}>
@@ -328,18 +349,17 @@ export default () => {
           {/* Icon Cards */}
           {bind(workspaceIcons).as((icons) =>
             Object.entries(icons).map(([id, icon]) => {
-              let deleteButton = null; // Variable to store the deleteButton reference
-              const deleteButtonTest = (
-                  <button
-                    className="delete-button delete-button-hidden" // Initially hidden
-                    onClick={() => removeWorkspaceIcon(parseInt(id))}
-                    setup={(self) => {
-                      // Store the reference to the deleteButton
-                      deleteButton = self;
-                    }}
-                  >
-                    <label label="x" className="paragraph" />
-                  </button>
+              let deleteClass = null;
+              const deleteButton = (
+                <button
+                  className="delete-button delete-button-hidden"
+                  onClick={() => removeWorkspaceIcon(parseInt(id))}
+                  setup={(self) => {
+                    deleteClass = self;
+                  }}
+                >
+                  <label label="x" className="paragraph" />
+                </button>
               );
 
               return (
@@ -348,30 +368,28 @@ export default () => {
                   horizontal
                   spacing={8}
                   className="icon-card"
-                  halign={Gtk.Align.CENTER}
+                  halign={Gtk.Align.FILL}
                   onEnterNotifyEvent={(self) => {
-                    if (deleteButton) {
+                    if (deleteClass) {
                       console.log("Hover enter:", id);
-                      // Remove the hidden class to show the button
-                      deleteButton.className = "delete-button-visible"
-                      console.log("Current className:", deleteButton.className)
+                      deleteClass.className = "delete-button-visible"
+                      console.log("Current className:", deleteClass.className)
                     }
                   }}
                   onLeaveNotifyEvent={(self) => {
-                    if (deleteButton) {
+                    if (deleteClass) {
                       console.log("Hover leave:", id);
-                      // Add the hidden class to hide the button
-                      deleteButton.className = "delete-button-hidden";
-                      console.log("Current className:", deleteButton.className)
+                      deleteClass.className = "delete-button-hidden";
+                      console.log("Current className:", deleteClass.className)
                     }
                   }}
                 >
                   <box>
-                  <label
-                    label={`Workspace ${id}: ${icon}`}
-                    className="paragraph"
-                  />
-                  {deleteButtonTest}
+                    <label
+                      label={`Workspace ${id}: ${icon}`}
+                      className="paragraph"
+                    />
+                    {deleteButton}
                   </box>
                 </eventbox>
               );
@@ -379,6 +397,6 @@ export default () => {
           )}
         </box>
       </box>
-    </Page>
+    </Page >
   );
 };

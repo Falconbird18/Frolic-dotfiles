@@ -1772,6 +1772,7 @@ switch:checked slider {
 
 .workspace-container {
     @include card;
+    background-color: $background;
 }
 
 .workspace-button {
@@ -1782,6 +1783,89 @@ switch:checked slider {
     &:hover {
         @include secondary-circular-button-hover;
     }
+}
+
+.advanced-container {
+    @include card;
+    min-width: 360px;
+    padding: 20px;
+}
+
+.setting-box{
+    min-width: 360px;
+    padding: 20px 0;
+}
+.add-icon-button {
+    @include secondary-circular-button;
+    background-color: $background-3;
+}
+
+.add-icon-form {
+    @include card;
+    background-color: $background;
+    min-width: 320px;
+    transition: all $transition;
+}
+
+.workspace-number-entry,
+.icon-entry {
+    @include textbox;
+}
+
+.submit-button {
+    @include primary-button;
+
+    &:hover {
+        @include primary-button-hover;
+    }
+
+    &:active {
+        @include primary-button-active;
+    }
+}
+
+.cancel-button {
+    @include secondary-button;
+
+    &:hover {
+        @include secondary-button-hover;
+    }
+
+    &:active {
+        @include secondary-button-active;
+    }
+}
+
+.icon-card {
+    @include card;
+    padding: 20px;
+    min-width: 320px;
+}
+
+.delete-button-hidden {
+    padding: 2px 6px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    margin-left: 8px;
+    min-width: 20px;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    /* Optional: adds a smooth fade effect */
+}
+
+.delete-button-visible {
+    padding: 2px 6px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    margin-left: 8px;
+    min-width: 20px;
+    min-height: 20px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    /* Optional: adds a smooth fade effect */
 }
 
 /*Weather*/
@@ -1987,90 +2071,3 @@ switch:checked slider {
     color: #666;
     // text-align: center;
 }
-
-
-
-.add-icon-button {
-    padding: 4px 8px;
-    font-size: 16px;
-}
-
-.add-icon-form {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
-
-.workspace-number-entry,
-.icon-entry {
-    padding: 4px;
-    margin: 2px 0;
-}
-
-.submit-button {
-    padding: 4px 8px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 4px;
-}
-
-.cancel-button {
-    padding: 4px 8px;
-    background-color: #f44336;
-    color: white;
-    border-radius: 4px;
-}
-
-.icon-card {
-    padding: 6px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
-    margin: 4px 0;
-}
-
-.icon-card button {
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.icon-card:hover button {
-    opacity: 1;
-}
-
-.delete-button-hidden {
-    padding: 2px 6px;
-    background-color: #ff4444;
-    color: white;
-    border-radius: 50%;
-    margin-left: 8px;
-    min-width: 20px;
-    min-height: 20px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    /* Optional: adds a smooth fade effect */
-}
-
-.delete-button-visible {
-    padding: 2px 6px;
-    background-color: #ff4444;
-    color: white;
-    border-radius: 50%;
-    margin-left: 8px;
-    min-width: 20px;
-    min-height: 20px;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-    /* Optional: adds a smooth fade effect */
-}
-
-// .delete-button {
-//   padding: 2px 6px;
-//   background-color: #ff4444;
-//   color: white;
-//   border-radius: 50%;
-//   margin-left: 8px;
-//   min-width: 20px;
-//   min-height: 20px;
-// }

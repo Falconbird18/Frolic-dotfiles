@@ -546,8 +546,16 @@ switch:checked slider {
   margin: 0;
 }
 
+.bar-workspaces {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
 /* Box around workspaces with windows */
-.bar__workspaces-active {
+.bar-workspaces-active {
   background-color: #e0ecdf;
   box-shadow: 0 0 0 transparent, 0px -3px 5px #ffffff, 0px 3px 5px #999999;
   border: none;
@@ -1995,6 +2003,7 @@ switch:checked slider {
   border-radius: 10px;
   margin-bottom: 5px;
   transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #edf4ec;
 }
 
 .workspace-button {
@@ -2012,6 +2021,7 @@ switch:checked slider {
   border: none;
   background-size: 8px 8px;
   border-radius: 100%;
+  background-color: #f5f6f9;
   min-width: 21px;
   min-height: 21px;
 }
@@ -2020,6 +2030,161 @@ switch:checked slider {
   background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
   text-shadow: none;
   box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #ffffff, 0 0 0 transparent;
+}
+
+.advanced-container {
+  background-color: #e0ecdf;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px #ffffff, 0px 3px 5px #999999;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  min-width: 360px;
+  padding: 20px;
+}
+
+.setting-box {
+  min-width: 360px;
+  padding: 20px 0;
+}
+
+.add-icon-button {
+  font-size: 18px;
+  font-weight: normal;
+  min-width: 42px;
+  min-height: 42px;
+  background: #e0ecdf;
+  color: #562f10;
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 100%;
+}
+
+.add-icon-form {
+  background-color: #e0ecdf;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px #ffffff, 0px 3px 5px #999999;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  background-color: #edf4ec;
+  min-width: 320px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.workspace-number-entry,
+.icon-entry {
+  background-color: #e0ecdf;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  color: #562f10;
+  font-family: "Open sans";
+  font-size: 14px;
+  font-weight: 300;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #ffffff;
+  caret-color: #562f10;
+}
+
+.submit-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  color: #562f10;
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+  text-shadow: none;
+}
+.submit-button:hover {
+  background-color: #e0ecdf;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.submit-button:active {
+  background-color: #26e012;
+  transition: background 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.cancel-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 42px;
+  background: #e0ecdf;
+  color: #562f10;
+  box-shadow: 0px -3px 5px #ffffff, 0px 3px 5px #999999, 0 0 0 transparent;
+  font-family: "Open sans";
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  background-size: 8px 8px;
+  border-radius: 20px;
+}
+.cancel-button:hover {
+  background-size: 8px 8px;
+  background-image: linear-gradient(45deg, #26e012 25%, #26e012 25%, #26e012 50%, #26e012 50%, #26e012 75%, #26e012 75%, #26e012);
+  text-shadow: none;
+  box-shadow: inset 0px 3px 5px #999999, inset 0px -5px 3px #ffffff, 0 0 0 transparent;
+}
+.cancel-button:active {
+  background: #26e012;
+  box-shadow: inset 0px 3px 5px #0e974a, inset 0px -5px 3px #5eff4c;
+  background-size: 8px 8px;
+}
+
+.icon-card {
+  background-color: #e0ecdf;
+  box-shadow: 0 0 0 transparent, 0px -3px 5px #ffffff, 0px 3px 5px #999999;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+  padding: 20px;
+  min-width: 320px;
+}
+
+.delete-button-hidden {
+  padding: 2px 6px;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  margin-left: 8px;
+  min-width: 20px;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  /* Optional: adds a smooth fade effect */
+}
+
+.delete-button-visible {
+  padding: 2px 6px;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  margin-left: 8px;
+  min-width: 20px;
+  min-height: 20px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  /* Optional: adds a smooth fade effect */
 }
 
 /*Weather*/
